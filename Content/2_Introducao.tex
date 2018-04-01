@@ -1,0 +1,106 @@
+\chapter{Introdução}
+\label{Introducao}
+%Android
+\par Os dispositivos móveis vem ganhando cada vez mais espaço no cotidiano das pessoas por trazer funcionalidades diversas em um dispositivo cada vez mais barato e portátil. Seja para fazer uma simples operação matemática, ou para navegar na \textit{web}, tirar fotos, telefonar, etc., os \textit{smartphones} e \textit{tablets}  tem evoluído cada vez mais tanto em questões de \textit{hardware} quanto em \textit{software}.
+
+\par Em se tratando de \textit{hardware}, os dispositivos móveis hoje carregam um grande poder computacional. Segundo uma matéria do Olhar Digital~\cite{OlharDigital_PC_antigo}, o \textit{desktop} top de linha em 2001 possuía 80 GB de HD, 128 MB de memória primária e um processador single core de 1,53 GHz. Hoje, um \textit{smartphone} top de linha possui 8 núcleos de processamento, com frequências de até 2,8 GHz, memória primária de 4 GB e armazenamento interno de 256 GB (com possibilidade de expansão)~\cite{Tecmundo_S9}, tudo isso em um \textit{design} compacto que cabe no bolso. Graças à essa evolução, é possível realizar tarefas cada vez mais complexas em um dispositivo móvel. 
+
+\par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas mobile, o que facilita o desenvolvimento de aplicações. O sistema operacional líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), desenvolvimento em conjunto com empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para o desenvolvimento de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
+
+\par Devido a constante presença dos dispositivos móveis (com sistema Android) e sua crescente capacidade de \textit{hardware}, esta plataforma tem sido cada vez mais explorada por desenvolvedores. Uma prova disso é a loja oficial de aplicativos do Android (\textit{Google Play}), que oferece uma infinidade de aplicativos (de calculadoras a jogos com gráficos realistas), muitos deles disponibilizados gratuitamente. É por este motivo também que esta plataforma foi escolhida para a realização deste trabalho, que visa desenvolver um simulador das funcionalidades de um Arduino UNO.
+
+\par A utilização do poder computacional de  \textit{smartphones} / \textit{tablets} em substituição à sistemas tradicionais não é uma ideia nova. 
+Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um dispositivo Android para a implementação de um osciloscópio de baixo custo. Utilizando um microcontrolador ARM Cortex M4F para aquisição dos sinais e comunicação \textit{Bluetooth} com o \textit{smartphone}, foi possível construir um osciloscópio com um custo de projeto de US\$35, com erro médio de 0,2\% no eixo do tempo, 0,02V no eixo da tensão e taxa máxima de aquisição de 150 mil amostras por segundos, o que, segundo o autor, torna este um sistema "aceitável para o uso do projeto no ambiente de aprendizado", considerando a diferença de preço com osciloscópios comerciais.
+
+\par Em uma abordagem semelhante, Nwokorie~\cite{Nwokorie} utiliza um \textit{smartphone}, junto à uma placa de Arduino UNO, para a criação de um microscópio. O chamado \textit{SmartScope} utiliza uma estrutura de suporte com uma lente plano-convexa para adaptar a câmera do \textit{smartphone} a captura de imagens microscópicas. A placa de Arduino controla o LED que serve como fonte de luz e permite o ajuste de intensidade do brilho por meio de botões, mostrando em um display LCD a configuração atual. O sistema tem funções de captura de imagem ou vídeo e permite o armazenamento dos dados coletados em um banco de dados (Microsoft Access). Assim como o trabalho de Junior, o grande objetivo é criar um sistema de baixo custo como alternativa aos microscópios comerciais e ajudar alunos sem experiência a aprender a realizar leituras no equipamento.
+
+\par Também é possível citar o trabalho de Lin~\cite{Lin} que vai além do nível de aplicativo, fazendo modificações no kernel Linux para leitura de dados em um barramento CAN. Lin e sua equipe desenvolveram drivers e bibliotecas para realizar a leitura de dados de sensores em um automóvel por meio do barramento CAN. Dados relativos à velocidade, faróis, temperatura, chaves e alarme foram lidos diretamente das unidades de controle do veículo e mostrados na tela do \textit{smartphone} em um aplicativo de instrumentação próprio, simulando o painel do carro. Seu trabalho evidencia que as possibilidades de uso dos sistemas Android podem se estender também para o nível de sistema.
+
+\par Procurando na \textit{Google Play}, é possível encontrar diversos aplicativos relacionados com Arduino. Muitos deles se encontram na forma de "aplicativo-tutorial", mostrando exemplos de código e diagramas para o ensino da plataforma, mas também é possível encontrar ambientes de desenvolvimento integrado (IDE) com capacidade de gravação das placas físicas, geradores de código automático, módulos para serem utilizados em projetos de automação (como controles \textit{Wireless} que se integram às \textit{Shields} do Arduino), etc.
+
+\par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \textit{MCU Prototype Board Simulator}, que simula um kit de desenvolvimento (com botões, leds, LCD, etc.) e permite a execução de códigos assembly do microcontrolador 68705.
+
+\par Quanto à simulação de placas de Arduino, apenas um aplicativo foi encontrado. O \textit{CircSim Circuit Simulator} apresenta a interface de um simulador convencionar de circuitos eletrônicos para PC, entanto seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
+
+\par Sendo assim, o presente trabalho surge também para preencher uma lacuna existente e oferecer mais uma possibilidade para explorar o Arduino, seja para estudantes, hobistas ou qualquer pessoa que se interesse pelo assunto.
+
+%Introdução do trabalho.
+% 
+%Na redação da monografia, que é parte importantíssima do projeto, pois é aquela que ficará pública, precisamos definir muito bem o título, construir um Resumo com todas as partes de um Resumo, esclarecer o(s) objetivo(s) e construir uma conclusão completa, tudo isso quase que ao mesmo tempo, pois o trabalho já terminou.
+%A Introdução deve conter um histórico (com muitas referências atuais-procure nas bases consagradas, como por exemplo IEEE, para apresentar não só referências voláteis-aquelas da Internet) do assunto apontando a origem e os avanços que estão publicados, ressaltando o "foco" de ataque do projeto.
+%Depois, compor um bom Embasamento Teórico citando as referências de onde está o assunto todo de cada tópico (sem se confundir com a apresentação dos materiais usados no projeto), pois é o lugar onde estarão presentes as partes da ciência ou as técnicas de forma geral que foram utilizadas para construir a solução (exemplo: Sistemas Embarcados é um tópico e não Raspberry Pi, Linux Embarcado é um tópico e não a distribuição escolhida, porém Linux é um subtópico de Sistemas Operacionais). Depois mostrar Material e Métodos, ou Desenvolvimento do Projeto, mostrando logo na entrada do capítulo uma figura ou diagrama que apresente de forma geral como as partes estão relacionadas/conectadas. Mostrar os algoritmos da solução em forma de fluxogramas ou usando UML, de maneira clara e completa. Se for necessário apresentar trechos de código para ressaltar soluções ou apresentar abordagens, também que seja de forma direta e simplificada. Códigos completos deverão estar nos Apêndices para a Monografia final, depois da defesa.  
+%Assim, consegue-se mostrar o quanto você evoluiu com os aprendizados do curso e com aqueles que você buscou a mais, e o quanto tem de solução legal e atual na sua proposta. 
+%Valorize as conquistas alcançadas apresentando e discutindo os resultados com gráficos, tabelas, figuras, etc.
+%Nas Conclusões, também não esqueça de apontar as deficiências ou limitações que são inerentes ao trabalho e que no momento não estão no(s) objetivo(s), e também as deficiências ou limitações dos procedimentos que vc incorporou ao seu trabalho de outros autores.
+%Indique as direções para os trabalhos futuros, pois o autor conhece como ninguém as oportunidades de continuidade e avanços do trabalho.
+%
+%Exemplo de citação de Referência \cite{referencia1}. Outra referência para a bibliografia \cite{referencia2}.
+%
+%Segundo \cite{referencia3} há uma sequência lógica para a redação da monografia como apresenta em \cite{enzo}.
+%
+%Referência para a figura \ref{logo}.
+%
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[scale=0.35]{./Resources/proj_sistemas_embarcados.jpg}
+% 	\caption{Logo da Disciplina.}
+% 	\label{logo}
+% \end{figure}
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Motivação}
+%Arduino
+Falar do Arduino
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Objetivo(s)}
+
+Somente o(s) Objetivo(s) do trabalho.
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section {Justificativas/relevância}
+%Simulador
+Falar do simulador
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section {Organização do Trabalho}
+
+Este trabalho está distribuído em XXX capítulos, incluindo esta introdução, dispostos conforme a descrição que segue:
+
+Capítulo 2: Descreve .....................................................................................
+
+Capítulo 3: Discorre sobre .....................................................................................
+
+Capítulo 4: Apresenta .....................................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
