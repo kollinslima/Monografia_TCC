@@ -12,9 +12,10 @@ Samsung galaxy s9.
   em: 18 de março de 2018.
 
 \bibitem{Lecheta}
-Ricardo~R. LECHETA.
-\newblock \textbf{Google Android:} aprenda a criar aplicações para dispositivos
-  móveis com o android sdk.
+R.R. Lecheta.
+\newblock {\em Google Android 4{\textordfeminine} edi{\c{c}}{\~a}o: Aprenda a
+  criar aplica{\c{c}}{\~o}es para dispositivos m{\'o}veis com o Android SDK}.
+\newblock Novatec Editora, 2015.
 
 \bibitem{Android_licenca}
 Content license.
@@ -22,8 +23,9 @@ Content license.
   março de 2018.
 
 \bibitem{Deitel}
-Paul et~al DEITEL.
-\newblock \textbf{Android for programers:} an app-driven approach, 2015.
+Paul Deitel, Harvey Deitel, and Abbey Deitel.
+\newblock {\em Android for Programmers: An App-Driven Approach}.
+\newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 1st edition, 2012.
 
 \bibitem{Junior}
 José Ernesto Almas de~Jesus JUNIOR.
@@ -31,13 +33,17 @@ José Ernesto Almas de~Jesus JUNIOR.
   em aplicativo para android, 2016.
 
 \bibitem{Nwokorie}
-Euphemia Chioma et~al NWOKORIE.
+A.~C. Eberendu, B.~O. Omaiye, and E.~C. Nwokorie.
 \newblock Using android application to turn smart device into digital
-  microscope on arduino and window platform, 2017.
+  microscope on arduino and window platform.
+\newblock In {\em 2017 IEEE 3rd International Conference on Electro-Technology
+  for National Development (NIGERCON)}, pages 508--513, Nov 2017.
 
 \bibitem{Lin}
-Cheng-Min et~al LIN.
+H.~F. Teng, M.~J. Wang, and C.~M. Lin.
 \newblock An implementation of android-based mobile virtual instrument for
-  telematics applications, 2011.
+  telematics applications.
+\newblock In {\em 2011 Second International Conference on Innovations in
+  Bio-inspired Computing and Applications}, pages 306--308, Dec 2011.
 
 \end{thebibliography}

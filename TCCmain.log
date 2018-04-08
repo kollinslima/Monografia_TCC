@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.8)  1 APR 2018 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.8)  8 APR 2018 09:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1132,18 +1132,18 @@ Package rerunfilecheck Info: File `TCCmain.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 17806 strings out of 492982
- 283350 string characters out of 6138580
+ 17809 strings out of 492982
+ 283388 string characters out of 6138580
  395486 words of memory out of 5000000
- 20980 multiletter control sequences out of 15000+600000
- 43296 words of font info for 70 fonts, out of 8000000 for 9000
+ 20982 multiletter control sequences out of 15000+600000
+ 46144 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,12n,68p,1078b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
 xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TCCmain.pdf (27 pages, 78336 bytes).
+Output written on TCCmain.pdf (27 pages, 81852 bytes).
 PDF statistics:
  238 PDF objects out of 1000 (max. 8388607)
  202 compressed objects within 3 object streams
