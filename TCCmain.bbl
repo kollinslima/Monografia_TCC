@@ -46,4 +46,11 @@ H.~F. Teng, M.~J. Wang, and C.~M. Lin.
 \newblock In {\em 2011 Second International Conference on Innovations in
   Bio-inspired Computing and Applications}, pages 306--308, Dec 2011.
 
+\bibitem{Delft}
+J.~Overman, L.~Pool, L.~Kreuk, and T.~Ketel.
+\newblock Arduino - the open-source ide.
+\newblock
+  \url{https://delftswa.gitbooks.io/desosa-2017/content/arduino/chapter.html},
+  Acesso em: 08 de abril de 2018.
+
 \end{thebibliography}
