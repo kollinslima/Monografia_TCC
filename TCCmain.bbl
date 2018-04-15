@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{OlharDigital_PC_antigo}
 Microsoft relembra produtos que eram sucesso na época do xp.
@@ -52,5 +52,30 @@ J.~Overman, L.~Pool, L.~Kreuk, and T.~Ketel.
 \newblock
   \url{https://delftswa.gitbooks.io/desosa-2017/content/arduino/chapter.html},
   Acesso em: 08 de abril de 2018.
+
+\bibitem{Proteus}
+Create your package.
+\newblock \url{https://www.labcenter.com/buy-vsm/}, Acesso em: 15 de abril de
+  2018.
+
+\bibitem{VBB}
+Vbb software licenses.
+\newblock
+  \url{http://www.virtualbreadboard.com/DocView.html?doc=WebShop/WebShop},
+  Acesso em: 15 de abril de 2018.
+
+\bibitem{Simuino}
+Arduino uno/mega simulator.
+\newblock \url{http://web.simuino.com/home-1}, Acesso em: 15 de abril de 2018.
+
+\bibitem{CodeBlocks}
+Codeblocks arduino ide.
+\newblock \url{http://arduinodev.com/codeblocks/}, Acesso em: 15 de abril de
+  2018.
+
+\bibitem{Tinkercad}
+O tinkercad é um aplicativo simples e on-line de projeto e impressão 3d para
+  todos os usuários.
+\newblock \url{https://www.tinkercad.com/}, Acesso em: 15 de abril de 2018.
 
 \end{thebibliography}

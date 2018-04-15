@@ -55,18 +55,47 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 \par O Arduino é uma plataforma de \textit{hardware} e \textit{software} aberto, destinada à desenvolvimentos de projetos na área de eletrônica. Suas aplicações vem crescendo a cada dia e vão desde o uso educacional para ensino de robótica em escolas de ensino fundamental, até aplicações em IoT (Internet of Things - Internet das Coisas) nas universidades. 
 \par Uma das principais características do Arduino é sua simplicidade. Em suas versões mais básicas, utilizam microcontroladores de 8-bits, o que torna o sistema menos complexo e mais barato quando comparada com outras plataformas concorrentes (tais como Raspberry Pi e BeagleBone)~\cite{Delft}. Com isso, se tornou uma plataforma ideal para prototipagem e para aprendizado, englobando um publico alvo de artistas, sem conhecimento prévio de eletrônica e programação, à engenheiros experientes, que usam a plataforma para prototipagem.
 
+\par O desenvolvimento para essa plataforma demanda o uso de placas físicas de Arduino. Essas placas foram desenvolvidas com o objetivo de apresentarem baixo custo e facilitar a prototipagem, se integrando facilmente à módulos externos
+(\textit{shields}) que adicionam ao sistema funções de interface, sensoriamento,
+etc. A desvantagem de se utilizar placas eletrônicas é, além do custo para adquiri-las, a necessidade de outros componentes externos, como leds, \textit{protoboards}, multímetros, etc.
+
+\par Uma opção às placas de Arduino são os simuladores.  Para
+um usuário iniciante, o simulador representa a possibilidade de iniciar seus
+estudos sem a necessidade de gastos com equipamentos eletrônicos e sem
+o risco de perder estes equipamentos por uso indevido. Para usuários experientes,
+um simulador permite explorar diferentes ambientes/situações de
+funcionamento, além de outros benefícios como o monitoramento interno do
+sistema, vasta gama de equipamentos eletrônicos virtuais, equipamentos de
+medição (voltímetro, osciloscópio, etc.), entre outros.
+
+\par Diversas são as opções de simuladores existentes, cada qual com características
+próprias. Alguns que merecem destaque são: 
+\begin{itemize}
+	\item Proteus: Um dos mais completos encontrados. Possui recursos para montagem e simulação de circuitos eletrônicos analógicos e digitais, bem como desenvolvimento de layouts PCB. Tem como desvantagem o fato de ser um \textit{software} comercial, com a versão básica para simulação Arduino custando US\$248,00~\cite{Proteus}
+	\item Virtual Breadboard: Permite a simulação de circuitos eletrônicos digitais em um ambiente virtual, bem como a programação de microcontroladores dentro do próprio sistema. Possui uma versão gratuita, no entanto, para simulação de Arduino é preciso comprar um módulo separadamente pelo valor de US\$49,00~\cite{VBB}.
+	\item Simuino: Simulador de Arduino UNO e MEGA para terminal. Apesar de gratuito e \textit{Open-Source}, possui apenas versões para Linux e é distribuído apenas em formato de código fonte, sendo necessário fazer a compilação antes de usá-lo~\cite{Simuino}.
+	\item CodeBlocks: Possui uma versão com ferramentas próprias para escrever e simular códigos Arduino, permitindo também o \textit{upload} de código para placas físicas, com suporte à diversos modelos de \textit{hardware}. A desvantagem fica por conta de não possuir uma interface gráfica para simulação, que ocorre toda em terminal apenas com textos indicando os estados de entrada e saída~\cite{CodeBlocks}. 
+	\item Autodesk Tinkercad: Certamente, a melhor ferramenta encontrada. É um ambiente de aprendizado online gratuito que permite tanto a criação de projetos eletrônicos quanto de desenhos 3D. Possui um ambiente para codificação e depuração do código na própria ferramenta. A única desvantagem encontrada é o fato de funcionar \textit{on-line}, sendo necessário fazer um cadastro para utilizá-la~\cite{Tinkercad}.
+\end{itemize}
+
+\par Apesar da grande quantidade de simuladores já existentes, como foi mostrado anteriormente, há uma grande
+falta deste tipo de \textit{software} para dispositivos móveis. A grande motivação deste trabalho é poder contribuir com a comunidade que deseje aprender sobre desenvolvimento para Arduino, fornecendo uma opção de simulador para dispositivos móveis.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Objetivo}
 
-Somente o(s) Objetivo(s) do trabalho.
+\par O objetivo principal do projeto é permitir a execução de programas desenvolvidos
+para a plataforma Arduino UNO em um aplicativo Android,
+permitindo assim a realização de testes sem a necessidade de uma placa de
+Arduino ou qualquer outro componente externo.
+\par Também faz parte dos objetivos do trabalho a integração do simulador com a IDE oficial do projeto Arduino.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section {Justificativa}
-%Simulador
-Falar do simulador
+
+\par Este trabalho se justifica por atuar de forma a criar uma ferramenta \textit{Open-Source} que beneficiará todos aqueles que desejam aprender/praticar o desenvolvimento para Arduino.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
