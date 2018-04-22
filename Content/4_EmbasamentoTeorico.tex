@@ -1,10 +1,125 @@
-\chapter{Embasamento Teórico ou Fundamentação Teórica}
+\chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-Embasamento teórico para o desenvolvimento do trabalho.
+\par Neste capítulo serão descritos o funcionamento e as características de cada módulo presente no microcontrolador usado no Arduino UNO (ATmega328P) e que será implementado no simulador.
 
-Leia o texto que está na Introdução e as dicas mais à frente...
+\section{Visão Geral}
+
+\par O ATmega328P é um microcontrolador RISC de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa). Possui 28 pinos (encapsulamento PDIP), sendo 23 programáveis e pode tralhar com frequência máxima de operação de 20MHz.
+\par Entre os periféricos que estão integrados neste dispositivo, pode-se listar:
+\begin{itemize}
+	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
+	\item Um temporizador de 16-bits;
+	\item 6 canais de PWM;
+	\item Conversor Analógico-Digital de 10-bits (8 canais multiplexados);
+	\item Duas interfaces de comunicação serial SPI;
+	\item Uma USART (\textit{Universal Synchronous Asynchronous Receiver Transceiver}) serial;
+	\item Uma interface serial TWI (\textit{2-wire Serial Interface}), compatível com $I^{2}C$ da Philips;
+	\item \textit{Watchdog Timer} programável com oscilador separado;
+	\item Entre outros.
+\end{itemize}
+
+\par A figura~\ref{block_diagram_ATmega328P} apresenta um diagrama de blocos da organização interna do microcontrolador
+
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=\textwidth]{./Resources/Block_diagram_ATmega328P}
+ 	\caption{Diagrama de blocos da organização interna do ATmega328P}
+ 	Fonte: Folha de dados ATmega328P
+ 	\label{block_diagram_ATmega328P}
+ \end{figure}
+
+\section{CPU}
+
+\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits) que armazenam as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares.
+ \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{./Resources/Block_diagram_cpu}
+	\caption{Diagrama de blocos da organização da CPU}
+	Fonte: Folha de dados ATmega328P
+	\label{block_diagram_cpu}
+\end{figure}
+
+\par A CPU utiliza um \textit{pipeline} de um estágio o que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM.
+\par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupção contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade, de forma que o \textit{RESET} é a interrupção de maior prioridade no sistema.
+
+\begin{table}
+	\centering
+	\caption{Vetor de interrupções ATmega328P}
+	\label{interruption_vector}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Endereço de Desvio} & \textbf{Interrupção} & \textbf{Descrição}\\ \hline
+		0x00 & RESET & Interrupção de Reset   \\ \hline
+		0x02 & INT0  & Interrupção Externa 0   \\ \hline
+		0x04 & INT1 &  Interrupção Externa 1  \\ \hline
+		0x06 & PCINT0 & Interrupção de mudança de estado 0    \\ \hline
+		0x08 & PCINT1 & Interrupção de mudança de estado 1   \\ \hline
+		0x0A & PCINT2 & Interrupção de mudança de estado 2   \\ \hline
+		0x0C & WDT & Estouro do \textit{Watchdog Timer}    \\ \hline
+		0x0E & TIMER2\_COMPA  & Comparação \textit{Timer} 2 canal A    \\ \hline
+		0x10 & TIMER2\_COMPB  & Comparação \textit{Timer} 2 canal B    \\ \hline
+		0x12 & TIMER2\_OVF  & Estouro do \textit{Timer} 2    \\ \hline
+		0x14 & TIMER1\_CAPT  & Captura de evento \textit{Timer} 1    \\ \hline
+		0x16 & TIMER1\_COMPA  & Comparação \textit{Timer} 1 canal A    \\ \hline
+		0x18 & TIMER1\_COMPB  & Comparação \textit{Timer} 1 canal B    \\ \hline
+		0x1A & TIMER1\_OVF  & Estouro do \textit{Timer} 1    \\ \hline
+		0x1C & TIMER0\_COMPA  & Comparação \textit{Timer} 0 canal A    \\ \hline
+		0x1E & TIMER0\_COMPB  & Comparação \textit{Timer} 0 canal B    \\ \hline
+		0x20 & TIMER0\_OVF  & Estouro do \textit{Timer} 0    \\ \hline
+		0x22 & SPI STC  & Transferência SPI completa    \\ \hline
+		0x24 & USART\_RX  & Recepção USART completa    \\ \hline
+		0x26 & USART\_UDRE  & Registrador de dados vazio (USART)    \\ \hline
+		0x28 & USART\_TX  & Transmissão USART completa    \\ \hline
+		0x2A & ADC  & Conversão analógico-digital completa    \\ \hline
+		0x2C & EE READY  & EEPROM pronta    \\ \hline
+		0x2E & ANALOG COMP  & Comparador analógico    \\ \hline
+		0x30 & TWI & Interface serial $I^{2}C$ \\ \hline
+		0x32 & SPM READY & Armazenamento na memória de programa \\ \hline
+	\end{tabular}
+\end{table}
+
+\par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software} reabilitando as interrupções no começo da rotina.
+\par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. 
+\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativada para aquele evento, a interrupção será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não foram tratados são lembrados e serão executados em ordem de prioridade assim que possível.
+\par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, a interrupção não ocorrerá.
+
+\section{Memória de Programa}
+
+\par A memória de programa é uma FLASH de 32kB x 8-bits, que está organizada da forma 16kB x 16-bits pois cada instrução do microcontrolador é de 16 ou 32-bits. Assim, o registrador PC de 14-bits pode fazer um endereçamento a palavra na memória de programa. 
+\par A figura~\ref{program_memory} mostra a organização da memória de programa. Pode-se notar que o \textit{Boot Loader} está posicionado em uma seção separada do restante da memória e isso ocorre por questões de segurança.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{./Resources/program_memory}
+	\caption{Memória de programa ATmega328P}
+	Fonte: Folha de dados ATmega328P
+	\label{program_memory}
+\end{figure}
+
+\section{Memória de Dados}
+
+\par O ATmega328P possui 2kB de memória de dados SDRAM, além do espaço de dados reservado aos registradores.
+\par Apesar dos registradores não estarem fisicamente implementados na memória de dados, o microcontrolador faz um mapeamento linear da memória de modo a se obter, na prática, uma memória como mostrado na figura~\ref{data_memory}.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/data_memory}
+	\caption{Memória de dados ATmega328P}
+	Fonte: Folha de dados ATmega328P
+	\label{data_memory}
+\end{figure}
+
+\par Existem diferentes modos de endereçamento que são aplicados à memória de dados. Todo o espaço de endereçamento suporta qualquer um dos modos listados, são eles:
+
+\begin{itemize}
+	\item Direto: Acesso direto ao endereço desejado;
+	\item Indireto com deslocamento: Acesso à 63 endereços deslocados a partir do endereço base, dado pelo registrador Y ou Z.
+	\item Indireto: Acesso ao endereço dado pelos registradores X, Y ou Z.
+	\item Indireto com pré-decremento: Registradores X, Y ou Z são decrementados antes de serem utilizados como ponteiro para endereçamento.
+	\item Indireto com pós-incremento: Registradores X, Y ou Z são incrementados depois de serem utilizados como ponteiro para endereçamento.
+\end{itemize}
 
 
-
-
+\section{Módulo de Entrada e Saída Digital}
