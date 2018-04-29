@@ -123,3 +123,76 @@
 
 
 \section{Módulo de Entrada e Saída Digital}
+
+\par Como dito anteriormente, o ATmega328P possui 23 programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de entrada/saída (E/S) do microcontrolador.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/io_module}
+	\caption{Organização do módulo de Entrada/Saída (E/S) do ATmega328P}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:io_module}
+\end{figure}
+
+\par Os pinos podem ser configurados por meio dos registradores DDRxn, PORTxn e PINxn, onde "x" corresponde à letra do port e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se é um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
+\par O registrador PINxn é um registrador apenas de leitura, que armazena o valor da entrada do pino. No entanto, é possível escrever um valor "1" neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
+\par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
+\par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de valor (pinos PCINT). As interrupções externas podem ser configuradas para gerar interrupção por mudança de estado, borda de subida ou descida ou disparo por nível baixo, enquanto as interrupções por mudança de valor não são configuráveis e apenas respondem à mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
+
+\section{Temporizadores}
+
+\par O ATmega328P possui 3 temporizadores internos, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC (\textit{Clear on Compare Match}), \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
+\par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de clock externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
+\par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, no entanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
+\par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/timer0_2}
+	\caption{Organização do módulo de \textit{Timer 0/2} do ATmega328P}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:timer0_2}
+\end{figure}
+
+ \begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/timer1}
+	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{Low} e \textit{High}).}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:timer1}
+\end{figure}
+
+\subsection{Modo Normal}
+
+\par No modo normal de operação, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero. O estouro do contador pode ser utilizado para gerar uma interrupção.
+\par Os registradores OCRnA e OCRnB são continuamente comparados com o valor de TCNTn (que armazena a contagem) e em caso de \textit{match}, podem gerar interrupções no sistema e/ou atuar nos pinos OCxA e OCxB, podendo levá-los à nível alto, baixo ou inverter seus valores.
+
+\subsection{Modo CTC}
+
+\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (Para o \textit{Timer 1}, existe a opção de utilizar o registrador ICR1). 
+\par No entanto, diferente do modo normal, o reinício da contagem não pode gerar interrupção de \textit{overflow}. Isso só é possível caso OCRxA (ou ICR1) seja igual à 0xFF (8-bits) ou 0xFFFF (16-bits). Neste caso, o modo CTC e o modo normal se comportam de maneiras idênticas.
+
+\subsection{Modo \textit{Fast PWM}}
+
+\par No modo \textit{fast PWM}, assim como no modo normal, a contagem é feita continuamente do valor mais baixo (0) ao valor mais alto (0xFF para 8-bits ou, no caso do \textit{Timer 1}, este valor pode ser configurado para 0xFF, 0x1FF ou 0x3FF), havendo a possibilidade de alteração deste valor utilizando o registrador OCRnA (ou ICR1 para o \textit{Timer 1}), como ocorre no modo CTC. Também como no modo normal, o estouro do contador pode gerar interrupção de \textit{overflow}.
+\par A diferença do modo \textit{fast PWM} está na maneira como um \textit{math} entre TCNTn e OCRnA/OCRnB é tratado. Além das possibilidades de disparo de interrupção, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} e nível alto no estouro do contador (modo de funcionamento não-invertido), ou o contrário (modo de funcionamento invertido).
+
+\par Outra característica do modo \textit{fast PWM} está na atualização dos valores de OCRnA/OCRnB. Enquanto no modo normal e no modo CTC estes valores são atualizados imediatamente, no modo \textit{fast PWM} a atualização dos valores ocorre apenas quando TCNTn atinge o valor máximo da contagem. Com isso, evita-se que uma comparação seja perdida caso o valor de OCRnA/OCRnB seja menor que o valor de TCNTn, o que pode ocorrer nos modos normal e CTC.
+
+\subsection{Modo PWM com Correção de Fase}
+
+\par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}) seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}.
+
+\par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} com OCRxA/OCRxB na contagem progressiva e nível alto em caso de \textit{math} na contagem regressiva, ou o contrário. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A em caso de \textit{match}, seja em contagem progressiva ou regressiva.
+
+\par Assim como no modo \textit{fast PWM}, a atualização do valor de OCRxA/OCRxB não é instantânea, ocorrendo apenas no momento em que que a contagem atinge o valor máximo. Importante resaltar que, tanto para o modo de correção de fase, quanto para o \textit{fast PWM}, o valor de ICR1 é atualizado imediatamente, o que pode ocasionar em uma perda na comparação com TCNTx caso este registrador estiver sendo usado para definir o topo da contagem.
+
+\subsection{Modo PWM com Correção de Fase e Frequência}
+
+\par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo. Com isso, pode-se garantir a simetria dos pulsos gerados.
+
+\subsection{Captura de Eventos}
+
+\par O \textit{Timer 1} apresenta uma funcionalidade extra que é a captura de eventos. Esta funcionalidade permite que o valor da contagem presente em TCNTx seja capturado e salvo no registrador ICR1. 
+\par O disparo do evento de captura pode ser dado pela saída do comparador analógico ou pelo pino ICP1, que pode ser configurado para disparo por borda de subida ou descida.
+\par Se o registrador ICR1 não estiver sendo utilizado como valor máximo do contador, esta é a única forma de escrever neste registrador.

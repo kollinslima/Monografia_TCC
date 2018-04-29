@@ -1,10 +1,13 @@
-\babel@toc {brazil}{}
+\select@language {brazil}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Diagrama de blocos da organiza\c c\~ao interna do ATmega328P}}{22}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos da organiza\c c\~ao da CPU}}{23}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Mem\'oria de programa ATmega328P}}{25}{figure.2.3}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Mem\'oria de dados ATmega328P}}{26}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Organiza\c c\~ao do m\'odulo de Entrada/Sa\IeC {\'\i }da (E/S) do ATmega328P}}{27}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 0/2} do ATmega328P}}{29}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit {Low} e \textit {High}).}}{30}{figure.2.7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

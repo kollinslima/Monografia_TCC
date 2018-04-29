@@ -9,9 +9,16 @@
 \BOOKMARK [1][-]{section.2.3}{Mem\363ria de Programa}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.4}{Mem\363ria de Dados}{chapter.2}% 10
 \BOOKMARK [1][-]{section.2.5}{M\363dulo de Entrada e Sa\355da Digital}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{Material e M\351todos ou Desenvolvimento do Projeto}{}% 12
-\BOOKMARK [1][-]{section.3.1}{Material}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{M\351todos}{chapter.3}% 14
-\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 15
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 16
-\BOOKMARK [0][-]{section*.4}{Refer\352ncias}{}% 17
+\BOOKMARK [1][-]{section.2.6}{Temporizadores}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.6.1}{Modo Normal}{section.2.6}% 13
+\BOOKMARK [2][-]{subsection.2.6.2}{Modo CTC}{section.2.6}% 14
+\BOOKMARK [2][-]{subsection.2.6.3}{Modo Fast PWM}{section.2.6}% 15
+\BOOKMARK [2][-]{subsection.2.6.4}{Modo PWM com Corre\347\343o de Fase}{section.2.6}% 16
+\BOOKMARK [2][-]{subsection.2.6.5}{Modo PWM com Corre\347\343o de Fase e Frequ\352ncia}{section.2.6}% 17
+\BOOKMARK [2][-]{subsection.2.6.6}{Captura de Eventos}{section.2.6}% 18
+\BOOKMARK [0][-]{chapter.3}{Material e M\351todos ou Desenvolvimento do Projeto}{}% 19
+\BOOKMARK [1][-]{section.3.1}{Material}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.2}{M\351todos}{chapter.3}% 21
+\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 22
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 23
+\BOOKMARK [0][-]{section*.4}{Refer\352ncias}{}% 24
