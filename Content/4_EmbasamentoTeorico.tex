@@ -196,3 +196,80 @@
 \par O \textit{Timer 1} apresenta uma funcionalidade extra que é a captura de eventos. Esta funcionalidade permite que o valor da contagem presente em TCNTx seja capturado e salvo no registrador ICR1. 
 \par O disparo do evento de captura pode ser dado pela saída do comparador analógico ou pelo pino ICP1, que pode ser configurado para disparo por borda de subida ou descida.
 \par Se o registrador ICR1 não estiver sendo utilizado como valor máximo do contador, esta é a única forma de escrever neste registrador.
+
+\section{Conversor A/D}
+
+\par O ATmega328P possui integrado um conversor analógico/digital (A/D) com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
+
+\par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, podendo ser a entrada AREF ou referência interna de 1,1V.
+
+\par Por ser um conversor de 10-bits, são necessários 2 registradores para armazenar o resultado da conversão, são eles o ADCL e o ADCH. O resultado da conversão é alinhado à esquerda por padrão, no entanto esta opção pode ser alterada para alinhamento à direita por meio do registrador ADMUX. A figura~\ref{fig:alinhamento} mostra como o resultado é armazenado nos registradores ADCL e ADCH para cada modo.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{./Resources/adc_left_align}
+		\caption{Alinhamento à esquerda}
+	\end{subfigure}
+	
+	%Line Break
+	
+	\begin{subfigure}{0.75\textwidth}
+		\centering
+		\includegraphics[width = \textwidth]{./Resources/adc_right_align}
+		\caption{Alinhamento à direita}
+	\end{subfigure}
+	\caption{Alinhamento do resultado nos registradores ADCH e ADCL}
+	Fonte: Autor.
+	\label{fig:alinhamento}
+\end{figure}
+
+ \begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/adc}
+	\caption{Organização do conversor A/D}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:adc}
+\end{figure}
+
+\par Por segurança, uma leitura no registrador ADCL bloqueia a permissão de escrita no registrador ADCL e ADCH, garantindo assim que o dado lido é referente à mesma conversão (o acesso é liberado novamente ao realizar uma leitura em ADCH). Caso o resultado esteja alinhado à direita, pode-se obter um valor convertido de 8-bits apenas lendo o registrador ADCH.
+
+\par Para iniciar uma conversão é necessário colocar em nível alto os bits ADEN (habilita o conversor) e ADSC. A conversão é então inicializada e ADSC permanece em nível alto durante todo o tempo de conversão. Ao final, o bit ADSC é resetado por hardware e a flag ADIF é setada, podendo gerar uma interrupção se esta estiver configurada. O resultado de uma conversão é dada pela equação~\ref{eq:adc_result}.
+
+\begin{equation}
+	ADC = \frac{V_{in} * 1024}{V_{ref}}
+	\label{eq:adc_result}
+\end{equation}
+
+\par Valores de entrada superiores à $V_{ref}$ terão valores convertidos próximos à 0x3FF (máximo valor para 10-bits).
+
+\par É possível configurar um evento para o disparo do conversor A/D ou utilizá-lo no modo \textit{Free Run}, em que o disparo do conversor é feita pela própria \textit{flag} do conversor (ADIF), fazendo com que uma nova conversão comece imediatamente após a outra. Para utilizar este modo, a \textit{flag} ADIF precisa ser limpa a cada conversão, o que é feito automaticamente se for utilizada interrupção. A tabela~\ref{tab:disparo_adc} apresenta todas as possibilidades de disparo do conversor A/D.
+
+\begin{table}[h]
+	\centering
+	\caption{Modos de disparo do conversor A/D}
+	\label{tab:disparo_adc}
+	\begin{tabular}{|c|c|}
+		\hline
+		ADTS[2:0] & Disparo \\ \hline
+		000& Modo \textit{Free Run}  \\ \hline
+		001& Saída do comparador analógico \\ \hline
+		010& Interrupção externa 0 \\ \hline
+		011& \textit{Math} A \textit{Timer} 0 \\ \hline
+		100& \textit{Overflow Timer 0} \\ \hline
+		101& \textit{Math} B \textit{Timer} 1 \\ \hline
+		110& \textit{Overflow Timer 1} \\ \hline
+		111& Captura de evento \textit{Timer} 1 \\ \hline
+	\end{tabular}
+\end{table}
+
+\par Um recurso extra oferecido pelo microcontrolador é o sensor de temperatura integrado. Este sensor é capaz de realizar medições entre -45\textdegree C e 85\textdegree C, com precisão de $\pm$10\textdegree C. 
+\par Para utilizar este sensor, é preciso configurar o $V_{ref}$ para a entrada interna de 1,1V. A temperatura (em \textdegree C) é dada pela equação~\ref{eq:adc_temperatura}.
+
+\begin{equation}
+	T = \frac{[ADCH << 8 | ADCL] - T_{OS}}{k}
+	\label{eq:adc_temperatura}
+\end{equation}
+
+\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22\footnote{\url{https://playground.arduino.cc/Main/InternalTemperatureSensor}})

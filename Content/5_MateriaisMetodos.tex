@@ -1,17 +1,40 @@
-\chapter{Material e Métodos ou Desenvolvimento do Projeto}
+\chapter{Desenvolvimento do Projeto}
 \label{Material}
 
 
+\par Neste capítulo serão detalhadas as etapas de desenvolvimento do projeto, bem como as ferramentas utilizadas.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Material}
 
-Material utilizado no projeto.
+\par Para a execução do projeto foram necessárias diversas ferramentas para projetar, desenvolver e testar o sistema. A seguir são listados todos os materiais utilizados ao longo do projeto.
+
+\begin{itemize}
+\item Para o desenho de diagramas de classe e mapas mentais na fase de projeto, foram utilizadas as ferramentas \href{http://dia-installer.de/}{\textit{Dia}} e \href{https://www.draw.io/}{\textit{Draw.io}}.
+
+\item Foi utilizado o método ágil \textit{Scrum} para a construção do sistema. A plataforma \href{https://taiga.io/}{\textit{Taiga}} foi utilizada para organização e planejamento dos \textit{Sprints}.
+
+\item Para controle de versão foi utilizado o \href{https://git-scm.com/}{\textit{Git}} sincronizado ao repositório online \href{https://github.com/}{\textit{Github}}.
+
+\item Para o realizar modificações no código da IDE do Arduino, foi utilizada a IDE \href{https://www.jetbrains.com/idea/}{\textit{InteliJ IDEA}} para escrita do código e o \href{https://ant.apache.org/}{\textit{Apache Ant}} para a compilação do código fonte da IDE do Arduino. Também foi utilizado o \href{https://inkscape.org/pt-br/}{\textit{Inkscape}} para a alteração no \textit{design} da IDE do Arduino (inserção do botão "Android").
+
+\item Para o desenvolvimento \textit{mobile}, foi utilizada a IDE \href{https://developer.android.com/studio/}{\textit{Android Studio}}.
+
+\item Para criar testes de unidade, foi utilizado o \href{https://junit.org/junit4/}{\textit{JUnit4}} em conjunto com o \href{https://github.com/powermock/powermock}{\textit{PowerMock}} (utilizado como \textit{plugin} do \href{https://gradle.org/}{\textit{Gradle}}).
+
+\item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
+
+\item Foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
+\end{itemize}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Métodos}
+\section{Método}
 
-Métodos utilizados no projeto.
+\subsection{Desenvolvimento na IDE do Arduino}
+
+\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Nela, foi criado um botão "Android" cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino.
+
+
 
 
 
