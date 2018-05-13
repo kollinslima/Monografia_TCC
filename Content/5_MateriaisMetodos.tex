@@ -32,9 +32,43 @@
 
 \subsection{Desenvolvimento na IDE do Arduino}
 
-\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Nela, foi criado um botão "Android" cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino.
+\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Nela, foi criado um botão "Android" cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino. A figura~\ref{fig:diagrama_classes_usb} apresenta o diagrama de classes do código desenvolvido nesta etapa.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/usb_class_diagram}
+	\caption{Diagrama de classes das modificações realizadas na IDE do Arduino}
+	Fonte: Autor
+	\label{fig:diagrama_classes_usb}
+\end{figure}
+
+\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento no construtor o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe Sketch já existente no projeto) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema serão exibidos em uma lista, como mostra a figura~\ref{fig:selecionar_dispositivo} em caso de sucesso na compilação.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/device_selector}
+	\caption{Seletor de dispositivos.} 
+	Fonte: Autor
+	\label{fig:selecionar_dispositivo}
+\end{figure}
+
+\par A classe \textit{DeviceWatcher} é uma \textit{thread} que fica a procura de novos dispositivos. Desta forma, caso algum aparelho seja conectado após a exibição da janela de seleção, a lista de dispositivos é atualizada automaticamente.
+
+\par A classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
+
+\par No Linux, todos os dispositivos MTP são montados por meio do \textit{GNOME Virtual file system} (GVfs). Por meio da variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo .hex é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/ArduinoSimulator} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador.
+
+\par No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo .hex para o dispositivo Android no Windows.
+
+\par O botão "Android" foi posicionado junto aos demais botões já existentes na IDE, na parte superior esquerda, conforme mostra a figura~\ref{fig:botao_android}.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/android_button}
+	\caption{Localização do botão "Android" (primeiro da esquerda para a direita) na IDE.} 
+	Fonte: Autor
+	\label{fig:botao_android}
+\end{figure}
 
 
-
-
-
+\subsection{Desenvolvimento Android}
