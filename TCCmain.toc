@@ -23,6 +23,10 @@
 \contentsline {section}{\numberline {3.2}M\'etodo}{36}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{36}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{38}{subsection.3.2.2}
-\contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{39}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\~ao ou Conclus\~oes}{41}{chapter.5}
-\contentsline {chapter}{Refer\^encias}{41}{section*.18}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Arquitetura}{38}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Estrat\'egias de implementa\c c\~ao}{40}{subsubsection.3.2.2.2}
+\contentsline {paragraph}{\numberline {3.2.2.2.1}\textit {Clock}}{40}{paragraph.3.2.2.2.1}
+\contentsline {paragraph}{\numberline {3.2.2.2.2}Mem\'oria de Programa}{41}{paragraph.3.2.2.2.2}
+\contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{43}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\~ao ou Conclus\~oes}{45}{chapter.5}
+\contentsline {chapter}{Refer\^encias}{45}{section*.19}

@@ -86,6 +86,7 @@
 \par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, a interrupção não ocorrerá.
 
 \section{Memória de Programa}
+\label{sec:memoria_programa}
 
 \par A memória de programa é uma FLASH de 32kB x 8-bits, que está organizada da forma 16kB x 16-bits pois cada instrução do microcontrolador é de 16 ou 32-bits. Assim, o registrador PC de 14-bits pode fazer um endereçamento a palavra na memória de programa. 
 \par A figura~\ref{program_memory} mostra a organização da memória de programa. Pode-se notar que o \textit{Boot Loader} está posicionado em uma seção separada do restante da memória e isso ocorre por questões de segurança.
@@ -140,6 +141,7 @@
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de valor (pinos PCINT). As interrupções externas podem ser configuradas para gerar interrupção por mudança de estado, borda de subida ou descida ou disparo por nível baixo, enquanto as interrupções por mudança de valor não são configuráveis e apenas respondem à mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 
 \section{Temporizadores}
+\label{sec:timers}
 
 \par O ATmega328P possui 3 temporizadores internos, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC (\textit{Clear on Compare Match}), \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
 \par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de clock externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
@@ -198,6 +200,7 @@
 \par Se o registrador ICR1 não estiver sendo utilizado como valor máximo do contador, esta é a única forma de escrever neste registrador.
 
 \section{Conversor A/D}
+\label{sec:conversor_ad}
 
 \par O ATmega328P possui integrado um conversor analógico/digital (A/D) com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
 

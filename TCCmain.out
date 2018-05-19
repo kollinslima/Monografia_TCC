@@ -22,6 +22,10 @@
 \BOOKMARK [1][-]{section.3.2}{M\351todo}{chapter.3}% 22
 \BOOKMARK [2][-]{subsection.3.2.1}{Desenvolvimento na IDE do Arduino}{section.3.2}% 23
 \BOOKMARK [2][-]{subsection.3.2.2}{Desenvolvimento Android}{section.3.2}% 24
-\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 25
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 26
-\BOOKMARK [0][-]{section*.18}{Refer\352ncias}{}% 27
+\BOOKMARK [3][-]{subsubsection.3.2.2.1}{Arquitetura}{subsection.3.2.2}% 25
+\BOOKMARK [3][-]{subsubsection.3.2.2.2}{Estrat\351gias de implementa\347\343o}{subsection.3.2.2}% 26
+\BOOKMARK [4][-]{paragraph.3.2.2.2.1}{Clock}{subsubsection.3.2.2.2}% 27
+\BOOKMARK [4][-]{paragraph.3.2.2.2.2}{Mem\363ria de Programa}{subsubsection.3.2.2.2}% 28
+\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 29
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 30
+\BOOKMARK [0][-]{section*.19}{Refer\352ncias}{}% 31

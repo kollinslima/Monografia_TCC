@@ -21,6 +21,8 @@
 
 \item Para criar testes de unidade, foi utilizado o \href{https://junit.org/junit4/}{\textit{JUnit4}} em conjunto com o \href{https://github.com/powermock/powermock}{\textit{PowerMock}} (utilizado como \textit{plugin} do \href{https://gradle.org/}{\textit{Gradle}}).
 
+\item O \href{https://www.sonarqube.org/}{\textit{SonarQube}} foi utilizado para fazer a analise estática do código do simulador.
+
 \item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
 
 \item Foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
@@ -72,3 +74,42 @@
 
 
 \subsection{Desenvolvimento Android}
+
+\subsubsection{Arquitetura}
+
+A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simulação do código. A figura~\ref{fig:arquitetura_simulador} apresenta um diagrama simplificado da arquitetura do simulador.
+
+ \begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/ArduinoSimulator_arquitetura}
+	\caption{Arquitetura do simulador} 
+	Fonte: Autor
+	\label{fig:arquitetura_simulador}
+\end{figure}
+
+\par Tudo tem início na classe \textit{UCModule}. Esta classe é responsável por inicializar todos os demais módulos e fazer a sincronização entre eles, além de fornecer serviços para estes módulos no que diz respeito às características do sistema simulado. Os módulos de CPU, \textit{Timers}, conversor A/D são iniciados em uma nova \textit{thread}, enquanto o módulo de interrupção é inicializado estaticamente. 
+\par A classe \textit{UCModule} possui uma extensão que é a classe \textit{UCModule\_View}. Esta também é inicializada em uma \textit{thread} e ela é responsável por toda a manipulação das telas e recursos visuais do aplicativo, além de fornecer \textit{feedback} à \textit{UCModule} quanto às ações dos botões (como botão \textit{Reset}). É na \textit{UCModule\_View} que os módulos de entrada e saída são inicializados.
+\par O módulo de entrada e saída é dividido em duas partes, cada uma tratando exclusivamente entrada ou saída. A parte de tratamento de entrada é responsável pelo gerenciamento de cada elemento gráfico de entrada, bem como o tratamento de suas ações, enquanto que o pacote de saída faz o mesmo para os elementos gráficos de saída. A classe \textit{IOModule} fica acima destas duas, fazendo a integração para que a classe \textit{UCModule\_View} possa exibir corretamente os elementos de interface com o usuário. É nesta classe também que são verificados e tratados curto-circuito.
+\par A CPU (\textit{CPUModule}) é responsável pela execução das instruções contidas na memória de programa. Ao final de cada instrução, é feita a verificação por interrupções, que são executadas em ordem de prioridade conforme apresentado na tabela~\ref{interruption_vector}. Todas as instruções do microcontrolador ATmega328P foram implementadas, com exceção das instruções \textit{BREAK}, \textit{SLEEP} e \textit{WDR}.
+\par A memória de programa (\textit{ProgramMemory}) é responsável por armazenar o código a ser executado pela CPU. O código é lido de um arquivo hexadecimal no formato \textit{Intel HEX} e formatado em um \textit{array} de \textit{bytes}. É também função da memória de programa verificar continuamente o arquivo hexadecimal e enviar uma mensagem de \textit{Reset} para o módulo principal em caso de alterações.
+\par A memória de dados (\textit{DataMemory}) é o módulo responsável por armazenar todas as informações dos registradores e da memória RAM externa. Trata-se de uma classe cujos métodos de leitura e escrita estão sincronizados para evitar conflitos, já que ela é acessada de diferentes módulos rodando de maneira concorrente. Além disso, a memória de dados notifica a classe \textit{IOModule} em caso de alteração nos registradores de E/S (PINx, PORTx e DDRx).
+\par O módulo de interrupção (\textit{InterruptionModule}) é responsável por receber requisições de interrupção dos módulos de \textit{Timer}, E/S e conversor A/D, organizando-as em ordem de prioridade. Ela também é responsável por armazenar os endereços de desvio das interrupções e fornecer à CPU para a execução da rotina de interrupção. Este módulo pode ser acessado estaticamente por todas as classes do projeto, por meio do módulo principal.
+\par Os módulos de \textit{Timer} (\textit{TimerxModule})são executados continuamente em \textit{threads} próprias. Elas fornecem todos os modos de funcionamento dos apresentados na seção~\ref{sec:timers}, com exceção do funcionamento assíncrono para o \textit{Timer} 2.
+\par O conversor A/D (ADCModule), assim como os \textit{Timers}, executa continuamente em uma \textit{thead} e apresenta todos os módulos de funcionamento descritos na seção~\ref{sec:conversor_ad}, com exceção do sensor de temperatura e do disparo pela saída do comparador analógico (já que este módulo não foi implementado).
+\par A figura~\ref{fig:arquitetura_simulador} mostra que as comunicações ocorrem sempre por meio de interfaces (exceto para envio de dados, que precisam partir dos módulos). Esta configuração isola todo o controle do sistema do funcionamento dos módulos específicos do ATmega328P. Isso facilita a expansão do sistema já que, para suportar uma nova plataforma, basta escrever novos módulos de \textit{Timer}, conversor A/D, etc., que implementem as mesmas interfaces. As únicas classes que são acessados diretamente são a \textit{UCModule\_View} (que é própria do aplicativo) e a \textit{CPUModule} (que é própria da arquitetura).
+
+\subsubsection{Estratégias de implementação}
+
+\par Uma vez apresentada a arquitetura do sistema, serão detalhadas a seguir as principais estratégias de implementação utilizadas no simulador.
+
+\paragraph{\textit{Clock}} \mbox{} \\
+
+\par Não foi implementada uma fonte de \textit{clock} para o funcionamento do simulador. Toda a sincronia dos módulos é feita por meio de variáveis de condição.
+\par Cada \textit{thread} (correspondente à um módulo) executa sua função dentro de uma estrutura de repetição. A cada iteração, a \textit{thread} é bloqueada em uma variável de condição e fica a espera dos demais módulos. Quando todos os módulos terminarem suas tarefas referentes aquele ciclo de \textit{clock}, o último módulo envia uma mensagem ao módulo principal, que envia um sinal a cada \textit{thread}, desbloqueando-as.
+\par Esta estratégia mantém a sincronização ao mesmo tempo que não limita a velocidade de execução do sistema. Um ponto negativo desta abordagem é que a velocidade de execução do programa não é fixa, podendo acelerar ou desacelerar em função da carga no sistema (externo ao aplicativo).
+
+\paragraph{Memória de Programa} \mbox{} \\
+
+\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada em 16kB x 16-bits. No entanto, no simulador preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de \textit{bytes}), além de facilitar a implementação da instrução LPM, que lê um \textit{byte}  da memória de programa.
+\par Cada vez que uma instrução é lida da memória pela CPU, dois \textit{bytes} são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos \textit{bytes} desta instrução são calculados na função \textit{loadInstruction}.
+
