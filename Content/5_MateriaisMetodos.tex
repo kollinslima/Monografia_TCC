@@ -44,15 +44,15 @@
 	\label{fig:diagrama_classes_usb}
 \end{figure}
 
-\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento no construtor o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe Sketch já existente no projeto) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema serão exibidos em uma lista, como mostra a figura~\ref{fig:selecionar_dispositivo} em caso de sucesso na compilação.
+\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento no construtor o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe Sketch já existente no projeto) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação.
 
- \begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth]{./Resources/device_selector}
-	\caption{Seletor de dispositivos.} 
-	Fonte: Autor
-	\label{fig:selecionar_dispositivo}
-\end{figure}
+% \begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\textwidth]{./Resources/device_selector}
+%	\caption{Seletor de dispositivos.} 
+%	Fonte: Autor
+%	\label{fig:selecionar_dispositivo}
+%\end{figure}
 
 \par A classe \textit{DeviceWatcher} é uma \textit{thread} que fica a procura de novos dispositivos. Desta forma, caso algum aparelho seja conectado após a exibição da janela de seleção, a lista de dispositivos é atualizada automaticamente.
 
@@ -62,15 +62,15 @@
 
 \par No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo .hex para o dispositivo Android no Windows.
 
-\par O botão "Android" foi posicionado junto aos demais botões já existentes na IDE, na parte superior esquerda, conforme mostra a figura~\ref{fig:botao_android}.
+%\par O botão "Android" foi posicionado junto aos demais botões já existentes na IDE, na parte superior esquerda, conforme mostra a figura~\ref{fig:botao_android}.
 
- \begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/android_button}
-	\caption{Localização do botão "Android" (primeiro da esquerda para a direita) na IDE.} 
-	Fonte: Autor
-	\label{fig:botao_android}
-\end{figure}
+% \begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{./Resources/android_button}
+%	\caption{Localização do botão "Android" (primeiro da esquerda para a direita) na IDE.} 
+%	Fonte: Autor
+%	\label{fig:botao_android}
+%\end{figure}
 
 
 \subsection{Desenvolvimento Android}
@@ -79,7 +79,7 @@
 
 A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simulação do código. A figura~\ref{fig:arquitetura_simulador} apresenta um diagrama simplificado da arquitetura do simulador.
 
- \begin{figure}
+ \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/ArduinoSimulator_arquitetura}
 	\caption{Arquitetura do simulador} 
@@ -107,9 +107,36 @@ A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simul
 \par Não foi implementada uma fonte de \textit{clock} para o funcionamento do simulador. Toda a sincronia dos módulos é feita por meio de variáveis de condição.
 \par Cada \textit{thread} (correspondente à um módulo) executa sua função dentro de uma estrutura de repetição. A cada iteração, a \textit{thread} é bloqueada em uma variável de condição e fica a espera dos demais módulos. Quando todos os módulos terminarem suas tarefas referentes aquele ciclo de \textit{clock}, o último módulo envia uma mensagem ao módulo principal, que envia um sinal a cada \textit{thread}, desbloqueando-as.
 \par Esta estratégia mantém a sincronização ao mesmo tempo que não limita a velocidade de execução do sistema. Um ponto negativo desta abordagem é que a velocidade de execução do programa não é fixa, podendo acelerar ou desacelerar em função da carga no sistema (externo ao aplicativo).
+\par Também referente ao \textit{clock}, foi preservado o número correto de ciclos que cada instrução da CPU leva para executar, bem como o número de ciclos para a conversão A/D (para o conversor A/D, foi adotado um número fixo de 13 ciclos de clock, apesar de este número variar conforme o modo de operação e para a primeira conversão).
 
 \paragraph{Memória de Programa} \mbox{} \\
 
 \par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada em 16kB x 16-bits. No entanto, no simulador preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de \textit{bytes}), além de facilitar a implementação da instrução LPM, que lê um \textit{byte}  da memória de programa.
-\par Cada vez que uma instrução é lida da memória pela CPU, dois \textit{bytes} são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos \textit{bytes} desta instrução são calculados na função \textit{loadInstruction}.
+\par Cada vez que uma instrução é lida da memória pela CPU, dois \textit{bytes} são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos \textit{bytes} desta instrução são calculados no método \textit{loadInstruction}.
 
+\paragraph{Memória de Dados} \mbox{} \\
+
+\par Alguns registradores são tratados de maneira diferentes no ATmega328P. Pode-se citar, por exemplo, o registrador PINx. Este, como explicado na seção~\ref{sec:e_s}, apesar de ser um registrador de leitura, permite também a escrita de um valor. Esta escrita, no entanto, não altera o valor do PINx, mas sim, o valor do PORTx.
+\par Estes casos foram todos tratados na memória de dados, nos métodos de escrita \textit{writeByte} e \textit{writeBit}. Assim, ao escrever um valor na memória, o endereço é verificado e se um caso especial for detectado, a operação realizada será diferente de uma simples escrita.
+\par Foram escritos métodos especiais para a manipulação dos registradores que são atualizados apenas por \textit{hardware} (como o PINx), bem como para a manipulação das \textit{flags} de interrupção.
+
+\paragraph{Leitura e Escrita 16-bits} \mbox{} \\
+
+\par Alguns registradores, tais como a pilha, registradores do \textit{Timer} 1, etc., trabalham em pares (\textit{LOW} e \textit{HIGH}). Em especial, o \textit{Timer} 1 usa um registrador temporário para que a leitura/escrita nos registradores ocorra de maneira sincronizada, ou seja, ao ler um valor de contagem do registrador \textit{LOW}, o registrador \textit{HIGH} é salvo no mesmo instante para a leitura seja referente ao mesmo instante de tempo. Da mesma forma, a escrita em um registrador \textit{HIGH} é armazenada em um registrador temporário e só é realizada de fato quando ocorrer uma escrita no registrador \textit{LOW}, fazendo a escrita simultânea das duas partes.
+
+\par Este mecanismo de registrador temporário só foi utilizado para escritas da CPU. No módulo de \textit{Timer} 1, a escrita nos registradores de 16-bits ocorre por meio de um método especial na memória de dados, que faz a escrita das duas partes simultaneamente.
+
+\paragraph{Decodificação de instruções} \mbox{} \\
+
+\par As instruções da arquitetura trabalhada não fornece campos com valores fixos para \textit{opcode}, operadores, etc., o que dificulta a decodificação das instruções.
+\par Pensando em velocidade e também manutenibilidade, a estratégia adotada para a decodificação das instruções foi a utilização de um banco de dados com as instruções já decodificadas. Desta forma, foi criado um banco de dados com $2^{16}$ posições (tamanho da instrução) e para cada posição foi inserido um identificador (ID) da instrução referente àquela posição em binário. Com isso, ao ler uma instrução da memória de programa, a CPU simplesmente acessa um vetor na posição da instrução lida e recupera a instrução a ser executada (o banco de dados é carregado para a memória durante a exibição do \textit{Splash Screen} ao iniciar o aplicativo). 
+\par Apesar do gasto de memória (apenas o vetor de instruções consome 128kB de memória), esta solução evita o uso de condicionais para decodificar instruções, o que proporciona um ganho de desempenho e torna o código mais legível.
+
+\paragraph{\textit{Prescaler}} \mbox{} \\
+
+\par O uso de \textit{prescaler} foi restringido apenas aos \textit{Timers}, já que este é um recurso importante para controlar a temporização. Para o conversor A/D e para o sistema em geral o \textit{prescaler} foi desabilitado pois, para o simulador, seu efeito não é relevante, além de este prejudicar bastante o desempenho do simulador.
+
+\paragraph{Entrada e Saída} \mbox{} \\
+
+\par Não foi imposta nenhuma restrição quanto à ligação de entradas e saídas no simulador. Isso significa que o usuário pode conectar múltiplas entradas/saídas no mesmo pino, conectar uma entrada analógica em um pino digital (neste caso, será adotado os valores de tensão da folha de dados para definir nível alto, baixo ou indefinido), conectar entradas digitais em pinos analógicos, etc. Um mecanismo de detecção de curto-circuito (entre entrada e saída, também entre entradas) atua toda vez que uma entrada ou saída é alterada, parando o sistema em caso de detecção. 
+\par Foram definidos 3 níveis lógicos no sistema: alto, baixo e alta impedância. O nível de alta impedância é visto apenas na saída. Na entrada, existe ainda um estado indefinido, que envia um valor aleatório para a entrada, ou seja, pode ser interpretado como nível alto ou baixo (exceto se o resistor de \textit{pull-up} interno for habilitado).

@@ -1,7 +1,254 @@
 \chapter{Resultados e Discussões}
 \label{Resultados}
 
-Resultados e discussões sobre o trabalho.
+\par Nesta seção, serão apresentados os resultados obtidos com as modificações da IDE do Arduino e com o simulador para Android, bem como algumas métricas de \textit{software} obtidas para o simulador.
 
+\section{Arduino IDE}
 
+\par A figura~\ref{fig:ide_modificada} mostra o como ficou a IDE do Arduino após a introdução do botão Android.
 
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/android_button}
+	\caption{Localização do botão "Android" (Selecionado) na IDE.} 
+	Fonte: Autor
+	\label{fig:ide_modificada}
+\end{figure}
+
+\par Ao pressionar o botçao "Android", o processo de compilação se inicia e, em caso de sucesso, é exibida a janela para a seleção do dispositivo Android conectado ao PC, como mostrado na figura~\ref{fig:selecionar_dispositivo}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/device_selector}
+	\caption{Seletor de dispositivos.} 
+	Fonte: Autor
+	\label{fig:selecionar_dispositivo}
+\end{figure}
+
+\par Ao selecionar o dispositivo, o usuário pode ativar a opção \textit{Set as default device}. Isso fará com que a opção escolhida seja salva e não exibirá o seletor de dispositivos nas próximas compilações.
+\par Se tudo ocorreu como o esperado, o usuário deve ver a mensagem de cópia no \textit{console} abaixo do editor, conforme mostra a figura~\ref{fig:console_sucesso}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/copy_success}
+	\caption{Cópia do arquivo realizada com sucesso para o \textit{smartphone}} 
+	Fonte: Autor
+	\label{fig:console_sucesso}
+\end{figure}
+
+\section{Simulador}
+
+\par Ao abrir o simulador, o usuário é recebido com uma \textit{Splash Screen}, mostrada na figura~\ref{fig:splash_screen}, enquanto o banco de dados é carregado para a memória.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/splash_screen}
+	\caption{\textit{Splash Screen} exibida ao abrir o simulador.} 
+	Fonte: Autor
+	\label{fig:splash_screen}
+\end{figure}
+
+\par O usuário é então redirecionado para a tela inicial do simulador, mostrada na figura~\ref{fig:tela_inicial}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/tela_inicial}
+	\caption{Tela inicial do simulador.} 
+	Fonte: Autor
+	\label{fig:tela_inicial}
+\end{figure}
+
+\par Na parte superior do simulador se concentram as opções para que o usuário comece a utilizar o sistema, bem como informações sobre o estado da simulação, como mostra a figura~\ref{fig:toolbar}. Nesta \textit{toolbar}, o usuário tem acesso às seguintes opções:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{./Resources/toolbar}
+	\caption{\textit{Toolbar} do sistema} 
+	Fonte: Autor
+	\label{fig:toolbar}
+\end{figure}
+
+\begin{itemize}
+\item Modelo simulado: Mostra qual placa de Arduino está sendo utilizada para a simulação;
+\item Botão \textit{reset}: Permite o \textit{reset} manual do sistema.
+\item Adicionar Entrada/Saída: Permite adicionar uma entrada/saída digital ou uma entrada analógica.
+\item Outras opções: Contém funções adicionais para importar código do \textit{smartphone} e remover todas as entradas/saídas adicionadas.
+\end{itemize}
+
+\par Além disso, o usuário pode visualizar:
+
+\begin{itemize}
+\item Tempo simulado: Exibe tempo simulado do sistema, baseado no cristal de 16MHz e atualizado a cada pulso de \textit{clock} interno do sistema.
+\item Medidor de memória: Mostra o consumo de memória (em bytes) do programa em execução.
+\item Status: Mostra o \textit{status} da simulação.
+\end{itemize}
+
+\par Caso não seja encontrado um arquivo hexadecimal ou ocorra alguma falha na abertura, o usuário deve ver uma mensagem na barra de \textit{status} informando o problema, como mostrado na figura~\ref{fig:hex_file_not_found}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\textwidth]{./Resources/hex_file_not_found}
+	\caption{Falha ao abrir arquivo hexadecimal} 
+	Fonte: Autor
+	\label{fig:hex_file_not_found}
+\end{figure}
+
+\par Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o led interno está conectado no Arduino UNO.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/outputs}
+	\caption{Saídas digitais do simulador} 
+	Fonte: Autor
+	\label{fig:saida_digital}
+\end{figure}
+
+\par Uma entrada pode ser digital ou analógica. Uma entrada digital é mostrada na figura~\ref{fig:entrada_digital}. Pode-se observar que existem 4 elementos em uma entrada digital, são eles (da esquerda para a direita):
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/inputs}
+	\caption{Entradas digitais do simulador.} 
+	Fonte: Autor
+	\label{fig:entrada_digital}
+\end{figure}
+
+\begin{itemize}
+\item Botão: por onde o usuário interage com o sistema.
+\item Seletor de modo: define a operação do botão, podendo ser:
+	\begin{itemize}
+	\item Push-GND: envia nível baixo se pressionado, indefinido caso contrário (é a opção default).
+	\item Push-VDD: envia nível alto se pressionado, indefinido caso contrário.
+	\item Pull-Up: envia nível baixo se pressionado, alto caso contrário.
+	\item Pull-Up: envia nível alto se pressionado, baixo caso contrário.
+	\item Toggle: alterna seu nível a cada toque no botão.
+	\end{itemize}
+\item Seletor de pino: define para qual pino do Arduino o sinal deve ser enviado.
+\item Saída do sinal: mostra o que está sendo enviado para o pino selecionado
+\end{itemize}
+
+\par Por padrão, nenhum pino está selecionado. Isso garante que não haverá um curto-circuito ao adicionar uma entrada. Em caso de curto-circuito, é exibida uma mensagem na barra de status (conforme mostra a figura~\ref{fig:curto-circuito}) e a simulação para, podendo ser reiniciada manualmente.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/short_circuit}
+	\caption{Condição de cuito-circuito entre entradas.} 
+	Fonte: Autor
+	\label{fig:curto-circuito}
+\end{figure}
+
+\par Uma entrada analógica é mostrada na figura~\ref{fig:entrada_analogica}. Ela possui um seletor de pino, uma barra deslizante e um voltímetro, indicando o valor de tensão enviado ao Arduino. Assim como na entrada digital, nenhuma entrada está selecionada por padrão.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/analog_input}
+	\caption{Entradas analógicas do simulador.} 
+	Fonte: Autor
+	\label{fig:entrada_analogica}
+\end{figure}
+
+\par Caso se queira remover uma entrada/saída, pode-se utilizar um toque longo na célula desejada e selecionar quais elementos serão removidos, como mostra a figura~\ref{fig:remocao}. Alternativamente, pode-se utilizar a opção \textit{Clear I/O} da \textit{toolbar} para remover todas as entradas e saídas.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/remocao}
+	\caption{Remoção manual de pinos de saída.} 
+	Fonte: Autor
+	\label{fig:remocao}
+\end{figure}
+
+\section{Métricas de \textit{Software}}
+
+\subsection{Cobertura}
+
+\par Foram criados testes de unidade para os módulos de CPU e memória de dados. Estes módulos foram escolhidos por serem os mais importantes para o funcionamento da simulação. 
+\par No total, foram criados 356 casos de teste cobrindo todas as instruções da CPU e as operações de leitura e escrita na memória (considerando todos os casos especiais). O foco dos testes foi a verificação de valores limite (operações envolvendo \textit{overflow} ou \textit{underflow}) e verificação das \textit{flags} do registrador SREG.
+\par As figuras~\ref{fig:cobertura_geral},~\ref{fig:cobertura_cpu} e~\ref{fig:cobertura_memoria} mostram os resultados de cobertura dos testes para o projeto, CPU e memória de dados respectivamente.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/cobertura_geral}
+	\caption{Cobertura dos testes para o projeto.} 
+	Fonte: Autor
+	\label{fig:cobertura_geral}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/cobertura_cpu}
+	\caption{Cobertura dos testes para o módulo de CPU.} 
+	Fonte: Autor
+	\label{fig:cobertura_cpu}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/cobertura_dataMemory}
+	\caption{Cobertura dos testes para o módulo de memória de dados.} 
+	Fonte: Autor
+	\label{fig:cobertura_memoria}
+\end{figure}
+
+\par Como se pode ver pela figura~\ref{fig:cobertura_geral}, os casos de teste cobrem cerca de 20\% de todo o projeto e a CPU é coberta quase que totalmente.
+\par Novos teste de unidade estão sendo desenvolvidos para os demais módulos do projeto.
+
+\subsection{Análise Estática}
+
+\par Com o uso do \href{https://www.sonarqube.org/}{\textit{SonarQube}}, foi realizada a analise estática do código com o objetivo de encontrar pontos de melhoria no código.
+\par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/confiabilidade}
+	\caption{Gráfico linhas de código x esforço para resolução dos \textit{bugs}.} 
+	Fonte: Autor
+	\label{fig:confiabilidade}
+\end{figure}
+
+\par Pode-se observar que uma classe se destaca pela sua quantidade de \textit{bugs}, esta classe é a \textit{DataMemory\_ATmega328P}. 
+\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, mas mesmo assim o \href{https://www.sonarqube.org/}{\textit{SonarQube}} não os reconhece) e quanto à conversão de dados de \textit{int} para \textit{byte} (os casos de teste criados com o \href{https://junit.org/junit4/}{\textit{JUnit4}} estão cobrindo estes casos). Devido à estes \textit{bugs}, o sistema foi classificado com o \textit{ranking} C em termos de confiabilidade.
+
+\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades encontrados. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/seguranca}
+	\caption{Gráfico linhas de código x esforço para resolução das vulnerabilidades.} 
+	Fonte: Autor
+	\label{fig:seguranca}
+\end{figure} 
+
+\par Novamente, observa-se uma classe em destaque, esta é a \textit{UCModule}.
+\par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas. O sistema foi classificado com o \textit{ranking} B para segurança.
+
+\par A próxima métrica obtida diz respeito a manutenibilidade do código. Esta medida é feita com base na compexidade cognitiva dos métodos e quanto ao uso devido/indevido de padrões de codificação (esses são chamados \textit{Code Smells}). A figura~\ref{fig:manutencao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de \textit{Code Smells} encontrados. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/manutencao}
+	\caption{Gráfico linhas de código x esforço para resolução dos \textit{Code Smells}.} 
+	Fonte: Autor
+	\label{fig:manutencao}
+\end{figure} 
+
+\par A classe com maior número de problemas para essa métrica é a \textit{Timer1\_ATmega328P}.
+
+\par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, e portanto nenhuma sugestão desta seção foi aplicada no código até o momento.
+\par Apesar disso, o sistema foi classificado com \textit{ranking} A em termos de manutenibilidade.
+
+\par Também foi obtida uma métrica de código duplicado. A figura~\ref{fig:duplicacao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de linhas de código duplicadas. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/duplicacao}
+	\caption{Gráfico linhas de código x linhas de código duplicadas.} 
+	Fonte: Autor
+	\label{fig:duplicacao}
+\end{figure} 
+
+\par As três classes com maior número de código duplicado são as classes referentes aos \textit{Timers}. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos. No entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva). Desta forma, foram criados diferentes métodos, cada um com pequenas diferenças de modo a atender o modo de operação configurado.
+\par Por ter um grande número de modos de operação, a classe com mais código duplicado (em destaque no gráfico) é a classe \textit{Timer1\_ATmega328P}.
+
+\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para cobrir todo o projeto. No caso, o valor obtido foi de 1.774.
+
+\subsection{\textit{Profiling}}

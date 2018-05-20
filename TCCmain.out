@@ -26,6 +26,17 @@
 \BOOKMARK [3][-]{subsubsection.3.2.2.2}{Estrat\351gias de implementa\347\343o}{subsection.3.2.2}% 26
 \BOOKMARK [4][-]{paragraph.3.2.2.2.1}{Clock}{subsubsection.3.2.2.2}% 27
 \BOOKMARK [4][-]{paragraph.3.2.2.2.2}{Mem\363ria de Programa}{subsubsection.3.2.2.2}% 28
-\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 29
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 30
-\BOOKMARK [0][-]{section*.19}{Refer\352ncias}{}% 31
+\BOOKMARK [4][-]{paragraph.3.2.2.2.3}{Mem\363ria de Dados}{subsubsection.3.2.2.2}% 29
+\BOOKMARK [4][-]{paragraph.3.2.2.2.4}{Leitura e Escrita 16-bits}{subsubsection.3.2.2.2}% 30
+\BOOKMARK [4][-]{paragraph.3.2.2.2.5}{Decodifica\347\343o de instru\347\365es}{subsubsection.3.2.2.2}% 31
+\BOOKMARK [4][-]{paragraph.3.2.2.2.6}{Prescaler}{subsubsection.3.2.2.2}% 32
+\BOOKMARK [4][-]{paragraph.3.2.2.2.7}{Entrada e Sa\355da}{subsubsection.3.2.2.2}% 33
+\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 34
+\BOOKMARK [1][-]{section.4.1}{Arduino IDE}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.2}{Simulador}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.3}{M\351tricas de Software}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.3.1}{Cobertura}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.2}{An\341lise Est\341tica}{section.4.3}% 39
+\BOOKMARK [2][-]{subsection.4.3.3}{Profiling}{section.4.3}% 40
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o ou Conclus\365es}{}% 41
+\BOOKMARK [0][-]{section*.36}{Refer\352ncias}{}% 42
