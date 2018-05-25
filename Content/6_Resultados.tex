@@ -5,7 +5,7 @@
 
 \section{Arduino IDE}
 
-\par A figura~\ref{fig:ide_modificada} mostra o como ficou a IDE do Arduino após a introdução do botão Android.
+\par A figura~\ref{fig:ide_modificada} mostra o como ficou a IDE do Arduino após a introdução do botão "Android".
 
  \begin{figure}[h]
 	\centering
@@ -15,7 +15,7 @@
 	\label{fig:ide_modificada}
 \end{figure}
 
-\par Ao pressionar o botçao "Android", o processo de compilação se inicia e, em caso de sucesso, é exibida a janela para a seleção do dispositivo Android conectado ao PC, como mostrado na figura~\ref{fig:selecionar_dispositivo}.
+\par Ao pressionar o botão "Android", o processo de compilação se inicia e, em caso de sucesso, é exibida a janela para a seleção do dispositivo Android conectado ao PC, como mostrado na figura~\ref{fig:selecionar_dispositivo}.
 
 \begin{figure}[h]
 	\centering
@@ -25,7 +25,7 @@
 	\label{fig:selecionar_dispositivo}
 \end{figure}
 
-\par Ao selecionar o dispositivo, o usuário pode ativar a opção \textit{Set as default device}. Isso fará com que a opção escolhida seja salva e não exibirá o seletor de dispositivos nas próximas compilações.
+\par Ao selecionar o dispositivo, o usuário pode ativar a opção "\textit{Set as default device}". Isso fará com que a opção escolhida seja salva e não exibirá o seletor de dispositivos nas próximas compilações.
 \par Se tudo ocorreu como o esperado, o usuário deve ver a mensagem de cópia no \textit{console} abaixo do editor, conforme mostra a figura~\ref{fig:console_sucesso}.
 
 \begin{figure}[h]
@@ -70,7 +70,7 @@
 
 \begin{itemize}
 \item Modelo simulado: Mostra qual placa de Arduino está sendo utilizada para a simulação;
-\item Botão \textit{reset}: Permite o \textit{reset} manual do sistema.
+\item Botão \textit{Reset}: Permite o \textit{reset} manual do sistema.
 \item Adicionar Entrada/Saída: Permite adicionar uma entrada/saída digital ou uma entrada analógica.
 \item Outras opções: Contém funções adicionais para importar código do \textit{smartphone} e remover todas as entradas/saídas adicionadas.
 \end{itemize}
@@ -93,7 +93,9 @@
 	\label{fig:hex_file_not_found}
 \end{figure}
 
-\par Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o led interno está conectado no Arduino UNO.
+\section{Interação com o sistema}
+
+\par O usuário interage com o sistema por meio de entradas e saídas no simulador. Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o led interno está conectado no Arduino UNO. A figura~\ref{fig:saida_digital} mostra os três estados possíveis para uma saída no simulador.
 
 \begin{figure}
 	\centering
@@ -114,7 +116,7 @@
 \end{figure}
 
 \begin{itemize}
-\item Botão: por onde o usuário interage com o sistema.
+\item Botão: por onde o usuário envia sinais ao o sistema.
 \item Seletor de modo: define a operação do botão, podendo ser:
 	\begin{itemize}
 	\item Push-GND: envia nível baixo se pressionado, indefinido caso contrário (é a opção default).
@@ -147,7 +149,7 @@
 	\label{fig:entrada_analogica}
 \end{figure}
 
-\par Caso se queira remover uma entrada/saída, pode-se utilizar um toque longo na célula desejada e selecionar quais elementos serão removidos, como mostra a figura~\ref{fig:remocao}. Alternativamente, pode-se utilizar a opção \textit{Clear I/O} da \textit{toolbar} para remover todas as entradas e saídas.
+\par Caso se queira remover uma entrada/saída, pode-se utilizar um toque longo na célula desejada e selecionar quais elementos serão removidos, como mostra a figura~\ref{fig:remocao}. Alternativamente, pode-se utilizar a opção "\textit{Clear I/O}" da \textit{toolbar} para remover todas as entradas e saídas.
 
 \begin{figure}[h]
 	\centering
@@ -163,11 +165,11 @@
 
 \par Foram criados testes de unidade para os módulos de CPU e memória de dados. Estes módulos foram escolhidos por serem os mais importantes para o funcionamento da simulação. 
 \par No total, foram criados 356 casos de teste cobrindo todas as instruções da CPU e as operações de leitura e escrita na memória (considerando todos os casos especiais). O foco dos testes foi a verificação de valores limite (operações envolvendo \textit{overflow} ou \textit{underflow}) e verificação das \textit{flags} do registrador SREG.
-\par As figuras~\ref{fig:cobertura_geral},~\ref{fig:cobertura_cpu} e~\ref{fig:cobertura_memoria} mostram os resultados de cobertura dos testes para o projeto, CPU e memória de dados respectivamente.
+\par As figuras~\ref{fig:cobertura_geral},~\ref{fig:cobertura_cpu} e~\ref{fig:cobertura_memoria} mostram os resultados de cobertura dos testes para o projeto, CPU e memória de dados respectivamente. Como se pode ver pela figura~\ref{fig:cobertura_geral}, os casos de teste cobrem cerca de 19\% de todo o projeto e a CPU é coberta quase que totalmente, como mostra a figura~\ref{fig:cobertura_cpu}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{./Resources/cobertura_geral}
+	\includegraphics[width=0.3\textwidth]{./Resources/code_coverage}
 	\caption{Cobertura dos testes para o projeto.} 
 	Fonte: Autor
 	\label{fig:cobertura_geral}
@@ -175,27 +177,26 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{./Resources/cobertura_cpu}
+	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_cpu}
 	\caption{Cobertura dos testes para o módulo de CPU.} 
 	Fonte: Autor
 	\label{fig:cobertura_cpu}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{./Resources/cobertura_dataMemory}
+	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_dataMemory}
 	\caption{Cobertura dos testes para o módulo de memória de dados.} 
 	Fonte: Autor
 	\label{fig:cobertura_memoria}
 \end{figure}
 
-\par Como se pode ver pela figura~\ref{fig:cobertura_geral}, os casos de teste cobrem cerca de 20\% de todo o projeto e a CPU é coberta quase que totalmente.
 \par Novos teste de unidade estão sendo desenvolvidos para os demais módulos do projeto.
 
 \subsection{Análise Estática}
 
 \par Com o uso do \href{https://www.sonarqube.org/}{\textit{SonarQube}}, foi realizada a analise estática do código com o objetivo de encontrar pontos de melhoria no código.
-\par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados.
+\par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados (tempo para correção dos defeitos). Pode-se observar que uma classe se destaca pela sua quantidade de \textit{bugs}, esta classe é a \textit{DataMemory\_ATmega328P}.
 
 \begin{figure}[h]
 	\centering
@@ -204,11 +205,10 @@
 	Fonte: Autor
 	\label{fig:confiabilidade}
 \end{figure}
+ 
+\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, mas mesmo assim o \href{https://www.sonarqube.org/}{\textit{SonarQube}} não os reconhece) e quanto à conversão de dados de \textit{int} para \textit{byte} (os casos de teste criados com o \href{https://junit.org/junit4/}{\textit{JUnit4}} estão testando estas conversões). Devido à estes \textit{bugs}, o sistema foi classificado com o \textit{ranking} D em termos de confiabilidade.
 
-\par Pode-se observar que uma classe se destaca pela sua quantidade de \textit{bugs}, esta classe é a \textit{DataMemory\_ATmega328P}. 
-\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, mas mesmo assim o \href{https://www.sonarqube.org/}{\textit{SonarQube}} não os reconhece) e quanto à conversão de dados de \textit{int} para \textit{byte} (os casos de teste criados com o \href{https://junit.org/junit4/}{\textit{JUnit4}} estão cobrindo estes casos). Devido à estes \textit{bugs}, o sistema foi classificado com o \textit{ranking} C em termos de confiabilidade.
-
-\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades encontrados. 
+\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades encontradas (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque, esta é a \textit{UCModule}.
 
 \begin{figure}[h]
 	\centering
@@ -218,10 +218,9 @@
 	\label{fig:seguranca}
 \end{figure} 
 
-\par Novamente, observa-se uma classe em destaque, esta é a \textit{UCModule}.
 \par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas. O sistema foi classificado com o \textit{ranking} B para segurança.
 
-\par A próxima métrica obtida diz respeito a manutenibilidade do código. Esta medida é feita com base na compexidade cognitiva dos métodos e quanto ao uso devido/indevido de padrões de codificação (esses são chamados \textit{Code Smells}). A figura~\ref{fig:manutencao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de \textit{Code Smells} encontrados. 
+\par A próxima métrica obtida diz respeito a manutenibilidade do código. Esta medida é feita com base na compexidade cognitiva dos métodos e quanto ao uso devido/indevido de padrões de codificação (esses são chamados \textit{Code Smells}). A figura~\ref{fig:manutencao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de \textit{Code Smells} encontrados (tempo para correção dos defeitos). A classe com maior número de problemas para essa métrica é a \textit{Timer1\_ATmega328P}.
 
 \begin{figure}[h]
 	\centering
@@ -231,10 +230,7 @@
 	\label{fig:manutencao}
 \end{figure} 
 
-\par A classe com maior número de problemas para essa métrica é a \textit{Timer1\_ATmega328P}.
-
-\par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, e portanto nenhuma sugestão desta seção foi aplicada no código até o momento.
-\par Apesar disso, o sistema foi classificado com \textit{ranking} A em termos de manutenibilidade.
+\par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, e portanto nenhuma sugestão desta seção foi aplicada no código até o momento. Apesar disso, o sistema foi classificado com \textit{ranking} A em termos de manutenibilidade.
 
 \par Também foi obtida uma métrica de código duplicado. A figura~\ref{fig:duplicacao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de linhas de código duplicadas. 
 
@@ -249,6 +245,69 @@
 \par As três classes com maior número de código duplicado são as classes referentes aos \textit{Timers}. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos. No entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva). Desta forma, foram criados diferentes métodos, cada um com pequenas diferenças de modo a atender o modo de operação configurado.
 \par Por ter um grande número de modos de operação, a classe com mais código duplicado (em destaque no gráfico) é a classe \textit{Timer1\_ATmega328P}.
 
-\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para cobrir todo o projeto. No caso, o valor obtido foi de 1.774.
+\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para cobrir todo o projeto. No caso, o valor obtido foi de 1.802.
 
 \subsection{\textit{Profiling}}
+
+\par Foi utilizada a ferramenta de \textit{profilling} do próprio \href{https://developer.android.com/studio/}{\textit{Android Studio}} para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de melhoria. Para isso, utilizou-se o projeto \textit{Blink} apresentado no Apêndice~\ref{Apêndice A}. A figura~\ref{fig:profilling_geral} mostra o desempenho do sistema quanto ao uso de CPU e memória. Pode-se observar pela figura~\ref{fig:profilling_geral} que o uso de CPU fica entre 10 e 20\%, enquanto que o uso de memória está entre 25MB e 35MB.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/profilling_general}
+	\caption{Uso de CPU e memória para o projeto \textit{Blink}.} 
+	Fonte: Autor
+	\label{fig:profilling_geral}
+\end{figure} 
+
+\par Olhando especificamente para a CPU, observou-se dois pontos críticos no sistema: um deles é o mecanismo de sincronização entre as \textit{threads} e o outro é a atualização dos elementos visuais (tempo simulado e uso de memória) pela \textit{UCModule\_View}, como mostrado na figura~\ref{fig:profilling_cpu}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/profilling_cpu}
+	\caption{Tempo de uso da CPU (medido em uma janela de 5 minutos).} 
+	Fonte: Autor
+	\label{fig:profilling_cpu}
+\end{figure} 
+
+\par O primeiro ponto identificado é de difícil otimização. As funções de \textit{clock} mostradas na figura~\ref{fig:profilling_cpu} fazem uso de \textit{locks} para manter a sincronia entre as \textit{threads} e este é um mecanismo necessário. O código~\ref{alg:clock_cpu} mostra a método de \textit{clock} da CPU. Esta mesma estrutura se repete para o \textit{clock} dos demais módulos.
+
+\begin{minipage}[h]{\textwidth}
+\lstinputlisting[floatplacement=H,label=alg:clock_cpu, caption={Método clockCPU.},language=Java]{./Code/clockCPU.java}
+\end{minipage}
+
+\par Para poder otimizar este código, seria necessário repensar a maneira como os módulos são sincronizados, o que envolve uma mudança na arquitetura do simulador. 
+\par Também seria possível pensar em uma maneira de desligar módulos que não estão sendo utilizados. O registrador PRR do ATmega328P permite desligar módulos não utilizados para se obter uma economia de energia, no entando, esta funcionalidade ainda não foi implementada no simulador.
+
+\par Quanto o segundo ponto crítico, a impressão dos textos de tempo simulado e uso de memória não afetam o funcionamento do sistema e, a princípio, poderiam ser removidos. Uma abordagem menos drástica seria diminuir a frequência de impressão para reduzir a quantidade de chamadas à função \textit{setText}.
+
+\par No entanto, pode-se observar pela figura~\ref{fig:profilling_geral} que a maior parte do tempo é gasto com funções internas (para gerenciamento de interface gráfica). Os métodos de \textit{clock} e a \textit{UCModule\_View} correspondem a apenas 17\% do uso da CPU.
+
+\par Também foi feito um \textit{profilling} específico para o uso de memória. Os resultados são mostrados na figura~\ref{fig:profilling_memoria}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/profilling_memoria}
+	\caption{Consumo de memória (medido em uma janela de 5 minutos).} 
+	Fonte: Autor
+	\label{fig:profilling_memoria}
+\end{figure} 
+
+\par O problema maior com memória é novamente a classe \textit{UCModule\_View}, que faz continuamente chamadas para o método \textit{getString} a fim de formatar corretamente o tempo simulado na tela. Uma solução seria evitar o uso desta função, fazendo uma formatação manual da \textit{string} ou utilizando soluções locais, que não envolvam o uso de arquivos de recurso do Android.
+\par Também é possível observar que o módulo de CPU aparece nas primeiras posições da lista. Isso ocorre pois cada instrução utiliza variáveis locais para armazenar seus operadores. É interessante criar variáveis globais para serem utilizadas pelas instruções da CPU uma vez que seu uso é intenso.
+
+
+\subsection{Código e documentação}
+
+\par O código fonte do projeto SOFIA foi disponibilizado em um repositório \textit{online} no \href{https://github.com/}{\textit{Github}} sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet:
+
+\begin{itemize}
+\item \textbf{SOFIA:} \url{https://github.com/kollinslima/ProjectSOFIA}
+
+\item \textbf{Arduino IDE:} \url{https://github.com/kollinslima/Arduino/tree/android}
+\end{itemize}
+
+\par Além do código, foi escrita uma documentação referente ao projeto no \href{https://www.gitbook.com}{\textit{Gitbook}}, que pode ser acessada a partir do repositório do projeto.
+
+\begin{itemize}
+\item \textbf{Documentação:} \url{https://project-sofia.gitbook.io/project/}
+\end{itemize}

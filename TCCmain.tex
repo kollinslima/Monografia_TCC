@@ -2,6 +2,9 @@
 
 \usepackage[pdftex]{graphicx} % Biblioteca para uso de figuras
 \usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{hhline}
 
 \usepackage[brazil]{babel} % Biblioteca para uso da lï¿½ngua portuguesa
 \usepackage[T1]{fontenc} % Biblioteca para uso da acentuaï¿½ï¿½o de entrada
@@ -43,6 +46,38 @@
 
 %Pacote para organizar apendices 
 \usepackage[titletoc]{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FORMATAÇÃO DE CÓDIGOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+%C
+\renewcommand{\lstlistingname}{Código}
+
+\lstdefinestyle{CStyle}{
+	backgroundcolor=\color{backgroundColour},   
+	commentstyle=\color{mGreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{mGray},
+	stringstyle=\color{mPurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	language=C
+}
+
+\lstset{style=CStyle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONFIGURAÇÕES DE ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -88,10 +123,10 @@
 \bibliography{./Content/References} % Faz referencia ao arquivo ref.bib
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ADIÇÃO DOS ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-%\begin{appendices}
-%\appendix
-%\input{./Content/8_Apendices.tex}
-%%\end{appendices}
+\begin{appendices}
+\appendix
+\input{./Content/8_Apendices.tex}
+\end{appendices}
 %
 %\annex
 %\input{./Content/9_Anexos.tex}

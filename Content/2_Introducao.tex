@@ -5,7 +5,7 @@
 
 \par Em se tratando de \textit{hardware}, os dispositivos móveis hoje carregam um grande poder computacional. Segundo uma matéria do Olhar Digital~\cite{OlharDigital_PC_antigo}, o \textit{desktop} top de linha em 2001 possuía 80 GB de HD, 128 MB de memória primária e um processador single core de 1,53 GHz. Hoje, um \textit{smartphone} top de linha possui 8 núcleos de processamento, com frequências de até 2,8 GHz, memória primária de 4 GB e armazenamento interno de 256 GB (com possibilidade de expansão)~\cite{Tecmundo_S9}, tudo isso em um \textit{design} compacto que cabe no bolso. Graças à essa evolução, é possível realizar tarefas cada vez mais complexas em um dispositivo móvel. 
 
-\par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas mobile, o que facilita o desenvolvimento de aplicações. O sistema operacional líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), desenvolvimento em conjunto com empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para o desenvolvimento de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
+\par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas \textit{mobile}, o que facilita o desenvolvimento de aplicações. O sistema operacional para dispositivos móveis líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), desenvolvimento em conjunto com empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para o desenvolvimento de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
 
 \par Devido a constante presença dos dispositivos móveis (com sistema Android) e sua crescente capacidade de \textit{hardware}, esta plataforma tem sido cada vez mais explorada por desenvolvedores. Uma prova disso é a loja oficial de aplicativos do Android (\textit{Google Play}), que oferece uma infinidade de aplicativos (de calculadoras a jogos com gráficos realistas), muitos deles disponibilizados gratuitamente. É por este motivo também que esta plataforma foi escolhida para a realização deste trabalho, que visa desenvolver um simulador das funcionalidades de um Arduino UNO.
 
@@ -18,9 +18,9 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 
 \par Procurando na \textit{Google Play}, é possível encontrar diversos aplicativos relacionados com Arduino. Muitos deles se encontram na forma de "aplicativo-tutorial", mostrando exemplos de código e diagramas para o ensino da plataforma, mas também é possível encontrar ambientes de desenvolvimento integrado (IDE) com capacidade de gravação das placas físicas, geradores de código automático, módulos para serem utilizados em projetos de automação (como controles \textit{Wireless} que se integram às \textit{Shields} do Arduino), etc.
 
-\par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \textit{MCU Prototype Board Simulator}, que simula um kit de desenvolvimento (com botões, leds, LCD, etc.) e permite a execução de códigos assembly do microcontrolador 68705.
+\par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \href{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu&hl=en_US}{\textit{MCU Prototype Board Simulator}}, que simula um kit de desenvolvimento (com botões, leds, LCD, etc.) e permite a execução de códigos assembly do microcontrolador 68705.
 
-\par Quanto à simulação de placas de Arduino, apenas um aplicativo foi encontrado. O \textit{CircSim Circuit Simulator} apresenta a interface de um simulador convencionar de circuitos eletrônicos para PC, entanto seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
+\par Quanto à simulação de placas de Arduino, apenas um aplicativo foi encontrado. O \href{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}{\textit{CircSim Circuit Simulator}} apresenta a interface de um simulador convencional de circuitos eletrônicos para PC, entanto seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
 
 \par Sendo assim, o presente trabalho surge também para preencher uma lacuna existente e oferecer mais uma possibilidade para explorar o Arduino, seja para estudantes, hobistas ou qualquer pessoa que se interesse pelo assunto.
 
@@ -101,37 +101,12 @@ Arduino ou qualquer outro componente externo.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section {Organização do Trabalho}
 
-Este trabalho está distribuído em XXX capítulos, incluindo esta introdução, dispostos conforme a descrição que segue:
+Este trabalho está distribuído em 5 capítulos, incluindo esta introdução, dispostos conforme a descrição que segue:
 
-Capítulo 2: Descreve .....................................................................................
+Capítulo 2: Apresenta um embasamento teórico, explicando o funcionamento dos módulos do microcontrolador ATmega328P implementados do simulador. 
 
-Capítulo 3: Discorre sobre .....................................................................................
+Capítulo 3: Descreve o processo de desenvolvimento do projeto e as principais estratégias de implementação. Também apresenta as ferramentas utilizadas durante o desenvolvimento.
 
-Capítulo 4: Apresenta .....................................................................................
+Capítulo 4: Discorre sobre os resultados obtidos, bem como algumas métricas de do projeto. Também é feita uma discussão a respeito dos resultados.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Capítulo 5: Conclui a respeito do trabalho desenvolvido até o momento e apresenta algumas perspectivas para a continuação do trabalho. Também apresenta o cronograma de atividades.

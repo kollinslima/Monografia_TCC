@@ -13,19 +13,19 @@
 
 \item Foi utilizado o método ágil \textit{Scrum} para a construção do sistema. A plataforma \href{https://taiga.io/}{\textit{Taiga}} foi utilizada para organização e planejamento dos \textit{Sprints}.
 
-\item Para controle de versão foi utilizado o \href{https://git-scm.com/}{\textit{Git}} sincronizado ao repositório online \href{https://github.com/}{\textit{Github}}.
+\item Para controle de versão foi utilizado o \href{https://git-scm.com/}{\textit{Git}} sincronizado à um repositório \textit{on-line} no \href{https://github.com/}{\textit{Github}}.
 
-\item Para o realizar modificações no código da IDE do Arduino, foi utilizada a IDE \href{https://www.jetbrains.com/idea/}{\textit{InteliJ IDEA}} para escrita do código e o \href{https://ant.apache.org/}{\textit{Apache Ant}} para a compilação do código fonte da IDE do Arduino. Também foi utilizado o \href{https://inkscape.org/pt-br/}{\textit{Inkscape}} para a alteração no \textit{design} da IDE do Arduino (inserção do botão "Android").
+\item Para o realizar modificações no código da IDE do Arduino, foi utilizado o \href{https://www.jetbrains.com/idea/}{\textit{InteliJ IDEA}} para escrever o código e o \href{https://ant.apache.org/}{\textit{Apache Ant}} para a compilação. Também foi utilizado o \href{https://inkscape.org/pt-br/}{\textit{Inkscape}} para a alteração no \textit{design} (inserção do botão "Android").
 
 \item Para o desenvolvimento \textit{mobile}, foi utilizada a IDE \href{https://developer.android.com/studio/}{\textit{Android Studio}}.
 
-\item Para criar testes de unidade, foi utilizado o \href{https://junit.org/junit4/}{\textit{JUnit4}} em conjunto com o \href{https://github.com/powermock/powermock}{\textit{PowerMock}} (utilizado como \textit{plugin} do \href{https://gradle.org/}{\textit{Gradle}}).
+\item Para criar testes de unidade, foi utilizado o \href{https://junit.org/junit4/}{\textit{JUnit4}} em conjunto com o \href{https://github.com/powermock/powermock}{\textit{PowerMock}} (ambos utilizados como \textit{plugin} do \href{https://gradle.org/}{\textit{Gradle}}).
 
-\item O \href{https://www.sonarqube.org/}{\textit{SonarQube}} foi utilizado para fazer a analise estática do código do simulador.
+\item O \href{https://www.sonarqube.org/}{\textit{SonarQube}} foi utilizado para fazer a analise estática do código do simulador. Em conjunto, foi utilizado o \href{https://www.eclemma.org/jacoco/}{\textit{JaCoCo}} para obter medidas de cobertura de código.
 
 \item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
 
-\item Foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
+\item Também foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
 \end{itemize}
 
 
@@ -44,7 +44,7 @@
 	\label{fig:diagrama_classes_usb}
 \end{figure}
 
-\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento no construtor o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe Sketch já existente no projeto) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação.
+\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe \textit{Sketch} já existente no projeto do Arduino) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação.
 
 % \begin{figure}[h]
 %	\centering
@@ -58,7 +58,7 @@
 
 \par A classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
 
-\par No Linux, todos os dispositivos MTP são montados por meio do \textit{GNOME Virtual file system} (GVfs). Por meio da variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo .hex é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/ArduinoSimulator} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador.
+\par No Linux, todos os dispositivos MTP são montados por meio do \textit{GNOME Virtual file system} (GVfs). Por meio da variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo .hex é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/SOFIA} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador.
 
 \par No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo .hex para o dispositivo Android no Windows.
 
@@ -77,7 +77,7 @@
 
 \subsubsection{Arquitetura}
 
-A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simulação do código. A figura~\ref{fig:arquitetura_simulador} apresenta um diagrama simplificado da arquitetura do simulador.
+A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simulação do código. A figura~\ref{fig:arquitetura_simulador} apresenta um diagrama simplificado da arquitetura do simulador.
 
  \begin{figure}[h]
 	\centering
@@ -93,10 +93,10 @@ A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simul
 \par A CPU (\textit{CPUModule}) é responsável pela execução das instruções contidas na memória de programa. Ao final de cada instrução, é feita a verificação por interrupções, que são executadas em ordem de prioridade conforme apresentado na tabela~\ref{interruption_vector}. Todas as instruções do microcontrolador ATmega328P foram implementadas, com exceção das instruções \textit{BREAK}, \textit{SLEEP} e \textit{WDR}.
 \par A memória de programa (\textit{ProgramMemory}) é responsável por armazenar o código a ser executado pela CPU. O código é lido de um arquivo hexadecimal no formato \textit{Intel HEX} e formatado em um \textit{array} de \textit{bytes}. É também função da memória de programa verificar continuamente o arquivo hexadecimal e enviar uma mensagem de \textit{Reset} para o módulo principal em caso de alterações.
 \par A memória de dados (\textit{DataMemory}) é o módulo responsável por armazenar todas as informações dos registradores e da memória RAM externa. Trata-se de uma classe cujos métodos de leitura e escrita estão sincronizados para evitar conflitos, já que ela é acessada de diferentes módulos rodando de maneira concorrente. Além disso, a memória de dados notifica a classe \textit{IOModule} em caso de alteração nos registradores de E/S (PINx, PORTx e DDRx).
-\par O módulo de interrupção (\textit{InterruptionModule}) é responsável por receber requisições de interrupção dos módulos de \textit{Timer}, E/S e conversor A/D, organizando-as em ordem de prioridade. Ela também é responsável por armazenar os endereços de desvio das interrupções e fornecer à CPU para a execução da rotina de interrupção. Este módulo pode ser acessado estaticamente por todas as classes do projeto, por meio do módulo principal.
-\par Os módulos de \textit{Timer} (\textit{TimerxModule})são executados continuamente em \textit{threads} próprias. Elas fornecem todos os modos de funcionamento dos apresentados na seção~\ref{sec:timers}, com exceção do funcionamento assíncrono para o \textit{Timer} 2.
+\par O módulo de interrupção (\textit{InterruptionModule}) é responsável por receber requisições de interrupção dos módulos de \textit{Timer}, E/S e conversor A/D, organizando-as em ordem de prioridade. Ela também é responsável por armazenar os endereços de desvio das interrupções e fornecer à CPU para a execução da rotina de interrupção. Este módulo pode ser acessado estaticamente por todas as classes do projeto, por meio da classe \textit{UCModule}.
+\par Os módulos de \textit{Timer} (\textit{TimerxModule}) são executados continuamente em \textit{threads} próprias. Elas fornecem todos os modos de funcionamento dos apresentados na seção~\ref{sec:timers}, com exceção do funcionamento assíncrono para o \textit{Timer} 2.
 \par O conversor A/D (ADCModule), assim como os \textit{Timers}, executa continuamente em uma \textit{thead} e apresenta todos os módulos de funcionamento descritos na seção~\ref{sec:conversor_ad}, com exceção do sensor de temperatura e do disparo pela saída do comparador analógico (já que este módulo não foi implementado).
-\par A figura~\ref{fig:arquitetura_simulador} mostra que as comunicações ocorrem sempre por meio de interfaces (exceto para envio de dados, que precisam partir dos módulos). Esta configuração isola todo o controle do sistema do funcionamento dos módulos específicos do ATmega328P. Isso facilita a expansão do sistema já que, para suportar uma nova plataforma, basta escrever novos módulos de \textit{Timer}, conversor A/D, etc., que implementem as mesmas interfaces. As únicas classes que são acessados diretamente são a \textit{UCModule\_View} (que é própria do aplicativo) e a \textit{CPUModule} (que é própria da arquitetura).
+\par A figura~\ref{fig:arquitetura_simulador} mostra que as comunicações ocorrem sempre por meio de interfaces (exceto para envio de dados, que precisam partir dos módulos). Esta configuração isola toda a parte de controle do funcionamento dos módulos específicos do ATmega328P. Isso facilita a expansão do sistema já que, para suportar uma nova plataforma, basta escrever novos módulos de \textit{Timer}, conversor A/D, etc., que implementem as mesmas interfaces. As únicas classes que são acessados diretamente são a \textit{UCModule\_View} (que é própria do aplicativo) e a \textit{CPUModule} (que é própria da arquitetura AVR).
 
 \subsubsection{Estratégias de implementação}
 
@@ -106,12 +106,12 @@ A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simul
 
 \par Não foi implementada uma fonte de \textit{clock} para o funcionamento do simulador. Toda a sincronia dos módulos é feita por meio de variáveis de condição.
 \par Cada \textit{thread} (correspondente à um módulo) executa sua função dentro de uma estrutura de repetição. A cada iteração, a \textit{thread} é bloqueada em uma variável de condição e fica a espera dos demais módulos. Quando todos os módulos terminarem suas tarefas referentes aquele ciclo de \textit{clock}, o último módulo envia uma mensagem ao módulo principal, que envia um sinal a cada \textit{thread}, desbloqueando-as.
-\par Esta estratégia mantém a sincronização ao mesmo tempo que não limita a velocidade de execução do sistema. Um ponto negativo desta abordagem é que a velocidade de execução do programa não é fixa, podendo acelerar ou desacelerar em função da carga no sistema (externo ao aplicativo).
+\par Esta estratégia mantém a sincronização ao mesmo tempo que não limita a velocidade de execução. Um ponto negativo desta abordagem é que a velocidade de execução do programa não é fixa, podendo acelerar ou desacelerar em função da carga no sistema (externo ao aplicativo).
 \par Também referente ao \textit{clock}, foi preservado o número correto de ciclos que cada instrução da CPU leva para executar, bem como o número de ciclos para a conversão A/D (para o conversor A/D, foi adotado um número fixo de 13 ciclos de clock, apesar de este número variar conforme o modo de operação e para a primeira conversão).
 
 \paragraph{Memória de Programa} \mbox{} \\
 
-\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada em 16kB x 16-bits. No entanto, no simulador preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de \textit{bytes}), além de facilitar a implementação da instrução LPM, que lê um \textit{byte}  da memória de programa.
+\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada em 16kB x 16-bits. No entanto, no simulador, preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de \textit{bytes}), além de facilitar a implementação da instrução LPM, que lê um \textit{byte}  da memória de programa.
 \par Cada vez que uma instrução é lida da memória pela CPU, dois \textit{bytes} são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos \textit{bytes} desta instrução são calculados no método \textit{loadInstruction}.
 
 \paragraph{Memória de Dados} \mbox{} \\
@@ -122,7 +122,7 @@ A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simul
 
 \paragraph{Leitura e Escrita 16-bits} \mbox{} \\
 
-\par Alguns registradores, tais como a pilha, registradores do \textit{Timer} 1, etc., trabalham em pares (\textit{LOW} e \textit{HIGH}). Em especial, o \textit{Timer} 1 usa um registrador temporário para que a leitura/escrita nos registradores ocorra de maneira sincronizada, ou seja, ao ler um valor de contagem do registrador \textit{LOW}, o registrador \textit{HIGH} é salvo no mesmo instante para a leitura seja referente ao mesmo instante de tempo. Da mesma forma, a escrita em um registrador \textit{HIGH} é armazenada em um registrador temporário e só é realizada de fato quando ocorrer uma escrita no registrador \textit{LOW}, fazendo a escrita simultânea das duas partes.
+\par Alguns registradores, tais como a pilha, registradores do \textit{Timer} 1, etc., trabalham em pares (\textit{LOW} e \textit{HIGH}). Em especial, o \textit{Timer} 1 usa um registrador temporário para que a leitura/escrita nos registradores ocorra de maneira sincronizada, ou seja, ao ler um valor de contagem do registrador \textit{LOW}, o registrador \textit{HIGH} é salvo imediatamente para a leitura seja referente ao mesmo instante de tempo. Da mesma forma, a escrita em um registrador \textit{HIGH} é armazenada em um registrador temporário e só é realizada de fato quando ocorrer uma escrita no registrador \textit{LOW}, fazendo a escrita simultânea das duas partes.
 
 \par Este mecanismo de registrador temporário só foi utilizado para escritas da CPU. No módulo de \textit{Timer} 1, a escrita nos registradores de 16-bits ocorre por meio de um método especial na memória de dados, que faz a escrita das duas partes simultaneamente.
 
@@ -138,5 +138,5 @@ A segunda parte d desenvolvimento foi a criação do aplicativo para fazer a simul
 
 \paragraph{Entrada e Saída} \mbox{} \\
 
-\par Não foi imposta nenhuma restrição quanto à ligação de entradas e saídas no simulador. Isso significa que o usuário pode conectar múltiplas entradas/saídas no mesmo pino, conectar uma entrada analógica em um pino digital (neste caso, será adotado os valores de tensão da folha de dados para definir nível alto, baixo ou indefinido), conectar entradas digitais em pinos analógicos, etc. Um mecanismo de detecção de curto-circuito (entre entrada e saída, também entre entradas) atua toda vez que uma entrada ou saída é alterada, parando o sistema em caso de detecção. 
+\par Não foi imposta nenhuma restrição quanto à ligação de entradas e saídas no simulador. Isso significa que o usuário pode conectar múltiplas entradas/saídas no mesmo pino, conectar uma entrada analógica em um pino digital (neste caso, será adotado os valores de tensão da folha de dados para definir nível alto, baixo ou indefinido), conectar entradas digitais em pinos analógicos, etc. Um mecanismo de detecção de curto-circuito (entre entrada e saída, também entre entradas) atua toda vez que uma entrada ou saída é alterada, parando o sistema se alguma condição indevida for detectada. 
 \par Foram definidos 3 níveis lógicos no sistema: alto, baixo e alta impedância. O nível de alta impedância é visto apenas na saída. Na entrada, existe ainda um estado indefinido, que envia um valor aleatório para a entrada, ou seja, pode ser interpretado como nível alto ou baixo (exceto se o resistor de \textit{pull-up} interno for habilitado).

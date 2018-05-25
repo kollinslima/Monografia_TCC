@@ -78,4 +78,18 @@ O tinkercad é um aplicativo simples e on-line de projeto e impressão 3d para
   todos os usuários.
 \newblock \url{https://www.tinkercad.com/}, Acesso em: 15 de abril de 2018.
 
+\bibitem{atmega328p_datasheet}
+Atmel.
+\newblock Atmega328/p.
+\newblock
+  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf},
+  Acesso em: 25 de maio de 2018.
+
+\bibitem{IntelHex}
+Intel.
+\newblock Hexadecimal object file format specification.
+\newblock
+  \url{https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/ads264_mws228/Final%20Report/Final%20Report/Intel%20HEX%20Standard.pdf},
+  Acesso em: 25 de maio de 2018.
+
 \end{thebibliography}

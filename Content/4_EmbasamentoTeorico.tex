@@ -1,7 +1,7 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo serão descritos o funcionamento e as características de cada módulo presente no microcontrolador usado no Arduino UNO (ATmega328P) e que será implementado no simulador.
+\par Neste capítulo serão apresentados o funcionamento e as características de cada módulo presente no microcontrolador usado no Arduino UNO (ATmega328P) e que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
 
 \section{Visão Geral}
 
@@ -19,7 +19,7 @@
 	\item Entre outros.
 \end{itemize}
 
-\par A figura~\ref{block_diagram_ATmega328P} apresenta um diagrama de blocos da organização interna do microcontrolador
+\par A figura~\ref{block_diagram_ATmega328P} apresenta um diagrama de blocos da organização interna do microcontrolador.
 
  \begin{figure}[h]
  	\centering
@@ -41,8 +41,8 @@
 \end{figure}
 
 \par A CPU utiliza um \textit{pipeline} de um estágio o que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
-\par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM.
-\par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupção contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade, de forma que o \textit{RESET} é a interrupção de maior prioridade no sistema.
+\par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM antes de ser utilizado.
+\par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupções, contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade (o \textit{RESET} é a interrupção de maior prioridade no sistema).
 
 \begin{table}
 	\centering
@@ -80,7 +80,7 @@
 	\end{tabular}
 \end{table}
 
-\par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software} reabilitando as interrupções no começo da rotina.
+\par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software} reabilitando as interrupções no começo da rotina.
 \par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. 
 \par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativada para aquele evento, a interrupção será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não foram tratados são lembrados e serão executados em ordem de prioridade assim que possível.
 \par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, a interrupção não ocorrerá.
@@ -98,6 +98,38 @@
 	Fonte: Folha de dados ATmega328P
 	\label{program_memory}
 \end{figure}
+
+\par As instruções a serem preenchidas na memória de programa são fornecidas pelo arquivo hexadecimal gerado pelo compilador. Este arquivo segue o padrão Intel e está disposto conforme mostra a tabela~\ref{tab:intel_hex}~\cite{IntelHex}:
+
+\begin{table}[h]
+	\centering
+	\caption{Formato dos registros do arquivo hexadecimal no padrão Intel}
+	\label{tab:intel_hex}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Início do registro & Contagem de bytes & Endereço &  Tipo de registro & Dado & \textit{Checksum} \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item Início do registro: Denotado pelo símbolo ":" (1 byte do registro).
+	\item Contagem de bytes: Indica a quantidade de bytes a serem lidos no campo de dados (1 byte do registro).
+	\item Endereço: Indica o endereço de memória no qual deve se iniciar o preenchimento dos dados. Este endereço pode não ser igual ao endereço físico da memória (2 bytes do registro).
+	\item Tipo do registro: Indica o que o registro representa (1 byte do registro), podendo ser:
+	
+	\begin{itemize}
+		\item 00: Dado
+		\item 01: Fim do arquivo
+		\item 02: Segmento estendido de memória. O valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16.
+		\item 03: Início do segmento de memória. O valor contido no campo dado é carregado para os registradores CS e IP para os processadores 8086 e 80186
+		\item 04: Segmento estendido de memória Linear. O valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço.
+		\item 05: Início do endereço linear. Aponta para o endereço de memória onde o programa deve executar.
+	\end{itemize}
+
+	\item Dado: Contém os dados do registro no formato \textit{Little-endian} (primeiro byte é o menos significativo) (tamanho variável no registro).
+	
+	\item \textit{Checksum}: Complemento de dois do byte menos significativo da soma de todos os bytes anteriores do registro (1 byte do registro).	
+\end{itemize}
 
 \section{Memória de Dados}
 
@@ -146,7 +178,7 @@
 
 \par O ATmega328P possui 3 temporizadores internos, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC (\textit{Clear on Compare Match}), \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
 \par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de clock externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
-\par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, no entanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
+\par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, entretanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
 \par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente.
 
  \begin{figure}[h]
@@ -178,15 +210,15 @@
 \subsection{Modo \textit{Fast PWM}}
 
 \par No modo \textit{fast PWM}, assim como no modo normal, a contagem é feita continuamente do valor mais baixo (0) ao valor mais alto (0xFF para 8-bits ou, no caso do \textit{Timer 1}, este valor pode ser configurado para 0xFF, 0x1FF ou 0x3FF), havendo a possibilidade de alteração deste valor utilizando o registrador OCRnA (ou ICR1 para o \textit{Timer 1}), como ocorre no modo CTC. Também como no modo normal, o estouro do contador pode gerar interrupção de \textit{overflow}.
-\par A diferença do modo \textit{fast PWM} está na maneira como um \textit{math} entre TCNTn e OCRnA/OCRnB é tratado. Além das possibilidades de disparo de interrupção, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} e nível alto no estouro do contador (modo de funcionamento não-invertido), ou o contrário (modo de funcionamento invertido).
+\par A diferença do modo \textit{fast PWM} está na maneira como um \textit{math} entre TCNTn e OCRnA/OCRnB é tratado. Além das possibilidades de disparo de interrupção, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} e nível alto no estouro do contador (modo de funcionamento não-invertido), ou o contrário (modo de funcionamento invertido) de modo a gerar uma onda quadrada.
 
 \par Outra característica do modo \textit{fast PWM} está na atualização dos valores de OCRnA/OCRnB. Enquanto no modo normal e no modo CTC estes valores são atualizados imediatamente, no modo \textit{fast PWM} a atualização dos valores ocorre apenas quando TCNTn atinge o valor máximo da contagem. Com isso, evita-se que uma comparação seja perdida caso o valor de OCRnA/OCRnB seja menor que o valor de TCNTn, o que pode ocorrer nos modos normal e CTC.
 
 \subsection{Modo PWM com Correção de Fase}
 
-\par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}) seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}.
+\par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}), seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}.
 
-\par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} com OCRxA/OCRxB na contagem progressiva e nível alto em caso de \textit{math} na contagem regressiva, ou o contrário. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A em caso de \textit{match}, seja em contagem progressiva ou regressiva.
+\par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} com OCRxA/OCRxB (na contagem progressiva) e nível alto em caso de \textit{math} (na contagem regressiva), ou o contrário, gerando uma onda quadrada. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A em caso de \textit{match}, seja em contagem progressiva ou regressiva.
 
 \par Assim como no modo \textit{fast PWM}, a atualização do valor de OCRxA/OCRxB não é instantânea, ocorrendo apenas no momento em que que a contagem atinge o valor máximo. Importante resaltar que, tanto para o modo de correção de fase, quanto para o \textit{fast PWM}, o valor de ICR1 é atualizado imediatamente, o que pode ocasionar em uma perda na comparação com TCNTx caso este registrador estiver sendo usado para definir o topo da contagem.
 
@@ -203,9 +235,9 @@
 \section{Conversor A/D}
 \label{sec:conversor_ad}
 
-\par O ATmega328P possui integrado um conversor analógico/digital (A/D) com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
+\par O ATmega328P possui um conversor analógico/digital (A/D) com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
 
-\par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, podendo ser a entrada AREF ou referência interna de 1,1V.
+\par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, tais como a entrada AREF ou referência interna de 1,1V.
 
 \par Por ser um conversor de 10-bits, são necessários 2 registradores para armazenar o resultado da conversão, são eles o ADCL e o ADCH. O resultado da conversão é alinhado à esquerda por padrão, no entanto esta opção pode ser alterada para alinhamento à direita por meio do registrador ADMUX. A figura~\ref{fig:alinhamento} mostra como o resultado é armazenado nos registradores ADCL e ADCH para cada modo.
 
@@ -237,7 +269,7 @@
 	\label{fig:adc}
 \end{figure}
 
-\par Por segurança, uma leitura no registrador ADCL bloqueia a permissão de escrita no registrador ADCL e ADCH, garantindo assim que o dado lido é referente à mesma conversão (o acesso é liberado novamente ao realizar uma leitura em ADCH). Caso o resultado esteja alinhado à direita, pode-se obter um valor convertido de 8-bits apenas lendo o registrador ADCH.
+\par Por segurança, uma leitura no registrador ADCL bloqueia a permissão de escrita nos registradores ADCL e ADCH, garantindo assim que o dado lido é referente à mesma conversão (o acesso é liberado novamente ao realizar uma leitura em ADCH). Caso o resultado esteja alinhado à direita, pode-se obter um valor convertido de 8-bits apenas lendo o registrador ADCH.
 
 \par Para iniciar uma conversão é necessário colocar em nível alto os bits ADEN (habilita o conversor) e ADSC. A conversão é então inicializada e ADSC permanece em nível alto durante todo o tempo de conversão. Ao final, o bit ADSC é resetado por hardware e a flag ADIF é setada, podendo gerar uma interrupção se esta estiver configurada. O resultado de uma conversão é dada pela equação~\ref{eq:adc_result}.
 
