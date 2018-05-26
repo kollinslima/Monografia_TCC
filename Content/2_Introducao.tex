@@ -7,12 +7,12 @@
 
 \par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas \textit{mobile}, o que facilita o desenvolvimento de aplicações. O sistema operacional para dispositivos móveis líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), desenvolvimento em conjunto com empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para o desenvolvimento de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
 
-\par Devido a constante presença dos dispositivos móveis (com sistema Android) e sua crescente capacidade de \textit{hardware}, esta plataforma tem sido cada vez mais explorada por desenvolvedores. Uma prova disso é a loja oficial de aplicativos do Android (\textit{Google Play}), que oferece uma infinidade de aplicativos (de calculadoras a jogos com gráficos realistas), muitos deles disponibilizados gratuitamente. É por este motivo também que esta plataforma foi escolhida para a realização deste trabalho, que visa desenvolver um simulador das funcionalidades de um Arduino UNO.
+\par Devido a constante presença dos dispositivos móveis (com sistema Android) e sua crescente capacidade de \textit{hardware}, esta plataforma tem sido cada vez mais explorada por desenvolvedores. Uma prova disso é a loja oficial de aplicativos do Android (\href{https://play.google.com/}{\textit{Google Play}}), que oferece uma infinidade de aplicativos (de calculadoras a jogos com gráficos realistas), muitos deles disponibilizados gratuitamente. É por este motivo também que esta plataforma foi escolhida para a realização deste trabalho, que visa desenvolver um simulador das funcionalidades de um Arduino UNO.
 
 \par A utilização do poder computacional de  \textit{smartphones} / \textit{tablets} em substituição à sistemas tradicionais não é uma ideia nova. 
 Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um dispositivo Android para a implementação de um osciloscópio de baixo custo. Utilizando um microcontrolador ARM Cortex M4F para aquisição dos sinais e comunicação \textit{Bluetooth} com o \textit{smartphone}, foi possível construir um osciloscópio com um custo de projeto de US\$35, com erro médio de 0,2\% no eixo do tempo, 0,02V no eixo da tensão e taxa máxima de aquisição de 150 mil amostras por segundos, o que, segundo o autor, torna este um sistema "aceitável para o uso do projeto no ambiente de aprendizado", considerando a diferença de preço com osciloscópios comerciais.
 
-\par Em uma abordagem semelhante, Nwokorie~\cite{Nwokorie} utiliza um \textit{smartphone}, junto à uma placa de Arduino UNO, para a criação de um microscópio. O chamado \textit{SmartScope} utiliza uma estrutura de suporte com uma lente plano-convexa para adaptar a câmera do \textit{smartphone} a captura de imagens microscópicas. A placa de Arduino controla o LED que serve como fonte de luz e permite o ajuste de intensidade do brilho por meio de botões, mostrando em um display LCD a configuração atual. O sistema tem funções de captura de imagem ou vídeo e permite o armazenamento dos dados coletados em um banco de dados (Microsoft Access). Assim como o trabalho de Junior, o grande objetivo é criar um sistema de baixo custo como alternativa aos microscópios comerciais e ajudar alunos sem experiência a aprender a realizar leituras no equipamento.
+\par Em uma abordagem semelhante, Nwokorie~\cite{Nwokorie} utiliza um \textit{smartphone}, junto à uma placa de Arduino UNO, para a criação de um microscópio. O chamado \textit{SmartScope} utiliza uma estrutura de suporte com uma lente plano-convexa para adaptar a câmera do \textit{smartphone} a captura de imagens microscópicas. A placa de Arduino controla o LED que serve como fonte de luz e permite o ajuste de intensidade do brilho por meio de botões, mostrando em um display LCD a configuração atual. O sistema tem funções de captura de imagem e vídeo e permite o armazenamento dos dados coletados em um banco de dados (Microsoft Access). Assim como o trabalho de Junior, o grande objetivo é criar um sistema de baixo custo como alternativa aos microscópios comerciais e ajudar alunos sem experiência a aprender a realizar leituras no equipamento.
 
 \par Também é possível citar o trabalho de Lin~\cite{Lin} que vai além do nível de aplicativo, fazendo modificações no kernel Linux para leitura de dados em um barramento CAN. Lin e sua equipe desenvolveram drivers e bibliotecas para realizar a leitura de dados de sensores em um automóvel por meio do barramento CAN. Dados relativos à velocidade, faróis, temperatura, chaves e alarme foram lidos diretamente das unidades de controle do veículo e mostrados na tela do \textit{smartphone} em um aplicativo de instrumentação próprio, simulando o painel do carro. Seu trabalho evidencia que as possibilidades de uso dos sistemas Android podem se estender também para o nível de sistema.
 
@@ -20,7 +20,7 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 
 \par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \href{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu&hl=en_US}{\textit{MCU Prototype Board Simulator}}, que simula um kit de desenvolvimento (com botões, leds, LCD, etc.) e permite a execução de códigos assembly do microcontrolador 68705.
 
-\par Quanto à simulação de placas de Arduino, apenas um aplicativo foi encontrado. O \href{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}{\textit{CircSim Circuit Simulator}} apresenta a interface de um simulador convencional de circuitos eletrônicos para PC, entanto seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
+\par Quanto à simulação de placas de Arduino, apenas um aplicativo foi encontrado. O \href{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}{\textit{CircSim Circuit Simulator}} apresenta a interface de um simulador convencional de circuitos eletrônicos para PC. No entanto, seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
 
 \par Sendo assim, o presente trabalho surge também para preencher uma lacuna existente e oferecer mais uma possibilidade para explorar o Arduino, seja para estudantes, hobistas ou qualquer pessoa que se interesse pelo assunto.
 
@@ -52,7 +52,7 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Motivação}
 %Arduino
-\par O Arduino é uma plataforma de \textit{hardware} e \textit{software} aberto, destinada à desenvolvimentos de projetos na área de eletrônica. Suas aplicações vem crescendo a cada dia e vão desde o uso educacional para ensino de robótica em escolas de ensino fundamental, até aplicações em IoT (Internet of Things - Internet das Coisas) nas universidades. 
+\par O Arduino é uma plataforma de \textit{hardware} e \textit{software} aberto, destinada ao desenvolvimentos de projetos na área de eletrônica. Suas aplicações vem crescendo a cada dia e vão desde o uso educacional para ensino de robótica em escolas de ensino fundamental, até aplicações em IoT (Internet of Things - Internet das Coisas) nas universidades. 
 \par Uma das principais características do Arduino é sua simplicidade. Em suas versões mais básicas, utilizam microcontroladores de 8-bits, o que torna o sistema menos complexo e mais barato quando comparada com outras plataformas concorrentes (tais como Raspberry Pi e BeagleBone)~\cite{Delft}. Com isso, se tornou uma plataforma ideal para prototipagem e para aprendizado, englobando um publico alvo de artistas, sem conhecimento prévio de eletrônica e programação, à engenheiros experientes, que usam a plataforma para prototipagem.
 
 \par O desenvolvimento para essa plataforma demanda o uso de placas físicas de Arduino. Essas placas foram desenvolvidas com o objetivo de apresentarem baixo custo e facilitar a prototipagem, se integrando facilmente à módulos externos
@@ -79,7 +79,7 @@ próprias. Alguns que merecem destaque são:
 \end{itemize}
 
 \par Apesar da grande quantidade de simuladores já existentes, como foi mostrado anteriormente, há uma grande
-falta deste tipo de \textit{software} para dispositivos móveis. A grande motivação deste trabalho é poder contribuir com a comunidade que deseje aprender sobre desenvolvimento para Arduino, fornecendo uma opção de simulador para dispositivos móveis.
+falta deste tipo de \textit{software} para dispositivos móveis. A grande motivação deste trabalho é poder contribuir com a comunidade que deseje aprender sobre desenvolvimento para Arduino, fornecendo uma opção de simulador para Android.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -89,7 +89,7 @@ falta deste tipo de \textit{software} para dispositivos móveis. A grande motivaç
 para a plataforma Arduino UNO em um aplicativo Android,
 permitindo assim a realização de testes sem a necessidade de uma placa de
 Arduino ou qualquer outro componente externo.
-\par Também faz parte dos objetivos do trabalho a integração do simulador com a IDE oficial do projeto Arduino.
+\par Também faz parte dos objetivos do trabalho a integração do simulador com a IDE oficial do projeto Arduino, permitindo a transferência dos códigos compilados para o simulador de modo automático.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

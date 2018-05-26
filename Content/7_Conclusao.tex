@@ -3,13 +3,13 @@
 
 \par Nesta monografia foi apresentado o projeto SOFIA, um emulador Arduino criado para Android.
 
-\par Pode-se dizer que o sistema desenvolvido atende aos objetivos propostos: o sistema é capaz de executar códigos escritos para o Arduino UNO (ATmega328P) diretamente no dispositivo Android, bem como permitir que o usuário interaja com o sistema por meio de sinais de entrada (digital e analógica) ou fazendo medições dos estados dos pinos digitais. O usuário também tem a disposição uma IDE modificada que o permite escrever códigos e transferi-los para o simulador facilmente.
+\par Pode-se dizer que o sistema desenvolvido atende aos objetivos propostos mesmo ainda sendo uma versão parcial: o sistema é capaz de executar códigos escritos para o Arduino UNO (ATmega328P) diretamente no dispositivo Android, bem como permitir que o usuário interaja com o sistema por meio de sinais de entrada (digital e analógica) ou fazendo medições dos estados dos pinos digitais. O usuário também tem a disposição uma IDE modificada que o permite escrever códigos e transferi-los para o simulador facilmente.
 
 \par Entre as limitações do sistema, destaca-se sua performance em termos de velocidade de simulação. A execução de códigos provindos da IDE ainda é lenta devido a quantidade de instruções \textit{assembly} geradas pelo compilador e a capacidade de processamento do \textit{smartphone}. Para o desenvolvimento, foi utilizado um \textit{smartphone} ASUS ZenFone 2, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal, 32GB de armazenamento, executando o Android 5.0, e frequência de \textit{clock} efetiva observada neste sistema foi de aproximadamente 200Hz para o projeto \textit{Blink} (uma redução de 80.000 vezes a velocidade do sistema real). Ainda assim, é possível utilizar o sistema para pequenos projetos (utilizando escalas de tempo reduzidas), o que ainda o torna útil para aplicações didáticas.
 
 \par Em termos de arquitetura, o sistema buscou preservar os mesmos módulos e fluxos de comunicação existentes no \textit{hardware} do microcontrolador, por motivos, principalmente, de facilidade de implementação e desempenho, o que acabou tornando a arquitetura do \textit{software} um pouco mais complexa. No entanto, o sistema ainda está modular, o que é uma característica importante para sua expansão.
 
-\par Quanto à qualidade do sistema, a análise estática do \href{https://www.sonarqube.org/}{\textit{SonarQube}} não revelou grandes problemas no código e os principais módulos foram quase que totalmente cobertos por teste. Ainda é preciso a criação de muitos casos de teste para cobrir todo o projeto e garantir um nível maior de qualidade, estes estão sendo desenvolvidos em ordem de prioridade para os demais módulos.
+\par Quanto à qualidade do sistema, a análise estática do SonarQube não revelou grandes problemas no código e os principais módulos foram quase que totalmente cobertos por teste. Ainda é necessária a criação de muitos casos de teste para cobrir todo o projeto e garantir um nível maior de qualidade, estes estão sendo desenvolvidos em ordem de prioridade para os demais módulos.
 
 \par Para a continuidade do projeto, deseja-se incluir nas próximas versões:
 
@@ -63,7 +63,7 @@
 \begin{enumerate}
 	\item Alteração do código fonte da IDE oficial do Arduino e integração com o simulador.
 	\item Planejamento do sistema como um todo, incluindo a definição dos elementos de interface, estrutura de classes, arquitetura e demais itens relacionados à organização interna do sistema;
-	\item Decodificação do arquivo hexadecimal gerado pelo compilador e execução das instruções \textit{Assembly};
+	\item Decodificação do arquivo hexadecimal gerado pelo compilador e execução das instruções \textit{assembly};
 	\item Desenvolvimento do módulo de entrada e saída digital;
 	\item Detecção e tratamento de interrupções;
 	\item Desenvolvimento do módulo de \textit{timer} (8 e 16 bits);
