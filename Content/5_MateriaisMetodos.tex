@@ -23,7 +23,7 @@
 
 \item O \href{https://www.sonarqube.org/}{\textit{SonarQube}} foi utilizado para fazer a analise estática do código do simulador. Em conjunto, foi utilizado o \href{https://www.eclemma.org/jacoco/}{\textit{JaCoCo}} para obter medidas de cobertura de código.
 
-\item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
+\item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado o \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
 
 \item Também foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
 \end{itemize}
@@ -95,7 +95,7 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 \par A memória de dados (\textit{DataMemory}) é o módulo responsável por armazenar todas as informações dos registradores e da memória SDRAM externa. Trata-se de uma classe cujos métodos de leitura e escrita estão sincronizados para evitar conflitos, já que ela é acessada de diferentes módulos rodando de maneira concorrente. Além disso, a memória de dados notifica a classe \textit{IOModule} em caso de alteração nos registradores de E/S (PINx, PORTx e DDRx).
 \par O módulo de interrupção (\textit{InterruptionModule}) é responsável por receber requisições de interrupção dos módulos de \textit{Timer}, E/S e conversor A/D, organizando-as em ordem de prioridade. Ela também é responsável por armazenar os endereços de desvio das interrupções e fornecer à CPU para a execução da rotina de interrupção. Este módulo pode ser acessado estaticamente por todas as classes do projeto, por meio da classe \textit{UCModule}.
 \par Os módulos de \textit{Timer} (\textit{TimerxModule}) são executados continuamente em \textit{threads} próprias. Elas fornecem todos os modos de funcionamento dos apresentados na seção~\ref{sec:timers}, com exceção do funcionamento assíncrono para o \textit{Timer} 2.
-\par O conversor A/D (ADCModule), assim como os \textit{Timers}, executa continuamente em uma \textit{thead} e apresenta todos os módulos de funcionamento descritos na seção~\ref{sec:conversor_ad}, com exceção do sensor de temperatura e do disparo pela saída do comparador analógico (já que este módulo não foi implementado).
+\par O conversor A/D (\textit{ADCModule}), assim como os \textit{Timers}, executa continuamente em uma \textit{thead} e apresenta todos os módulos de funcionamento descritos na seção~\ref{sec:conversor_ad}, com exceção do sensor de temperatura e do disparo pela saída do comparador analógico (já que este módulo não foi implementado).
 \par A figura~\ref{fig:arquitetura_simulador} mostra que as comunicações ocorrem sempre por meio de interfaces (exceto para envio de dados, que precisam partir dos módulos). Esta configuração isola toda a parte de controle do funcionamento dos módulos específicos do ATmega328P. Isso facilita a expansão do sistema já que, para suportar uma nova plataforma, basta escrever novos módulos de \textit{Timer}, conversor A/D, etc., que implementem as mesmas interfaces. As únicas classes que são acessados diretamente são a \textit{UCModule\_View} (que é própria do aplicativo) e a \textit{CPUModule} (que é própria da arquitetura AVR).
 
 \subsubsection{Estratégias de implementação}

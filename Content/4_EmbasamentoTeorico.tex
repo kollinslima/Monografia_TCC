@@ -82,7 +82,7 @@
 
 \par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software}, reabilitando as interrupções no começo da rotina.
 \par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. 
-\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativada para aquele evento, a interrupção será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
+\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativada para aquele evento, ela será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
 \par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, a interrupção não ocorrerá.
 
 \section{Memória de Programa}
@@ -158,7 +158,7 @@
 \section{Módulo de Entrada e Saída Digital}
 \label{sec:e_s}
 
-\par Como dito anteriormente, o ATmega328P possui 23 programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de entrada/saída (E/S) do microcontrolador.
+\par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de entrada/saída (E/S) do microcontrolador.
 
  \begin{figure}[h]
 	\centering
@@ -168,8 +168,8 @@
 	\label{fig:io_module}
 \end{figure}
 
-\par Os pinos podem ser configurados por meio dos registradores DDRxn, PORTxn e PINxn, onde "x" corresponde à letra do port e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
-\par O registrador PINxn é um registrador apenas de leitura, que armazena o valor da entrada do pino. No entanto, é possível escrever um valor "1" neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
+\par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra do port e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
+\par Existe ainda o registrador PINxn, que é um registrador apenas de leitura responsável por armazenar o valor da entrada do pino. No entanto, é possível escrever um valor "1" neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
 \par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de valor (pinos PCINT). As interrupções externas podem ser configuradas para gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo, enquanto as interrupções por mudança de valor não são configuráveis e apenas respondem à mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 
@@ -271,7 +271,7 @@
 
 \par Por segurança, uma leitura no registrador ADCL bloqueia a permissão de escrita nos registradores ADCL e ADCH, garantindo assim que o dado lido é referente à mesma conversão (o acesso é liberado novamente ao realizar uma leitura em ADCH). Caso o resultado esteja alinhado à direita, pode-se obter um valor convertido de 8-bits apenas lendo o registrador ADCH.
 
-\par Para iniciar uma conversão é necessário colocar em nível alto os bits ADEN (habilita o conversor) e ADSC. A conversão é então inicializada e ADSC permanece em nível alto durante todo o tempo de conversão. Ao final, o bit ADSC é resetado por hardware e a flag ADIF é setada, podendo gerar uma interrupção se esta estiver configurada. O resultado de uma conversão é dada pela equação~\ref{eq:adc_result}.
+\par Para iniciar uma conversão é necessário colocar em nível alto os bits ADEN (habilita o conversor) e ADSC. A conversão é então inicializada e ADSC permanece em nível alto durante todo o tempo de conversão. Ao final, o bit ADSC é resetado por \textit{hardware} e a \textit{flag} ADIF é setada, podendo gerar uma interrupção se esta estiver configurada. O resultado de uma conversão é dada pela equação~\ref{eq:adc_result}.
 
 \begin{equation}
 	ADC = \frac{V_{in} * 1024}{V_{ref}}
@@ -308,4 +308,4 @@
 	\label{eq:adc_temperatura}
 \end{equation}
 
-\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22\footnote{\url{https://playground.arduino.cc/Main/InternalTemperatureSensor}})
+\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})

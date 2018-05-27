@@ -100,4 +100,10 @@ Intel.
   \url{https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/ads264_mws228/Final%20Report/Final%20Report/Intel%20HEX%20Standard.pdf},
   Acesso em: 25 de maio de 2018.
 
+\bibitem{Sensor_Temperatura}
+Arduino.
+\newblock Internal temperature sensor.
+\newblock \url{https://playground.arduino.cc/Main/InternalTemperatureSensor},
+  Acesso em: 27 de maio de 2018.
+
 \end{thebibliography}
