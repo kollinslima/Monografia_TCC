@@ -1,7 +1,7 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador usado no Arduino UNO (ATmega328P) e que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
+\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) e que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
 
 \section{Visão Geral}
 
@@ -309,3 +309,26 @@
 \end{equation}
 
 \par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
+
+\section{USART}
+\label{sec:usart}
+
+\par Um dos módulos que permitem que o ATmega328P realize comunicação serial é a USART. Esta possui múltiplos modos de operação, suportando comunicação \textit{full duplex}, operação síncrona e assíncrona, detecção de erros em \textit{frames}, modo de comunicação com multiprocessadores, etc., além de poder ser utilizada para comunicação SPI (como Mestre). A figura~\ref{fig:usart} apresenta a organização interna deste módulo no microcontrolador.
+
+ \begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/usart}
+	\caption{Organização da USART}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:usart}
+\end{figure}
+
+\par O protocolo de comunicação da USART utiliza \textit{frames} que podem ter 5,6,7,8 ou 9 bits, com 1 ou 2 bits de parada, além da possibilidade de adição de bits de paridade par ou ímpar. A transmissão de um \textit{frame} se inicia com o bit de \textit{START}, fazendo a mudança do estado da linha alto (\textit{IDLE}) para o nível baixo, indicando que uma comunicação deve ser iniciada. Os bits do \textit{frame} são então transmitidos um a um, começando pelo bit menos significativo e terminando com o bit de paridade (se houver). Por fim, são enviados os bits de parada (1 ou 2, conforme configurado), indicando o fim do \textit{frame}. Este procedimento está ilustrado na figura~\ref{fig:frame_usart}.
+
+ \begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/frame_usart}
+	\caption{Formato de um \textit{frame} transmitido pela USART.}
+	Fonte: Folha de dados ATmega328P
+	\label{fig:frame_usart}
+\end{figure}
