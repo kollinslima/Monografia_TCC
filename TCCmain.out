@@ -24,24 +24,29 @@
 \BOOKMARK [2][-]{subsection.3.2.1}{Desenvolvimento na IDE do Arduino}{section.3.2}% 24
 \BOOKMARK [2][-]{subsection.3.2.2}{Desenvolvimento Android}{section.3.2}% 25
 \BOOKMARK [3][-]{subsubsection.3.2.2.1}{Arquitetura}{subsection.3.2.2}% 26
-\BOOKMARK [3][-]{subsubsection.3.2.2.2}{Estrat\351gias de implementa\347\343o}{subsection.3.2.2}% 27
-\BOOKMARK [4][-]{paragraph.3.2.2.2.1}{Clock}{subsubsection.3.2.2.2}% 28
-\BOOKMARK [4][-]{paragraph.3.2.2.2.2}{Mem\363ria de Programa}{subsubsection.3.2.2.2}% 29
-\BOOKMARK [4][-]{paragraph.3.2.2.2.3}{Mem\363ria de Dados}{subsubsection.3.2.2.2}% 30
-\BOOKMARK [4][-]{paragraph.3.2.2.2.4}{Leitura e Escrita 16-bits}{subsubsection.3.2.2.2}% 31
-\BOOKMARK [4][-]{paragraph.3.2.2.2.5}{Decodifica\347\343o de instru\347\365es}{subsubsection.3.2.2.2}% 32
-\BOOKMARK [4][-]{paragraph.3.2.2.2.6}{Prescaler}{subsubsection.3.2.2.2}% 33
-\BOOKMARK [4][-]{paragraph.3.2.2.2.7}{Entrada e Sa\355da}{subsubsection.3.2.2.2}% 34
-\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 35
-\BOOKMARK [1][-]{section.4.1}{Arduino IDE}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.2}{Simulador}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.3}{Intera\347\343o com o sistema}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.4}{M\351tricas de Software}{chapter.4}% 39
-\BOOKMARK [2][-]{subsection.4.4.1}{Cobertura}{section.4.4}% 40
-\BOOKMARK [2][-]{subsection.4.4.2}{An\341lise Est\341tica}{section.4.4}% 41
-\BOOKMARK [2][-]{subsection.4.4.3}{Profiling}{section.4.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.4}{C\363digo e documenta\347\343o}{section.4.4}% 43
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 44
-\BOOKMARK [1][-]{subsection.5.0.1}{Cronograma de Atividades}{chapter.5}% 45
-\BOOKMARK [0][-]{Item.9}{Refer\352ncias}{}% 46
-\BOOKMARK [0][-]{appendix.A}{Ap\352ndice Projeto Blink utilizado para realiza\347\343o do profilling}{}% 47
+\BOOKMARK [3][-]{subsubsection.3.2.2.2}{M\363dulo principal}{subsection.3.2.2}% 27
+\BOOKMARK [3][-]{subsubsection.3.2.2.3}{CPU}{subsection.3.2.2}% 28
+\BOOKMARK [3][-]{subsubsection.3.2.2.4}{Mem\363ria de Programa}{subsection.3.2.2}% 29
+\BOOKMARK [3][-]{subsubsection.3.2.2.5}{Mem\363ria de Dados}{subsection.3.2.2}% 30
+\BOOKMARK [3][-]{subsubsection.3.2.2.6}{M\363dulo de Interrup\347\343o}{subsection.3.2.2}% 31
+\BOOKMARK [3][-]{subsubsection.3.2.2.7}{M\363dulo de E/S}{subsection.3.2.2}% 32
+\BOOKMARK [3][-]{subsubsection.3.2.2.8}{Temporizadores}{subsection.3.2.2}% 33
+\BOOKMARK [3][-]{subsubsection.3.2.2.9}{Conversor A/D}{subsection.3.2.2}% 34
+\BOOKMARK [3][-]{subsubsection.3.2.2.10}{USART}{subsection.3.2.2}% 35
+\BOOKMARK [0][-]{chapter.4}{Resultados e Discuss\365es}{}% 36
+\BOOKMARK [1][-]{section.4.1}{Arduino IDE}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.2}{Simulador}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.2.1}{Intera\347\343o com o sistema}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.2}{Monitor Serial}{section.4.2}% 40
+\BOOKMARK [2][-]{subsection.4.2.3}{Mapa de mem\363ria}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.4}{Refer\352ncia externa de tens\343o}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.5}{Medi\347\343o de frequ\352ncia}{section.4.2}% 43
+\BOOKMARK [1][-]{section.4.3}{M\351tricas de Software}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.3.1}{Cobertura}{section.4.3}% 45
+\BOOKMARK [2][-]{subsection.4.3.2}{An\341lise Est\341tica}{section.4.3}% 46
+\BOOKMARK [2][-]{subsection.4.3.3}{Profiling}{section.4.3}% 47
+\BOOKMARK [2][-]{subsection.4.3.4}{C\363digo e documenta\347\343o}{section.4.3}% 48
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 49
+\BOOKMARK [1][-]{subsection.5.0.1}{Cronograma de Atividades}{chapter.5}% 50
+\BOOKMARK [0][-]{Item.16}{Refer\352ncias}{}% 51
+\BOOKMARK [0][-]{appendix.A}{Ap\352ndice Projeto Blink utilizado para realiza\347\343o do profilling}{}% 52

@@ -25,24 +25,29 @@
 \contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{45}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{46}{subsection.3.2.2}
 \contentsline {subsubsection}{\numberline {3.2.2.1}Arquitetura}{46}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}Estrat\'egias de implementa\c c\~ao}{48}{subsubsection.3.2.2.2}
-\contentsline {paragraph}{\numberline {3.2.2.2.1}\textit {Clock}}{49}{paragraph.3.2.2.2.1}
-\contentsline {paragraph}{\numberline {3.2.2.2.2}Mem\'oria de Programa}{49}{paragraph.3.2.2.2.2}
-\contentsline {paragraph}{\numberline {3.2.2.2.3}Mem\'oria de Dados}{49}{paragraph.3.2.2.2.3}
-\contentsline {paragraph}{\numberline {3.2.2.2.4}Leitura e Escrita 16-bits}{50}{paragraph.3.2.2.2.4}
-\contentsline {paragraph}{\numberline {3.2.2.2.5}Decodifica\c c\~ao de instru\c c\~oes}{50}{paragraph.3.2.2.2.5}
-\contentsline {paragraph}{\numberline {3.2.2.2.6}\textit {Prescaler}}{50}{paragraph.3.2.2.2.6}
-\contentsline {paragraph}{\numberline {3.2.2.2.7}Entrada e Sa\IeC {\'\i }da}{51}{paragraph.3.2.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.2}M\'odulo principal}{46}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}CPU}{48}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Programa}{48}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}Mem\'oria de Dados}{49}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de Interrup\c c\~ao}{49}{subsubsection.3.2.2.6}
+\contentsline {subsubsection}{\numberline {3.2.2.7}M\'odulo de E/S}{49}{subsubsection.3.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.8}Temporizadores}{50}{subsubsection.3.2.2.8}
+\contentsline {subsubsection}{\numberline {3.2.2.9}Conversor A/D}{50}{subsubsection.3.2.2.9}
+\contentsline {subsubsection}{\numberline {3.2.2.10}USART}{51}{subsubsection.3.2.2.10}
 \contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{53}{chapter.4}
 \contentsline {section}{\numberline {4.1}Arduino IDE}{53}{section.4.1}
 \contentsline {section}{\numberline {4.2}Simulador}{54}{section.4.2}
-\contentsline {section}{\numberline {4.3}Intera\c c\~ao com o sistema}{56}{section.4.3}
-\contentsline {section}{\numberline {4.4}M\'etricas de \textit {Software}}{59}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Cobertura}{59}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}An\'alise Est\'atica}{60}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}\textit {Profiling}}{63}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}C\'odigo e documenta\c c\~ao}{66}{subsection.4.4.4}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{67}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{69}{subsection.5.0.1}
-\contentsline {chapter}{Refer\^encias}{70}{Item.9}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink} utilizado para realiza\c c\~ao do \textit {profilling}}{73}{appendix.A}
+\contentsline {subsection}{\numberline {4.2.1}Intera\c c\~ao com o sistema}{56}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Monitor Serial}{59}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{60}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{61}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{61}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{62}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Cobertura}{62}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}An\'alise Est\'atica}{63}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{66}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}C\'odigo e documenta\c c\~ao}{69}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{71}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{73}{subsection.5.0.1}
+\contentsline {chapter}{Refer\^encias}{74}{Item.16}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink} utilizado para realiza\c c\~ao do \textit {profilling}}{77}{appendix.A}

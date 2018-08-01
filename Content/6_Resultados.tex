@@ -49,43 +49,37 @@
 \end{figure}
 
 \par O usuário é então redirecionado para a tela inicial do simulador, mostrada na figura~\ref{fig:tela_inicial}
+\vfill
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.25\textwidth]{./Resources/tela_inicial}
+	\includegraphics[width=0.4\textwidth]{./Resources/tela_inicial}
 	\caption{Tela inicial do simulador.} 
 	Fonte: Autor
 	\label{fig:tela_inicial}
 \end{figure}
 
-\par Na parte superior do simulador se concentram as opções para que o usuário comece a utilizar o sistema, bem como informações sobre o estado da simulação, como mostra a figura~\ref{fig:toolbar}. Nesta \textit{toolbar}, o usuário tem acesso às seguintes opções:
+\par Na parte superior do simulador se concentram as opções para que o usuário comece a utilizar o sistema, bem como informações sobre o estado da simulação. Nesta \textit{toolbar}, o usuário tem acesso às seguintes opções:
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.9\textwidth]{./Resources/toolbar}
-	\caption{\textit{Toolbar} do sistema} 
-	Fonte: Autor
-	\label{fig:toolbar}
-\end{figure}
-
-\begin{itemize}
-\item Modelo simulado: Mostra qual placa de Arduino está sendo utilizada para a simulação;
-\item Botão \textit{Reset}: Permite o \textit{reset} manual do sistema.
-\item Adicionar Entrada/Saída: Permite adicionar uma entrada/saída digital ou uma entrada analógica.
-\item Outras opções: Contém funções adicionais para importar código do \textit{smartphone}, remover todas as entradas/saídas e acesso à informações do projeto.
-\end{itemize}
+\begin{enumerate}
+\item \textbf{Modelo simulado}: Mostra qual placa de Arduino está sendo utilizada para a simulação.
+\item \textbf{Botão \textit{Reset}}: Permite o \textit{reset} manual do sistema.
+\item \textbf{Adicionar Entrada/Saída}: Permite adicionar uma entrada/saída digital ou uma entrada analógica, bem como um monitor serial.
+\item \textbf{Outras opções}: Contém funções adicionais para importar código do \textit{smartphone}, mapa de memória, configuração de tensão de referência (para o conversor A/D), remover todas as entradas/saídas, ajuda e acesso à informações do projeto.
+\end{enumerate}
 
 \par Além disso, o usuário pode visualizar:
 
-\begin{itemize}
-\item Tempo simulado: Exibe tempo simulado do sistema, baseado no cristal de 16MHz e atualizado a cada pulso de \textit{clock} interno do sistema.
-\item Medidor de memória: Mostra o consumo de memória (em bytes) do programa em execução.
-\item Status: Mostra o \textit{status} da simulação.
-\end{itemize}
+\begin{enumerate}
+	\setcounter{enumi}{4}
+\item \textbf{Tempo simulado}: Exibe tempo simulado do sistema, baseado no cristal de 16MHz e atualizado a cada pulso de \textit{clock} interno do sistema.
+\item \textbf{Status}: Mostra o \textit{status} da simulação.
+\item \textbf{Área de Trabalho}: Onde serão dispostos os elementos de entrada e saída.
+\end{enumerate}
 
 \par Caso não seja encontrado um arquivo hexadecimal ou ocorra alguma falha na abertura, o usuário deve ver uma mensagem na barra de \textit{status} informando o problema, como mostrado na figura~\ref{fig:hex_file_not_found}.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./Resources/hex_file_not_found}
 	\caption{Falha ao abrir arquivo hexadecimal} 
@@ -93,11 +87,11 @@
 	\label{fig:hex_file_not_found}
 \end{figure}
 
-\section{Interação com o sistema}
+\subsection{Interação com o sistema}
 
 \par O usuário interage com o sistema por meio de entradas e saídas no simulador. Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o led interno está conectado no Arduino UNO. A figura~\ref{fig:saida_digital} mostra os três estados possíveis para uma saída no simulador.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Resources/outputs}
 	\caption{Saídas digitais do simulador} 
@@ -107,7 +101,7 @@
 
 \par Uma entrada pode ser digital ou analógica. Uma entrada digital é mostrada na figura~\ref{fig:entrada_digital}. Pode-se observar que existem 4 elementos em uma entrada digital, são eles (da esquerda para a direita):
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Resources/inputs}
 	\caption{Entradas digitais do simulador.} 
@@ -116,22 +110,22 @@
 \end{figure}
 
 \begin{itemize}
-\item Botão: por onde o usuário envia sinais ao o sistema.
-\item Seletor de modo: define a operação do botão, podendo ser:
+\item \textbf{Botão}: por onde o usuário envia sinais ao o sistema.
+\item \textbf{Seletor de modo}: define a operação do botão, podendo ser:
 	\begin{itemize}
-	\item Push-GND: envia nível baixo se pressionado, indefinido caso contrário (é a opção default).
+	\item Push-GND: envia nível baixo se pressionado, indefinido caso contrário (é a opção padrão).
 	\item Push-VDD: envia nível alto se pressionado, indefinido caso contrário.
 	\item Pull-Up: envia nível baixo se pressionado, alto caso contrário.
 	\item Pull-Down: envia nível alto se pressionado, baixo caso contrário.
 	\item Toggle: alterna seu nível a cada toque no botão.
 	\end{itemize}
-\item Seletor de pino: define para qual pino do Arduino o sinal deve ser enviado.
-\item Saída do sinal: mostra o que está sendo enviado para o pino selecionado
+\item \textbf{Seletor de pino}: define para qual pino do Arduino o sinal deve ser enviado.
+\item \textbf{Saída do sinal}: mostra o que está sendo enviado para o pino selecionado
 \end{itemize}
 
-\par Por padrão, nenhum pino está selecionado. Isso garante que não haverá um curto-circuito ao adicionar uma entrada. Em caso de curto-circuito, é exibida uma mensagem na barra de status (conforme mostra a figura~\ref{fig:curto-circuito}) e a simulação para, podendo ser reiniciada manualmente.
+\par Por padrão, nenhum pino está selecionado. Isso garante que não haverá um curto-circuito ao adicionar uma entrada. Em caso de curto-circuito, é exibida uma mensagem na barra de status (como mostra a figura~\ref{fig:curto-circuito}) e a simulação para, podendo ser reiniciada manualmente assim que a condição de curto-circuito for removida.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Resources/short_circuit}
 	\caption{Condição de cuito-circuito entre entradas.} 
@@ -151,13 +145,91 @@
 
 \par Caso se queira remover uma entrada/saída, pode-se utilizar um toque longo na célula desejada e selecionar quais elementos serão removidos, como mostra a figura~\ref{fig:remocao}. Alternativamente, pode-se utilizar a opção "\textit{Clear I/O}" da \textit{toolbar} para remover todas as entradas e saídas.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Resources/remocao}
 	\caption{Remoção manual de pinos de saída.} 
 	Fonte: Autor
 	\label{fig:remocao}
 \end{figure}
+
+\subsection{Monitor Serial}
+
+\par Outro modo de interação com o sistema é por meio do monitor serial, mostrado na figura~\ref{fig:monitor_serial}. Este monitor pode ser utilizado para receber ou enviar informações para a USART e ocupa o mesmo espaço reservado para as saídas digitais, ou seja, não é possível visualizar as saídas em conjunto com o monitor serial (é possível, no entanto, utilizá-lo simultaneamente com entradas). 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/serial_monitor_working}
+	\caption{Monitor Serial.} 
+	Fonte: Autor
+	\label{fig:monitor_serial}
+\end{figure}
+
+\par O monitor serial pode ser removido também com a opção "\textit{Clear I/O}" ou clicando no "x" na parte superior.
+
+\subsection{Mapa de memória}
+
+\par O recurso de mapa de memória é apresentado na figura~\ref{fig:mapa_memoria}. Este recurso permite ao usuário ver e acompanhar o estado de cada bit da memória de dados enquanto a simulação continua funcionando, bem como verificar qual o uso total de memória pelo sistema em bytes e em porcentagem.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/memory_map}
+	\caption{Mapa de memória.} 
+	Fonte: Autor
+	\label{fig:mapa_memoria}
+\end{figure}
+
+\par Toda a memória (2kB) somado aos registradores podem ser visualizados com esta função. Para facilitar a busca por um endereço específico, os registradores foram nomeados e adicionou-se o recurso de busca, que pode ser acessado pelo ícone de lupa no canto superior direito. A figura~\ref{fig:mapa_memoria_busca} mostra a busca sendo utilizada para encontrar o registrador TCNTx.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/memory_map_search}
+	\caption{Recurso de busca do mapa de memória.} 
+	Fonte: Autor
+	\label{fig:mapa_memoria_busca}
+\end{figure}
+
+\subsection{Referência externa de tensão}
+
+\par Outro recurso que foi inserido no simulador foi a configuração da referência externa de tensão para conversão analógica. Em \textit{hardware}, esta referência é aplicada no pino AREF e utilizada como base para conversão. No simulador, pode-se utilizar o menu "\textit{AREF Config}" para simular esta função. A figura~\ref{fig:aref_config} mostra a tela de configuração exibida.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{./Resources/AREF_config}
+	\caption{Configuração de tensão externa aplicada ao pino AREF, usada como base para conversão A/D.} 
+	Fonte: Autor
+	\label{fig:aref_config}
+\end{figure}
+
+\par Por padrão, o valor configurado é de 5V (como mostra a figura~\ref{fig:aref_config}). Este valor pode ser alterado para qualquer valor real que esteja dentro das epecificações mínimas e máximas apresentadas na folha de dados do ATmega328P (Mínimo: 1V, Máximo: 5V).
+
+\subsection{Medição de frequência}
+
+\par Caso a frequência de oscilação de um pino de saída seja muito alta, o simulador não será capaz de exibir esta intermitência corretamente devido a limitações de velocidade da atualização da tela do Android (máximo 60fps). Nestes casos, pode-se utilizar o recurso de frequencímetro integrado ao simulador para verificar a qual frequência a saída está alterando seu estado.(Na verdade, pode-se utilizar o frequencímetro em qualquer ocasião, este é apenas um caso onde seu uso se faz absolutamente necessário para depuração.)
+
+\par Para medir frequência em um pino de saída, basta pressionar a saída desejada com um toque longo e selecionar frequencímetro (figura~\ref{fig:frequencimetro_icone}). Os valores de frequência e \textit{duty cicle} aparecerão na célula de saída, como mostra a figura~\ref{fig:frequencimetro}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/frequency_meter_icon}
+	\caption{Ícone do frequencímetro.} 
+	Fonte: Autor
+	\label{fig:frequencimetro_icone}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/frequency_meter}
+	\caption{Frequencímetro em funcionamento.} 
+	Fonte: Autor
+	\label{fig:frequencimetro}
+\end{figure}
+
+\section{Características e limitações}
+
+\par Como é de se esperar, o sistema desenvolvido possui diversas limitações em comparação com o sistema real, a começar pela quantidade de módulos desenvolvidos e seus modos de operação, que cobrem apenas as principais funcionalidades de um Arduino.
+
+\par Provavelmente, a principal limitação do sistema é sua velocidade. 
 
 \section{Métricas de \textit{Software}}
 
