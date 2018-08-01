@@ -93,7 +93,7 @@
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{./Resources/program_memory}
+	\includegraphics[scale=0.45]{./Resources/program_memory}
 	\caption{Memória de programa ATmega328P}
 	Fonte: Folha de dados ATmega328P
 	\label{program_memory}
@@ -112,10 +112,10 @@
 \end{table}
 
 \begin{itemize}
-	\item Início do registro: Denotado pelo símbolo ":" (1 byte do registro).
-	\item Contagem de bytes: Indica a quantidade de bytes a serem lidos no campo de dados (1 byte do registro).
-	\item Endereço: Indica o endereço de memória no qual deve se iniciar o preenchimento dos dados. Este endereço pode não ser igual ao endereço físico da memória (2 bytes do registro).
-	\item Tipo do registro: Indica o que o registro representa (1 byte do registro), podendo ser:
+	\item \textbf{Início do registro}: Denotado pelo símbolo ":" (1 byte do registro).
+	\item \textbf{Contagem de bytes}: Indica a quantidade de bytes a serem lidos no campo de dados (1 byte do registro).
+	\item \textbf{Endereço}: Indica o endereço de memória no qual deve se iniciar o preenchimento dos dados. Este endereço pode não ser igual ao endereço físico da memória (2 bytes do registro).
+	\item \textbf{Tipo do registro}: Indica o que o registro representa (1 byte do registro), podendo ser:
 	
 	\begin{itemize}
 		\item 00: Dado
@@ -126,9 +126,9 @@
 		\item 05: Início do endereço linear. Aponta para o endereço de memória onde o programa deve iniciar a execução.
 	\end{itemize}
 
-	\item Dado: Contém os dados do registro no formato \textit{Little-endian} (primeiro byte é o menos significativo da palavra) (tamanho variável no registro).
+	\item \textbf{Dado}: Contém os dados do registro no formato \textit{Little-endian} (primeiro byte é o menos significativo da palavra) (tamanho variável no registro).
 	
-	\item \textit{Checksum}: Complemento de dois do byte menos significativo da soma de todos os bytes anteriores do registro (1 byte do registro).	
+	\item \textit{\textbf{Checksum}}: Complemento de dois do byte menos significativo da soma de todos os bytes anteriores do registro (1 byte do registro).	
 \end{itemize}
 
 \section{Memória de Dados}
@@ -147,11 +147,11 @@
 \par Existem diferentes modos de endereçamento que são aplicados à memória de dados. Todo o espaço de endereçamento suporta qualquer um dos modos listados, são eles:
 
 \begin{itemize}
-	\item Direto: Acesso direto ao endereço desejado;
-	\item Indireto com deslocamento: Acesso à 63 endereços deslocados a partir do endereço base, dado pelo registrador Y ou Z.
-	\item Indireto: Acesso ao endereço dado pelos registradores X, Y ou Z.
-	\item Indireto com pré-decremento: Registradores X, Y ou Z são decrementados antes de serem utilizados como ponteiro para endereçamento.
-	\item Indireto com pós-incremento: Registradores X, Y ou Z são incrementados depois de serem utilizados como ponteiro para endereçamento.
+	\item \textbf{Direto}: Acesso direto ao endereço desejado;
+	\item \textbf{Indireto com deslocamento}: Acesso à 63 endereços deslocados a partir do endereço base, dado pelo registrador Y ou Z.
+	\item \textbf{Indireto}: Acesso ao endereço dado pelos registradores X, Y ou Z.
+	\item \textbf{Indireto com pré-decremento}: Registradores X, Y ou Z são decrementados antes de serem utilizados como ponteiro para endereçamento.
+	\item \textbf{Indireto com pós-incremento}: Registradores X, Y ou Z são incrementados depois de serem utilizados como ponteiro para endereçamento.
 \end{itemize}
 
 
@@ -168,20 +168,20 @@
 	\label{fig:io_module}
 \end{figure}
 
-\par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra do port e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
-\par Existe ainda o registrador PINxn, que é um registrador apenas de leitura responsável por armazenar o valor da entrada do pino. No entanto, é possível escrever um valor "1" neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
+\par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra que identifica o \textit{port} e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
+\par Existe ainda o registrador PINxn, que é um registrador apenas de leitura responsável por armazenar o valor da entrada do pino. No entanto, é possível escrever um valor "1" (nível alto) neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
 \par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
-\par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de valor (pinos PCINT). As interrupções externas podem ser configuradas para gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo, enquanto as interrupções por mudança de valor não são configuráveis e apenas respondem à mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
+\par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 
 \section{Temporizadores}
 \label{sec:timers}
 
-\par O ATmega328P possui 3 temporizadores internos, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
+\par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
 \par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de clock externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
 \par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, entretanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
-\par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente.
+\par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente. Os modos de operação disponíveis para os temporizadores são descritos a seguir.
 
- \begin{figure}[h]
+ \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/timer0_2}
 	\caption{Organização do módulo de \textit{Timer 0/2} do ATmega328P}
@@ -189,7 +189,7 @@
 	\label{fig:timer0_2}
 \end{figure}
 
- \begin{figure}[]
+ \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/timer1}
 	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{Low} e \textit{High}).}
@@ -199,32 +199,73 @@
 
 \subsection{Modo Normal}
 
-\par No modo normal de operação, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero. O estouro do contador pode ser utilizado para gerar uma interrupção.
+\par No modo normal de operação é o mais simples. Nele, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero, como mostrado no diagrama da figura~\ref{fig:timer_normal_diagrama}. O estouro do contador pode ser utilizado para gerar uma interrupção.
 \par Os registradores OCRnA e OCRnB são continuamente comparados com o valor de TCNTn (que armazena a contagem) e em caso de \textit{match}, podem gerar interrupções no sistema e/ou atuar nos pinos OCxA e OCxB, podendo levá-los à nível alto, baixo ou inverter seus valores.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/timer_normal_mode}
+	\caption{Diagrama de funcionamento do modo normal}
+	Fonte: Autor
+	\label{fig:timer_normal_diagrama}
+\end{figure}
 
 \subsection{Modo CTC}
 
-\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (Para o \textit{Timer 1}, existe a opção de utilizar o registrador ICR1). 
+\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (Para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
+\vfill
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/timer_ctc_mode}
+	\caption{Diagrama de funcionamento do modo CTC}
+	Fonte: Autor
+	\label{fig:timer_ctc_diagrama}
+\end{figure}
+
 \par No entanto, diferente do modo normal, o reinício da contagem não pode gerar interrupção de \textit{overflow}. Isso só é possível caso OCRxA (ou ICR1) seja igual à 0xFF (8-bits) ou 0xFFFF (16-bits). Neste caso, o modo CTC e o modo normal se comportam de maneiras idênticas.
 
 \subsection{Modo \textit{Fast PWM}}
 
-\par No modo \textit{fast PWM}, assim como no modo normal, a contagem é feita continuamente do valor mais baixo (0) ao valor mais alto (0xFF para 8-bits ou, no caso do \textit{Timer 1}, este valor pode ser configurado para 0xFF, 0x1FF ou 0x3FF), havendo a possibilidade de alteração deste valor utilizando o registrador OCRnA (ou ICR1 para o \textit{Timer 1}), como ocorre no modo CTC. Também como no modo normal, o estouro do contador pode gerar interrupção de \textit{overflow}.
+\par No modo \textit{fast PWM}, assim como no modo normal, a contagem é feita continuamente do valor mais baixo (0) ao valor mais alto (0xFF para 8-bits ou, no caso do \textit{Timer 1}, este valor pode ser configurado para 0xFF, 0x1FF ou 0x3FF), havendo a possibilidade de alteração deste valor utilizando o registrador OCRnA (ou ICR1 para o \textit{Timer 1}), como ocorre no modo CTC. Também como no modo normal, o estouro do contador pode gerar interrupção de \textit{overflow}. A figura~\ref{fig:timer_fastpwm_diagram} mostra o diagrama de funcionamento deste modo.
 \par A diferença do modo \textit{fast PWM} está na maneira como um \textit{math} entre TCNTn e OCRnA/OCRnB é tratado. Além das possibilidades de disparo de interrupção, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} e nível alto no estouro do contador (modo de funcionamento não-invertido), ou o contrário (modo de funcionamento invertido) de modo a gerar uma onda quadrada.
 
 \par Outra característica do modo \textit{fast PWM} está na atualização dos valores de OCRnA/OCRnB. Enquanto no modo normal e no modo CTC estes valores são atualizados imediatamente, no modo \textit{fast PWM} a atualização dos valores ocorre apenas quando TCNTn atinge o valor máximo da contagem. Com isso, evita-se que uma comparação seja perdida caso o valor de OCRnA/OCRnB seja menor que o valor de TCNTn, o que pode ocorrer nos modos normal e CTC.
 
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/timer_fastpwm_mode}
+	\caption{Diagrama de funcionamento do modo \textit{fast PWM}}
+	Fonte: Autor
+	\label{fig:timer_fastpwm_diagram}
+\end{figure}
+
 \subsection{Modo PWM com Correção de Fase}
 
-\par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}), seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}.
+\par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}), seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}. A figura~\ref{fig:timer_phasecorrect_diagram} apresenta o diagrama de funcionamento deste modo.
 
 \par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} com OCRxA/OCRxB (na contagem progressiva) e nível alto em caso de \textit{math} (na contagem regressiva), ou o contrário, gerando uma onda quadrada. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A em caso de \textit{match}, seja em contagem progressiva ou regressiva.
 
 \par Assim como no modo \textit{fast PWM}, a atualização do valor de OCRxA/OCRxB não é instantânea, ocorrendo apenas no momento em que que a contagem atinge o valor máximo. Importante resaltar que, tanto para o modo de correção de fase, quanto para o \textit{fast PWM}, o valor de ICR1 é atualizado imediatamente, o que pode ocasionar em uma perda na comparação com TCNTx caso este registrador estiver sendo usado para definir o topo da contagem.
 
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/timer_phasecorrect_mode}
+	\caption{Diagrama de funcionamento do modo PWM com Correção de Fase}
+	Fonte: Autor
+	\label{fig:timer_phasecorrect_diagram}
+\end{figure}
+
 \subsection{Modo PWM com Correção de Fase e Frequência}
 
-\par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo. Com isso, pode-se garantir a simetria dos pulsos gerados.
+\par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo, como mostra a figura~\ref{fig:timer_phasefrequencycorrect_diagram}. Com isso, pode-se garantir a simetria dos pulsos gerados.
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/timer_phasefrequencycorrect_mode}
+	\caption{Diagrama de funcionamento do modo PWM com Correção de Fase e Frequência}
+	Fonte: Autor
+	\label{fig:timer_phasefrequencycorrect_diagram}
+\end{figure}
 
 \subsection{Captura de Eventos}
 
@@ -235,7 +276,7 @@
 \section{Conversor A/D}
 \label{sec:conversor_ad}
 
-\par O ATmega328P possui um conversor analógico/digital (A/D) com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
+\par O ATmega328P possui um conversor analógico/digital (A/D) de aproximações sucessivas com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
 
 \par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, tais como a entrada AREF ou referência interna de 1,1V.
 
@@ -313,7 +354,7 @@
 \section{USART}
 \label{sec:usart}
 
-\par Um dos módulos que permitem que o ATmega328P realize comunicação serial é a USART. Esta possui múltiplos modos de operação, suportando comunicação \textit{full duplex}, operação síncrona e assíncrona, detecção de erros em \textit{frames}, modo de comunicação com multiprocessadores, etc., além de poder ser utilizada para comunicação SPI (como Mestre). A figura~\ref{fig:usart} apresenta a organização interna deste módulo no microcontrolador.
+\par A USART é um dos módulos do Atmega328P que permitem a comunicação serial deste com outros dispositivos. Este módulo possui múltiplos modos de operação, suportando comunicação \textit{full duplex}, operação síncrona e assíncrona, detecção de erros em \textit{frames}, modo de comunicação com multiprocessadores, etc., além de poder ser utilizada para comunicação SPI (como Mestre). A figura~\ref{fig:usart} apresenta a organização interna deste módulo no microcontrolador.
 
  \begin{figure}
 	\centering
@@ -325,10 +366,32 @@
 
 \par O protocolo de comunicação da USART utiliza \textit{frames} que podem ter 5,6,7,8 ou 9 bits, com 1 ou 2 bits de parada, além da possibilidade de adição de bits de paridade par ou ímpar. A transmissão de um \textit{frame} se inicia com o bit de \textit{START}, fazendo a mudança do estado da linha alto (\textit{IDLE}) para o nível baixo, indicando que uma comunicação deve ser iniciada. Os bits do \textit{frame} são então transmitidos um a um, começando pelo bit menos significativo e terminando com o bit de paridade (se houver). Por fim, são enviados os bits de parada (1 ou 2, conforme configurado), indicando o fim do \textit{frame}. Este procedimento está ilustrado na figura~\ref{fig:frame_usart}.
 
- \begin{figure}
+ \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{./Resources/frame_usart}
+	\includegraphics[width=0.8\textwidth]{./Resources/frame_usart}
 	\caption{Formato de um \textit{frame} transmitido pela USART.}
 	Fonte: Folha de dados ATmega328P
 	\label{fig:frame_usart}
 \end{figure}
+
+\par Durante a transmissão e a recepção, a USART usa um registrador auxiliar UDRn (como mostrado na figura~\ref{fig:usart}). Este registrador na verdade é composto por dois espaços de memória, um acessado por operações de escrita e outro por operações de leitura, e consiste em um \textit{buffer} que recebe os dados a serem transmitidos (antes de serem enviados ao registrador de deslocamento para ser transmitido) ou os dados recebidos (quando a recepção for concluída).
+
+\par Para utilizar a USART, o programador precisa inicialmente informar a velocidade de comunicação (\textit{BAUD rate}), formato do \textit{frame} e habilitar o transmissor e o receptor. A transmissão se inicia ao carregar um dado no registrador UDRn e a recepção ao receber o bit de \textit{START}. A velocidade de comunicação é ajustada por meio do registrador UBRRn de 16-bits (\textit{High} e \textit{Low}) e pode ser calculada pela equação~\ref{eq:baud_rate} (para o modo assíncrono).
+
+\begin{equation}
+	\label{eq:baud_rate}
+	BAUD = \frac{f_{osc}}{16(UBRRn + 1)}
+\end{equation}
+
+\par Onde BAUD é a velocidade de comunicação (bits/s), $f_{osc}$ é a frequência de clock do sistema e UBRRn é o valor contido no registrador.
+
+\par A USART pode ser utilizada de modo dirigido por interrupção. Três eventos podem ser configuradas gerar interrupção, são eles:
+
+\begin{itemize}
+	\item\textbf{ Recepção completa}: Indica que existe dado não lido no \textit{buffer} de recepção.
+	\item \textbf{Registrador de dados vazio}: Indica que o \textit{buffer} de transmissão está pronto para receber um novo dado, ou seja, o dado anterior já foi movido para o registrador de deslocamento.
+	\par Esta é uma interrupção disparada por condição, persistindo até que um novo dado seja escrito no registrador UDRn ou a interrupção seja desabilitada manualmente.
+	\item \textbf{Transmissão completa}: Indica que todos os dados presentes no registrador de deslocamento já foram transmitidos.
+\end{itemize}
+
+\par Assim como ocorre com os temporizadores, quando em operação, a USART sobrescreve o funcionamento normal dos pinos PD0 (Rx) e PD1 (Tx)

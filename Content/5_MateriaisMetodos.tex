@@ -15,6 +15,8 @@
 
 \item Para controle de versão foi utilizado o \href{https://git-scm.com/}{\textit{Git}} sincronizado à um repositório \textit{on-line} no \href{https://github.com/}{\textit{Github}}.
 
+\item Para documentação do projeto, foi utilizada uma página do \href{www.gitbook.com}{\textit{Gitbook}}.
+
 \item Para o realizar modificações no código da IDE do Arduino, foi utilizado o \href{https://www.jetbrains.com/idea/}{\textit{InteliJ IDEA}} para escrever o código e o \href{https://ant.apache.org/}{\textit{Apache Ant}} para a compilação. Também foi utilizado o \href{https://inkscape.org/pt-br/}{\textit{Inkscape}} para a alteração no \textit{design} (inserção do botão "Android").
 
 \item Para o desenvolvimento \textit{mobile}, foi utilizada a IDE \href{https://developer.android.com/studio/}{\textit{Android Studio}}.
@@ -25,16 +27,17 @@
 
 \item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado o \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
 
-\item Também foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real.
+\item Em termos de hardware, foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real, principalmente comparações feitas em medidas de frequência, no qual se fez uso também de um osciloscópio InfiniiVision DSOX2002A, da Keysight.
 \end{itemize}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\newpage
 \section{Método}
 
 \subsection{Desenvolvimento na IDE do Arduino}
 
-\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Nela, foi criado um botão "Android" cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino. A figura~\ref{fig:diagrama_classes_usb} apresenta o diagrama de classes do código desenvolvido nesta etapa.
+\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Não houve muito desenvolvimento nela além da criação do botão "Android", cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino. A figura~\ref{fig:diagrama_classes_usb} apresenta o diagrama de classes do código desenvolvido nesta etapa.
 
  \begin{figure}[h]
 	\centering
@@ -44,23 +47,15 @@
 	\label{fig:diagrama_classes_usb}
 \end{figure}
 
-\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe \textit{Sketch} já existente no projeto do Arduino) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação.
+\par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe \textit{Sketch} já existente no projeto do Arduino) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação. Em conjunto, atua a classe \textit{DeviceWatcher}, que é uma \textit{thread} que fica a procura de novos dispositivos. Desta forma, caso algum aparelho seja conectado após a exibição da janela de seleção, a lista de dispositivos é atualizada automaticamente.
 
-% \begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\textwidth]{./Resources/device_selector}
-%	\caption{Seletor de dispositivos.} 
-%	Fonte: Autor
-%	\label{fig:selecionar_dispositivo}
-%\end{figure}
-
-\par A classe \textit{DeviceWatcher} é uma \textit{thread} que fica a procura de novos dispositivos. Desta forma, caso algum aparelho seja conectado após a exibição da janela de seleção, a lista de dispositivos é atualizada automaticamente.
-
-\par A classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor de dispositivos, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
+\par Já a classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor de dispositivos, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
 
 \par No Linux, todos os dispositivos MTP são montados por meio do \textit{GNOME Virtual file system} (GVfs). Utilizando a variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo .hex é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/SOFIA} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador.
 
 \par No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo .hex para o dispositivo Android no Windows.
+
+\par A classe \textit{USBManager} utiliza alguns comandos externos do sistema, tais como \textit{lsusb}, \textit{gio copy} e \textit{gvfs-copy}. O primeiro comando é necessário apenas para retornar um nome mais legível do dispositivo para o usuário (\textit{friendly name}), mas caso este não seja encontrado o sistema ainda será capaz de funcionar. Já o segundo e o terceiro comando são utilizados para transferir o arquivo para o dispositivo móvel, sendo executados na ordem: primeiro o \textit{gio copy}, seguido do \textit{gvfs-copy} em caso de falha (\textit{gvfs-copy} é um comando antigo, mas foi adicionado para compatibilidade). Se o usuário não tiver pelo menos um destes comandos disponíveis no computador, o sistema informará falha ao copiar o arquivo. (Estes comandos fazem parte do pacote básico de instalação das principais distribuições Linux.)
 
 %\par O botão "Android" foi posicionado junto aos demais botões já existentes na IDE, na parte superior esquerda, conforme mostra a figura~\ref{fig:botao_android}.
 

@@ -8,35 +8,40 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Organiza\c c\~ao do m\'odulo de Entrada/Sa\IeC {\'\i }da (E/S) do ATmega328P\relax }}{30}{figure.caption.10}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 0/2} do ATmega328P\relax }}{32}{figure.caption.11}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit {Low} e \textit {High}).\relax }}{33}{figure.caption.12}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Alinhamento do resultado nos registradores ADCH e ADCL\relax }}{35}{figure.caption.13}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Organiza\c c\~ao do conversor A/D\relax }}{36}{figure.caption.14}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Organiza\c c\~ao da USART\relax }}{39}{figure.caption.16}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Formato de um \textit {frame} transmitido pela USART.\relax }}{39}{figure.caption.17}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Diagrama de funcionamento do modo normal\relax }}{34}{figure.caption.13}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Diagrama de funcionamento do modo CTC\relax }}{34}{figure.caption.14}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Diagrama de funcionamento do modo \textit {fast PWM}\relax }}{35}{figure.caption.15}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Diagrama de funcionamento do modo PWM com Corre\c c\~ao de Fase\relax }}{36}{figure.caption.16}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Diagrama de funcionamento do modo PWM com Corre\c c\~ao de Fase e Frequ\^encia\relax }}{36}{figure.caption.17}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Alinhamento do resultado nos registradores ADCH e ADCL\relax }}{37}{figure.caption.18}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Organiza\c c\~ao do conversor A/D\relax }}{38}{figure.caption.19}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Formato de um \textit {frame} transmitido pela USART.\relax }}{40}{figure.caption.22}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Organiza\c c\~ao da USART\relax }}{41}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama de classes das modifica\c c\~oes realizadas na IDE do Arduino\relax }}{42}{figure.caption.18}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Arquitetura do simulador\relax }}{44}{figure.caption.19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama de classes das modifica\c c\~oes realizadas na IDE do Arduino\relax }}{45}{figure.caption.23}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Arquitetura do simulador\relax }}{47}{figure.caption.24}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Localiza\c c\~ao do bot\~ao "Android" (Selecionado) na IDE.\relax }}{49}{figure.caption.20}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Seletor de dispositivos.\relax }}{50}{figure.caption.21}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces C\'opia do arquivo realizada com sucesso para o \textit {smartphone}\relax }}{50}{figure.caption.22}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Splash Screen} exibida ao abrir o simulador.\relax }}{51}{figure.caption.23}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Tela inicial do simulador.\relax }}{51}{figure.caption.24}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Toolbar} do sistema\relax }}{52}{figure.caption.25}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Falha ao abrir arquivo hexadecimal\relax }}{53}{figure.caption.26}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Sa\IeC {\'\i }das digitais do simulador\relax }}{53}{figure.caption.27}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Entradas digitais do simulador.\relax }}{53}{figure.caption.28}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Condi\c c\~ao de cuito-circuito entre entradas.\relax }}{54}{figure.caption.29}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Entradas anal\'ogicas do simulador.\relax }}{54}{figure.caption.30}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Remo\c c\~ao manual de pinos de sa\IeC {\'\i }da.\relax }}{55}{figure.caption.31}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Cobertura dos testes para o projeto.\relax }}{56}{figure.caption.32}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Cobertura dos testes para o m\'odulo de CPU.\relax }}{56}{figure.caption.33}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Cobertura dos testes para o m\'odulo de mem\'oria de dados.\relax }}{56}{figure.caption.34}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {bugs}.\relax }}{57}{figure.caption.35}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao das vulnerabilidades.\relax }}{58}{figure.caption.36}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {Code Smells}.\relax }}{59}{figure.caption.37}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Gr\'afico linhas de c\'odigo x linhas de c\'odigo duplicadas.\relax }}{60}{figure.caption.38}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Uso de CPU e mem\'oria para o projeto \textit {Blink}.\relax }}{61}{figure.caption.39}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Tempo de uso da CPU (medido em uma janela de 5 minutos).\relax }}{61}{figure.caption.40}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{62}{figure.caption.41}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Localiza\c c\~ao do bot\~ao "Android" (Selecionado) na IDE.\relax }}{53}{figure.caption.25}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Seletor de dispositivos.\relax }}{54}{figure.caption.26}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces C\'opia do arquivo realizada com sucesso para o \textit {smartphone}\relax }}{54}{figure.caption.27}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Splash Screen} exibida ao abrir o simulador.\relax }}{55}{figure.caption.28}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Tela inicial do simulador.\relax }}{55}{figure.caption.29}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Toolbar} do sistema\relax }}{56}{figure.caption.30}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Falha ao abrir arquivo hexadecimal\relax }}{57}{figure.caption.31}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Sa\IeC {\'\i }das digitais do simulador\relax }}{57}{figure.caption.32}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Entradas digitais do simulador.\relax }}{57}{figure.caption.33}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Condi\c c\~ao de cuito-circuito entre entradas.\relax }}{58}{figure.caption.34}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Entradas anal\'ogicas do simulador.\relax }}{58}{figure.caption.35}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Remo\c c\~ao manual de pinos de sa\IeC {\'\i }da.\relax }}{59}{figure.caption.36}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Cobertura dos testes para o projeto.\relax }}{60}{figure.caption.37}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Cobertura dos testes para o m\'odulo de CPU.\relax }}{60}{figure.caption.38}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Cobertura dos testes para o m\'odulo de mem\'oria de dados.\relax }}{60}{figure.caption.39}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {bugs}.\relax }}{61}{figure.caption.40}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao das vulnerabilidades.\relax }}{62}{figure.caption.41}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {Code Smells}.\relax }}{63}{figure.caption.42}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Gr\'afico linhas de c\'odigo x linhas de c\'odigo duplicadas.\relax }}{64}{figure.caption.43}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Uso de CPU e mem\'oria para o projeto \textit {Blink}.\relax }}{65}{figure.caption.44}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Tempo de uso da CPU (medido em uma janela de 5 minutos).\relax }}{65}{figure.caption.45}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{66}{figure.caption.46}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
