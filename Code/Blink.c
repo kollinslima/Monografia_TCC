@@ -16,7 +16,6 @@ void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(output_pin, OUTPUT);
 }
-
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)

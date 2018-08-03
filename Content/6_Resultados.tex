@@ -225,47 +225,74 @@
 	\label{fig:frequencimetro}
 \end{figure}
 
-\section{Características e limitações}
+\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{Apêndice A} e~\ref{Apêndice B}.
+\par O projeto \textit{Blink} foi utilizado ora com a função \textit{delay}, ora com função \textit{delayMicroseconds}, desta forma podendo obter diferentes valores de frequência gerados por diferentes métodos.
+\par O projeto \textit{Timer1} foi modificado para utilizar o modo \textit{FastPWM}. Esta alteração foi feita somente para facilitar a alteração dos valores de frequência por meio do valor nos registradores OCR1A/ICR1.
 
-\par Como é de se esperar, o sistema desenvolvido possui diversas limitações em comparação com o sistema real, a começar pela quantidade de módulos desenvolvidos e seus modos de operação, que cobrem apenas as principais funcionalidades de um Arduino.
+\par As tabelas~\ref{tab:comparacao_frequencia} e~\ref{tab:comparacao_duty} apresentam os valores medidos de frequência obtidos com o simulador e com o osciloscópio ligado ao Arduino, bem como o erro relativo de cada medição. 
+\par Como pode ser observado, o simulador e o Arduino se comportam de maneira semelhantes tanto na geração de frequência quanto nas características do \textit{duty cicle}, apresentando um erro relativo alto quando se trabalha com altas frequências, bem como uma dificuldade na geração/medição de pequenos valores de \textit{duty cicle}. 
 
-\par Provavelmente, a principal limitação do sistema é sua velocidade. 
+\par Com isso, conclui-se que o frequencímetro incluso no simulador fornece medições satisfatórias, principalmente se a aplicação desenvolvida não tiver grandes exigências o parâmetro de frequência e \textit{duty cicle}. Notou-se apenas uma certa instabilidade nos valores quando as medições eram feitas em altas frequências (principalmente após um \textit{reset} manual), mas nada crítico ao ponto de não permitir o uso e a leitura correta das grandezas.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparação das medições de frequência.}
+	\label{tab:comparacao_frequencia}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\textbf{Função}} & \multirow{2}{*}{\textbf{Período}} & \multicolumn{3}{c|}{\textbf{Frequência (Hz)}} & \multicolumn{2}{c|}{\textbf{Erro (\%)}} \\ \cline{3-7} 
+		&                   & Exata & SOFIA & Arduino & SOFIA & Arduino   \\ \hline
+		\multirow{3}{*}{\textit{delayMicroseconds}} 
+		& 2$\mu$s     & 500000 & 145455 & 145370 & 70,91 & 70,93 \\ \cline{2-7} 
+		& 20$\mu$s    & 50000  & 41026  & 41000  & 17,95 & 18,00 \\ \cline{2-7} 
+		& 200$\mu$s   & 5000   & 4893   & 4890   & 2,14  & 2,2          \\ \hline
+		\multirow{2}{*}{\textit{delay}} 
+		&  2ms  & 500 & 496 & 495 & 0,80 & 1,00 \\ \cline{2-7} 
+		&  4ms  & 250 & 249 & 248 & 0,40 & 0,80 \\ \hline
+		\multirow{5}{*}{\textit{Timer1}} 
+		& 125ns     & 8000000 & 40201 & 40180 & 99,5 & 99,5     \\ \cline{2-7} 
+		& 2$\mu$s   & 500000  & 40201 & 40180 & 91,96 & 91,96     \\ \cline{2-7} 
+		& 32$\mu$s  & 31250   & 19735 & 19741 & 36,85 & 36,83     \\ \cline{2-7} 
+		& 512$\mu$s & 1953,13 & 1885  & 1883  & 3,49  & 3,59     \\ \cline{2-7} 
+		& 7,68ms    & 130,21  & 130   & 129,8 & 0,16  & 0,31      \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Comparação das medições de \textit{duty cicle}.}
+	\label{tab:comparacao_duty}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\textbf{Função}} & \multirow{2}{*}{\textbf{Frequência (Hz)}} & \multicolumn{3}{c|}{\textbf{\textit{Duty Cicle} (\%)}} & \multicolumn{2}{c|}{\textbf{Erro (\%)}} \\ \cline{3-7} 
+		&                   & Exata & SOFIA & Arduino & SOFIA & Arduino   \\ \hline
+		\multirow{3}{*}{\textit{delayMicroseconds}} 
+		& 5000    & 50    & 50 & 49,97 & 0    & 0,06  \\ \cline{2-7} 
+		& 9090,91 & 9,09  & 11 & 10,06 & 21   & 16,6  \\ \cline{2-7} 
+		& 9900,99 & 0,99  & 3  & 3,02  & 203  & 223,2 \\ \cline{2-7}
+		& 9090,91 & 90,91 & 89 & 89,3  & 2,1  & 1,77  \\ \cline{2-7} 
+		& 9900,99 & 99,91 & 97 & 96,7  & 2,03 & 2,333 \\ \hline
+		\multirow{2}{*}{\textit{delay}} 
+		& 500    & 50    & 50 & 50   & 0   & 0  \\ \cline{2-7} 
+		& 333,33 & 66,67 & 67 & 66,5 & 0,5 & 0,25 \\ \cline{2-7} 
+		& 250    & 75    & 75 & 74,8 & 0 & 0,27 \\ \cline{2-7} 
+		& 333,33 & 33,33 & 33 & 33,5 & 1 & 0,5 \\ \cline{2-7} 
+		& 250    & 25    & 25 & 25,1 & 0 & 0,4 \\ \hline
+		\multirow{5}{*}{\textit{Timer1}} 
+		& 31189,08 & 99,81 & 100 & 99,63 & 0,2  & 0,18      \\ \cline{2-7} 
+		& 31189,08 & 96,88 & 97  & 96,7  & 0,12 & 0,19     \\ \cline{2-7} 
+		& 31189,08 & 50,1  & 50  & 49,9  & 0,19 & 0,39     \\ \cline{2-7} 
+		& 31189,08 & 46,98 & 47  & 46,8  & 0,05 & 0,38     \\ \cline{2-7} 
+		& 31189,08 & 3,31  & 3   & 3,12  & 9,47 & 5,85     \\ \cline{2-7} 
+		& 31189,08 & 0,39  & 0   & 0,19  & 100  & 51,27      \\ \hline
+	\end{tabular}
+\end{table}
 
 \section{Métricas de \textit{Software}}
 
-\subsection{Cobertura}
-
-\par Foram criados testes de unidade para os módulos de CPU e memória de dados. Estes módulos foram escolhidos por serem os mais importantes para o funcionamento da simulação. 
-\par No total, foram criados 356 casos de teste cobrindo todas as instruções da CPU e as operações de leitura e escrita na memória (considerando todos os casos especiais). O foco dos testes foi a verificação de valores limite (operações envolvendo \textit{overflow} ou \textit{underflow}) e verificação das \textit{flags} do registrador SREG.
-\par As figuras~\ref{fig:cobertura_geral},~\ref{fig:cobertura_cpu} e~\ref{fig:cobertura_memoria} mostram os resultados de cobertura dos testes para o projeto, CPU e memória de dados respectivamente. Como se pode ver pela figura~\ref{fig:cobertura_geral}, os casos de teste cobrem cerca de 19\% de todo o projeto e a CPU é coberta quase que totalmente, como mostra a figura~\ref{fig:cobertura_cpu}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./Resources/code_coverage}
-	\caption{Cobertura dos testes para o projeto.} 
-	Fonte: Autor
-	\label{fig:cobertura_geral}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_cpu}
-	\caption{Cobertura dos testes para o módulo de CPU.} 
-	Fonte: Autor
-	\label{fig:cobertura_cpu}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_dataMemory}
-	\caption{Cobertura dos testes para o módulo de memória de dados.} 
-	Fonte: Autor
-	\label{fig:cobertura_memoria}
-\end{figure}
-
 \subsection{Análise Estática}
 
-\par Com o uso do SonarQube, foi realizada a analise estática do código com o objetivo de encontrar pontos de melhoria no código. O SonarQube fornece diversas métricas a respeito do projeto, além de classificar a qualidade do \textit{software} com notas variando de A (melhor qualidade) a E (pior qualidade).
+\par Com o uso do SonarQube, foi realizada a analise estática do código com o objetivo principal de identificar e corrigir problemas relacionados à segurança, vulnerabilidades e manutenibilidade. O SonarQube fornece diversas métricas a respeito do projeto, além de classificar a qualidade do \textit{software} com notas variando de A (melhor qualidade) a E (pior qualidade).
 \par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados (tempo para correção dos defeitos). Pode-se observar que uma classe se destaca pela sua quantidade de \textit{bugs}, esta classe é a \textit{DataMemory\_ATmega328P}.
 
 \begin{figure}[h]
@@ -276,9 +303,10 @@
 	\label{fig:confiabilidade}
 \end{figure}
  
-\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, mas mesmo assim o SonarQube não os reconhece) e quanto à conversão de dados de \textit{int} para \textit{byte} (os casos de teste criados com o JUnit4 estão testando estas conversões). Devido à estes \textit{bugs}, o sistema foi classificado com o \textit{ranking} D em termos de confiabilidade.
+\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, no Android Studio) e à conversão (\textit{cast}) de valores (os casos de teste criados com o JUnit4 estão testando estas conversões). 
+\par Devido à estes problemas o sistema receberia classificação C em termos de confiabilidade, no entanto foi atribuída a nota E devido à um \textit{bug} identificado na classe \textit{DataBaseHelper} relacionado à abertura e fechamento do banco de dados (apesar de ter sido corrigido conforme a sugestão proposta).
 
-\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque, esta é a \textit{UCModule}.
+\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque, esta é a \textit{OutputFragment\_Atmega328P}.
 
 \begin{figure}[h]
 	\centering
@@ -288,7 +316,7 @@
 	\label{fig:seguranca}
 \end{figure} 
 
-\par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas. O sistema foi classificado com o \textit{ranking} B para segurança.
+\par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas.O sistema foi classificado com o \textit{ranking} B para segurança.
 
 \par A próxima métrica obtida diz respeito a manutenibilidade do código. Esta medida é feita com base na compexidade cognitiva dos métodos e quanto ao uso devido/indevido de padrões de codificação (esses são chamados \textit{Code Smells}). A figura~\ref{fig:manutencao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de \textit{Code Smells} encontrados (tempo para correção dos defeitos). A classe com maior número de problemas para essa métrica é a \textit{Timer1\_ATmega328P}.
 
@@ -300,7 +328,8 @@
 	\label{fig:manutencao}
 \end{figure} 
 
-\par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, e portanto nenhuma sugestão desta seção foi aplicada no código até o momento. Apesar disso, o sistema foi classificado com \textit{ranking} A em termos de manutenibilidade.
+\par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, já que comprometeria a arquitetura geral do projeto.
+\par Outro problema apontado quanto à manutenibilidade foi a quantidade de níveis de herança que algumas classes possuem, excedendo o limite de 5 níveis. Não há muito o que fazer nestes casos, já que estas classes não herdam de nenhum código desenvolvido, mas de classes do próprio sistema Android (como a \textit{AppCompatActivity}). Este foi o principal motivo para que o sistema fosse classificado com o \textit{ranking} C para manutenibilidade.
 
 \par Também foi obtida uma métrica de código duplicado. A figura~\ref{fig:duplicacao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de linhas de código duplicadas. 
 
@@ -312,10 +341,49 @@
 	\label{fig:duplicacao}
 \end{figure} 
 
-\par As três classes com maior número de código duplicado são as classes referentes aos \textit{Timers}. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos. No entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva). Desta forma, foram criados diferentes métodos, cada um com pequenas diferenças de modo a atender o modo de operação configurado.
-\par Por ter um grande número de modos de operação, a classe com mais código duplicado (em destaque no gráfico) é a classe \textit{Timer1\_ATmega328P}.
+\par As classes com maior número de código duplicado são as classes referentes aos \textit{Timers} (O \textit{Timer1} é a classe em destaque na figura~\ref{fig:duplicacao}) e a CPU. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos, no entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva) e portanto, foram criados diferentes métodos, cada um com pequenas diferenças de modo a atender o modo de operação configurado. Da mesma forma, várias instruções da CPU realizam a leitura e a escrita dos valores na memória de maneira idêntica, mas suas operações são diferentes de modo que também não é possível unir códigos de diferentes instruções.
 
-\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto. O valor obtido para complexidade ciclomática foi de 1.802.
+\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto. O valor obtido para complexidade ciclomática foi de 1.969.
+
+\subsection{Cobertura}
+
+\par Foram criados teste de unidade para todos os principais módulos do projeto (CPU, memórias de dado e de programa, ADC, \textit{Timers}, USART e módulo de interrupção), totalizando 808 casos de teste. O foco dos testes foi principalmente a cobertura de linhas e condicionais e análise de valor limite, este último sendo o foco dos testes na CPU.
+
+\par A cobertura dos testes criado foi medida tanto com a ferramenta interna do Android Studio quanto com o plugin JaCoCo (integrado ao SonarQube). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o Android Studio registrando 59\% de cobertura e o JaCoCo 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.65\textwidth]{./Resources/cobertura_android_studio}
+	\caption{Medida de cobertura do projeto obtida com o  Android Studio.} 
+	Fonte: Autor
+	\label{fig:cobertura_android_studio}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_jacoco}
+	\caption{Medida de cobertura do projeto obtida com o JaCoCo.} 
+	Fonte: Autor
+	\label{fig:cobertura_jacoco}
+\end{figure}
+
+\par A cobertura dos testes por módulo são apresentadas nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao que foi feito, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, já que este é mais dedicado à operações com interface gráfica.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/cobertura_modulo_android_studio}
+	\caption{Cobertura por módulo (Android Studio).} 
+	Fonte: Autor
+	\label{fig:cobertura_modulo_android_studio}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/cobertura_modulo_jacoco}
+	\caption{Cobertura por módulo (JaCoCo).} 
+	Fonte: Autor
+	\label{fig:cobertura_modulo_jacoco}
+\end{figure}
 
 \subsection{\textit{Profiling}}
 

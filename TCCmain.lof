@@ -38,15 +38,17 @@
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Configura\c c\~ao de tens\~ao externa aplicada ao pino AREF, usada como base para convers\~ao A/D.\relax }}{61}{figure.caption.39}
 \contentsline {figure}{\numberline {4.16}{\ignorespaces \'Icone do frequenc\IeC {\'\i }metro.\relax }}{62}{figure.caption.40}
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Frequenc\IeC {\'\i }metro em funcionamento.\relax }}{62}{figure.caption.41}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Cobertura dos testes para o projeto.\relax }}{62}{figure.caption.42}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Cobertura dos testes para o m\'odulo de CPU.\relax }}{63}{figure.caption.43}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Cobertura dos testes para o m\'odulo de mem\'oria de dados.\relax }}{63}{figure.caption.44}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {bugs}.\relax }}{64}{figure.caption.45}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao das vulnerabilidades.\relax }}{65}{figure.caption.46}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {Code Smells}.\relax }}{66}{figure.caption.47}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Gr\'afico linhas de c\'odigo x linhas de c\'odigo duplicadas.\relax }}{67}{figure.caption.48}
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Uso de CPU e mem\'oria para o projeto \textit {Blink}.\relax }}{68}{figure.caption.49}
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Tempo de uso da CPU (medido em uma janela de 5 minutos).\relax }}{68}{figure.caption.50}
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{69}{figure.caption.51}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {bugs}.\relax }}{64}{figure.caption.44}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao das vulnerabilidades.\relax }}{65}{figure.caption.45}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Gr\'afico linhas de c\'odigo x esfor\c co para resolu\c c\~ao dos \textit {Code Smells}.\relax }}{66}{figure.caption.46}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Gr\'afico linhas de c\'odigo x linhas de c\'odigo duplicadas.\relax }}{67}{figure.caption.47}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Medida de cobertura do projeto obtida com o Android Studio.\relax }}{67}{figure.caption.48}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Medida de cobertura do projeto obtida com o JaCoCo.\relax }}{68}{figure.caption.49}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Cobertura por m\'odulo (Android Studio).\relax }}{68}{figure.caption.50}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Cobertura por m\'odulo (JaCoCo).\relax }}{69}{figure.caption.51}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Uso de CPU e mem\'oria para o projeto \textit {Blink}.\relax }}{70}{figure.caption.52}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Tempo de uso da CPU (medido em uma janela de 5 minutos).\relax }}{70}{figure.caption.53}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{71}{figure.caption.54}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

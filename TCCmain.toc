@@ -42,12 +42,13 @@
 \contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{60}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{61}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{61}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{62}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Cobertura}{62}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}An\'alise Est\'atica}{63}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{66}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}C\'odigo e documenta\c c\~ao}{69}{subsection.4.3.4}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{71}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{73}{subsection.5.0.1}
-\contentsline {chapter}{Refer\^encias}{74}{Item.16}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink} utilizado para realiza\c c\~ao do \textit {profilling}}{77}{appendix.A}
+\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{64}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{64}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Cobertura}{67}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{69}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}C\'odigo e documenta\c c\~ao}{71}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{73}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{75}{subsection.5.0.1}
+\contentsline {chapter}{Refer\^encias}{76}{Item.16}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{79}{appendix.A}
+\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Timer1}}{81}{appendix.B}
