@@ -48,7 +48,8 @@
 \contentsline {figure}{\numberline {4.25}{\ignorespaces Cobertura por m\'odulo (JaCoCo).\relax }}{69}{figure.caption.51}
 \contentsline {figure}{\numberline {4.26}{\ignorespaces Uso de CPU e mem\'oria para o projeto \textit {Blink}.\relax }}{70}{figure.caption.52}
 \contentsline {figure}{\numberline {4.27}{\ignorespaces Tempo de uso da CPU (medido em uma janela de 5 minutos).\relax }}{70}{figure.caption.53}
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{71}{figure.caption.54}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Tempo de uso da CPU ap\'os melhoria no m\'etodo \textit {run} (medido em uma janela de 5 minutos).\relax }}{70}{figure.caption.54}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Consumo de mem\'oria (medido em uma janela de 5 minutos).\relax }}{71}{figure.caption.55}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

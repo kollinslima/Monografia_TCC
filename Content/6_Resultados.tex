@@ -387,17 +387,18 @@
 
 \subsection{\textit{Profiling}}
 
-\par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. Para isso, utilizou-se o projeto \textit{Blink} apresentado no Apêndice~\ref{Apêndice A}. A figura~\ref{fig:profilling_geral} mostra o desempenho do sistema quanto ao uso de CPU e memória. Pode-se observar pela figura~\ref{fig:profilling_geral} que o uso de CPU fica entre 10 e 20\%, enquanto que o uso de memória está entre 25MB e 35MB.
+\par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{Apêndice A}), foi utilizado no simulador durante a execução do \textit{profilling}. 
+\par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 30\%, enquanto que o uso de memória está entre 30MB e 40MB.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{./Resources/profilling_general}
+	\includegraphics[width=0.7\textwidth]{./Resources/profilling_general}
 	\caption{Uso de CPU e memória para o projeto \textit{Blink}.} 
 	Fonte: Autor
 	\label{fig:profilling_geral}
 \end{figure} 
 
-\par Olhando especificamente para a CPU, observou-se dois pontos críticos no sistema: um deles é o mecanismo de sincronização entre as \textit{threads} e o outro é a atualização dos elementos visuais (tempo simulado e uso de memória) pela \textit{UCModule\_View}, como mostrado na figura~\ref{fig:profilling_cpu}.
+\par Olhando especificamente para a CPU (utilizando a opção de gravação instrumentada para rastreamento de métodos), observou-se que o muito do uso de CPU não está relacionado diretamente com as classes desenvolvidas, mas sim com chamadas à classes internas do Android. Do que foi desenvolvido, a classe \textit{UCModule\_View} se mostra o principal ponto crítico, mais especificamente o método \textit{run}, que faz a atualização do tempo simulado na tela. A figura~\ref{fig:profilling_cpu} apresenta este resultado.
 
 \begin{figure}[h]
 	\centering
@@ -407,17 +408,15 @@
 	\label{fig:profilling_cpu}
 \end{figure} 
 
-\par O primeiro ponto identificado é de difícil otimização. As funções de \textit{clock} mostradas na figura~\ref{fig:profilling_cpu} fazem uso de \textit{locks} para manter a sincronia entre as \textit{threads} e este é um mecanismo necessário. O código~\ref{alg:clock_cpu} mostra o  método de \textit{clock} da CPU. Esta mesma estrutura se repete para o \textit{clock} dos demais módulos.
+\par Uma medida tomada quanto à este resultado foi atrasar a atualização do tempo simulado por um fator de 128, ou seja, uma requisição de atualização da tela só é dada após 128 passagens pelo método \textit{run} (o valor de 128 foi obtido experimentalmente de modo a não prejudicar a fluidez da interface). Essa medida teve um impacto significativo no desempenho deste método, passando de 18\% de tempo de CPU para pouco mais de 2,5\% , como mostra a figura~\ref{fig:profilling_cpu_melhoria}.
 
-\begin{minipage}[h]{\textwidth}
-\lstinputlisting[floatplacement=H,label=alg:clock_cpu, caption={Método \textit{clockCPU}.},language=Java]{./Code/clockCPU.java}
-\end{minipage}
-
-\par Para poder otimizar este código, seria necessário repensar a maneira como os módulos são sincronizados, o que envolve uma mudança na arquitetura do simulador. Também seria possível pensar em uma maneira de desligar módulos que não estão sendo utilizados. O registrador PRR do ATmega328P permite desligar módulos para se obter uma economia de energia, no entando, esta funcionalidade ainda não foi implementada no simulador.
-
-\par Quanto o segundo ponto crítico, a impressão dos textos de tempo simulado e uso de memória não afetam o funcionamento do sistema e, a princípio, poderiam ser removidos. Uma abordagem menos drástica seria diminuir a frequência de impressão para reduzir a quantidade de chamadas à função \textit{setText}.
-
-\par No entanto, pode-se observar pela figura~\ref{fig:profilling_cpu} que a maior parte do tempo é gasto com funções internas (para gerenciamento de interface gráfica). Os métodos de \textit{clock} e a \textit{UCModule\_View} correspondem a apenas 17\% do uso da CPU.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/profilling_cpu_melhoria}
+	\caption{Tempo de uso da CPU após melhoria no método \textit{run} (medido em uma janela de 5 minutos).} 
+	Fonte: Autor
+	\label{fig:profilling_cpu_melhoria}
+\end{figure} 
 
 \par Também foi feito um \textit{profilling} específico para o uso de memória. Os resultados são mostrados na figura~\ref{fig:profilling_memoria}.
 
@@ -429,8 +428,7 @@
 	\label{fig:profilling_memoria}
 \end{figure} 
 
-\par O problema maior com memória é novamente a classe \textit{UCModule\_View}, que faz continuamente chamadas para o método \textit{getString} a fim de formatar corretamente o tempo simulado na tela. Uma solução seria evitar o uso desta função, fazendo uma formatação manual da \textit{string} ou utilizando soluções locais, que não envolvam o uso de arquivos de recurso do Android.
-\par Também é possível observar que o módulo de CPU aparece nas primeiras posições da lista. Isso ocorre pois cada instrução utiliza variáveis locais para armazenar seus operadores. É interessante criar variáveis globais para serem utilizadas pelas instruções da CPU uma vez que seu uso é intenso.
+
 
 
 \subsection{Código e documentação}
