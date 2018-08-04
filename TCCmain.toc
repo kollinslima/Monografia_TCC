@@ -1,54 +1,58 @@
 \babel@toc {brazil}{}
-\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{17}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{19}{section.1.1}
-\contentsline {section}{\numberline {1.2}Objetivo}{21}{section.1.2}
-\contentsline {section}{\numberline {1.3}Justificativa}{21}{section.1.3}
-\contentsline {section}{\numberline {1.4}Organiza\c c\~ao do Trabalho}{21}{section.1.4}
-\contentsline {chapter}{\numberline {2}Embasamento Te\'orico}{23}{chapter.2}
-\contentsline {section}{\numberline {2.1}Vis\~ao Geral}{23}{section.2.1}
-\contentsline {section}{\numberline {2.2}CPU}{24}{section.2.2}
-\contentsline {section}{\numberline {2.3}Mem\'oria de Programa}{27}{section.2.3}
-\contentsline {section}{\numberline {2.4}Mem\'oria de Dados}{28}{section.2.4}
-\contentsline {section}{\numberline {2.5}M\'odulo de Entrada e Sa\IeC {\'\i }da Digital}{29}{section.2.5}
-\contentsline {section}{\numberline {2.6}Temporizadores}{31}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Modo Normal}{31}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}Modo CTC}{31}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}Modo \textit {Fast PWM}}{34}{subsection.2.6.3}
-\contentsline {subsection}{\numberline {2.6.4}Modo PWM com Corre\c c\~ao de Fase}{35}{subsection.2.6.4}
-\contentsline {subsection}{\numberline {2.6.5}Modo PWM com Corre\c c\~ao de Fase e Frequ\^encia}{36}{subsection.2.6.5}
-\contentsline {subsection}{\numberline {2.6.6}Captura de Eventos}{36}{subsection.2.6.6}
-\contentsline {section}{\numberline {2.7}Conversor A/D}{37}{section.2.7}
-\contentsline {section}{\numberline {2.8}USART}{40}{section.2.8}
-\contentsline {chapter}{\numberline {3}Desenvolvimento do Projeto}{43}{chapter.3}
-\contentsline {section}{\numberline {3.1}Material}{43}{section.3.1}
-\contentsline {section}{\numberline {3.2}M\'etodo}{45}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{45}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{46}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}Arquitetura}{46}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}M\'odulo principal}{46}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}CPU}{48}{subsubsection.3.2.2.3}
-\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Programa}{48}{subsubsection.3.2.2.4}
-\contentsline {subsubsection}{\numberline {3.2.2.5}Mem\'oria de Dados}{49}{subsubsection.3.2.2.5}
-\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de Interrup\c c\~ao}{49}{subsubsection.3.2.2.6}
-\contentsline {subsubsection}{\numberline {3.2.2.7}M\'odulo de E/S}{49}{subsubsection.3.2.2.7}
-\contentsline {subsubsection}{\numberline {3.2.2.8}Temporizadores}{50}{subsubsection.3.2.2.8}
-\contentsline {subsubsection}{\numberline {3.2.2.9}Conversor A/D}{50}{subsubsection.3.2.2.9}
-\contentsline {subsubsection}{\numberline {3.2.2.10}USART}{51}{subsubsection.3.2.2.10}
-\contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{53}{chapter.4}
-\contentsline {section}{\numberline {4.1}Arduino IDE}{53}{section.4.1}
-\contentsline {section}{\numberline {4.2}Simulador}{54}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Intera\c c\~ao com o sistema}{56}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Monitor Serial}{59}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{60}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{61}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{61}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{64}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{64}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Cobertura}{67}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{69}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}C\'odigo e documenta\c c\~ao}{71}{subsection.4.3.4}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{73}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{75}{subsection.5.0.1}
-\contentsline {chapter}{Refer\^encias}{76}{Item.16}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{79}{appendix.A}
-\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Timer1}}{81}{appendix.B}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{19}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{21}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objetivo}{23}{section.1.2}
+\contentsline {section}{\numberline {1.3}Justificativa}{23}{section.1.3}
+\contentsline {section}{\numberline {1.4}Organiza\c c\~ao do Trabalho}{23}{section.1.4}
+\contentsline {chapter}{\numberline {2}Embasamento Te\'orico}{25}{chapter.2}
+\contentsline {section}{\numberline {2.1}Vis\~ao Geral}{25}{section.2.1}
+\contentsline {section}{\numberline {2.2}CPU}{26}{section.2.2}
+\contentsline {section}{\numberline {2.3}Mem\'oria de Programa}{29}{section.2.3}
+\contentsline {section}{\numberline {2.4}Mem\'oria de Dados}{30}{section.2.4}
+\contentsline {section}{\numberline {2.5}M\'odulo de Entrada e Sa\IeC {\'\i }da Digital}{31}{section.2.5}
+\contentsline {section}{\numberline {2.6}Temporizadores}{33}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Modo Normal}{33}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Modo CTC}{33}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Modo \textit {Fast PWM}}{36}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}Modo PWM com Corre\c c\~ao de Fase}{37}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.5}Modo PWM com Corre\c c\~ao de Fase e Frequ\^encia}{38}{subsection.2.6.5}
+\contentsline {subsection}{\numberline {2.6.6}Captura de Eventos}{38}{subsection.2.6.6}
+\contentsline {section}{\numberline {2.7}Conversor A/D}{39}{section.2.7}
+\contentsline {section}{\numberline {2.8}USART}{42}{section.2.8}
+\contentsline {chapter}{\numberline {3}Desenvolvimento do Projeto}{45}{chapter.3}
+\contentsline {section}{\numberline {3.1}Material}{45}{section.3.1}
+\contentsline {section}{\numberline {3.2}M\'etodo}{47}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{47}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{48}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Arquitetura}{48}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}M\'odulo principal}{48}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}CPU}{50}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Programa}{50}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}Mem\'oria de Dados}{51}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de Interrup\c c\~ao}{51}{subsubsection.3.2.2.6}
+\contentsline {subsubsection}{\numberline {3.2.2.7}M\'odulo de E/S}{51}{subsubsection.3.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.8}Temporizadores}{52}{subsubsection.3.2.2.8}
+\contentsline {subsubsection}{\numberline {3.2.2.9}Conversor A/D}{52}{subsubsection.3.2.2.9}
+\contentsline {subsubsection}{\numberline {3.2.2.10}USART}{53}{subsubsection.3.2.2.10}
+\contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{55}{chapter.4}
+\contentsline {section}{\numberline {4.1}Arduino IDE}{55}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simulador}{56}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Intera\c c\~ao com o sistema}{58}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Monitor Serial}{61}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{62}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{63}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{63}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{66}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{66}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Cobertura}{69}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{71}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Compara\c c\~ao entre aplicativos}{73}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Interface}{74}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Recursos}{78}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}C\'odigo e documenta\c c\~ao}{78}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{79}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{81}{subsection.5.0.1}
+\contentsline {chapter}{Refer\^encias}{82}{Item.16}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{85}{appendix.A}
+\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Timer1}}{87}{appendix.B}
+\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Blink} em assembly para o simulador \textit {AndMCU}}{89}{appendix.C}

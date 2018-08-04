@@ -91,6 +91,7 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 \par Ainda quanto à sincronia dos módulos, buscou-se preservar o número correto de ciclos de clock que cada instrução da CPU leva para executar, bem como chamadas para rotinas de interrupção e \textit{prescalers} dos temporizadores. A exceção fica apenas para o conversor A/D, cujo tempo de conversão é de apenas 1 ciclo de clock (originalmente, o Arduino leva cerca de 13 ciclos) e os \textit{prescalers} foram desabilitados. Essa mudança se justifica por não afetar de maneira significativa o realismo da simulação, ao mesmo tempo que proporciona um ganho de performance, tornando o sistema mais agradável ao usuário.
 
 \subsubsection{CPU}
+\label{teoria_cpu}
 
 \par O próximo módulo, a CPU (\textit{CPUModule}), é responsável pela execução das instruções contidas na memória de programa. Ao final de cada instrução, é feita a verificação por interrupções, que são executadas em ordem de prioridade conforme apresentado na tabela~\ref{interruption_vector}. Todas as instruções do microcontrolador ATmega328P foram implementadas, com exceção das instruções \textit{BREAK}, \textit{SLEEP} e \textit{WDR}.
 

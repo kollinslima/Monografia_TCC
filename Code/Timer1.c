@@ -31,7 +31,6 @@ void setup()
 void loop()
 {}
 
-
 ISR(TIMER1_OVF_vect)                              
 { 
   digitalWrite(ledPin, digitalRead(ledPin) ^ 1);                           

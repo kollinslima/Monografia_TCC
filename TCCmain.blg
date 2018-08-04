@@ -1,46 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2018/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: TCCmain.aux
 The style file: unsrt.bst
 Database file #1: ./Content/References.bib
-You've used 17 entries,
+You've used 18 entries,
             1791 wiz_defined-function locations,
-            544 strings with 6375 characters,
-and the built_in function-call counts, 2793 in all, are:
-= -- 235
-> -- 99
+            550 strings with 6537 characters,
+and the built_in function-call counts, 2922 in all, are:
+= -- 246
+> -- 103
 < -- 2
-+ -- 43
-- -- 26
-* -- 78
-:= -- 421
-add.period$ -- 50
-call.type$ -- 17
-change.case$ -- 16
++ -- 45
+- -- 27
+* -- 79
+:= -- 441
+add.period$ -- 53
+call.type$ -- 18
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 127
-empty$ -- 349
-format.name$ -- 26
-if$ -- 672
+cite$ -- 18
+duplicate$ -- 132
+empty$ -- 367
+format.name$ -- 27
+if$ -- 703
 int.to.chr$ -- 0
-int.to.str$ -- 17
+int.to.str$ -- 18
 missing$ -- 6
-newline$ -- 87
-num.names$ -- 17
-pop$ -- 103
+newline$ -- 92
+num.names$ -- 18
+pop$ -- 109
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 75
+skip$ -- 78
 stack$ -- 0
 substring$ -- 56
-swap$ -- 37
+swap$ -- 38
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 21
-width$ -- 19
-write$ -- 174
+while$ -- 22
+width$ -- 20
+write$ -- 184

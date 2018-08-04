@@ -37,6 +37,7 @@
 \end{figure}
 
 \section{Simulador}
+\label{resultado_sofia}
 
 \par Ao abrir o simulador, o usuário é recebido com uma \textit{Splash Screen}, mostrada na figura~\ref{fig:splash_screen}, enquanto o banco de dados é carregado para a memória.
 
@@ -225,7 +226,7 @@
 	\label{fig:frequencimetro}
 \end{figure}
 
-\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{Apêndice A} e~\ref{Apêndice B}.
+\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{apendice_blink} e~\ref{apendice_timer1}.
 \par O projeto \textit{Blink} foi utilizado ora com a função \textit{delay}, ora com função \textit{delayMicroseconds}, desta forma podendo obter diferentes valores de frequência gerados por diferentes métodos.
 \par O projeto \textit{Timer1} foi modificado para utilizar o modo \textit{FastPWM}. Esta alteração foi feita somente para facilitar a alteração dos valores de frequência por meio do valor nos registradores OCR1A/ICR1.
 
@@ -387,8 +388,8 @@
 
 \subsection{\textit{Profiling}}
 
-\par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{Apêndice A}), foi utilizado no simulador durante a execução do \textit{profilling}. 
-\par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 30\%, enquanto que o uso de memória está entre 30MB e 40MB.
+\par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{apendice_blink}), foi utilizado no simulador durante a execução do \textit{profilling}. 
+\par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 30\% (chegando até 40\%), enquanto que o uso de memória está entre 30MB e 40MB.
 
 \begin{figure}[h]
 	\centering
@@ -428,10 +429,122 @@
 	\label{fig:profilling_memoria}
 \end{figure} 
 
+\par O que se observa em termos de memória é que as estruturas de \textit{Enum}, utilizadas na CPU e nos temporizadores, foram as responsáveis por fazer com que estes módulos se destacassem no uso de memória. De certa forma, este resultado já era esperado uma vez que estas são estruturas estáticas, o que demanda um maior tamanho em memória e não são limpas pelo \textit{Garbage Collector} do Java.
 
+\par Por outro lado, o uso de \textit{Enum} permitiu obter uma funcionalidade próxima aos ponteiros de função que se tem na linguagem C, recurso bastante útil para fazer a decodificação das instruções na CPU (bem como a seleção do \textit{prescaler} nos temporizadores). 
 
+\par Como mencionado na seção~\ref{teoria_cpu}, manter a legibilidade do código durante a decodificação foi uma grande preocupação durante o desenvolvimento. O uso de memória é um preço a se pagar por essa facilidade obtida com a estrutura \textit{Enum}. Mesmo assim, o aplicativo não apresenta valores elevados de consumo de memória quando comparado outros com funcionalidades semelhantes, como mostra a seção~\ref{comparacao}.
 
-\subsection{Código e documentação}
+\section{Comparação entre aplicativos}
+\label{comparacao}
+
+\par Foram 3 os aplicativos selecionados para serem comparados com o projeto SOFIA, são eles:
+
+\begin{itemize}
+	\item Arduino Simulator Mini Free
+	\item BoardMicro - AVR Simulator (aplicativo e \textit{web}).
+	\item AndMCU
+\end{itemize}
+
+\par Apesar de o aplicativo \textit{AndMCU} não estar diretamente relacionado com Arduino ou a arquitetura AVR, seu propósito é basicamente o mesmo do proposto que é proposto neste trabalho e portanto decidiu-se por analisá-lo também.
+
+\par Para a realização dos testes, foi utilizado novamente o projeto \textit{Blink} do apêndice~\ref{apendice_blink} nos simuladores \textit{BoardMicro - AVR Simulator} e SOFIA. O aplicativo \textit{Arduino Simulator Mini Free} não permite a edição de códigos, mas possui o mesmo projeto disponível para simulação. Quanto ao \textit{AndMCU}, foi escrito um programa em \textit{assembly} com a mesma função, este mostrado no apêndice~\ref{apendice_blink_asm}.
+
+\subsection{Interface}
+
+\par O primeiro ponto a ser comparado são as interfaces que cada aplicativo oferece para ao usuário.
+
+\par O projeto SOFIA, como já foi mostrado na seção~\ref{resultado_sofia}, procura oferecer uma interface simples, sem fazer referência à componentes eletrônicos. Na tela principal, o usuário tem sempre a sua disposição botões para realizar todas as tarefas que desejar no aplicativo, seja inserir novos elementos, reiniciar a simulação ou acessar funções adicionais, tudo isso sem que seja necessário acessar novas telas. A figura~\ref{fig:interface_sofia} mostra a interface principal da SOFIA com algumas entradas e saídas.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{./Resources/simulation_with_io}
+	\caption{Tela principal do simulador SOFIA.} 
+	Fonte: Autor
+	\label{fig:interface_sofia}
+\end{figure} 
+
+\par Uma desvantagem desta interface é que ela pode não ser tão intuitiva aos usuários, que deverão levar algum tempo para se acostumar, principalmente aqueles que procuram por referências visuais dos componentes eletrônicos, como leds, \textit{protoboards}, etc. Apesar disso, um botão de ajuda foi adicionado no aplicativo, levando o usuário à pagina do projeto onde ele poderá entender o funcionamento do simulador.
+
+\par Além disso, o tamanho da tela é reduzido, de forma que a inserção de muitos elementos pode prejudicar a experiência do usuário em termos de visualização dos resultados, já que apenas parte das entradas/saídas estarão visíveis (sem contar o possível uso do monitor serial).
+
+\par O simulador \textit{BoardMicro - AVR Simulator}, assim como no projeto SOFIA, também utiliza uma representação abstrata do sistema ser simulado, como mostra a figura~\ref{fig:interface_BM_AVR}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.12]{./Resources/interface_BM_AVR}
+	\caption{Tela principal do simulador \textit{BoardMicro - AVR Simulator}.} 
+	Fonte: Autor
+	\label{fig:interface_BM_AVR}
+\end{figure} 
+
+\par Na tela principal, apenas estão presentes a visualização de uma tela TFT na parte superior e dos PORTs de B a F (de cima para baixo). Na figura~\ref{fig:interface_BM_AVR}, a parte destacada em verde é o PORTC7, onde está ligado o led interno do Arduino Esplora.
+
+\par Não há botões nem outras telas no aplicativo e toda a navegação é feita por toques. Esta característica torna o sistema bastante difícil de se utilizar, principalmente por não haver uma ajuda indicando quais são as ações possíveis. Este simulador possui ainda uma versão \textit{web}, com uma interface ligeiramente diferente, com mais indicações, como mostra a figura~\ref{fig:interface_BM_AVR_web}, o que facilita seu uso.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth]{./Resources/interface_BM_AVR_web}
+	\caption{Tela principal do simulador \textit{BoardMicro - AVR Simulator}, versão para \textit{web}.} 
+	Fonte: Autor
+	\label{fig:interface_BM_AVR_web}
+\end{figure} 
+
+\par Esta escolha de interface se justifica por seu alvo ser o Arduino Esplora, que possui a forma de um \textit{joystick} e pode ser conectado à um display externo (internamente, a tela TFT mostrada na parte superior está interligada nos pinos de comunicação SPI do ATmega32U4 para estabelecer esta conexão). Mesmo assim, a falta completa de informações/indicações para o usuário dificultam o entendimento do sistema, forçando o usuário a estudar um material externo antes de poder utilizá-lo.
+
+\par Partindo para o \textit{AndMCU}, este possui uma interface que lembra um kit de desenvolvimento PIC, mostrando inclusive o microcontrolador PIC18F458 (apesar do projeto funcionar com códigos assembly do microcontrolador 68705 da Motorola). A interface deste simulador é mostrada na figura~\ref{fig:interface_AndMCU}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{./Resources/interface_AndMCU}
+	\caption{Tela principal do simulador \textit{AndMCU}.} 
+	Fonte: Autor
+	\label{fig:interface_AndMCU}
+\end{figure} 
+
+\par O kit apresentado conta com um display LCD de 16 caracteres, 6 displays de 7 segmentos, 2 barras gráficas com 8 leds cada, 2 \textit{DIP Switchs} de 8 vias e um teclado numérico. Além disso, existe um botão azul do lado superior esquerdo para interrupções externas, um botão vermelho para \textit{reset} manual no canto inferior esquerdo e um led de status no canto superior direito. Também, o sistema utiliza o sensor de luminosidade do \textit{smartphone} como entrada analógica e a documentação do projeto menciona ainda um piezo \textit{buffer}~\cite{AndMCU}.
+
+\par Também aqui não há menus de ajuda ou qualquer instrução de uso no aplicativo. Na verdade, uma vez escolhido o código a ser executado, não há mais nada a se fazer no simulador a não ser trabalhar em cima da simulação atual. A troca de arquivos para simulação exige sair do aplicativo e iniciá-lo novamente.
+
+\par Apesar disso, o \textit{AndMCU} apresenta um visual compacto, com boa disposição dos elementos na tela e com diversos recursos que devem ser facilmente reconhecidos por usuários já experientes com microcontroladores e eletrônica. O \textit{hardware} integrado dá a possibilidade ao usuário testar os programas mais comuns e mesmo alguns mais avançados.
+
+\par Por fim, o \textit{Arduino Simulator Mini Free} também prefere um visual mais realista do \textit{hardware}, como mostra a figura~\ref{fig:interface_ASMF}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15,angle=90]{./Resources/interface_AMSF}
+	\caption{Tela principal do simulador \textit{Arduino Simulator Mini Free}.} 
+	Fonte: Autor
+	\label{fig:interface_ASMF}
+\end{figure} 
+
+\par Durante a simulação, o circuito é alterado no \textit{protoboard} de forma a fornecer o \textit{hardware} adequado para simular o código. A figura~\ref{fig:interface_ASMF_blink} mostra a interface para simulação do projeto \textit{Blink}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15,angle=90]{./Resources/interface_AMSF_blink}
+	\caption{Tela de simulação do projeto \textit{Blink}. O monitor serial no canto inferior direito pode ser escondido por meio do botão "\textit{Console}".} 
+	Fonte: Autor
+	\label{fig:interface_ASMF_blink}
+\end{figure} 
+
+\par Também para a visualização do código, o simulador busca uma interface que lembra a IDE do Arduino, como mostra a figura~\ref{fig:interface_ASMF_IDE}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15,angle=90]{./Resources/interface_AMSF_IDE}
+	\caption{Tela edição do código fonte a ser simulado.} 
+	Fonte: Autor
+	\label{fig:interface_ASMF_IDE}
+\end{figure} 
+
+\par O realismo buscado pelo \textit{Arduino Simulator Mini Free} pode ajudar o usuário que deseja, além de realizar a simulação, fazer a montagem posterior do circuito, já que o simulador mostra todo o esquemático necessário para executar o projeto.
+
+\par Além disso, o \textit{design} proposto minimiza as dúvidas quanto ao seu uso. Ainda que não haja instruções, os elementos utilizados são bem conhecidos daqueles que já utilizam a IDE do Arduino, os botões possuem identificadores bastante claros quanto sua função, etc., de modo que, muito provavelmente, apenas um usuário iniciante pode vir a ter alguma dificuldade em utilizar este aplicativo.
+
+\subsection{Recursos}
+
+\section{Código e documentação}
 
 \par O código fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet.
 
