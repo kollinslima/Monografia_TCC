@@ -1,4 +1,5 @@
 ; Blink Led - AndMCU
+; Kollins Lima - August 05, 2018
 
 .autorun
 
@@ -18,20 +19,20 @@ CONTROL equ 0xb
 
 init:
 
-  lda #255
-  sta DDRA  ; port A output    
-  lda #15
-  sta DDRC
+    lda #255
+    sta DDRA  ; port A output    
+    lda #15
+    sta DDRC
 	
 start:	
 
 loop:	
 
-  incx
-  stx PORTA 
+    incx
+    stx PORTA 
 
-  decx
-  stx PORTA 
+    decx
+    stx PORTA 
 
-  jmp loop
+    jmp loop
 end

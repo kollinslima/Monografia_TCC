@@ -226,7 +226,7 @@
 	\label{fig:frequencimetro}
 \end{figure}
 
-\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{apendice_blink} e~\ref{apendice_timer1}.
+\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{apendice_blink} e~\ref{apendice_timer}.
 \par O projeto \textit{Blink} foi utilizado ora com a função \textit{delay}, ora com função \textit{delayMicroseconds}, desta forma podendo obter diferentes valores de frequência gerados por diferentes métodos.
 \par O projeto \textit{Timer1} foi modificado para utilizar o modo \textit{FastPWM}. Esta alteração foi feita somente para facilitar a alteração dos valores de frequência por meio do valor nos registradores OCR1A/ICR1.
 
@@ -386,10 +386,12 @@
 	\label{fig:cobertura_modulo_jacoco}
 \end{figure}
 
+\par Além dos testes automatizados, foram realizados testes manuais das funcionalidades desenvolvidas. Todos os códigos testados podem ser vistos na seção de apêndice deste trabalho.
+
 \subsection{\textit{Profiling}}
 
 \par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{apendice_blink}), foi utilizado no simulador durante a execução do \textit{profilling}. 
-\par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 30\% (chegando até 40\%), enquanto que o uso de memória está entre 30MB e 40MB.
+\par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 25\%, enquanto que o uso de memória é de aproximadamente 30MB.
 
 \begin{figure}[h]
 	\centering
@@ -409,7 +411,8 @@
 	\label{fig:profilling_cpu}
 \end{figure} 
 
-\par Uma medida tomada quanto à este resultado foi atrasar a atualização do tempo simulado por um fator de 128, ou seja, uma requisição de atualização da tela só é dada após 128 passagens pelo método \textit{run} (o valor de 128 foi obtido experimentalmente de modo a não prejudicar a fluidez da interface). Essa medida teve um impacto significativo no desempenho deste método, passando de 18\% de tempo de CPU para pouco mais de 2,5\% , como mostra a figura~\ref{fig:profilling_cpu_melhoria}.
+\par Uma medida tomada quanto à este resultado foi atrasar a atualização do tempo simulado por um fator de 1024, ou seja, uma requisição de atualização da tela só é dada após 1024 passagens pelo método \textit{run}. O valor de 1024 foi obtido experimentalmente de modo a não prejudicar a fluidez da interface. Valores maiores fazem com que o tempo simulado salte de um valor para outro, dando a impressão que o sistema está a ponto de travar. 
+\par Essa medida teve um impacto significativo no desempenho deste método, passando de 17\% de tempo de CPU para pouco menos de 0,5\% , como mostra a figura~\ref{fig:profilling_cpu_melhoria}.
 
 \begin{figure}[h!]
 	\centering
@@ -542,11 +545,85 @@
 
 \par Além disso, o \textit{design} proposto minimiza as dúvidas quanto ao seu uso. Ainda que não haja instruções, os elementos utilizados são bem conhecidos daqueles que já utilizam a IDE do Arduino, os botões possuem identificadores bastante claros quanto sua função, etc., de modo que, muito provavelmente, apenas um usuário iniciante pode vir a ter alguma dificuldade em utilizar este aplicativo.
 
-\subsection{Recursos}
+\subsection{Funcionalidades oferecidas}
+
+\par Cada aplicativo oferece um conjunto de funcionalidades e possibilidades de uso diferentes para o usuário.
+
+\par O projeto SOFIA é focado na simulação do Arduino Uno e procura fornecer ao usuário um conjunto amplo de ferramentas para que se possa, além de simular o funcionamento do código, obter informações a respeito de sua execução. Desta forma, o sistema oferece a possibilidade de medição de frequência, \textit{duty cicle}, memória, além de permitir a configuração manual de uma referência externa de tensão para o conversor A/D. Também, o monitor serial integrado dá ao usuário uma maior possibilidade na depuração do código, permitindo o envio de mensagens de dentro do código para visualização externa.
+\par Além disso, o projeto SOFIA busca ser um simulador genérico, permitindo que o usuário entre com qualquer código hexadecimal gerado, independente de sua fonte, apesar de recomendar o uso da IDE do Arduino modificada para o projeto, apenas por facilidade.
+\par O usuário também é livre para testar diversas possibilidades de ligação entre entradas e saídas, podendo mesmo interligar múltiplas entradas em um mesmo pino; ligar uma entrada analógica em um pino digital e ver o efeito que níveis indefinidos de tensão podem gerar; conta com aviso em caso de curto-circuito, etc. A ideia principal é que, apesar de ser um simulador, as possibilidades de uso se aproximem do que o usuário encontrará em uma montagem eletrônica.
+
+\par Já o projeto \textit{BoardMicro - AVR Simulator} é mais focado no uso do display TFT, fazendo com que o usuário explore este recurso para obter resultados de sua simulação, já que a visualização dos PORTs pode não ser o suficiente para obter informações.
+
+\par Para interação com a simulação, o simulador utiliza a leitura do acelerômetro do \textit{smartphone} como entrada analógica e permite também o envio de comandos do GDB (apesar desta opção parecer não funcionar no aplicativo). A versão \textit{web} permite ainda a medição de parâmetros como o estado dos registradores, pilha, SDRAM e a velocidade do sistema, também permitindo controlar a velocidade de simulação.
+
+\par Como dito anteriormente, o aplicativo não possui botões ou menus e a navegação por toques não é clara, mas é por meio dela é possível abrir o menu para carregar um código hexadecimal e acessar o \textit{prompt} do GDB. Um programa a ser simulado pode tanto ser escolhido de um banco de exemplos (com 4 códigos disponíveis) ou carregados pelo usuário a partir de seu repositório do \textit{Dropbox}.
+
+\par O \textit{AndMCU} fornece um kit de desenvolvimento ao usuário e as possibilidades de interação com o aplicativo não vai muito além das possibilidades deste hardware virtual (com exceção para o uso do sensor de luminosidade do \textit{smartphone} para entrada analógica). A única interação do usuário externo à este kit é na escolha do código a ser simulado ao iniciar o aplicativo.
+
+\par Apesar disso, sistema permite que diversas configurações sejam feitas no código em \textit{assembly} que será simulado. Entre as possibilidades estão o controle de velocidade de simulação, modo de simulação passo-a-passo, desabilitar os \textit{DIP Switches}, escrever conteúdo da memória em arquivo, entre outras possibilidades descritas na documentação.
+
+\par O sistema fornece, assim como o \textit\{BoardMicro - AVR Simulator\}, um banco contendo 10 exemplos já codificados e um arquivo \textit{template} para servir de base para novos códigos. O usuário que desejar simular um código diferente deve adicioná-lo na pasta \url{/sdcard/AndMCU}.
+
+\par E finalmente, o \textit{Arduino Simulator Mini Free} se mostrou o mais limitado em temos de funcionalidade. O simulador fornece 5 códigos exemplo para o usuário, que pode realizar modificações apenas em determinados campos, como alterar o pino de saída, tempo de \textit{delay} e mensagem do display LCD, não sendo possível criar um código próprio para a simulação. 
+\par O usuário também não pode fornecer dados de entrada durante a simulação, podendo apenas visualizar o funcionamento do circuito. Isso acaba invalidando um dos códigos exemplo, que requer uma entrada analógica em um circuito utilizando LDR.
+\par O \textit{Arduino Simulator Mini Free} possui duas outras versões pagas na \textit{Amazon Store}, com diferentes projetos e a possibilidade de edição do circuito eletrônico em uma delas.
+
+\subsection{Requisitos do sistema e consumo de recursos}
+
+\subsubsection{Sistema Operacional}
+
+\par Todos os aplicativos suportam o sistema Android, com o \textit{Arduino Simulator Mini Free} disponível também para IOs (sob os nomes \textit{Arduino Simulator 2X - Learn and DIY Safely} e \textit{Arduino Simulator - Full Pack 2x}). A tabela~\ref{tab:comp_plataforma} indica qual a versão mínima do Android é requerida por cada aplicativo. Este valor foi obtido a partir da descrição do aplicativo nas lojas \textit{Play Store} e \textit{Amazon Store}.
+
+\begin{table}[h]
+	\centering
+	\caption{Versão do Android requerida por cada aplicativo.}
+	\label{tab:comp_plataforma}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Aplicativo} & \textbf{Versão do mínima} \\ \hline
+		Arduino Simulator Mini Free & 2.2 \\ \hline
+		MCU Prototype Board Simulator & 2.3.3 \\ \hline
+		BoardMicro - AVR Simulator & 4.0 \\ \hline		
+		SOFIA & 5.0 \\ \hline
+	\end{tabular}
+\end{table}
+
+\par Ao criar um projeto no Android Studio, pode-se verificar qual a distribuição de usuários por versão do Android. A figura~\ref{fig:dist_android} apresenta esta distribuição e por ela, pode-se observar que, com exceção da SOFIA, todos os simuladores podem ser executados em 100\% dos dispositivos Android ativos no momento.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\textwidth]{./Resources/distrib_android}
+	\caption{Distribuição acumulada de usuários Android. Como destacado, o simulador SOFIA poderá atingir pouco mais de 70\% dos dispositivos Android.} 
+	Fonte: Android Studio
+	\label{fig:dist_android}
+\end{figure}
+
+\subsubsection{Tamanho}
+
+\par O gráfico mostrado na figura~\ref{fig:comp_tamanho} mostra o tamanho do arquivo APK para cada aplicativo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/tamanho_apk}
+	\caption{Tamanho do APK para cada aplicativo.} 
+	Fonte: Autor
+	\label{fig:comp_tamanho}
+\end{figure} 
+
+\par Pode-se observar que o \textit{Arduino Simulator Mini Free} possui um tamanho muito superior aos demais aplicativos, um resultado inesperado uma vez que a versão \textit{Full Pack} deste aplicativo possui um tamanho de 9MB.
+
+\subsubsection{Uso de CPU}
+
+\subsubsection{Uso de Memória}
+
+\subsection{Documentação}
+
+\subsection{Disponibilidade}
 
 \section{Código e documentação}
 
-\par O código fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet.
+\par O código fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet sob a mesma licença.
 
 \begin{itemize}
 \item \textbf{Projeto SOFIA:} \url{https://github.com/kollinslima/ProjectSOFIA}
