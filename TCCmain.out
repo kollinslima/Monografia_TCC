@@ -53,18 +53,19 @@
 \BOOKMARK [3][-]{subsubsection.4.4.3.2}{Tamanho}{subsection.4.4.3}% 53
 \BOOKMARK [3][-]{subsubsection.4.4.3.3}{Uso de CPU}{subsection.4.4.3}% 54
 \BOOKMARK [3][-]{subsubsection.4.4.3.4}{Uso de Mem\363ria}{subsection.4.4.3}% 55
-\BOOKMARK [2][-]{subsection.4.4.4}{Documenta\347\343o}{section.4.4}% 56
-\BOOKMARK [2][-]{subsection.4.4.5}{Disponibilidade}{section.4.4}% 57
-\BOOKMARK [1][-]{section.4.5}{C\363digo e documenta\347\343o}{chapter.4}% 58
-\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 59
-\BOOKMARK [1][-]{subsection.5.0.1}{Cronograma de Atividades}{chapter.5}% 60
-\BOOKMARK [0][-]{Item.16}{Refer\352ncias}{}% 61
-\BOOKMARK [0][-]{appendix.A}{Ap\352ndice Projeto Blink}{}% 62
-\BOOKMARK [0][-]{appendix.B}{Ap\352ndice Projeto Blink em assembly}{}% 63
-\BOOKMARK [0][-]{appendix.C}{Ap\352ndice Projeto Input to Output}{}% 64
-\BOOKMARK [0][-]{appendix.D}{Ap\352ndice Projeto Interrupt}{}% 65
-\BOOKMARK [0][-]{appendix.E}{Ap\352ndice Projeto Timer}{}% 66
-\BOOKMARK [0][-]{appendix.F}{Ap\352ndice Projeto Analog Input}{}% 67
-\BOOKMARK [0][-]{appendix.G}{Ap\352ndice Projeto Serial}{}% 68
-\BOOKMARK [0][-]{appendix.H}{Ap\352ndice Projeto Analog Serial}{}% 69
-\BOOKMARK [0][-]{appendix.I}{Ap\352ndice Projeto Memory Measure}{}% 70
+\BOOKMARK [2][-]{subsection.4.4.4}{Velocidade de simula\347\343o}{section.4.4}% 56
+\BOOKMARK [2][-]{subsection.4.4.5}{Documenta\347\343o}{section.4.4}% 57
+\BOOKMARK [2][-]{subsection.4.4.6}{Disponibilidade}{section.4.4}% 58
+\BOOKMARK [1][-]{section.4.5}{C\363digo e documenta\347\343o}{chapter.4}% 59
+\BOOKMARK [0][-]{chapter.5}{Conclus\343o}{}% 60
+\BOOKMARK [1][-]{subsection.5.0.1}{Cronograma de Atividades}{chapter.5}% 61
+\BOOKMARK [0][-]{Item.16}{Refer\352ncias}{}% 62
+\BOOKMARK [0][-]{appendix.A}{Ap\352ndice Projeto Blink}{}% 63
+\BOOKMARK [0][-]{appendix.B}{Ap\352ndice Projeto Blink em assembly}{}% 64
+\BOOKMARK [0][-]{appendix.C}{Ap\352ndice Projeto Input to Output}{}% 65
+\BOOKMARK [0][-]{appendix.D}{Ap\352ndice Projeto Interrupt}{}% 66
+\BOOKMARK [0][-]{appendix.E}{Ap\352ndice Projeto Timer}{}% 67
+\BOOKMARK [0][-]{appendix.F}{Ap\352ndice Projeto Analog Input}{}% 68
+\BOOKMARK [0][-]{appendix.G}{Ap\352ndice Projeto Serial}{}% 69
+\BOOKMARK [0][-]{appendix.H}{Ap\352ndice Projeto Analog Serial}{}% 70
+\BOOKMARK [0][-]{appendix.I}{Ap\352ndice Projeto Memory Measure}{}% 71

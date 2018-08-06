@@ -53,19 +53,20 @@
 \contentsline {subsubsection}{\numberline {4.4.3.1}Sistema Operacional}{82}{subsubsection.4.4.3.1}
 \contentsline {subsubsection}{\numberline {4.4.3.2}Tamanho}{83}{subsubsection.4.4.3.2}
 \contentsline {subsubsection}{\numberline {4.4.3.3}Uso de CPU}{83}{subsubsection.4.4.3.3}
-\contentsline {subsubsection}{\numberline {4.4.3.4}Uso de Mem\'oria}{83}{subsubsection.4.4.3.4}
-\contentsline {subsection}{\numberline {4.4.4}Documenta\c c\~ao}{83}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Disponibilidade}{83}{subsection.4.4.5}
-\contentsline {section}{\numberline {4.5}C\'odigo e documenta\c c\~ao}{83}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{85}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{87}{subsection.5.0.1}
-\contentsline {chapter}{Refer\^encias}{88}{Item.16}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{91}{appendix.A}
-\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{93}{appendix.B}
-\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{95}{appendix.C}
-\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{97}{appendix.D}
-\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{99}{appendix.E}
-\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{101}{appendix.F}
-\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{103}{appendix.G}
-\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{105}{appendix.H}
-\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{107}{appendix.I}
+\contentsline {subsubsection}{\numberline {4.4.3.4}Uso de Mem\'oria}{84}{subsubsection.4.4.3.4}
+\contentsline {subsection}{\numberline {4.4.4}Velocidade de simula\c c\~ao}{85}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Documenta\c c\~ao}{86}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Disponibilidade}{87}{subsection.4.4.6}
+\contentsline {section}{\numberline {4.5}C\'odigo e documenta\c c\~ao}{87}{section.4.5}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{89}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Cronograma de Atividades}{91}{subsection.5.0.1}
+\contentsline {chapter}{Refer\^encias}{92}{Item.16}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{95}{appendix.A}
+\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{97}{appendix.B}
+\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{99}{appendix.C}
+\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{101}{appendix.D}
+\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{103}{appendix.E}
+\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{105}{appendix.F}
+\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{107}{appendix.G}
+\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{109}{appendix.H}
+\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{111}{appendix.I}

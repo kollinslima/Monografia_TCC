@@ -113,4 +113,11 @@ Harry Konstas.
   \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu/andmcu-documentation},
   Acesso em: 04 de agosto de 2018.
 
+\bibitem{Meminfo}
+Documentação Android.
+\newblock dumpsys.
+\newblock
+  \url{https://developer.android.com/studio/command-line/dumpsys#meminfo},
+  Acesso em: 06 de agosto de 2018.
+
 \end{thebibliography}

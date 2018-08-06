@@ -58,7 +58,9 @@
 \contentsline {figure}{\numberline {4.35}{\ignorespaces Tela de simula\c c\~ao do projeto \textit {Blink}. O monitor serial no canto inferior direito pode ser escondido por meio do bot\~ao "\textit {Console}".\relax }}{79}{figure.caption.61}
 \contentsline {figure}{\numberline {4.36}{\ignorespaces Tela edi\c c\~ao do c\'odigo fonte a ser simulado.\relax }}{80}{figure.caption.62}
 \contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android.\relax }}{82}{figure.caption.64}
-\contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do APK para cada aplicativo.\relax }}{83}{figure.caption.65}
+\contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do APK (MB) de cada aplicativo.\relax }}{83}{figure.caption.65}
+\contentsline {figure}{\numberline {4.39}{\ignorespaces Consumo de CPU (\%) de cada aplicativo.\relax }}{84}{figure.caption.66}
+\contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo de mem\'oria (PSS em kB) de cada aplicativo.\relax }}{85}{figure.caption.67}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

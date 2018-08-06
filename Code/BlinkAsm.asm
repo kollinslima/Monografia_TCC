@@ -1,9 +1,12 @@
 ; Blink Led - AndMCU
-; Kollins Lima - August 05, 2018
+; Kollins Lima - August 06, 2018
 
 .autorun
 
 .dump
+
+;.speed 1	; Low Speed
+;.speed 255	; High Speed
 
 PORTA   equ 0
 PORTB   equ 0x1
