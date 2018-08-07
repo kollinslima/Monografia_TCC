@@ -1,80 +1,97 @@
 \chapter{Conclusão}
 \label{Conclusao}
 
-\par Nesta monografia foi apresentado o projeto SOFIA, um emulador Arduino criado para Android.
+\par Nesta monografia foi apresentado o projeto SOFIA, um simulador do Arduino Uno criado para Android.
 
-\par Pode-se dizer que o sistema desenvolvido atende aos objetivos propostos mesmo ainda sendo uma versão parcial: o sistema é capaz de executar códigos escritos para o Arduino UNO (ATmega328P) diretamente no dispositivo Android, bem como permitir que o usuário interaja com o sistema por meio de sinais de entrada (digital e analógica) ou fazendo medições dos estados dos pinos digitais. O usuário também tem a disposição uma IDE modificada que o permite escrever códigos e transferi-los para o simulador facilmente.
+\par Pode-se dizer que o sistema desenvolvido atende aos objetivos propostos: o sistema é capaz de executar códigos escritos para o Arduino Uno (ATmega328P) diretamente no dispositivo Android, bem como permitir que o usuário interaja com o sistema por meio de sinais de entrada (digital e analógica) ou fazendo medições dos estados dos pinos digitais. O simulador também conta com um monitor serial e com recursos para depuração do código simulado, tais como frequencímetro e mapa de memoria. O usuário tem ainda a disposição uma IDE Arduino que foi modificada para facilitar o processo de transferência de códigos entre PC e simulador.
 
-\par Entre as limitações do sistema, destaca-se sua performance em termos de velocidade de simulação. A execução de códigos provindos da IDE ainda é lenta devido a quantidade de instruções \textit{assembly} geradas pelo compilador e a capacidade de processamento do \textit{smartphone}. Para o desenvolvimento, foi utilizado um \textit{smartphone} ASUS ZenFone 2, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal, 32GB de armazenamento, executando o Android 5.0, e frequência de \textit{clock} efetiva observada neste sistema foi de aproximadamente 200Hz para o projeto \textit{Blink} (uma redução de 80.000 vezes a velocidade do sistema real). Ainda assim, é possível utilizar o sistema para pequenos projetos (utilizando escalas de tempo reduzidas), o que ainda o torna útil para aplicações didáticas.
+\par Como apresentado na seção de comparação, o simulador desenvolvido apresenta resultados razoáveis em relação aos demais, não se destacando muito em nenhum quesito, mas também não deixando à desejar, o que pode fazer deste uma alternativa viável, principalmente por oferecer alguns recursos que não estão presentes em outros simuladores (como ferramentas de depuração). A exceção fica apenas na medida de velocidade de simulação.
 
-\par Em termos de arquitetura, o sistema buscou preservar os mesmos módulos e fluxos de comunicação existentes no \textit{hardware} do microcontrolador, por motivos, principalmente, de facilidade de implementação e desempenho, o que acabou tornando a arquitetura do \textit{software} um pouco mais complexa. No entanto, o sistema ainda está modular, o que é uma característica importante para sua expansão.
+\par A velocidade de simulação que o sistema apresenta é certamente sua maior limitação, principalmente para aplicações envolvendo temporização. Para tempos da ordem de 10 ms,  ainda é possível de realizar suas simulações sem muitos problemas, no entanto escalas maiores farão com que a simulação demore a apresentar algum resultado. O principal problema neste caso fica na experiência de integração, onde o projeto passa pelo simulador para ser testado no Arduino posteriormente, forçando o usuário a fazer alterações no código em cada etapa.
 
-\par Quanto à qualidade do sistema, a análise estática do SonarQube não revelou grandes problemas no código e os principais módulos foram quase que totalmente cobertos por teste. Ainda é necessária a criação de muitos casos de teste para cobrir todo o projeto e garantir um nível maior de qualidade, estes estão sendo desenvolvidos em ordem de prioridade para os demais módulos.
+\par Por fim, conclui-se que este projeto teve grande importância para o aprendizado de novas tecnologias, principalmente no que diz respeito ao desenvolvimento Android, conhecimento do microcontrolador ATmega328P e teste de \textit{software}.
 
-\par Para a continuidade do projeto, deseja-se incluir nas próximas versões:
+\section{Trabalhos futuros}
 
-\begin{itemize}
-	\item \textbf{Instrumentos de medição:} Permitir que o usuário obtenha informações a respeito de frequência de oscilação, \textit{duty cycle}, etc. nos pinos de saída.
-	
-	\item \textbf{Visualização da memória:} Apresentar ao usuário o estado dos registradores e da memória externa em tempo real de simulação.
-	
-	\item \textbf{Criação de novos módulos:} Vários módulos e funcionalidades do ATmega328P ainda não foram adicionados e devem ser incluídos para as próximas versões, tais como comparador analógico, memória EEPROM, etc.
-	
-	\item \textbf{Comunicação serial:} Entre os módulos não implementados, a USART é um dos principais e deve ser o primeiro a ser trabalhado. Espera-se também utilizar o monitor serial da própria IDE do Arduino (assim como ocorre nos sistema real) de modo a facilitar seu uso.
-\end{itemize}
+\par A experiência no desenvolvimento deste trabalho mostrou que ainda existe margem para otimização no código desenvolvido. A arquitetura originalmente pensada foi aos poucos sendo modificada devido à problemas de performance e/ou implementação e pode-se observar que algumas funções poderiam ter sido implementadas de maneira diferente, mas estas já estavam fortemente ligadas ao projeto de modo que a refatoração seria muito custosa em termos de tempo (o mesmo vale para algumas estruturas de dados). Isso ocorreu principalmente pois a visão que se tinha do projeto inicialmente considerava muitos aspectos do desenvolvimento para \textit{desktop}, mas que se mostraram ineficientes para o desenvolvimento \textit{mobile}. A revisão da arquitetura é portanto uma tarefa importante a ser executada para as próximas versões.
 
-\par Além disso, serão estudadas maneiras de aumentar o desempenho da simulação, seja por meio de alterações internas no sistema ou com otimizações externas. 
+\par Outro ponto importante a ser desenvolvido nas próximas versões são os testes. O desenvolvimento de testes foi uma atividade que consumiu bastante tempo (talvez pela inexperiência do autor com as ferramentas utilizadas) e por isso outros recursos como teste de interface, teste de mutação, etc., não foram aplicados ao projeto nesta versão. Os testes desenvolvidos ajudaram a identificar defeitos que seriam difíceis de depurar caso não tivessem sido corrigidos, mostrando sua importância para a qualidade do \textit{software} em desenvolvimento.
 
-\newpage
-\subsection{Cronograma de Atividades}
+\par Também, a interface do aplicativo, embora tenha sido planejada para se fosse simples e o mais intuitivo possível, ainda tem muito o que melhorar e é algo a ser pensado junto a revisão da arquitetura. 
 
-\par A tabela~\ref{tab:cronograma} apresenta o cronograma executado até o momento em relação ao planejado.
+\par Em termos de funcionalidades, ainda há vários módulos do Arduino que não foram implementados: hibernação, EEPROM, comparador analógico, SPI, etc. Estas funcionalidades, junto ao suporte de novas placas, trariam mais utilidade ao simulador e o tornaria mais completo.
 
-\begin{table}[h]
-	\centering
-	\caption{Cronograma}
-	\label{tab:cronograma}
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-		\hline
-		& 03/18 & 04/18 & 05/18 & 06/18 & 07/18 & 08/18 & 09/18 & 10/18 & 11/18 & 12/18 \\ \hline
-		\multirow{2}{*}{01} & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  &  &  \\ \hhline{|~|----------} 
-		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{02} &  & \cellcolor{blue!25} &  &  &  &  &  &  &  &  \\ \hhline{|~|----------} 
-		& \cellcolor{green!25} &  &  &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{03} &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  &  \\ \hhline{|~|----------}  
-		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{04} &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  \\ \hhline{|~|----------}  
-		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{05} &  &  &  &  & \cellcolor{blue!25} &  &  &  &  &  \\ \hhline{|~|----------}  
-		&  & \cellcolor{green!25} &  &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{06} &  &  &  &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  \\ \hhline{|~|----------}  
-		&  & \cellcolor{green!25} &  &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{07} &  &  &  &  &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  \\ \hhline{|~|----------}  
-		&  & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{08} &  & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} &  \\ \hhline{|~|----------}  
-		&  & \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  \\ \hline
-		\multirow{2}{*}{09} &  & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} &  \\ \hhline{|~|----------}  
-		& \cellcolor{green!25} &  & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
-		\cellcolor{blue!25} & \multicolumn{10}{l|}{Planejado}      \\ \hline
-		\cellcolor{green!25} & \multicolumn{10}{l|}{Executado}      \\ \hline
-	\end{tabular}
-\end{table}
+\par Por fim, um recurso importante que foi observado nos outros aplicativos e que não foi implementado são os exemplos pré-compilados já embutidos no aplicativo. Este recurso daria a possibilidade de um usuário testar o simulador assim que o \textit{download} fosse concluído, não dependendo de nenhum outro \textit{software} ou aplicativo para gerar os códigos mais comuns, como o projeto \textit{Blink} que foi utilizado nos simuladores. Esta funcionalidade poderia ainda configurar automaticamente as entradas e saídas de modo adequado para testar o código carregado.
 
-\begin{enumerate}
-	\item Alteração do código fonte da IDE oficial do Arduino e integração com o simulador.
-	\item Planejamento do sistema como um todo, incluindo a definição dos elementos de interface, estrutura de classes, arquitetura e demais itens relacionados à organização interna do sistema;
-	\item Decodificação do arquivo hexadecimal gerado pelo compilador e execução das instruções \textit{assembly};
-	\item Desenvolvimento do módulo de entrada e saída digital;
-	\item Detecção e tratamento de interrupções;
-	\item Desenvolvimento do módulo de \textit{timer} (8 e 16 bits);
-	\item Desenvolvimento do módulo ADC (\textit{Analog to Digital Converter});
-	\item Escrita da monografia (parcial);
-	\item Testes e validações
-\end{enumerate}
 
-%\section*{Trabalhos futuros}
 %
-%Isso é para a Monografia Final de defesa.....
+%\par Entre as limitações do sistema, destaca-se sua performance em termos de velocidade de simulação. A execução de códigos provindos da IDE ainda é lenta devido a quantidade de instruções \textit{assembly} geradas pelo compilador e a capacidade de processamento do \textit{smartphone}. Para o desenvolvimento, foi utilizado um \textit{smartphone} ASUS ZenFone 2, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal, 32GB de armazenamento, executando o Android 5.0, e frequência de \textit{clock} efetiva observada neste sistema foi de aproximadamente 200Hz para o projeto \textit{Blink} (uma redução de 80.000 vezes a velocidade do sistema real). Ainda assim, é possível utilizar o sistema para pequenos projetos (utilizando escalas de tempo reduzidas), o que ainda o torna útil para aplicações didáticas.
+%
+%\par Em termos de arquitetura, o sistema buscou preservar os mesmos módulos e fluxos de comunicação existentes no \textit{hardware} do microcontrolador, por motivos, principalmente, de facilidade de implementação e desempenho, o que acabou tornando a arquitetura do \textit{software} um pouco mais complexa. No entanto, o sistema ainda está modular, o que é uma característica importante para sua expansão.
+%
+%\par Quanto à qualidade do sistema, a análise estática do SonarQube não revelou grandes problemas no código e os principais módulos foram quase que totalmente cobertos por teste. Ainda é necessária a criação de muitos casos de teste para cobrir todo o projeto e garantir um nível maior de qualidade, estes estão sendo desenvolvidos em ordem de prioridade para os demais módulos.
+%
+%\par Para a continuidade do projeto, deseja-se incluir nas próximas versões:
+%
+%\begin{itemize}
+%	\item \textbf{Instrumentos de medição:} Permitir que o usuário obtenha informações a respeito de frequência de oscilação, \textit{duty cycle}, etc. nos pinos de saída.
+%	
+%	\item \textbf{Visualização da memória:} Apresentar ao usuário o estado dos registradores e da memória externa em tempo real de simulação.
+%	
+%	\item \textbf{Criação de novos módulos:} Vários módulos e funcionalidades do ATmega328P ainda não foram adicionados e devem ser incluídos para as próximas versões, tais como comparador analógico, memória EEPROM, etc.
+%	
+%	\item \textbf{Comunicação serial:} Entre os módulos não implementados, a USART é um dos principais e deve ser o primeiro a ser trabalhado. Espera-se também utilizar o monitor serial da própria IDE do Arduino (assim como ocorre nos sistema real) de modo a facilitar seu uso.
+%\end{itemize}
+%
+%\par Além disso, serão estudadas maneiras de aumentar o desempenho da simulação, seja por meio de alterações internas no sistema ou com otimizações externas. 
+%
+%\newpage
+%\subsection{Cronograma de Atividades}
+%
+%\par A tabela~\ref{tab:cronograma} apresenta o cronograma executado até o momento em relação ao planejado.
+%
+%\begin{table}[h]
+%	\centering
+%	\caption{Cronograma}
+%	\label{tab:cronograma}
+%	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+%		\hline
+%		& 03/18 & 04/18 & 05/18 & 06/18 & 07/18 & 08/18 & 09/18 & 10/18 & 11/18 & 12/18 \\ \hline
+%		\multirow{2}{*}{01} & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  &  &  \\ \hhline{|~|----------} 
+%		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{02} &  & \cellcolor{blue!25} &  &  &  &  &  &  &  &  \\ \hhline{|~|----------} 
+%		& \cellcolor{green!25} &  &  &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{03} &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  &  \\ \hhline{|~|----------}  
+%		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{04} &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  &  &  &  \\ \hhline{|~|----------}  
+%		& \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{05} &  &  &  &  & \cellcolor{blue!25} &  &  &  &  &  \\ \hhline{|~|----------}  
+%		&  & \cellcolor{green!25} &  &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{06} &  &  &  &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  &  \\ \hhline{|~|----------}  
+%		&  & \cellcolor{green!25} &  &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{07} &  &  &  &  &  &  & \cellcolor{blue!25} & \cellcolor{blue!25} &  &  \\ \hhline{|~|----------}  
+%		&  & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{08} &  & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} &  \\ \hhline{|~|----------}  
+%		&  & \cellcolor{green!25} & \cellcolor{green!25} & \cellcolor{green!25} &  &  &  &  &  &  \\ \hline
+%		\multirow{2}{*}{09} &  & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} & \cellcolor{blue!25} &  \\ \hhline{|~|----------}  
+%		& \cellcolor{green!25} &  & \cellcolor{green!25} &  &  &  &  &  &  &  \\ \hline
+%		\cellcolor{blue!25} & \multicolumn{10}{l|}{Planejado}      \\ \hline
+%		\cellcolor{green!25} & \multicolumn{10}{l|}{Executado}      \\ \hline
+%	\end{tabular}
+%\end{table}
+%
+%\begin{enumerate}
+%	\item Alteração do código fonte da IDE oficial do Arduino e integração com o simulador.
+%	\item Planejamento do sistema como um todo, incluindo a definição dos elementos de interface, estrutura de classes, arquitetura e demais itens relacionados à organização interna do sistema;
+%	\item Decodificação do arquivo hexadecimal gerado pelo compilador e execução das instruções \textit{assembly};
+%	\item Desenvolvimento do módulo de entrada e saída digital;
+%	\item Detecção e tratamento de interrupções;
+%	\item Desenvolvimento do módulo de \textit{timer} (8 e 16 bits);
+%	\item Desenvolvimento do módulo ADC (\textit{Analog to Digital Converter});
+%	\item Escrita da monografia (parcial);
+%	\item Testes e validações
+%\end{enumerate}
+
 
 
 

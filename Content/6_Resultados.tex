@@ -450,9 +450,13 @@
 	\item AndMCU
 \end{itemize}
 
-\par Apesar de o aplicativo \textit{AndMCU} não estar diretamente relacionado com Arduino ou a arquitetura AVR, seu propósito é basicamente o mesmo do proposto que é proposto neste trabalho e portanto decidiu-se por analisá-lo também.
+\par Os aplicativos não são exatamente uma alternativa uns dos outros, mas apresentam características semelhantes e um mesmo propósito, que é a simulação de um microcontrolador.
 
-\par Para a realização dos testes, foi utilizado novamente o projeto \textit{Blink} do apêndice~\ref{apendice_blink} nos simuladores \textit{BoardMicro - AVR Simulator} e SOFIA. O aplicativo \textit{Arduino Simulator Mini Free} não permite a edição de códigos, mas possui o mesmo projeto disponível para simulação. Quanto ao \textit{AndMCU}, foi escrito um programa em \textit{assembly} mostrado no apêndice~\ref{apendice_blink_asm} para a poder testá-lo.
+%\par Apesar de o aplicativo \textit{AndMCU} não estar diretamente relacionado com Arduino ou a arquitetura AVR, seu propósito é basicamente o mesmo do proposto que é proposto neste trabalho e portanto decidiu-se por analisá-lo também.
+
+\par Para a realização dos testes, foi utilizado novamente o projeto \textit{Blink} do apêndice~\ref{apendice_blink} nos simuladores \textit{BoardMicro - AVR Simulator} e SOFIA. O aplicativo \textit{Arduino Simulator Mini Free} não permite a edição de códigos, mas possui o mesmo projeto disponível para simulação. Quanto ao \textit{AndMCU}, foi escrito um programa em \textit{assembly} mostrado no apêndice~\ref{apendice_blink_asm} para a poder testá-lo, já que este simulador se destina à outra plataforma. 
+
+\par O aparelho utilizado em todos os testes foi um \textit{smartphone} ASUS ZenFone 2, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal e 32GB de armazenamento, executando o Android 5.0.
 
 \subsection{Interface}
 
@@ -592,7 +596,7 @@
 
 \par Ao criar um projeto no Android Studio, pode-se verificar qual a distribuição de usuários por versão do Android. A figura~\ref{fig:dist_android} apresenta esta distribuição e por ela, pode-se observar que, com exceção da SOFIA, todos os simuladores podem ser executados em 100\% dos dispositivos Android ativos no momento.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{./Resources/distrib_android}
 	\caption{Distribuição acumulada de usuários Android. Como destacado, o simulador SOFIA poderá atingir pouco mais de 70\% dos dispositivos Android.} 
@@ -604,7 +608,7 @@
 
 \par O gráfico mostrado na figura~\ref{fig:comp_tamanho} mostra o tamanho do arquivo APK para cada aplicativo.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/tamanho_apk}
 	\caption{Tamanho do APK (MB) de cada aplicativo.} 
@@ -612,18 +616,18 @@
 	\label{fig:comp_tamanho}
 \end{figure} 
 
-\par Pode-se observar que o \textit{Arduino Simulator Mini Free} possui um tamanho muito superior aos demais aplicativos, resultado este um tanto inesperado, uma vez que a versão \textit{Full Pack} deste aplicativo possui um tamanho de 9MB.
+\par Pode-se observar que o \textit{Arduino Simulator Mini Free} possui um tamanho muito superior aos demais, resultado este um tanto inesperado, uma vez que a versão \textit{Full Pack} deste aplicativo possui um tamanho de 9MB.
 
 \subsubsection{Uso de CPU}
 
-\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU.
+\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} mostra os resultados obtidos das medições, com indicação do desvio médio (para cada processo, foram coletadas 10 amostras).
 
-\par O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação definida pela diretriz \textit{.speed}. O gráfico da figura~\ref{fig:comp_cpu} mostra os resultados obtidos das medições.
+\par O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação definida pela diretriz \textit{.speed}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/uso_cpu}
-	\caption{Consumo de CPU (\%) de cada aplicativo.} 
+	\caption{Consumo médio de CPU (\%) de cada aplicativo.} 
 	Fonte: Autor
 	\label{fig:comp_cpu}
 \end{figure} 
@@ -634,9 +638,9 @@
 
 \subsubsection{Uso de Memória}
 
-\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo \textit{Proportional Set Size} (PSS), que é a soma da memória privada (pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada dividida pelo número de processos que compartilham a memória), fornece uma boa medida do "peso" deste processo na memória RAM e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} mostra esta comparação.
+\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo \textit{Proportional Set Size} (PSS), que é a soma da memória privada (pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada dividida pelo número de processos que compartilham a memória), fornece uma boa medida do "peso" deste processo na memória RAM e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} mostra esta comparação, com indicação do desvio médio (assim como na CPU, foram realizadas 10 medições).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/uso_ram}
 	\caption{Consumo de memória (PSS em kB) de cada aplicativo.} 
@@ -647,6 +651,20 @@
 \par No quesito memória, embora o comentário a respeito do uso da estrutura \textit{Enum} na seção~\ref{profiling}, o projeto SOFIA se mostrou bastante competitivo em relação aos demais simuladores.
 
 \par Também foi interessante notar, no \textit{AndMCU}, que a configuração de maior velocidade teve um consumo de memória ligeiramente menor que o modo de baixa velocidade. A explicação para isso provavelmente se deve à taxa de atualização da tela nos diferentes modos, como explicado na documentação~\cite{AndMCU}, o modo de alta velocidade diminui a taxa de atualização e o oposto ocorre para o modo de baixa velocidade. Na seção~\ref{profiling} foi mostrado que este parâmetro tem grande impacto no consumo de CPU e de memória no Android.
+
+\subsubsection{Consumo de Bateria}
+
+\par Por fim, foi realizada a medida do consumo de bateria dos aplicativos utilizando a ferramenta \textit{Battery Historian}. Cada aplicativo foi executado durante 5 minutos (com o projeto \textit{Blink}) e obteve-se o percentual de uso de bateria de cada aplicativo durante todo o período de teste (aproximadamente 20 minutos). Este processo foi repetido três vezes e o gráfico da figura~\ref{fig:comp_bateria} apresenta a média obtida. Pode-se observar que os dados estão em concordância com o gráfico da figura~\ref{fig:comp_cpu}, como era de se esperar.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{./Resources/consumo_bateria}
+	\caption{Consumo percentual de bateria por cada aplicativo. Os demais recursos do sistema Android ficam responsáveis pelo percentual restante.} 
+	Fonte: Autor
+	\label{fig:comp_bateria}
+\end{figure} 
+
+\par Por não haver diferenças significativas entre os modos de alta e baixa velocidade, o simulador \textit{AndMCU} foi testado em seu modo padrão (baixa velocidade).
 
 \subsection{Velocidade de simulação}
 \label{velocidade_simulacao}
