@@ -651,7 +651,7 @@
 \subsection{Velocidade de simulação}
 \label{velocidade_simulacao}
 
-\par A velocidade de simulação aqui apresentada é uma medida da percepção que o usuário tem desta velocidade, uma vez que é difícil fazer uma medição mais exata da frequência efetiva de \textit{clock} de cada simulador (até porque não se tem o código dos demais simuladores).
+\par A velocidade de simulação aqui apresentada é uma medida da percepção que o usuário quando comparado com o tempo do mundo real.
 
 \par Velocidade de simulação provavelmente é a maior limitação do projeto SOFIA. É possível ter uma ideia clara da velocidade de simulação neste aplicativo uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, já que o \textit{hardware} no qual o simulador se baseia é o Arduino Uno rodando à uma frequência de 16MHz.
 
@@ -667,21 +667,48 @@
 
 \par O aplicativo \textit{AndMCU} também conta com duas páginas de documentação \textit{on-line} hospedadas no Google Sites e que podem ser acessadas a partir da página de \textit{download} do aplicativo na \textit{Play Store}.
 
-\par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções implementadas no simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Estas páginas podem ser acessadas nos seguintes \textit{links}:
+\par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções implementadas no simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Abaixo é mostrado o endereço eletrônico onde este material pode ser acessado
 
 \begin{itemize}
+	\item \textbf{Documentação \textit{AndMCU}:}
+	\begin{itemize}
 	\item \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu}
 	\item \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu/andmcu-documentation}
+		\end{itemize}
 \end{itemize}
 
-\par Pouca informação está disponível para os projetos \textit{BoardMicro - AVR Simulator} e \textit{Arduino Simulator Mini Free} além das descrições das páginas de \textit{download} destes aplicativos. O projeto \textit{BoardMicro - AVR Simulator} conta apenas com um breve arquivo \textit{README} em seu repositório no Github 
+\par Pouca informação está disponível para os projetos \textit{BoardMicro - AVR Simulator} e \textit{Arduino Simulator Mini Free}, além das descrições das páginas de \textit{download} destes aplicativos. O projeto \textit{BoardMicro - AVR Simulator} conta apenas com um breve arquivo \textit{README} em seu repositório no Github, disponível no \textit{link} abaixo:
+
+\begin{itemize}
+	\item \textbf{Repositório do projeto \textit{BoardMicro - AVR Simulator}:}
+	\begin{itemize}
+		\item \url{https://github.com/blakewford/boardmicro}
+	\end{itemize}
+\end{itemize}
+
+\par Quanto ao \textit{Arduino Simulator Mini Free}, um vídeo disponível no \textit{YouTube} foi o único material encontrado a respeito da ferramenta. O vídeo mostra a versão do aplicativo para IOs e pode ser acessado pelo \textit{link} a seguir:
+
+\begin{itemize}
+	\item \textbf{Vídeo informativo do aplicativo \textit{Arduino Simulator Mini Free}:}
+	\begin{itemize}
+		\item \url{https://www.youtube.com/watch?v=LJxdy6FHVGg}
+	\end{itemize}
+\end{itemize}
 
 \subsection{Disponibilidade}
+
+\par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no Github. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo Github, ou na forma de APK no site do projeto no Gitbook, apresentado na seção~\ref{codigo_documentacao}.
+
+\par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença em termos das permissões que cada aplicativo requer para funcionar. 
+
+\par A versão gratuita requer uma quantidade enorme de permissões, tais como acesso ao GPS, leitura do histórico de navegação e favoritos, etc., chegando a ser reconhecida como uma ameaça pelo antivírus \textit{AVG Pro}. O \textit{Arduino Simulator Mini} requer permissões para gravar áudio acessar o cartão SD, enquanto que o \textit{Arduino Simulator DIY Safely} apenas exige a permissão para acessar o recurso de vibração do \textit{smartphone}.
+
+\par Vale mencionar também que o \textit{Arduino Simulator Mini Free} é o único dos simuladores testados a conter propagandas, que são exibidas a qualquer momento durante o uso do sistema Android e não apenas dentro do aplicativo.
 
 \section{Código e documentação}
 \label{codigo_documentacao}
 
-\par O código fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet sob a mesma licença.
+\par O código-fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença Apache 2.0. As modificações feitas na IDE do Arduino também estão disponíveis na internet sob a mesma licença.
 
 \begin{itemize}
 \item \textbf{Projeto SOFIA:} \url{https://github.com/kollinslima/ProjectSOFIA}
@@ -689,8 +716,8 @@
 \item \textbf{Arduino IDE:} \url{https://github.com/kollinslima/Arduino/tree/android}
 \end{itemize}
 
-\par Além do código, foi escrita uma documentação referente ao projeto no \href{https://www.gitbook.com}{\textit{Gitbook}}, que pode ser acessada a partir do repositório do projeto ou no menu "\textit{About}" do aplicativo.
+\par Além do código, foi escrita uma documentação referente ao projeto no Gitbook, que pode ser acessada a partir do repositório do projeto ou nos menus "Ajuda" e "Sobre" do aplicativo.
 
 \begin{itemize}
-\item \textbf{Documentação:} \url{https://project-sofia.gitbook.io/project/}
+\item \textbf{Documentação SOFIA:} \url{https://project-sofia.gitbook.io/project/}
 \end{itemize}
