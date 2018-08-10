@@ -652,19 +652,19 @@
 
 \par Também foi interessante notar, no \textit{AndMCU}, que a configuração de maior velocidade teve um consumo de memória ligeiramente menor que o modo de baixa velocidade. A explicação para isso provavelmente se deve à taxa de atualização da tela nos diferentes modos, como explicado na documentação~\cite{AndMCU}, o modo de alta velocidade diminui a taxa de atualização e o oposto ocorre para o modo de baixa velocidade. Na seção~\ref{profiling} foi mostrado que este parâmetro tem grande impacto no consumo de CPU e de memória no Android.
 
-\subsubsection{Consumo de Bateria}
-
-\par Por fim, foi realizada a medida do consumo de bateria dos aplicativos utilizando a ferramenta \textit{Battery Historian}. Cada aplicativo foi executado durante 5 minutos (com o projeto \textit{Blink}) e obteve-se o percentual de uso de bateria de cada aplicativo durante todo o período de teste (aproximadamente 20 minutos). Este processo foi repetido três vezes e o gráfico da figura~\ref{fig:comp_bateria} apresenta a média obtida. Pode-se observar que os dados estão em concordância com o gráfico da figura~\ref{fig:comp_cpu}, como era de se esperar.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth]{./Resources/consumo_bateria}
-	\caption{Consumo percentual de bateria por cada aplicativo. Os demais recursos do sistema Android ficam responsáveis pelo percentual restante.} 
-	Fonte: Autor
-	\label{fig:comp_bateria}
-\end{figure} 
-
-\par Por não haver diferenças significativas entre os modos de alta e baixa velocidade, o simulador \textit{AndMCU} foi testado em seu modo padrão (baixa velocidade).
+%\subsubsection{Consumo de Bateria}
+%
+%\par Por fim, foi realizada a medida do consumo de bateria dos aplicativos utilizando a ferramenta \textit{Battery Historian}. Cada aplicativo foi executado durante 5 minutos (com o projeto \textit{Blink}) e obteve-se o percentual de uso de bateria de cada aplicativo durante todo o período de teste (aproximadamente 20 minutos). Este processo foi repetido três vezes e o gráfico da figura~\ref{fig:comp_bateria} apresenta a média obtida. Pode-se observar que os dados estão em concordância com o gráfico da figura~\ref{fig:comp_cpu}, como era de se esperar.
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=\textwidth]{./Resources/consumo_bateria}
+%	\caption{Consumo percentual de bateria por cada aplicativo. Os demais recursos do sistema Android ficam responsáveis pelo percentual restante.} 
+%	Fonte: Autor
+%	\label{fig:comp_bateria}
+%\end{figure} 
+%
+%\par Por não haver diferenças significativas entre os modos de alta e baixa velocidade, o simulador \textit{AndMCU} foi testado em seu modo padrão (baixa velocidade).
 
 \subsection{Velocidade de simulação}
 \label{velocidade_simulacao}
@@ -715,7 +715,7 @@
 
 \subsection{Disponibilidade}
 
-\par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no Github. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo Github, ou na forma de APK no site do projeto no Gitbook, apresentado na seção~\ref{codigo_documentacao}.
+\par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no Github. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo Github, ou na forma de APK no site do projeto no Gitbook, apresentado na seção~\ref{codigo_documentacao}, e é o único com uma versão em português.
 
 \par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença em termos das permissões que cada aplicativo requer para funcionar. 
 
