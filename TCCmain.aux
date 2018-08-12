@@ -50,10 +50,10 @@
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{block_diagram_ATmega328P}{{2.1}{30}{Diagrama de blocos da organização interna do ATmega328P\relax }{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}CPU}{30}{section.2.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Vetor de interrup\c c\~oes ATmega328P\relax }}{31}{table.caption.6}}
-\newlabel{interruption_vector}{{2.1}{31}{Vetor de interrupções ATmega328P\relax }{table.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos da organiza\c c\~ao da CPU\relax }}{32}{figure.caption.5}}
-\newlabel{block_diagram_cpu}{{2.2}{32}{Diagrama de blocos da organização da CPU\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de blocos da organiza\c c\~ao da CPU\relax }}{31}{figure.caption.5}}
+\newlabel{block_diagram_cpu}{{2.2}{31}{Diagrama de blocos da organização da CPU\relax }{figure.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Vetor de interrup\c c\~oes ATmega328P\relax }}{32}{table.caption.6}}
+\newlabel{interruption_vector}{{2.1}{32}{Vetor de interrupções ATmega328P\relax }{table.caption.6}{}}
 \citation{IntelHex}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Mem\'oria de Programa}{33}{section.2.3}}
 \newlabel{sec:memoria_programa}{{2.3}{33}{Memória de Programa}{section.2.3}{}}
@@ -74,8 +74,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Modo CTC}{37}{subsection.2.6.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit  {Timer 0/2} do ATmega328P\relax }}{38}{figure.caption.11}}
 \newlabel{fig:timer0_2}{{2.6}{38}{Organização do módulo de \textit {Timer 0/2} do ATmega328P\relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit  {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit  {Low} e \textit  {High}).\relax }}{39}{figure.caption.12}}
-\newlabel{fig:timer1}{{2.7}{39}{Organização do módulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit {Low} e \textit {High}).\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit  {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit  {LOW} e \textit  {HIGH}).\relax }}{39}{figure.caption.12}}
+\newlabel{fig:timer1}{{2.7}{39}{Organização do módulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit {LOW} e \textit {HIGH}).\relax }{figure.caption.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Diagrama de funcionamento do modo normal\relax }}{40}{figure.caption.13}}
 \newlabel{fig:timer_normal_diagrama}{{2.8}{40}{Diagrama de funcionamento do modo normal\relax }{figure.caption.13}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Diagrama de funcionamento do modo CTC\relax }}{40}{figure.caption.14}}
@@ -103,11 +103,13 @@
 \newlabel{eq:adc_temperatura}{{2.2}{45}{Conversor A/D}{equation.2.7.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.8}USART}{46}{section.2.8}}
 \newlabel{sec:usart}{{2.8}{46}{USART}{section.2.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Formato de um \textit  {frame} transmitido pela USART.\relax }}{46}{figure.caption.22}}
-\newlabel{fig:frame_usart}{{2.16}{46}{Formato de um \textit {frame} transmitido pela USART.\relax }{figure.caption.22}{}}
-\newlabel{eq:baud_rate}{{2.3}{46}{USART}{equation.2.8.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Organiza\c c\~ao da USART\relax }}{47}{figure.caption.21}}
-\newlabel{fig:usart}{{2.15}{47}{Organização da USART\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Organiza\c c\~ao da USART\relax }}{46}{figure.caption.21}}
+\newlabel{fig:usart}{{2.15}{46}{Organização da USART\relax }{figure.caption.21}{}}
+\newlabel{eq:paridade_par}{{2.3}{47}{USART}{equation.2.8.3}{}}
+\newlabel{eq:paridade_impar}{{2.4}{47}{USART}{equation.2.8.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Formato de um \textit  {frame} transmitido pela USART.\relax }}{47}{figure.caption.22}}
+\newlabel{fig:frame_usart}{{2.16}{47}{Formato de um \textit {frame} transmitido pela USART.\relax }{figure.caption.22}{}}
+\newlabel{eq:baud_rate}{{2.5}{47}{USART}{equation.2.8.5}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Desenvolvimento do Projeto}{49}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -244,8 +246,8 @@
 \newlabel{fig:comp_cpu}{{4.39}{86}{Consumo médio de CPU (\%) de cada aplicativo.\relax }{figure.caption.66}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3.4}Uso de Mem\'oria}{86}{subsubsection.4.4.3.4}}
 \citation{AndMCU}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo de mem\'oria (PSS em kB) de cada aplicativo.\relax }}{87}{figure.caption.67}}
-\newlabel{fig:comp_ram}{{4.40}{87}{Consumo de memória (PSS em kB) de cada aplicativo.\relax }{figure.caption.67}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo de mem\'oria (PSS em MB) de cada aplicativo.\relax }}{87}{figure.caption.67}}
+\newlabel{fig:comp_ram}{{4.40}{87}{Consumo de memória (PSS em MB) de cada aplicativo.\relax }{figure.caption.67}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Velocidade de simula\c c\~ao}{87}{subsection.4.4.4}}
 \newlabel{velocidade_simulacao}{{4.4.4}{87}{Velocidade de simulação}{subsection.4.4.4}{}}
 \citation{AndMCU}

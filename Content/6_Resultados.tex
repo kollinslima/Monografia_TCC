@@ -1,7 +1,7 @@
 \chapter{Resultados e Discussões}
 \label{Resultados}
 
-\par Nesta seção, serão apresentados os resultados obtidos com as modificações da IDE do Arduino e com o simulador para Android, bem como algumas métricas de \textit{software} obtidas para o simulador.
+\par Nesta seção, serão apresentados os resultados obtidos com as modificações da IDE do Arduino e com o simulador para Android, bem como algumas métricas de \textit{software} obtidas para o simulador e algumas comparações feitas com aplicativos semelhantes ao desenvolvido neste trabalho.
 
 \section{Arduino IDE}
 
@@ -39,7 +39,7 @@
 \section{Simulador}
 \label{resultado_sofia}
 
-\par Ao abrir o simulador, o usuário é recebido com uma \textit{Splash Screen}, mostrada na figura~\ref{fig:splash_screen}, enquanto o banco de dados é carregado para a memória.
+\par Ao abrir o simulador, o usuário é recebido com uma \textit{Splash Screen}, mostrada na figura~\ref{fig:splash_screen}, enquanto o banco de dados é carregado para a memória principal, e posteriormente, o usuário é redirecionado para a tela inicial do simulador, mostrada na figura~\ref{fig:tela_inicial}
 
 \begin{figure}[h]
 	\centering
@@ -49,9 +49,6 @@
 	\label{fig:splash_screen}
 \end{figure}
 
-\par O usuário é então redirecionado para a tela inicial do simulador, mostrada na figura~\ref{fig:tela_inicial}
-\vfill
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{./Resources/tela_inicial}
@@ -60,7 +57,7 @@
 	\label{fig:tela_inicial}
 \end{figure}
 
-\par Na parte superior do simulador se concentram as opções para que o usuário comece a utilizar o sistema, bem como informações sobre o estado da simulação. Nesta \textit{toolbar}, o usuário tem acesso às seguintes opções:
+\par Na parte superior do simulador se concentram as opções para que o usuário comece a utilizar o sistema, bem como informações sobre o estado da simulação. Nesta \textit{toolbar}, o usuário tem acesso às seguintes opções/informações:
 
 \begin{enumerate}
 \item \textbf{Modelo simulado}: Mostra qual placa de Arduino está sendo utilizada para a simulação.
@@ -78,7 +75,7 @@
 \item \textbf{Área de Trabalho}: Onde serão dispostos os elementos de entrada e saída.
 \end{enumerate}
 
-\par Caso não seja encontrado um arquivo hexadecimal ou ocorra alguma falha na abertura, o usuário deve ver uma mensagem na barra de \textit{status} informando o problema, como mostrado na figura~\ref{fig:hex_file_not_found}.
+\par Caso não seja encontrado um arquivo hexadecimal ou ocorra alguma falha em sua abertura, o usuário deve ver uma mensagem na barra de \textit{status} informando o problema, como mostrado na figura~\ref{fig:hex_file_not_found}.
 
 \begin{figure}[h]
 	\centering
@@ -90,7 +87,7 @@
 
 \subsection{Interação com o sistema}
 
-\par O usuário interage com o sistema por meio de entradas e saídas no simulador. Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o led interno está conectado no Arduino UNO. A figura~\ref{fig:saida_digital} mostra os três estados possíveis para uma saída no simulador.
+\par O usuário interage com o sistema por meio de entradas e saídas no simulador. Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado uma vez que este é o pino onde o LED interno está conectado no Arduino UNO. A figura~\ref{fig:saida_digital} mostra os três estados possíveis para uma saída no simulador.
 
 \begin{figure}[h]
 	\centering
@@ -170,11 +167,11 @@
 
 \subsection{Mapa de memória}
 
-\par O recurso de mapa de memória é apresentado na figura~\ref{fig:mapa_memoria}. Este recurso permite ao usuário ver e acompanhar o estado de cada bit da memória de dados enquanto a simulação continua funcionando, bem como verificar qual o uso total de memória pelo sistema em bytes e em porcentagem.
+\par O recurso de mapa de memória é apresentado na figura~\ref{fig:mapa_memoria}. Este recurso permite ao usuário ver e acompanhar o estado de cada bit da memória de dados enquanto a simulação continua funcionando, bem como verificar qual o uso total de memória pelo sistema em bytes e em porcentagem. O estado dos bits não é atualizado automaticamente na tela, mas sim a cada 800ms, diminuindo o impacto na performance do simulador quando este recurso é aberto.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.25\textwidth]{./Resources/memory_map}
+	\includegraphics[width=0.20\textwidth]{./Resources/memory_map}
 	\caption{Mapa de memória.} 
 	Fonte: Autor
 	\label{fig:mapa_memoria}
@@ -184,7 +181,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.25\textwidth]{./Resources/memory_map_search}
+	\includegraphics[width=0.20\textwidth]{./Resources/memory_map_search}
 	\caption{Recurso de busca do mapa de memória.} 
 	Fonte: Autor
 	\label{fig:mapa_memoria_busca}
@@ -226,14 +223,11 @@
 	\label{fig:frequencimetro}
 \end{figure}
 
-\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{apendice_blink} e~\ref{apendice_timer}.
-\par O projeto \textit{Blink} foi utilizado ora com a função \textit{delay}, ora com função \textit{delayMicroseconds}, desta forma podendo obter diferentes valores de frequência gerados por diferentes métodos.
-\par O projeto \textit{Timer1} foi modificado para utilizar o modo \textit{FastPWM}. Esta alteração foi feita somente para facilitar a alteração dos valores de frequência por meio do valor nos registradores OCR1A/ICR1.
+\par A medição de frequência implementada se mostrou bastante precisa quando comparada com as medições reais de frequência. Para realizar os testes, foram utilizados os projetos \textit{Blink} e \textit{Timer1}, apresentados no Apêndices~\ref{apendice_blink} e~\ref{apendice_timer}. O projeto \textit{Blink} foi utilizado ora com a função \textit{delay}, ora com função \textit{delayMicroseconds}, desta forma podendo obter diferentes valores de frequência gerados por diferentes métodos, enquanto o projeto \textit{Timer1} foi configurado com diferentes valores em TCNT1 para as diferentes configurações de frequência e \textit{duty cycle}. As tabelas~\ref{tab:comparacao_frequencia} e~\ref{tab:comparacao_duty} apresentam os valores medidos de frequência obtidos com o simulador e com o osciloscópio ligado ao Arduino, bem como o erro relativo de cada medição comparado com o valor teórico esperado. 
 
-\par As tabelas~\ref{tab:comparacao_frequencia} e~\ref{tab:comparacao_duty} apresentam os valores medidos de frequência obtidos com o simulador e com o osciloscópio ligado ao Arduino, bem como o erro relativo de cada medição. 
-\par Como pode ser observado, o simulador e o Arduino se comportam de maneira semelhantes tanto na geração de frequência quanto nas características do \textit{duty cicle}, apresentando um erro relativo alto quando se trabalha com altas frequências, bem como uma dificuldade na geração/medição de pequenos valores de \textit{duty cicle}. 
+\par Como pode ser observado, o simulador e o Arduino se comportam de maneira semelhantes tanto na geração de frequência quanto nas características do \textit{duty cicle}, apresentando um erro relativo alto quando se trabalha com altas frequências. 
 
-\par Com isso, conclui-se que o frequencímetro incluso no simulador fornece medições satisfatórias, principalmente se a aplicação desenvolvida não tiver grandes exigências o parâmetro de frequência e \textit{duty cicle}. Notou-se apenas uma certa instabilidade nos valores quando as medições eram feitas em altas frequências (principalmente após um \textit{reset} manual), mas nada crítico ao ponto de não permitir o uso e a leitura correta das grandezas.
+\par Com isso, conclui-se que o frequencímetro incluso no simulador fornece medições satisfatórias, principalmente se a aplicação desenvolvida não tiver grandes exigências o parâmetro de frequência e \textit{duty cicle}. Notou-se apenas uma certa instabilidade nos valores quando as medições eram feitas em altas frequências (principalmente após um \textit{reset} manual), mas nada crítico ao ponto de não permitir o uso e a leitura das grandezas.
 
 \begin{table}[h]
 	\centering
@@ -304,8 +298,7 @@
 	\label{fig:confiabilidade}
 \end{figure}
  
-\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, no Android Studio) e à conversão (\textit{cast}) de valores (os casos de teste criados com o JUnit4 estão testando estas conversões). 
-\par Devido à estes problemas o sistema receberia classificação C em termos de confiabilidade, no entanto foi atribuída a nota E devido à um \textit{bug} identificado na classe \textit{DataBaseHelper} relacionado à abertura e fechamento do banco de dados (apesar de ter sido corrigido conforme a sugestão proposta).
+\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, no Android Studio) e à conversão (\textit{cast}) de valores (os casos de teste criados com o JUnit4 estão testando estas conversões). Devido à estes problemas o sistema receberia classificação C em termos de confiabilidade, no entanto foi atribuída a nota E devido à um \textit{bug} identificado na classe \textit{DataBaseHelper} relacionado à abertura e fechamento do banco de dados (apesar de ter sido corrigido conforme a sugestão proposta, esta correção não foi detectada).
 
 \par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque, esta é a \textit{OutputFragment\_Atmega328P}.
 
@@ -317,7 +310,7 @@
 	\label{fig:seguranca}
 \end{figure} 
 
-\par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas.O sistema foi classificado com o \textit{ranking} B para segurança.
+\par Em termos de vulnerabilidades, o sistema apresenta melhores resultados em comparação aos \textit{bugs}. Das que não foram resolvidas, sobraram vulnerabilidades relacionadas à manipulação de variáveis estáticas. Muitas destas, no entanto, são variáveis privadas, de forma que não existem grandes problemas relacionado com o acesso delas por classes externas (como foi apontado pela ferramenta). O sistema foi classificado com o \textit{ranking} B para segurança.
 
 \par A próxima métrica obtida diz respeito a manutenibilidade do código. Esta medida é feita com base na compexidade cognitiva dos métodos e quanto ao uso devido/indevido de padrões de codificação (esses são chamados \textit{Code Smells}). A figura~\ref{fig:manutencao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de \textit{Code Smells} encontrados (tempo para correção dos defeitos). A classe com maior número de problemas para essa métrica é a \textit{Timer1\_ATmega328P}.
 
@@ -330,7 +323,7 @@
 \end{figure} 
 
 \par Muitos dos problemas apontados nesta categoria são de menor importância, tais como remover linhas comentadas, mudar nomes de variáveis, etc. Os problemas de maior importância são os de complexidade cognitiva, que indicam que um método está muito grande, tornando-o de difícil compreensão. No entanto, alguns destes métodos não podem ser refatorados facilmente, já que comprometeria a arquitetura geral do projeto.
-\par Outro problema apontado quanto à manutenibilidade foi a quantidade de níveis de herança que algumas classes possuem, excedendo o limite de 5 níveis. Não há muito o que fazer nestes casos, já que estas classes não herdam de nenhum código desenvolvido, mas de classes do próprio sistema Android (como a \textit{AppCompatActivity}). Este foi o principal motivo para que o sistema fosse classificado com o \textit{ranking} C para manutenibilidade.
+\par Outro problema apontado quanto à manutenibilidade foi a quantidade de níveis de herança que algumas classes possuem, excedendo o limite de 5 níveis. Não há muito o que fazer nestes casos, já que estas classes não herdam de nenhum código desenvolvido, mas de classes do próprio sistema Android (como é o caso da classe \textit{AppCompatActivity}). Este foi o principal motivo para que o sistema fosse classificado com o \textit{ranking} C para manutenibilidade.
 
 \par Também foi obtida uma métrica de código duplicado. A figura~\ref{fig:duplicacao} apresenta um gráfico relacionando cada classe do projeto com a quantidade de linhas de código duplicadas. 
 
@@ -342,13 +335,13 @@
 	\label{fig:duplicacao}
 \end{figure} 
 
-\par As classes com maior número de código duplicado são as classes referentes aos \textit{Timers} (O \textit{Timer1} é a classe em destaque na figura~\ref{fig:duplicacao}) e a CPU. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos, no entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva) e portanto, foram criados diferentes métodos, cada um com pequenas diferenças de modo a atender o modo de operação configurado. Da mesma forma, várias instruções da CPU realizam a leitura e a escrita dos valores na memória de maneira idêntica, mas suas operações são diferentes de modo que também não é possível unir códigos de diferentes instruções.
+\par As classes com maior número de código duplicado são as classes referentes aos temporizadores (o \textit{Timer1} é a classe em destaque na figura~\ref{fig:duplicacao}) e a CPU. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos, no entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva) e portanto, foram criados diferentes métodos, cada um com pequenas variações, de modo a atender o modo de operação configurado. Da mesma forma, várias instruções da CPU realizam a leitura e a escrita dos valores na memória de maneira idêntica, mas suas operações são diferentes de modo que também não é possível unir códigos de diferentes instruções.
 
-\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media importante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto. O valor obtido para complexidade ciclomática foi de 1.969.
+\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media interessante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto. O valor obtido para complexidade ciclomática foi de 1.969.
 
 \subsection{Cobertura}
 
-\par Foram criados teste de unidade para todos os principais módulos do projeto (CPU, memórias de dado e de programa, ADC, \textit{Timers}, USART e módulo de interrupção), totalizando 808 casos de teste. O foco dos testes foi principalmente a cobertura de linhas e condicionais e análise de valor limite, este último sendo o foco dos testes na CPU.
+\par Foram criados teste de unidade para todos os principais módulos do projeto (CPU, memórias de dado e de programa, conversor A/D, temporizadores, USART e módulo de interrupção), totalizando 808 casos de teste. O foco dos testes foi a cobertura de linhas e condicionais e análise de valor limite, este último aplicado principalmente aos testes da CPU.
 
 \par A cobertura dos testes criado foi medida tanto com a ferramenta interna do Android Studio quanto com o plugin JaCoCo (integrado ao SonarQube). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o Android Studio registrando 59\% de cobertura e o JaCoCo 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
 
@@ -368,7 +361,7 @@
 	\label{fig:cobertura_jacoco}
 \end{figure}
 
-\par A cobertura dos testes por módulo são apresentadas nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao que foi feito, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, já que este é mais dedicado à operações com interface gráfica.
+\par A cobertura dos testes por módulo são apresentadas nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao que foi feito, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, por este ser mais dedicado à operações com interface gráfica.
 
 \begin{figure}[h!]
 	\centering
@@ -402,7 +395,7 @@
 	\label{fig:profilling_geral}
 \end{figure} 
 
-\par Olhando especificamente para a CPU (utilizando a opção de gravação instrumentada para rastreamento de métodos), observou-se que o muito do uso de CPU não está relacionado diretamente com as classes desenvolvidas, mas sim com chamadas à classes internas do Android. Do que foi desenvolvido, a classe \textit{UCModule\_View} se mostra o principal ponto crítico, mais especificamente o método \textit{run}, que faz a atualização do tempo simulado na tela. A figura~\ref{fig:profilling_cpu} apresenta este resultado.
+\par Olhando especificamente para a CPU (utilizando a opção de gravação instrumentada para rastreamento de métodos), observou-se que muito do uso de CPU não está relacionado diretamente com as classes desenvolvidas, mas sim com chamadas à classes internas do Android. Do que foi desenvolvido, a classe \textit{UCModule\_View} se mostrou o principal ponto crítico, mais especificamente o método \textit{run}, que faz a atualização do tempo simulado na tela. A figura~\ref{fig:profilling_cpu} apresenta este resultado.
 
 \begin{figure}[h]
 	\centering
@@ -412,7 +405,7 @@
 	\label{fig:profilling_cpu}
 \end{figure} 
 
-\par Uma medida tomada quanto à este resultado foi atrasar a atualização do tempo simulado por um fator de 1024, ou seja, uma requisição de atualização da tela só é dada após 1024 passagens pelo método \textit{run}. O valor de 1024 foi obtido experimentalmente de modo a não prejudicar a fluidez da interface. Valores maiores fazem com que o tempo simulado salte de um valor para outro, dando a impressão que o sistema está a ponto de travar. 
+\par Uma medida tomada quanto à este resultado foi atrasar a atualização do tempo simulado por um fator de 1024, ou seja, uma requisição de atualização da tela só é dada após 1024 passagens pelo método \textit{run}. O valor de 1024 foi obtido experimentalmente de modo a não prejudicar a fluidez da interface, valores maiores fazem com que o tempo simulado salte de um valor para outro, dando a impressão que o sistema está a ponto de travar. 
 \par Essa medida teve um impacto significativo no desempenho deste método, passando de 17\% de tempo de CPU para pouco menos de 0,5\% , como mostra a figura~\ref{fig:profilling_cpu_melhoria}.
 
 \begin{figure}[h!]
@@ -445,9 +438,9 @@
 \par Foram 3 os aplicativos selecionados para serem comparados com o projeto SOFIA, são eles:
 
 \begin{itemize}
-	\item Arduino Simulator Mini Free
-	\item BoardMicro - AVR Simulator (aplicativo e \textit{web}).
-	\item AndMCU
+	\item \textit{Arduino Simulator Mini Free}
+	\item \textit{BoardMicro - AVR Simulator} (aplicativo e \textit{web}).
+	\item \textit{AndMCU} (ou \textit{MCU Prototype Board Simulator})
 \end{itemize}
 
 \par Os aplicativos não são exatamente uma alternativa uns dos outros, mas apresentam características semelhantes e um mesmo propósito, que é a simulação de um microcontrolador.
@@ -620,7 +613,7 @@
 
 \subsubsection{Uso de CPU}
 
-\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} mostra os resultados obtidos das medições, com indicação do desvio médio (para cada processo, foram coletadas 10 amostras).
+\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} mostra os resultados obtidos das medições, com indicação do desvio médio (para cada processo, foram coletadas 397 amostras).
 
 \par O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação definida pela diretriz \textit{.speed}.
 
@@ -636,14 +629,16 @@
 
 \par Por outro lado, o simulador \textit{BoardMicro - AVR Simulator} apresentou um consumo maior que o dobro da média dos demais, resultado este que provavelmente está relacionado com sua velocidade de simulação, como mostra a seção~\ref{velocidade_simulacao}, enquanto o projeto SOFIA e o \textit{Arduino Simulator Mini Free} apresentaram resultados próximos da média.
 
+\par Importante resaltar que, diretamente relacionado com o uso de CPU, está o consumo de bateria de cada aplicativo. 
+
 \subsubsection{Uso de Memória}
 
-\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo \textit{Proportional Set Size} (PSS), que é a soma da memória privada (pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada dividida pelo número de processos que compartilham a memória), fornece uma boa medida do "peso" deste processo na memória RAM e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} mostra esta comparação, com indicação do desvio médio (assim como na CPU, foram realizadas 10 medições).
+\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo \textit{Proportional Set Size} (PSS), que é a soma da memória privada (pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada dividida pelo número de processos que compartilham a memória), fornece uma boa medida do "peso" deste processo na memória RAM e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} mostra esta comparação, com indicação do desvio médio (assim como na CPU, foram realizadas 1000 medições).
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/uso_ram}
-	\caption{Consumo de memória (PSS em kB) de cada aplicativo.} 
+	\caption{Consumo de memória (PSS em MB) de cada aplicativo.} 
 	Fonte: Autor
 	\label{fig:comp_ram}
 \end{figure} 

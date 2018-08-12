@@ -11,10 +11,10 @@
 	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
 	\item Um temporizador de 16-bits;
 	\item 6 canais de PWM;
-	\item Conversor Analógico-Digital de 10-bits (8 canais multiplexados);
-	\item Duas interfaces de comunicação serial SPI (\textit{Serial Peripheral Interface});
-	\item Uma USART (\textit{Universal Synchronous Asynchronous Receiver Transceiver}) serial;
-	\item Uma interface serial TWI (\textit{2-wire Serial Interface}), compatível com $I^{2}C$ da Philips;
+	\item Conversor A/D de 10-bits (8 canais multiplexados);
+	\item Duas interfaces de comunicação serial SPI;
+	\item Uma USART serial;
+	\item Uma interface serial TWI, compatível com $I^{2}C$ da Philips;
 	\item \textit{Watchdog Timer} programável com oscilador separado;
 	\item Entre outros.
 \end{itemize}
@@ -32,19 +32,19 @@
 \section{CPU}
 
 \par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits) que armazenam as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares.
- \begin{figure}[h]
+ \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{./Resources/Block_diagram_cpu}
+	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
 	\caption{Diagrama de blocos da organização da CPU}
 	Fonte: Folha de dados ATmega328P
 	\label{block_diagram_cpu}
 \end{figure}
 
-\par A CPU utiliza um \textit{pipeline} de um estágio o que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par A CPU utiliza um estágio de \textit{pipeline} o que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
 \par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM antes de ser utilizado.
 \par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupções, contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade (o \textit{RESET} é a interrupção de maior prioridade no sistema).
 
-\begin{table}
+\begin{table}[h!]
 	\centering
 	\caption{Vetor de interrupções ATmega328P}
 	\label{interruption_vector}
@@ -82,9 +82,10 @@
 
 \par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software}, reabilitando as interrupções no começo da rotina.
 \par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. 
-\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativada para aquele evento, ela será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
-\par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, a interrupção não ocorrerá.
+\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativa para aquele evento, ela será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
+\par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
 
+\hfill
 \section{Memória de Programa}
 \label{sec:memoria_programa}
 
@@ -120,10 +121,10 @@
 	\begin{itemize}
 		\item 00: Dado
 		\item 01: Fim do arquivo
-		\item 02: Segmento estendido de memória. O valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16.
-		\item 03: Início do segmento de memória. O valor contido no campo dado é carregado para os registradores CS e IP para os processadores 8086 e 80186
-		\item 04: Segmento estendido de memória Linear. O valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço.
-		\item 05: Início do endereço linear. Aponta para o endereço de memória onde o programa deve iniciar a execução.
+		\item 02: Segmento estendido de memória (o valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16).
+		\item 03: Início do segmento de memória (o valor contido no campo dado é carregado para os registradores CS e IP para os processadores 8086 e 80186).
+		\item 04: Segmento estendido de memória Linear (o valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço).
+		\item 05: Início do endereço linear (aponta para o endereço de memória onde o programa deve iniciar a execução).
 	\end{itemize}
 
 	\item \textbf{Dado}: Contém os dados do registro no formato \textit{Little-endian} (primeiro byte é o menos significativo da palavra) (tamanho variável no registro).
@@ -145,20 +146,20 @@
 \end{figure}
 
 \par Existem diferentes modos de endereçamento que são aplicados à memória de dados. Todo o espaço de endereçamento suporta qualquer um dos modos listados, são eles:
-
+\newpage
 \begin{itemize}
 	\item \textbf{Direto}: Acesso direto ao endereço desejado;
-	\item \textbf{Indireto com deslocamento}: Acesso à 63 endereços deslocados a partir do endereço base, dado pelo registrador Y ou Z.
+	\item \textbf{Indireto com deslocamento}: Acesso à 63 endereços deslocados a partir do endereço base, dado pelos registradores Y ou Z.
 	\item \textbf{Indireto}: Acesso ao endereço dado pelos registradores X, Y ou Z.
 	\item \textbf{Indireto com pré-decremento}: Registradores X, Y ou Z são decrementados antes de serem utilizados como ponteiro para endereçamento.
-	\item \textbf{Indireto com pós-incremento}: Registradores X, Y ou Z são incrementados depois de serem utilizados como ponteiro para endereçamento.
+	\item \textbf{Indireto com pós-incremento}: Registradores X, Y ou Z são incrementados após terem sido utilizados como ponteiro para endereçamento.
 \end{itemize}
 
 
 \section{Módulo de Entrada e Saída Digital}
 \label{sec:e_s}
 
-\par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de entrada/saída (E/S) do microcontrolador.
+\par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de E/S do microcontrolador.
 
  \begin{figure}[h]
 	\centering
@@ -168,8 +169,8 @@
 	\label{fig:io_module}
 \end{figure}
 
-\par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra que identifica o \textit{port} e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno, se este estiver habilitado no registrador MCUCR.
-\par Existe ainda o registrador PINxn, que é um registrador apenas de leitura responsável por armazenar o valor da entrada do pino. No entanto, é possível escrever um valor "1" (nível alto) neste registrador. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
+\par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra que identifica o \textit{port} e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno (se este estiver habilitado no registrador MCUCR).
+\par Existe ainda o registrador PINxn, que é um registrador responsável por armazenar o valor da entrada do pino. Apesar de ser um registrador de leitura, é possível fazer a escrita do valor "1" (nível alto) via \textit{software}. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
 \par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 
@@ -177,7 +178,7 @@
 \label{sec:timers}
 
 \par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
-\par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de clock externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
+\par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de \textit{clock} externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
 \par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, entretanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
 \par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente. Os modos de operação disponíveis para os temporizadores são descritos a seguir.
 
@@ -192,7 +193,7 @@
  \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/timer1}
-	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{Low} e \textit{High}).}
+	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{LOW} e \textit{HIGH}).}
 	Fonte: Folha de dados ATmega328P
 	\label{fig:timer1}
 \end{figure}
@@ -212,7 +213,7 @@
 
 \subsection{Modo CTC}
 
-\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (Para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
+\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
 \vfill
  \begin{figure}[h]
 	\centering
@@ -276,9 +277,9 @@
 \section{Conversor A/D}
 \label{sec:conversor_ad}
 
-\par O ATmega328P possui um conversor analógico/digital (A/D) de aproximações sucessivas com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
+\par O ATmega328P possui um conversor A/D de aproximações sucessivas com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
 
-\par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, tais como a entrada AREF ou referência interna de 1,1V.
+\par O conversor possui uma entrada de alimentação separada que é feita por meio do pino AVcc. Esta entrada pode ser utilizada como tensão de referência ($V_{ref}$) para conversão, ou ainda, podem ser escolhidas outras opções por meio do registrador ADMUX, tais como o pino AREF ou referência interna de 1,1V.
 
 \par Por ser um conversor de 10-bits, são necessários 2 registradores para armazenar o resultado da conversão, são eles o ADCL e o ADCH. O resultado da conversão é alinhado à esquerda por padrão, no entanto esta opção pode ser alterada para alinhamento à direita por meio do registrador ADMUX. A figura~\ref{fig:alinhamento} mostra como o resultado é armazenado nos registradores ADCL e ADCH para cada modo.
 
@@ -315,7 +316,7 @@
 \par Para iniciar uma conversão é necessário colocar em nível alto os bits ADEN (habilita o conversor) e ADSC. A conversão é então inicializada e ADSC permanece em nível alto durante todo o tempo de conversão. Ao final, o bit ADSC é resetado por \textit{hardware} e a \textit{flag} ADIF é setada, podendo gerar uma interrupção se esta estiver configurada. O resultado de uma conversão é dada pela equação~\ref{eq:adc_result}.
 
 \begin{equation}
-	ADC = \frac{V_{in} * 1024}{V_{ref}}
+	ADC = \frac{V_{in} \cdot 1024}{V_{ref}}
 	\label{eq:adc_result}
 \end{equation}
 
@@ -356,7 +357,7 @@
 
 \par A USART é um dos módulos do Atmega328P que permitem a comunicação serial deste com outros dispositivos. Este módulo possui múltiplos modos de operação, suportando comunicação \textit{full duplex}, operação síncrona e assíncrona, detecção de erros em \textit{frames}, modo de comunicação com multiprocessadores, etc., além de poder ser utilizada para comunicação SPI (como Mestre). A figura~\ref{fig:usart} apresenta a organização interna deste módulo no microcontrolador.
 
- \begin{figure}
+ \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/usart}
 	\caption{Organização da USART}
@@ -364,7 +365,21 @@
 	\label{fig:usart}
 \end{figure}
 
-\par O protocolo de comunicação da USART utiliza \textit{frames} que podem ter 5,6,7,8 ou 9 bits, com 1 ou 2 bits de parada, além da possibilidade de adição de bits de paridade par ou ímpar. A transmissão de um \textit{frame} se inicia com o bit de \textit{START}, fazendo a mudança do estado da linha alto (\textit{IDLE}) para o nível baixo, indicando que uma comunicação deve ser iniciada. Os bits do \textit{frame} são então transmitidos um a um, começando pelo bit menos significativo e terminando com o bit de paridade (se houver). Por fim, são enviados os bits de parada (1 ou 2, conforme configurado), indicando o fim do \textit{frame}. Este procedimento está ilustrado na figura~\ref{fig:frame_usart}.
+\par O protocolo de comunicação da USART utiliza \textit{frames} que podem ter 5,6,7,8 ou 9 bits, com 1 ou 2 bits de parada, além da possibilidade de adição de bits de paridade par ou ímpar. Os bits de paridade são utilizados para detecção de erro na transmissão e são calculados pelas equações~\ref{eq:paridade_par} (paridade par) e~\ref{eq:paridade_impar} (paridade ímpar).
+
+\begin{equation}
+P_{even} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 0
+\label{eq:paridade_par}
+\end{equation}
+
+\begin{equation}
+P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 1
+\label{eq:paridade_impar}
+\end{equation}
+
+\par Onde $d_n$ é o n-ésimo bit de dado (\textit{frame}) a ser transmitido.
+
+\par A transmissão de um \textit{frame} se inicia com o bit de \textit{START}, fazendo a mudança do estado da linha alto (\textit{IDLE}) para o nível baixo, indicando que uma comunicação deve ser iniciada. Os bits do \textit{frame} são então transmitidos um a um, começando pelo bit menos significativo e terminando com o bit de paridade (se houver). Por fim, são enviados os bits de parada (1 ou 2, conforme configurado), indicando o fim do \textit{frame}. Este procedimento está ilustrado na figura~\ref{fig:frame_usart}.
 
  \begin{figure}[H]
 	\centering
@@ -374,23 +389,22 @@
 	\label{fig:frame_usart}
 \end{figure}
 
-\par Durante a transmissão e a recepção, a USART usa um registrador auxiliar UDRn (como mostrado na figura~\ref{fig:usart}). Este registrador na verdade é composto por dois espaços de memória, um acessado por operações de escrita e outro por operações de leitura, e consiste em um \textit{buffer} que recebe os dados a serem transmitidos (antes de serem enviados ao registrador de deslocamento para ser transmitido) ou os dados recebidos (quando a recepção for concluída).
+\par Durante a transmissão e a recepção, a USART utiliza um registrador auxiliar UDRn (como mostrado na figura~\ref{fig:usart}). Este registrador é na verdade composto por dois espaços de memória, um acessado por operações de escrita e outro por operações de leitura, e consiste em um \textit{buffer} que recebe os dados a serem transmitidos (antes de serem enviados ao registrador de deslocamento para ser transmitido) ou os dados recebidos (quando a recepção for concluída).
 
-\par Para utilizar a USART, o programador precisa inicialmente informar a velocidade de comunicação (\textit{BAUD rate}), formato do \textit{frame} e habilitar o transmissor e o receptor. A transmissão se inicia ao carregar um dado no registrador UDRn e a recepção ao receber o bit de \textit{START}. A velocidade de comunicação é ajustada por meio do registrador UBRRn de 16-bits (\textit{High} e \textit{Low}) e pode ser calculada pela equação~\ref{eq:baud_rate} (para o modo assíncrono).
+\par Para utilizar a USART, o programador precisa inicialmente informar a velocidade de comunicação (\textit{BAUD rate}), formato do \textit{frame} e habilitar o transmissor e o receptor. A transmissão se inicia ao carregar um dado no registrador UDRn e a recepção ao receber o bit de \textit{START}. A velocidade de comunicação é ajustada por meio do registrador UBRRn de 16-bits e pode ser calculada pela equação~\ref{eq:baud_rate} (para o modo assíncrono).
 
 \begin{equation}
 	\label{eq:baud_rate}
 	BAUD = \frac{f_{osc}}{16(UBRRn + 1)}
 \end{equation}
 
-\par Onde BAUD é a velocidade de comunicação (bits/s), $f_{osc}$ é a frequência de clock do sistema e UBRRn é o valor contido no registrador.
+\par Onde BAUD é a velocidade de comunicação (bits/s), $f_{osc}$ é a frequência de \textit{clock} do sistema e UBRRn é o valor contido no registrador.
 
 \par A USART pode ser utilizada de modo dirigido por interrupção. Três eventos podem ser configuradas gerar interrupção, são eles:
 
 \begin{itemize}
 	\item\textbf{ Recepção completa}: Indica que existe dado não lido no \textit{buffer} de recepção.
-	\item \textbf{Registrador de dados vazio}: Indica que o \textit{buffer} de transmissão está pronto para receber um novo dado, ou seja, o dado anterior já foi movido para o registrador de deslocamento.
-	\par Esta é uma interrupção disparada por condição, persistindo até que um novo dado seja escrito no registrador UDRn ou a interrupção seja desabilitada manualmente.
+	\item \textbf{Registrador de dados vazio}: Indica que o \textit{buffer} de transmissão está pronto para receber um novo dado, ou seja, o dado anterior já foi movido para o registrador de deslocamento. Esta é uma interrupção disparada por condição, persistindo até que um novo dado seja escrito no registrador UDRn ou a interrupção seja desabilitada manualmente.
 	\item \textbf{Transmissão completa}: Indica que todos os dados presentes no registrador de deslocamento já foram transmitidos.
 \end{itemize}
 
