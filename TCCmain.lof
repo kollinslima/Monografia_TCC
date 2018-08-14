@@ -55,10 +55,10 @@
 \contentsline {figure}{\numberline {4.32}{\ignorespaces Tela principal do simulador \textit {BoardMicro - AVR Simulator}, vers\~ao para \textit {web}.\relax }}{80}{figure.caption.58}
 \contentsline {figure}{\numberline {4.33}{\ignorespaces Tela principal do simulador \textit {AndMCU}.\relax }}{80}{figure.caption.59}
 \contentsline {figure}{\numberline {4.34}{\ignorespaces Tela principal do simulador \textit {Arduino Simulator Mini Free}.\relax }}{81}{figure.caption.60}
-\contentsline {figure}{\numberline {4.35}{\ignorespaces Tela de simula\c c\~ao do projeto \textit {Blink}. O monitor serial no canto inferior direito pode ser escondido por meio do bot\~ao "\textit {Console}".\relax }}{81}{figure.caption.61}
+\contentsline {figure}{\numberline {4.35}{\ignorespaces Tela de simula\c c\~ao do projeto \textit {Blink}. O monitor serial no canto inferior direito pode ser escondido por meio do bot\~ao "\textit {Console}".\relax }}{82}{figure.caption.61}
 \contentsline {figure}{\numberline {4.36}{\ignorespaces Tela edi\c c\~ao do c\'odigo fonte a ser simulado.\relax }}{82}{figure.caption.62}
-\contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android.\relax }}{85}{figure.caption.64}
-\contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do APK (MB) de cada aplicativo.\relax }}{85}{figure.caption.65}
+\contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android ativos no momento, por\'em este n\'umero tente a aumentar.\relax }}{85}{figure.caption.64}
+\contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do arquivo APK (MB) de cada aplicativo.\relax }}{85}{figure.caption.65}
 \contentsline {figure}{\numberline {4.39}{\ignorespaces Consumo m\'edio de CPU (\%) de cada aplicativo.\relax }}{86}{figure.caption.66}
 \contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo de mem\'oria (PSS em MB) de cada aplicativo.\relax }}{87}{figure.caption.67}
 \addvspace {10\p@ }

@@ -60,13 +60,13 @@
 \contentsline {section}{\numberline {4.5}C\'odigo e documenta\c c\~ao}{90}{section.4.5}
 \contentsline {chapter}{\numberline {5}Conclus\~ao}{91}{chapter.5}
 \contentsline {section}{\numberline {5.1}Trabalhos futuros}{92}{section.5.1}
-\contentsline {chapter}{Refer\^encias}{93}{section.5.1}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{97}{appendix.A}
-\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{99}{appendix.B}
-\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{101}{appendix.C}
-\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{103}{appendix.D}
-\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{105}{appendix.E}
-\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{107}{appendix.F}
-\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{109}{appendix.G}
-\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{111}{appendix.H}
-\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{113}{appendix.I}
+\contentsline {chapter}{Refer\^encias}{92}{section.5.1}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{95}{appendix.A}
+\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{97}{appendix.B}
+\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{99}{appendix.C}
+\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{101}{appendix.D}
+\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{103}{appendix.E}
+\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{105}{appendix.F}
+\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{107}{appendix.G}
+\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{109}{appendix.H}
+\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{111}{appendix.I}
