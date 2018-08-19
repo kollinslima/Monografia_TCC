@@ -1,7 +1,7 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) e que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
+\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
 
 \section{Visão Geral}
 
@@ -31,7 +31,7 @@
 
 \section{CPU}
 
-\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits) que armazenam as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares.
+\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazenam as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
@@ -40,11 +40,10 @@
 	\label{block_diagram_cpu}
 \end{figure}
 
-\par A CPU utiliza um estágio de \textit{pipeline} o que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
 \par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM antes de ser utilizado.
-\par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupções, contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade (o \textit{RESET} é a interrupção de maior prioridade no sistema).
+\par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupções, contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade (o \textit{RESET} é a interrupção de maior prioridade no sistema). Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software}, reabilitando as interrupções no começo da rotina.
 
-\begin{table}[h!]
+\begin{table}[p!]
 	\centering
 	\caption{Vetor de interrupções ATmega328P}
 	\label{interruption_vector}
@@ -80,12 +79,10 @@
 	\end{tabular}
 \end{table}
 
-\par Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software}, reabilitando as interrupções no começo da rotina.
-\par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. 
-\par Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} indicando a ocorrência do evento. Se a interrupção estiver ativa para aquele evento, ela será tratada ou enfileirada para execução posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
-\par Quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flags} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
+\par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} toda vez que o evento ocorre e, se a interrupção deste evento estiver ativa, ela será tratada ou enfileirada para tratamento posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
+\par Já quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flag} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
+\vfill
 
-\hfill
 \section{Memória de Programa}
 \label{sec:memoria_programa}
 
@@ -121,9 +118,9 @@
 	\begin{itemize}
 		\item 00: Dado
 		\item 01: Fim do arquivo
-		\item 02: Segmento estendido de memória (o valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16).
-		\item 03: Início do segmento de memória (o valor contido no campo dado é carregado para os registradores CS e IP para os processadores 8086 e 80186).
-		\item 04: Segmento estendido de memória Linear (o valor do campo dado é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço).
+		\item 02: Segmento estendido de memória (o valor do campo "dado" é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16).
+		\item 03: Início do segmento de memória (o valor contido no campo "dado" é carregado para os registradores CS e IP para os processadores 8086 e 80186).
+		\item 04: Segmento estendido de memória Linear (o valor do campo "dado" é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço).
 		\item 05: Início do endereço linear (aponta para o endereço de memória onde o programa deve iniciar a execução).
 	\end{itemize}
 
@@ -173,6 +170,7 @@
 \par Existe ainda o registrador PINxn, que é um registrador responsável por armazenar o valor da entrada do pino. Apesar de ser um registrador de leitura, é possível fazer a escrita do valor "1" (nível alto) via \textit{software}. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
 \par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
+\vfill
 
 \section{Temporizadores}
 \label{sec:timers}
@@ -200,7 +198,7 @@
 
 \subsection{Modo Normal}
 
-\par No modo normal de operação é o mais simples. Nele, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero, como mostrado no diagrama da figura~\ref{fig:timer_normal_diagrama}. O estouro do contador pode ser utilizado para gerar uma interrupção.
+\par O modo normal de operação é o mais simples. Nele, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero, como mostrado no diagrama da figura~\ref{fig:timer_normal_diagrama}. O estouro do contador pode ser utilizado para gerar uma interrupção.
 \par Os registradores OCRnA e OCRnB são continuamente comparados com o valor de TCNTn (que armazena a contagem) e em caso de \textit{match}, podem gerar interrupções no sistema e/ou atuar nos pinos OCxA e OCxB, podendo levá-los à nível alto, baixo ou inverter seus valores.
 
  \begin{figure}[h]
@@ -213,7 +211,7 @@
 
 \subsection{Modo CTC}
 
-\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
+\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento deste modo é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
 \vfill
  \begin{figure}[h]
 	\centering
@@ -258,7 +256,7 @@
 
 \subsection{Modo PWM com Correção de Fase e Frequência}
 
-\par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo, como mostra a figura~\ref{fig:timer_phasefrequencycorrect_diagram}. Com isso, pode-se garantir a simetria dos pulsos gerados.
+\par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo, como mostra a figura~\ref{fig:timer_phasefrequencycorrect_diagram}. Esta mudança faz com que os pulsos gerados sejam sempre simétricos.
 
  \begin{figure}[h]
 	\centering
@@ -320,7 +318,7 @@
 	\label{eq:adc_result}
 \end{equation}
 
-\par Valores de entrada superiores à $V_{ref}$ terão valores convertidos próximos à 0x3FF (máximo valor para 10-bits).
+\par Onde $V_{in}$ é a tensão aplicada à entrada do microcontrolador e ADC é o valor (decimal) convertido. Valores de entrada superiores à $V_{ref}$ terão valores convertidos próximos à 0x3FF (máximo valor para 10-bits).
 
 \par É possível configurar um evento para o disparo do conversor A/D ou utilizá-lo no modo \textit{Free Run}, em que o disparo do conversor é feita pela própria \textit{flag} do conversor (ADIF), fazendo com que uma nova conversão comece imediatamente após a outra. Para utilizar este modo, a \textit{flag} ADIF precisa ser limpa a cada conversão, o que é feito automaticamente se for utilizada interrupção. A tabela~\ref{tab:disparo_adc} apresenta todas as possibilidades de disparo do conversor A/D.
 
@@ -350,7 +348,7 @@
 	\label{eq:adc_temperatura}
 \end{equation}
 
-\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
+\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção, ADCH e ADCL são os valores contidos nos respectivos registradores e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
 
 \section{USART}
 \label{sec:usart}
@@ -389,7 +387,7 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 	\label{fig:frame_usart}
 \end{figure}
 
-\par Durante a transmissão e a recepção, a USART utiliza um registrador auxiliar UDRn (como mostrado na figura~\ref{fig:usart}). Este registrador é na verdade composto por dois espaços de memória, um acessado por operações de escrita e outro por operações de leitura, e consiste em um \textit{buffer} que recebe os dados a serem transmitidos (antes de serem enviados ao registrador de deslocamento para ser transmitido) ou os dados recebidos (quando a recepção for concluída).
+\par Durante a transmissão e a recepção, a USART utiliza um registrador auxiliar UDRn (como mostrado na figura~\ref{fig:usart}). Este registrador é na verdade composto por dois espaços de memória, um acessado por operações de escrita e outro por operações de leitura, e consiste em um \textit{buffer} que recebe os dados a serem transmitidos (antes de serem enviados ao registrador de deslocamento para transmissão) ou os dados recebidos (quando a recepção for concluída).
 
 \par Para utilizar a USART, o programador precisa inicialmente informar a velocidade de comunicação (\textit{BAUD rate}), formato do \textit{frame} e habilitar o transmissor e o receptor. A transmissão se inicia ao carregar um dado no registrador UDRn e a recepção ao receber o bit de \textit{START}. A velocidade de comunicação é ajustada por meio do registrador UBRRn de 16-bits e pode ser calculada pela equação~\ref{eq:baud_rate} (para o modo assíncrono).
 

@@ -24,16 +24,15 @@
 \contentsline {section}{\numberline {3.2}M\'etodo}{51}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{51}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{52}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}Arquitetura}{52}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}M\'odulo principal}{52}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}CPU}{54}{subsubsection.3.2.2.3}
-\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Programa}{54}{subsubsection.3.2.2.4}
-\contentsline {subsubsection}{\numberline {3.2.2.5}Mem\'oria de Dados}{55}{subsubsection.3.2.2.5}
-\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de Interrup\c c\~ao}{55}{subsubsection.3.2.2.6}
-\contentsline {subsubsection}{\numberline {3.2.2.7}M\'odulo de E/S}{55}{subsubsection.3.2.2.7}
-\contentsline {subsubsection}{\numberline {3.2.2.8}Temporizadores}{56}{subsubsection.3.2.2.8}
-\contentsline {subsubsection}{\numberline {3.2.2.9}Conversor A/D}{56}{subsubsection.3.2.2.9}
-\contentsline {subsubsection}{\numberline {3.2.2.10}USART}{57}{subsubsection.3.2.2.10}
+\contentsline {subsubsection}{\numberline {3.2.2.1}M\'odulo principal}{52}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}CPU}{54}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Mem\'oria de Programa}{54}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Dados}{55}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}M\'odulo de Interrup\c c\~ao}{55}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de E/S}{55}{subsubsection.3.2.2.6}
+\contentsline {subsubsection}{\numberline {3.2.2.7}Temporizadores}{56}{subsubsection.3.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.8}Conversor A/D}{56}{subsubsection.3.2.2.8}
+\contentsline {subsubsection}{\numberline {3.2.2.9}USART}{57}{subsubsection.3.2.2.9}
 \contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{59}{chapter.4}
 \contentsline {section}{\numberline {4.1}Arduino IDE}{59}{section.4.1}
 \contentsline {section}{\numberline {4.2}Simulador}{60}{section.4.2}
@@ -42,31 +41,31 @@
 \contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{66}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{67}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{67}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{70}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{70}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{69}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{69}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Cobertura}{73}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}\textit {Profiling}}{75}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Compara\c c\~ao entre aplicativos}{77}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Interface}{78}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Funcionalidades oferecidas}{82}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Requisitos do sistema e consumo de recursos}{84}{subsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.3.1}Sistema Operacional}{84}{subsubsection.4.4.3.1}
-\contentsline {subsubsection}{\numberline {4.4.3.2}Tamanho}{84}{subsubsection.4.4.3.2}
-\contentsline {subsubsection}{\numberline {4.4.3.3}Uso de CPU}{84}{subsubsection.4.4.3.3}
-\contentsline {subsubsection}{\numberline {4.4.3.4}Uso de Mem\'oria}{86}{subsubsection.4.4.3.4}
-\contentsline {subsection}{\numberline {4.4.4}Velocidade de simula\c c\~ao}{87}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Documenta\c c\~ao}{88}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Disponibilidade}{89}{subsection.4.4.6}
-\contentsline {section}{\numberline {4.5}C\'odigo e documenta\c c\~ao}{90}{section.4.5}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{91}{chapter.5}
-\contentsline {section}{\numberline {5.1}Trabalhos futuros}{92}{section.5.1}
-\contentsline {chapter}{Refer\^encias}{92}{section.5.1}
-\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{95}{appendix.A}
-\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{97}{appendix.B}
-\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{99}{appendix.C}
-\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{101}{appendix.D}
-\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{103}{appendix.E}
-\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{105}{appendix.F}
-\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{107}{appendix.G}
-\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{109}{appendix.H}
-\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{111}{appendix.I}
+\contentsline {section}{\numberline {4.4}\textit {Profiling}}{75}{section.4.4}
+\contentsline {section}{\numberline {4.5}Compara\c c\~ao entre aplicativos}{77}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Interface}{78}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Funcionalidades oferecidas}{82}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Requisitos do sistema e consumo de recursos}{84}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}Sistema Operacional}{84}{subsubsection.4.5.3.1}
+\contentsline {subsubsection}{\numberline {4.5.3.2}Tamanho}{84}{subsubsection.4.5.3.2}
+\contentsline {subsubsection}{\numberline {4.5.3.3}Uso de CPU}{84}{subsubsection.4.5.3.3}
+\contentsline {subsubsection}{\numberline {4.5.3.4}Uso de Mem\'oria}{87}{subsubsection.4.5.3.4}
+\contentsline {subsection}{\numberline {4.5.4}Velocidade de simula\c c\~ao}{88}{subsection.4.5.4}
+\contentsline {subsection}{\numberline {4.5.5}Documenta\c c\~ao}{89}{subsection.4.5.5}
+\contentsline {subsection}{\numberline {4.5.6}Disponibilidade}{90}{subsection.4.5.6}
+\contentsline {section}{\numberline {4.6}C\'odigo e documenta\c c\~ao}{91}{section.4.6}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{93}{chapter.5}
+\contentsline {section}{\numberline {5.1}Trabalhos futuros}{94}{section.5.1}
+\contentsline {chapter}{Refer\^encias}{94}{section.5.1}
+\contentsline {chapter}{Ap\^endice \numberline {A}Projeto \textit {Blink}}{97}{appendix.A}
+\contentsline {chapter}{Ap\^endice \numberline {B}Projeto \textit {Blink} em assembly}{99}{appendix.B}
+\contentsline {chapter}{Ap\^endice \numberline {C}Projeto \textit {Input to Output}}{101}{appendix.C}
+\contentsline {chapter}{Ap\^endice \numberline {D}Projeto \textit {Interrupt}}{103}{appendix.D}
+\contentsline {chapter}{Ap\^endice \numberline {E}Projeto \textit {Timer}}{105}{appendix.E}
+\contentsline {chapter}{Ap\^endice \numberline {F}Projeto \textit {Analog Input}}{107}{appendix.F}
+\contentsline {chapter}{Ap\^endice \numberline {G}Projeto \textit {Serial}}{109}{appendix.G}
+\contentsline {chapter}{Ap\^endice \numberline {H}Projeto \textit {Analog Serial}}{111}{appendix.H}
+\contentsline {chapter}{Ap\^endice \numberline {I}Projeto \textit {Memory Measure}}{113}{appendix.I}

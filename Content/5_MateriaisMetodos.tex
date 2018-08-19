@@ -68,8 +68,6 @@
 
 \subsection{Desenvolvimento Android}
 
-\subsubsection{Arquitetura}
-
 A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simulação do código. A figura~\ref{fig:arquitetura_simulador} apresenta um diagrama simplificado da arquitetura do simulador.
 
  \begin{figure}[h]
@@ -99,11 +97,11 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 
 \subsubsection{Memória de Programa} 
 
-\par A memória de programa (\textit{ProgramMemory}) é responsável por armazenar o código a ser executado pela CPU. O código é lido de um arquivo hexadecimal no formato \textit{Intel HEX} e formatado em um \textit{array} de \textit{bytes}. É também função da memória de programa verificar continuamente o arquivo hexadecimal e enviar uma mensagem de \textit{Reset} para o módulo principal em caso de alterações.
+\par A memória de programa (\textit{ProgramMemory}) é responsável por armazenar o código a ser executado pela CPU. O código é lido de um arquivo hexadecimal no formato \textit{Intel HEX} e formatado em um \textit{array} de bytes. É também função da memória de programa verificar continuamente o arquivo hexadecimal e enviar uma mensagem de \textit{Reset} para o módulo principal em caso de alterações.
 
-\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada em 16kB x 16-bits. No entanto, no simulador, preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de \textit{bytes}), além de facilitar a implementação da instrução LPM, que realiza a leitura de um \textit{byte} da memória de programa.
+\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada no formato 16kB x 16-bits, no entanto, no simulador, preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de bytes), além de facilitar a implementação da instrução LPM, que realiza a leitura de um byte da memória de programa.
 
-\par Cada vez que uma instrução é lida da memória pela CPU, dois \textit{bytes} são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos \textit{bytes} desta instrução são calculados no método \textit{loadInstruction}.
+\par Cada vez que uma instrução é lida da memória pela CPU, dois bytes são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos bytes desta instrução são calculados no método \textit{loadInstruction}.
 
 \subsubsection{Memória de Dados} 
 
@@ -145,7 +143,7 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 
 \par Por fim, a USART (\textit{USARTModule}), apesar de possuir diversos modos de operação no sistema físico original, possui apenas um modo de operação no simulador: \textit{frames} de 8 bits, sem paridade e um bit de parada. Esta configuração foi escolhida por ser a inicialização padrão da função \textit{Serial.begin()} do Arduino (embora outras configurações também sejam possíveis).
 
-\par Este módulo se comunica com um monitor serial que foi integrado ao sistema e ocupa o mesmo espaço reservado aos pinos de saída na tela. Uma característica deste módulo é que a configuração de velocidade (\textit{BAUD rate}) não importa para o funcionamento do módulo, ou seja, o comportamento do sistema será o mesmo para qualquer velocidade de comunicação.
+\par Este módulo se comunica com um monitor serial que foi integrado ao sistema e ocupa o mesmo espaço reservado aos pinos de saída na tela. Uma característica deste módulo é que a configuração de velocidade (\textit{BAUD rate}) não importa para o seu funcionamento, ou seja, o comportamento do sistema será o mesmo para qualquer velocidade de comunicação.
 
 \hfil
 

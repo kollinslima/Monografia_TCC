@@ -59,8 +59,9 @@
 \contentsline {figure}{\numberline {4.36}{\ignorespaces Tela edi\c c\~ao do c\'odigo fonte a ser simulado.\relax }}{82}{figure.caption.62}
 \contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android ativos no momento, por\'em este n\'umero tente a aumentar.\relax }}{85}{figure.caption.64}
 \contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do arquivo APK (MB) de cada aplicativo.\relax }}{85}{figure.caption.65}
-\contentsline {figure}{\numberline {4.39}{\ignorespaces Consumo m\'edio de CPU (\%) de cada aplicativo.\relax }}{86}{figure.caption.66}
-\contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo de mem\'oria (PSS em MB) de cada aplicativo.\relax }}{87}{figure.caption.67}
+\contentsline {figure}{\numberline {4.39}{\ignorespaces Consumo m\'edio de CPU (\%) de cada aplicativo. Para cada processo, foram coletadas 397 amostras.\relax }}{86}{figure.caption.66}
+\contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo m\'edio de Bateria (\%) de cada aplicativo em um per\IeC {\'\i }odo de 2 horas, com cada aplicativo executando o projeto \textit {Blink} continuamente por 30 minutos.\relax }}{87}{figure.caption.67}
+\contentsline {figure}{\numberline {4.41}{\ignorespaces Consumo de mem\'oria (PSS em MB) de cada aplicativo. Foram realizadas 1000 medi\c c\~oes para cada aplicativo.\relax }}{88}{figure.caption.68}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

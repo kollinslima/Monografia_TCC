@@ -3,9 +3,9 @@
 %Android
 \par Os dispositivos móveis vem ganhando cada vez mais espaço no cotidiano das pessoas por trazer funcionalidades diversas em um dispositivo cada vez mais barato e portátil. Seja para fazer uma simples operação matemática, ou para navegar na \textit{web}, tirar fotos, telefonar, etc., os \textit{smartphones} e \textit{tablets}  tem evoluído cada vez mais tanto em questões de \textit{hardware} quanto em \textit{software}.
 
-\par Em se tratando de \textit{hardware}, os dispositivos móveis hoje carregam um grande poder computacional. Segundo uma matéria do Olhar Digital~\cite{OlharDigital_PC_antigo}, o \textit{desktop} top de linha em 2001 possuía 80 GB de HD, 128 MB de memória primária e um processador single core de 1,53 GHz. Hoje, um \textit{smartphone} top de linha possui 8 núcleos de processamento, com frequências de até 2,8 GHz, memória primária de 4 GB e armazenamento interno de 256 GB (com possibilidade de expansão)~\cite{Tecmundo_S9}, tudo isso em um \textit{design} compacto que cabe no bolso. Graças à essa evolução, é possível realizar tarefas cada vez mais complexas em um dispositivo móvel. 
+\par Em se tratando de \textit{hardware}, os dispositivos móveis hoje carregam um grande poder computacional. Segundo uma matéria do Olhar Digital~\cite{OlharDigital_PC_antigo}, o \textit{desktop} top de linha em 2001 possuía 80 GB de HD, 128 MB de memória primária e um processador \textit{single core} de 1,53 GHz. Hoje, um \textit{smartphone} top de linha possui 8 núcleos de processamento, com frequências de até 2,8 GHz, memória primária de 4 GB e armazenamento interno de 256 GB (com possibilidade de expansão)~\cite{Tecmundo_S9}, tudo isso em um \textit{design} compacto que cabe no bolso. Graças à essa evolução, é possível realizar tarefas cada vez mais complexas em um dispositivo móvel. 
 
-\par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas \textit{mobile}, o que facilita o desenvolvimento de aplicações. O sistema operacional para dispositivos móveis líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), desenvolvimento em conjunto com as empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para o desenvolvimento de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
+\par Quanto a \textit{software}, hoje existe uma maior padronização dos sistemas \textit{mobile}, o que facilita o desenvolvimento de aplicações. O sistema operacional para dispositivos móveis líder de mercado é o Android~\cite{Lecheta}. Tendo sua primeira versão lançada em 2008, diversos foram os motivos pela sua grande popularidade, tais como o fato de ser gratuito, \textit{open-source} (sob a licença Apache 2.0, principalmente~\cite{Android_licenca}), o desenvolvimento em conjunto com as empresas interessadas (\textit{Open Handset Alliance} - OHA) e o uso do Java para a criação de aplicativos, uma vez que essa é a linguagem de programação mais utilizada mundialmente~\cite{Deitel}, além de entregar ao usuário um sistema moderno, elegante e cheio de recursos.
 
 \par Devido a constante presença dos dispositivos móveis (com sistema Android) e sua crescente capacidade de \textit{hardware}, esta plataforma tem sido cada vez mais explorada por desenvolvedores. Uma prova disso é a loja oficial de aplicativos do Android (\href{https://play.google.com/}{\textit{Google Play Store}}), que oferece uma infinidade de aplicativos, de calculadoras a jogos com gráficos realistas, muitos deles disponibilizados gratuitamente. É por este motivo também que esta plataforma foi escolhida para a realização deste trabalho, que visa desenvolver um simulador das funcionalidades de um Arduino UNO.
 
@@ -18,7 +18,7 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 
 \par Procurando na \textit{Google Play Store}, é possível encontrar diversos aplicativos relacionados com Arduino. Muitos deles se encontram na forma de "aplicativo-tutorial", mostrando exemplos de código e diagramas para o ensino da plataforma, mas também é possível encontrar IDEs (com capacidade de gravação das placas físicas), geradores de código automático, módulos para serem utilizados em projetos de automação (como controles \textit{wireless} que se integram às \textit{shields} do Arduino), etc.
 
-\par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \href{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu&hl=en_US}{\textit{MCU Prototype Board Simulator}} (também conhecido como \textit{AndMCU}), que simula um kit de desenvolvimento (com botões, LEDs, LCD, etc.) e permite a execução de códigos \textit{assembly} de um \textit{subset} das instruções do microcontrolador 68705 da Motorola. 
+\par Na parte de simuladores, vários foram os aplicativos de simulação/emulação de processadores e microcontroladores encontrados. Um destaque fica para o aplicativo \href{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu&hl=en_US}{\textit{AndMCU}} (também conhecido como \textit{MCU Prototype Board Simulator}), que simula um kit de desenvolvimento (com botões, LEDs, LCD, etc.) e permite a execução de códigos \textit{assembly} de um \textit{subset} das instruções do microcontrolador 68705 da Motorola. 
 
 \par Quanto à simulação de placas de Arduino, pode-se citar o \href{https://play.google.com/store/apps/details?id=org.starlo.boardmicro}{\textit{BoardMicro - AVR Simulator}}, que destina-se à simulação do microcontrolador ATMega32U4 a partir de um arquivo hexadecimal fornecido pelo o usuário, e se baseia no Arduino Esplora. Também, o \href{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}{\textit{CircSim Circuit Simulator}} se propõe a fazer simulação de, entre outras coisas, placas de Arduino, no entanto, seu uso é praticamente impossibilitado dado que sua interface não se ajusta adequadamente em dispositivos móveis (fato que pode ser comprovado pelos comentários dos usuários na página do aplicativo).
 
@@ -77,7 +77,7 @@ próprias. Alguns que merecem destaque são:
 	\item \textbf{Virtual Breadboard}: Permite a simulação de circuitos eletrônicos digitais em um ambiente virtual, bem como a programação de microcontroladores dentro do próprio sistema. Possui uma versão gratuita, no entanto, para simulação de Arduino é preciso comprar um módulo separadamente pelo valor de US\$49,00~\cite{VBB}.
 	\item \textbf{Simuino}: Simulador de Arduino UNO e MEGA para terminal. Apesar de gratuito e \textit{Open-Source}, possui apenas versões para Linux e é distribuído apenas em formato de código fonte, sendo necessário fazer a compilação antes de usá-lo~\cite{Simuino}.
 	\item \textbf{CodeBlocks}: Possui uma versão com ferramentas próprias para escrever e simular códigos Arduino, permitindo também o \textit{upload} de código para placas físicas, com suporte à diversos modelos de \textit{hardware}. A desvantagem fica por conta de não possuir uma interface gráfica para simulação, que ocorre toda em terminal apenas com textos indicando os estados de entradas e saídas~\cite{CodeBlocks}. 
-	\item \textbf{Autodesk Tinkercad}: É um ambiente de aprendizado \textit{on-line} gratuito que permite tanto a criação de projetos eletrônicos quanto de desenhos 3D. Possui um ambiente para codificação e depuração do código na própria ferramenta. A única desvantagem encontrada é o fato de funcionar \textit{on-line}, sendo necessário fazer um cadastro para utilizá-la~\cite{Tinkercad}.
+	\item \textbf{Autodesk Tinkercad}: É um ambiente de aprendizado \textit{on-line} gratuito que permite tanto a criação de projetos eletrônicos quanto de desenhos 3D. Possui um ambiente para codificação e depuração do código na própria ferramenta. A única desvantagem encontrada é o fato de funcionar apenas \textit{on-line}, sendo necessário fazer um cadastro para utilizá-la~\cite{Tinkercad}.
 \end{itemize}
 
 \par Apesar da grande quantidade de simuladores já existentes, como foi mostrado anteriormente, há ainda uma
@@ -87,10 +87,10 @@ falta deste tipo de \textit{software} para dispositivos móveis. A grande motivaç
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Objetivo}
 
-\par O objetivo principal do projeto é permitir a execução de programas desenvolvidos
-para a plataforma Arduino UNO em um aplicativo Android,
+\par O objetivo principal do projeto é o desenvolvimento de um aplicativo Android que possibilite a execução de programas desenvolvidos
+para a plataforma Arduino UNO,
 permitindo assim a realização de testes sem a necessidade de uma placa de
-Arduino ou qualquer outro componente eletrônico externo.
+física ou qualquer outro componente eletrônico externo.
 \par Também faz parte dos objetivos do trabalho a integração do simulador com a IDE oficial do projeto Arduino, permitindo a transferência dos códigos compilados para o simulador de maneira automática.
 
 
@@ -111,4 +111,4 @@ Capítulo 3: Descreve o processo de desenvolvimento do projeto e as principais es
 
 Capítulo 4: Discorre sobre os resultados obtidos, apresentando o sistema, algumas métricas de \textit{software} e comparações feitas com outros aplicativos semelhantes. Também é feita uma discussão a respeito destes resultados.
 
-Capítulo 5: Conclui a respeito do trabalho desenvolvido até o momento e apresenta algumas perspectivas para a continuação do trabalho.
+Capítulo 5: Conclui a respeito do trabalho desenvolvido até o momento e apresenta algumas perspectivas para a continuação do projeto.
