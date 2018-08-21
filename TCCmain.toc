@@ -35,14 +35,14 @@
 \contentsline {subsubsection}{\numberline {3.2.2.9}USART}{57}{subsubsection.3.2.2.9}
 \contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{59}{chapter.4}
 \contentsline {section}{\numberline {4.1}Arduino IDE}{59}{section.4.1}
-\contentsline {section}{\numberline {4.2}Simulador}{60}{section.4.2}
+\contentsline {section}{\numberline {4.2}Simulador}{61}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Intera\c c\~ao com o sistema}{62}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Monitor Serial}{65}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Mapa de mem\'oria}{66}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Refer\^encia externa de tens\~ao}{67}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Medi\c c\~ao de frequ\^encia}{67}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{69}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{69}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{70}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{70}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Cobertura}{73}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}\textit {Profiling}}{75}{section.4.4}
 \contentsline {section}{\numberline {4.5}Compara\c c\~ao entre aplicativos}{77}{section.4.5}
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {4.5.3}Requisitos do sistema e consumo de recursos}{84}{subsection.4.5.3}
 \contentsline {subsubsection}{\numberline {4.5.3.1}Sistema Operacional}{84}{subsubsection.4.5.3.1}
 \contentsline {subsubsection}{\numberline {4.5.3.2}Tamanho}{84}{subsubsection.4.5.3.2}
-\contentsline {subsubsection}{\numberline {4.5.3.3}Uso de CPU}{84}{subsubsection.4.5.3.3}
+\contentsline {subsubsection}{\numberline {4.5.3.3}Uso de CPU}{86}{subsubsection.4.5.3.3}
 \contentsline {subsubsection}{\numberline {4.5.3.4}Uso de Mem\'oria}{87}{subsubsection.4.5.3.4}
 \contentsline {subsection}{\numberline {4.5.4}Velocidade de simula\c c\~ao}{88}{subsection.4.5.4}
 \contentsline {subsection}{\numberline {4.5.5}Documenta\c c\~ao}{89}{subsection.4.5.5}

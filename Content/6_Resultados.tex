@@ -9,7 +9,7 @@
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/android_button}
+	\includegraphics[width=0.6\textwidth]{./Resources/android_button}
 	\caption{Localização do botão "Android" (Selecionado) na IDE.} 
 	Fonte: Autor
 	\label{fig:ide_modificada}
@@ -52,7 +52,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{./Resources/tela_inicial}
+	\includegraphics[width=0.45\textwidth]{./Resources/tela_inicial}
 	\caption{Tela inicial do simulador.} 
 	Fonte: Autor
 	\label{fig:tela_inicial}
@@ -80,7 +80,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{./Resources/hex_file_not_found}
+	\includegraphics[width=0.35\textwidth]{./Resources/hex_file_not_found}
 	\caption{Falha ao abrir arquivo hexadecimal} 
 	Fonte: Autor
 	\label{fig:hex_file_not_found}
@@ -90,19 +90,20 @@
 
 \par O usuário interage com o sistema por meio de entradas e saídas no simulador. Uma saída digital é mostrada na figura~\ref{fig:saida_digital}. No lado esquerdo é possível selecionar o pino no qual a saída estará conectada e do lado direito é mostrado o estado do pino. Por padrão, o pino 13 é selecionado,' uma vez que este é o pino onde o LED interno está conectado no Arduino UNO. A figura~\ref{fig:saida_digital} mostra os três estados possíveis para uma saída no simulador.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/outputs}
+	\includegraphics[width=0.55\textwidth]{./Resources/outputs}
 	\caption{Saídas digitais do simulador} 
 	Fonte: Autor
 	\label{fig:saida_digital}
 \end{figure}
 
+\vfill
 \par Uma entrada pode ser digital ou analógica. Uma entrada digital é mostrada na figura~\ref{fig:entrada_digital}. Pode-se observar que existem 4 elementos em uma entrada digital, são eles (da esquerda para a direita):
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/inputs}
+	\includegraphics[width=0.60\textwidth]{./Resources/inputs}
 	\caption{Entradas digitais do simulador.} 
 	Fonte: Autor
 	\label{fig:entrada_digital}
@@ -126,7 +127,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/short_circuit}
+	\includegraphics[width=0.45\textwidth]{./Resources/short_circuit}
 	\caption{Condição de cuito-circuito entre entradas.} 
 	Fonte: Autor
 	\label{fig:curto-circuito}
@@ -136,7 +137,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/analog_input}
+	\includegraphics[width=0.45\textwidth]{./Resources/analog_input}
 	\caption{Entradas analógicas do simulador.} 
 	Fonte: Autor
 	\label{fig:entrada_analogica}
@@ -146,7 +147,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Resources/remocao}
+	\includegraphics[width=0.35\textwidth]{./Resources/remocao}
 	\caption{Remoção manual de pinos de saída.} 
 	Fonte: Autor
 	\label{fig:remocao}
@@ -156,7 +157,7 @@
 
 \par Outro modo de interação com o sistema é por meio do monitor serial, mostrado na figura~\ref{fig:monitor_serial}. Este monitor pode ser utilizado para receber ou enviar informações para a USART e ocupa o mesmo espaço reservado para as saídas digitais, ou seja, não é possível visualizar as saídas em conjunto com o monitor serial (é possível, no entanto, utilizá-lo simultaneamente com entradas). 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.25\textwidth]{./Resources/serial_monitor_working}
 	\caption{Monitor Serial.} 
@@ -230,7 +231,7 @@
 
 \par Com isso, conclui-se que o frequencímetro incluso no simulador fornece medições satisfatórias, principalmente se a aplicação desenvolvida não tiver grandes exigências o parâmetro de frequência e \textit{duty cicle}. Notou-se apenas uma certa instabilidade nos valores quando as medições eram feitas em altas frequências (principalmente após um \textit{reset} manual), mas nada crítico ao ponto de não permitir o uso e a leitura das grandezas.
 
-\begin{table}[h]
+\begin{table}[p]
 	\centering
 	\caption{Comparação das medições de frequência (\textit{duty cycle 50\%}). Foram coletadas 110 amostras em cada frequência medida.}
 	\label{tab:comparacao_frequencia}
@@ -265,7 +266,7 @@
 	\end{tabular}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[p]
 	\centering
 	\caption{Comparação das medições de \textit{duty cicle} (projeto: \textit{Timer1}, frequência: 488Hz). Foram coletadas 111 amostras para cada valor de \textit{duty cycle} medido.}
 	\label{tab:comparacao_duty}
@@ -459,7 +460,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{./Resources/simulation_with_io}
+	\includegraphics[scale=0.55]{./Resources/simulation_with_io}
 	\caption{Tela principal do simulador SOFIA.} 
 	Fonte: Autor
 	\label{fig:interface_sofia}
@@ -473,7 +474,7 @@
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.12]{./Resources/interface_BM_AVR}
+	\includegraphics[scale=0.13]{./Resources/interface_BM_AVR}
 	\caption{Tela principal do simulador \textit{BoardMicro - AVR Simulator}.} 
 	Fonte: Autor
 	\label{fig:interface_BM_AVR}
@@ -611,6 +612,7 @@
 
 \par Pode-se observar que o \textit{Arduino Simulator Mini Free} possui um tamanho muito superior aos demais, resultado este um tanto inesperado, uma vez que a versão \textit{Full Pack} deste aplicativo possui um tamanho de 9MB.
 
+\newpage
 \subsubsection{Uso de CPU}
 
 \par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} apresenta a média obtida das medições, com indicação do desvio padrão. O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação, definida pela diretriz \textit{.speed}.
