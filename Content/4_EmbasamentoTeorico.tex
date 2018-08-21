@@ -31,7 +31,7 @@
 
 \section{CPU}
 
-\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazenam as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
@@ -176,7 +176,7 @@
 \label{sec:timers}
 
 \par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
-\par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de \textit{clock} externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Também por seu funcionamento assíncrono, pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
+\par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de \textit{clock} externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Quando em funcionamento assíncrono, o \textit{Timer 2} pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
 \par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, entretanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
 \par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente. Os modos de operação disponíveis para os temporizadores são descritos a seguir.
 
@@ -191,7 +191,7 @@
  \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/timer1}
-	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{LOW} e \textit{HIGH}).}
+	\caption{Organização do módulo de \textit{Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB são divididos em dois registradores de 8-bits (\textit{LOW} e \textit{HIGH})}
 	Fonte: Folha de dados ATmega328P
 	\label{fig:timer1}
 \end{figure}
@@ -242,7 +242,7 @@
 
 \par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}), seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}. A figura~\ref{fig:timer_phasecorrect_diagram} apresenta o diagrama de funcionamento deste modo.
 
-\par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} com OCRxA/OCRxB (na contagem progressiva) e nível alto em caso de \textit{math} (na contagem regressiva), ou o contrário, gerando uma onda quadrada. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A em caso de \textit{match}, seja em contagem progressiva ou regressiva.
+\par Neste modo de operação, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} (TCNTn e OCRxA/OCRxB) na contagem progressiva, e nível alto em caso de \textit{math} na contagem regressiva (ou o contrário), gerando uma onda quadrada. No caso do \textit{Timer 1}, ainda existe a possibilidade de inverter o valor de OC1A a cada \textit{match}, seja em contagem progressiva ou regressiva.
 
 \par Assim como no modo \textit{fast PWM}, a atualização do valor de OCRxA/OCRxB não é instantânea, ocorrendo apenas no momento em que que a contagem atinge o valor máximo. Importante resaltar que, tanto para o modo de correção de fase, quanto para o \textit{fast PWM}, o valor de ICR1 é atualizado imediatamente, o que pode ocasionar em uma perda na comparação com TCNTx caso este registrador estiver sendo usado para definir o topo da contagem.
 

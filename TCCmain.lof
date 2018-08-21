@@ -1,4 +1,4 @@
-\babel@toc {brazil}{}
+\select@language {brazil}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Diagrama de blocos da organiza\c c\~ao interna do ATmega328P\relax }}{30}{figure.caption.4}
@@ -7,7 +7,7 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Mem\'oria de dados ATmega328P\relax }}{35}{figure.caption.9}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Organiza\c c\~ao do m\'odulo de Entrada/Sa\IeC {\'\i }da (E/S) do ATmega328P\relax }}{36}{figure.caption.10}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 0/2} do ATmega328P\relax }}{38}{figure.caption.11}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit {LOW} e \textit {HIGH}).\relax }}{39}{figure.caption.12}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Organiza\c c\~ao do m\'odulo de \textit {Timer 1} do ATmega328P. Para contar em 16-bits, os registradores TCNTn, ICRn, OCRnA e OCRnB s\~ao divididos em dois registradores de 8-bits (\textit {LOW} e \textit {HIGH})\relax }}{39}{figure.caption.12}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Diagrama de funcionamento do modo normal\relax }}{40}{figure.caption.13}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Diagrama de funcionamento do modo CTC\relax }}{40}{figure.caption.14}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Diagrama de funcionamento do modo \textit {fast PWM}\relax }}{41}{figure.caption.15}
