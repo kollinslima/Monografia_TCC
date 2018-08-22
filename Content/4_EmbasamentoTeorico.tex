@@ -318,9 +318,9 @@
 	\label{eq:adc_result}
 \end{equation}
 
-\par Onde $V_{in}$ é a tensão aplicada à entrada do microcontrolador e ADC é o valor (decimal) convertido. Valores de entrada superiores à $V_{ref}$ terão valores convertidos próximos à 0x3FF (máximo valor para 10-bits).
+\par Onde $V_{in}$ é a tensão aplicada à entrada do microcontrolador e ADC é o valor (decimal) convertido. Valores de entrada superiores à $V_{ref}$ terão valores convertidos próximos à 0x3FF (valor máximo para 10-bits).
 
-\par É possível configurar um evento para o disparo do conversor A/D ou utilizá-lo no modo \textit{Free Run}, em que o disparo do conversor é feita pela própria \textit{flag} do conversor (ADIF), fazendo com que uma nova conversão comece imediatamente após a outra. Para utilizar este modo, a \textit{flag} ADIF precisa ser limpa a cada conversão, o que é feito automaticamente se for utilizada interrupção. A tabela~\ref{tab:disparo_adc} apresenta todas as possibilidades de disparo do conversor A/D.
+\par É possível configurar um evento para o disparo do conversor A/D ou utilizá-lo no modo \textit{Free Run}, em que o disparo é feito pela própria \textit{flag} do conversor (ADIF), fazendo com que uma nova conversão comece imediatamente após a outra. Para utilizar este modo, a \textit{flag} ADIF precisa ser limpa a cada conversão, o que é feito automaticamente se for utilizada interrupção. A tabela~\ref{tab:disparo_adc} apresenta todas as possibilidades de disparo do conversor A/D.
 
 \begin{table}[h]
 	\centering
@@ -382,7 +382,7 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
  \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Resources/frame_usart}
-	\caption{Formato de um \textit{frame} transmitido pela USART.}
+	\caption{Formato de um \textit{frame} transmitido pela USART}
 	Fonte: Folha de dados ATmega328P
 	\label{fig:frame_usart}
 \end{figure}
@@ -406,4 +406,4 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 	\item \textbf{Transmissão completa}: Indica que todos os dados presentes no registrador de deslocamento já foram transmitidos.
 \end{itemize}
 
-\par Assim como ocorre com os temporizadores, quando em operação, a USART sobrescreve o funcionamento normal dos pinos PD0 (Rx) e PD1 (Tx)
+\par Assim como ocorre com os temporizadores, quando em operação, a USART sobrescreve o funcionamento normal dos pinos PD0 (Rx) e PD1 (Tx).

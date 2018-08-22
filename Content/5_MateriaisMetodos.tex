@@ -27,6 +27,10 @@
 
 \item Para montar códigos \textit{Assembly} escritos para o ATmega328P, foi utilizado o \href{http://avra.sourceforge.net/}{\textit{AVRA}}.
 
+
+\item Para a criação dos gráficos, foram utilizados \textit{scripts} em \href{https://www.python.org/}{\textit{Python}}, fazendo uso da biblioteca \href{https://matplotlib.org/}{\textit{Matplotlib}}. Também foi utilizado o \href{https://www.google.com/sheets/about/}{\textit{Google Sheets}} para esta função.
+
+
 \item Por fim, em termos de hardware, foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real, principalmente comparações feitas em medidas de frequência e \textit{duty cycle}, no qual se fez uso também de um osciloscópio InfiniiVision DSOX2002A, da Keysight.
 \end{itemize}
 
@@ -51,7 +55,7 @@
 
 \par Já a classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor de dispositivos, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
 
-\par No Linux, todos os dispositivos MTP são montados por meio do GVfs. Utilizando a variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo .hex é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/SOFIA} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador. No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo .hex para o dispositivo Android no Windows.
+\par No Linux, todos os dispositivos MTP são montados por meio do GVfs. Utilizando a variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo hexadecimal é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/SOFIA} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador. No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo hexadecimal para o dispositivo Android no Windows.
 
 \par A classe \textit{USBManager} utiliza alguns comandos externos do sistema, tais como \textit{lsusb}, \textit{gio copy} e \textit{gvfs-copy}. O primeiro comando é necessário apenas para retornar um nome mais legível do dispositivo para o usuário (\textit{friendly name}), mas caso este não seja encontrado o sistema ainda será capaz de funcionar. Já o segundo e o terceiro comando são utilizados para transferir o arquivo para o dispositivo móvel, sendo executados na ordem: primeiro o \textit{gio copy}, seguido do \textit{gvfs-copy} em caso de falha (\textit{gvfs-copy} é um comando antigo, mas foi adicionado para compatibilidade). Se o usuário não tiver pelo menos um destes comandos disponíveis no computador, o sistema informará falha ao copiar o arquivo. Estes três comandos fazem parte do pacote básico de instalação das principais distribuições Linux.
 
@@ -137,7 +141,7 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 
 \par O conversor A/D (\textit{ADCModule}), assim como os Temporizadores, apresenta todos os módulos de funcionamento descritos na seção~\ref{sec:conversor_ad}, com exceção do sensor de temperatura e do disparo pela saída do comparador analógico (já que este módulo não foi implementado). 
 
-\par Em termos de implementação, este é o módulo menos fiel ao sistema físico original, principalmente em se tratando dos tempos de conversão. No entanto, isso não reflete em uma simulação incorreta do módulo.
+\par Em termos de implementação, este é o módulo menos fiel ao sistema físico original, no entanto, isso não reflete em uma simulação incorreta.
 
 \subsubsection{USART}
 
