@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.28)  21 AUG 2018 21:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.28)  23 AUG 2018 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2165,7 +2165,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 227.
 [67 <./Resources/AREF_config.jpg>]
-Overfull \hbox (52.78552pt too wide) in paragraph at lines 238--267
+Overfull \hbox (1.76817pt too wide) in paragraph at lines 238--267
  [][] 
  []
 
@@ -2230,11 +2230,7 @@ File: ./Resources/manutencao.png Graphic file (type png)
 Package pdftex.def Info: ./Resources/manutencao.png  used on input line 319.
 (pdftex.def)             Requested size: 443.86319pt x 270.37222pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 5696) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -2244,9 +2240,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 326.
+(babel)             in language  on input line 324.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 326.
+(babel)             in language  on input line 324.
 [71 <./Resources/seguranca.png>]
 <./Resources/duplicacao.png, id=1002, 890.32625pt x 520.94624pt>
 File: ./Resources/duplicacao.png Graphic file (type png)
@@ -2268,9 +2264,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 340.
+(babel)             in language  on input line 339.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 340.
+(babel)             in language  on input line 339.
 [72 <./Resources/manutencao.png>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 342.
@@ -2280,12 +2276,9 @@ File: ./Resources/cobertura_android_studio.png Graphic file (type png)
 Package pdftex.def Info: ./Resources/cobertura_android_studio.png  used on inpu
 t line 350.
 (pdftex.def)             Requested size: 288.50836pt x 26.70189pt.
-<./Resources/cobertura_jacoco.png, id=1011, 263.98625pt x 171.64125pt>
-File: ./Resources/cobertura_jacoco.png Graphic file (type png)
-<use ./Resources/cobertura_jacoco.png>
-Package pdftex.def Info: ./Resources/cobertura_jacoco.png  used on input line 3
-58.
-(pdftex.def)             Requested size: 221.9316pt x 144.29811pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2294,10 +2287,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 362.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 362.
-[73 <./Resources/duplicacao.png> <./Resources/cobertura_android_studio.png>]
+(babel)             in language  on input line 355.
+[73 <./Resources/duplicacao.png>]
+<./Resources/cobertura_jacoco.png, id=1015, 263.98625pt x 171.64125pt>
+File: ./Resources/cobertura_jacoco.png Graphic file (type png)
+<use ./Resources/cobertura_jacoco.png>
+Package pdftex.def Info: ./Resources/cobertura_jacoco.png  used on input line 3
+58.
+(pdftex.def)             Requested size: 221.9316pt x 144.29811pt.
 <./Resources/cobertura_modulo_android_studio.png, id=1018, 746.79pt x 461.725pt
 >
 File: ./Resources/cobertura_modulo_android_studio.png Graphic file (type png)
@@ -2305,6 +2304,10 @@ File: ./Resources/cobertura_modulo_android_studio.png Graphic file (type png)
 Package pdftex.def Info: ./Resources/cobertura_modulo_android_studio.png  used 
 on input line 368.
 (pdftex.def)             Requested size: 443.86319pt x 274.43036pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 <./Resources/cobertura_modulo_jacoco.png, id=1019, 746.79pt x 461.725pt>
 File: ./Resources/cobertura_modulo_jacoco.png Graphic file (type png)
 <use ./Resources/cobertura_modulo_jacoco.png>
@@ -2312,31 +2315,18 @@ Package pdftex.def Info: ./Resources/cobertura_modulo_jacoco.png  used on input
  line 376.
 (pdftex.def)             Requested size: 443.86319pt x 274.43036pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 384.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 388.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 388.
-[74 <./Resources/cobertura_jacoco.png> <./Resources/cobertura_modulo_android_st
-udio.png (PNG copy)>]
-<./Resources/profilling_general.png, id=1026, 89.6148pt x 34.4487pt>
+<./Resources/profilling_general.png, id=1022, 89.6148pt x 34.4487pt>
 File: ./Resources/profilling_general.png Graphic file (type png)
 <use ./Resources/profilling_general.png>
 Package pdftex.def Info: ./Resources/profilling_general.png  used on input line
  392.
 (pdftex.def)             Requested size: 332.89738pt x 127.998pt.
 
-Underfull \vbox (badness 6725) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -2346,11 +2336,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 399.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 399.
-[75 <./Resources/cobertura_modulo_jacoco.png (PNG copy)> <./Resources/profillin
-g_general.png (PNG copy)>]
+(babel)             in language  on input line 397.
+[74 <./Resources/cobertura_android_studio.png> <./Resources/cobertura_jacoco.pn
+g>]
+
+LaTeX Warning: Text page 75 contains only floats.
+
+
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 397.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 397.
+[75 <./Resources/cobertura_modulo_android_studio.png (PNG copy)> <./Resources/c
+obertura_modulo_jacoco.png (PNG copy)>]
 <./Resources/profilling_cpu.png, id=1032, 228.855pt x 68.8974pt>
 File: ./Resources/profilling_cpu.png Graphic file (type png)
 <use ./Resources/profilling_cpu.png>
@@ -2364,6 +2373,9 @@ Package pdftex.def Info: ./Resources/profilling_cpu_melhoria.png  used on input
  line 413.
 (pdftex.def)             Requested size: 443.86319pt x 133.21396pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2371,11 +2383,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 418.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 421.
-[76 <./Resources/profilling_cpu.png (PNG copy)> <./Resources/profilling_cpu_mel
-horia.png (PNG copy)>]
+(babel)             in language  on input line 418.
+[76 <./Resources/profilling_general.png (PNG copy)> <./Resources/profilling_cpu
+.png (PNG copy)>]
 <./Resources/profilling_memoria.png, id=1040, 247.6452pt x 53.4798pt>
 File: ./Resources/profilling_memoria.png Graphic file (type png)
 <use ./Resources/profilling_memoria.png>
@@ -2392,10 +2404,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
+(babel)             in language  on input line 442.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 452.
-[77 <./Resources/profilling_memoria.png (PNG copy)>]
+(babel)             in language  on input line 442.
+[77 <./Resources/profilling_cpu_melhoria.png (PNG copy)> <./Resources/profillin
+g_memoria.png (PNG copy)>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 455.
 <./Resources/simulation_with_io.jpg, id=1052, 260.172pt x 444.2196pt>
@@ -2403,38 +2416,39 @@ File: ./Resources/simulation_with_io.jpg Graphic file (type jpg)
 <use ./Resources/simulation_with_io.jpg>
 Package pdftex.def Info: ./Resources/simulation_with_io.jpg  used on input line
  463.
-(pdftex.def)             Requested size: 143.09502pt x 244.32153pt.
+(pdftex.def)             Requested size: 182.11914pt x 310.9516pt.
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 472.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 472.
-[78 <./Resources/simulation_with_io.jpg>]
-<./Resources/interface_BM_AVR.jpg, id=1058, 1084.05pt x 1927.2pt>
+<./Resources/interface_BM_AVR.jpg, id=1054, 1084.05pt x 1927.2pt>
 File: ./Resources/interface_BM_AVR.jpg Graphic file (type jpg)
 <use ./Resources/interface_BM_AVR.jpg>
 Package pdftex.def Info: ./Resources/interface_BM_AVR.jpg  used on input line 4
 77.
 (pdftex.def)             Requested size: 140.93144pt x 250.5448pt.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 481.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 481.
+[78]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 <./Resources/interface_BM_AVR_web.jpg, id=1061, 240.9pt x 135.3858pt>
 File: ./Resources/interface_BM_AVR_web.jpg Graphic file (type jpg)
 <use ./Resources/interface_BM_AVR_web.jpg>
 Package pdftex.def Info: ./Resources/interface_BM_AVR_web.jpg  used on input li
 ne 489.
-(pdftex.def)             Requested size: 332.89738pt x 187.10529pt.
+(pdftex.def)             Requested size: 443.86319pt x 249.47441pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 4531) has occurred while \output is active []
-
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2443,78 +2457,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 498.
+(babel)             in language  on input line 497.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 498.
-[79 <./Resources/interface_BM_AVR.jpg>]
+(babel)             in language  on input line 497.
+[79 <./Resources/simulation_with_io.jpg>]
 <./Resources/interface_AndMCU.jpg, id=1067, 260.172pt x 444.4605pt>
 File: ./Resources/interface_AndMCU.jpg Graphic file (type jpg)
 <use ./Resources/interface_AndMCU.jpg>
 Package pdftex.def Info: ./Resources/interface_AndMCU.jpg  used on input line 5
-01.
-(pdftex.def)             Requested size: 130.08566pt x 222.2297pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 508.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 508.
-[80 <./Resources/interface_BM_AVR_web.jpg> <./Resources/interface_AndMCU.jpg>]
-<./Resources/interface_AMSF.jpg, id=1074, 1084.05pt x 1927.2pt>
-File: ./Resources/interface_AMSF.jpg Graphic file (type jpg)
-<use ./Resources/interface_AMSF.jpg>
-Package pdftex.def Info: ./Resources/interface_AMSF.jpg  used on input line 517
-.
-(pdftex.def)             Requested size: 162.60048pt x 289.06754pt.
-<./Resources/interface_AMSF_blink.jpg, id=1076, 1084.05pt x 1927.2pt>
-File: ./Resources/interface_AMSF_blink.jpg Graphic file (type jpg)
-<use ./Resources/interface_AMSF_blink.jpg>
-Package pdftex.def Info: ./Resources/interface_AMSF_blink.jpg  used on input li
-ne 527.
-(pdftex.def)             Requested size: 162.60048pt x 289.06754pt.
+03.
+(pdftex.def)             Requested size: 195.1285pt x 333.34456pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Resources/interface_AMSF_IDE.jpg, id=1078, 1084.05pt x 1927.2pt>
-File: ./Resources/interface_AMSF_IDE.jpg Graphic file (type jpg)
-<use ./Resources/interface_AMSF_IDE.jpg>
-Package pdftex.def Info: ./Resources/interface_AMSF_IDE.jpg  used on input line
- 537.
-(pdftex.def)             Requested size: 162.60048pt x 289.06754pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 547.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 551.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 551.
-[81 <./Resources/interface_AMSF.jpg>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 554.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 554.
-[82 <./Resources/interface_AMSF_blink.jpg> <./Resources/interface_AMSF_IDE.jpg>
-]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2525,30 +2482,102 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 569.
+(babel)             in language  on input line 510.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 569.
-[83]
+(babel)             in language  on input line 510.
+[80 <./Resources/interface_BM_AVR.jpg> <./Resources/interface_BM_AVR_web.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 571.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 573.
-<./Resources/distrib_android.png, id=1096, 123.5817pt x 145.7445pt>
+(babel)             in language  on input line 516.
+[81 <./Resources/interface_AndMCU.jpg>]
+<./Resources/interface_AMSF.jpg, id=1079, 1084.05pt x 1927.2pt>
+File: ./Resources/interface_AMSF.jpg Graphic file (type jpg)
+<use ./Resources/interface_AMSF.jpg>
+Package pdftex.def Info: ./Resources/interface_AMSF.jpg  used on input line 519
+.
+(pdftex.def)             Requested size: 227.65721pt x 404.72395pt.
+<./Resources/interface_AMSF_blink.jpg, id=1081, 1084.05pt x 1927.2pt>
+File: ./Resources/interface_AMSF_blink.jpg Graphic file (type jpg)
+<use ./Resources/interface_AMSF_blink.jpg>
+Package pdftex.def Info: ./Resources/interface_AMSF_blink.jpg  used on input li
+ne 529.
+(pdftex.def)             Requested size: 227.65721pt x 404.72395pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 536.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 536.
+[82 <./Resources/interface_AMSF.jpg> <./Resources/interface_AMSF_blink.jpg>]
+<./Resources/interface_AMSF_IDE.jpg, id=1087, 1084.05pt x 1927.2pt>
+File: ./Resources/interface_AMSF_IDE.jpg Graphic file (type jpg)
+<use ./Resources/interface_AMSF_IDE.jpg>
+Package pdftex.def Info: ./Resources/interface_AMSF_IDE.jpg  used on input line
+ 539.
+(pdftex.def)             Requested size: 227.65721pt x 404.72395pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 549.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 555.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 555.
+[83 <./Resources/interface_AMSF_IDE.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 570.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 570.
+[84]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 572.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 574.
+<./Resources/distrib_android.png, id=1100, 123.5817pt x 145.7445pt>
 File: ./Resources/distrib_android.png Graphic file (type png)
 <use ./Resources/distrib_android.png>
 Package pdftex.def Info: ./Resources/distrib_android.png  used on input line 59
-5.
+6.
 (pdftex.def)             Requested size: 199.73708pt x 235.56216pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 601.
-<./Resources/tamanho_apk.png, id=1098, 828.09375pt x 510.90875pt>
+(babel)             in language  on input line 602.
+<./Resources/tamanho_apk.png, id=1102, 828.09375pt x 510.90875pt>
 File: ./Resources/tamanho_apk.png Graphic file (type png)
 <use ./Resources/tamanho_apk.png>
-Package pdftex.def Info: ./Resources/tamanho_apk.png  used on input line 607.
+Package pdftex.def Info: ./Resources/tamanho_apk.png  used on input line 608.
 (pdftex.def)             Requested size: 443.86319pt x 273.8597pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2560,35 +2589,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 615.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 615.
-[84]
-
-LaTeX Warning: Text page 85 contains only floats.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 615.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 615.
-[85 <./Resources/distrib_android.png (PNG copy)> <./Resources/tamanho_apk.png (
-PNG copy)>]
+(babel)             in language  on input line 616.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 616.
-<./Resources/uso_cpu.png, id=1109, 987.2082pt x 493.6041pt>
+[85]
+
+LaTeX Warning: Text page 86 contains only floats.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 616.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 616.
+[86 <./Resources/distrib_android.png (PNG copy)> <./Resources/tamanho_apk.png (
+PNG copy)>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 617.
+<./Resources/uso_cpu.png, id=1113, 987.2082pt x 493.6041pt>
 File: ./Resources/uso_cpu.png Graphic file (type png)
 <use ./Resources/uso_cpu.png>
-Package pdftex.def Info: ./Resources/uso_cpu.png  used on input line 622.
+Package pdftex.def Info: ./Resources/uso_cpu.png  used on input line 623.
 (pdftex.def)             Requested size: 443.86319pt x 221.93149pt.
-
-Underfull \vbox (badness 2762) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2600,18 +2626,18 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 633.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 633.
-[86 <./Resources/uso_cpu.png>]
-<./Resources/uso_bateria.png, id=1118, 759.83875pt x 469.755pt>
+[87 <./Resources/uso_cpu.png>]
+<./Resources/uso_bateria.png, id=1122, 759.83875pt x 469.755pt>
 File: ./Resources/uso_bateria.png Graphic file (type png)
 <use ./Resources/uso_bateria.png>
-Package pdftex.def Info: ./Resources/uso_bateria.png  used on input line 636.
+Package pdftex.def Info: ./Resources/uso_bateria.png  used on input line 639.
 (pdftex.def)             Requested size: 443.86319pt x 274.41492pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 642.
-<./Resources/uso_ram.png, id=1121, 987.2082pt x 493.6041pt>
+(babel)             in language  on input line 645.
+<./Resources/uso_ram.png, id=1125, 987.2082pt x 493.6041pt>
 File: ./Resources/uso_ram.png Graphic file (type png)
 <use ./Resources/uso_ram.png>
-Package pdftex.def Info: ./Resources/uso_ram.png  used on input line 648.
+Package pdftex.def Info: ./Resources/uso_ram.png  used on input line 651.
 (pdftex.def)             Requested size: 443.86319pt x 221.93149pt.
 
 
@@ -2624,12 +2650,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 658.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 656.
-[87 <./Resources/uso_bateria.png (PNG copy)>]
+(babel)             in language  on input line 658.
+[88 <./Resources/uso_bateria.png (PNG copy)>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 672.
+(babel)             in language  on input line 675.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2638,14 +2664,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 680.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 680.
-[88 <./Resources/uso_ram.png>]
+(babel)             in language  on input line 683.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 683.
+[89 <./Resources/uso_ram.png>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 686.
 
-Overfull \hbox (55.35971pt too wide) in paragraph at lines 697--698
+Overfull \hbox (55.35971pt too wide) in paragraph at lines 700--701
 [][]$\T1/pcr/m/n/10.95 https : / / sites . google . com / site / hkonstas / and
 roid -[] stuff / andmcu / andmcu -[] documentation$[] 
  []
@@ -2657,12 +2683,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 702.
+(babel)             in language  on input line 701.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 702.
-[89]
+(babel)             in language  on input line 701.
+[90]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 722.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2671,12 +2697,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 726.
+(babel)             in language  on input line 729.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 726.
-[90]
+(babel)             in language  on input line 729.
+[91]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 727.
+(babel)             in language  on input line 730.
 ) (./Content/7_Conclusao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2688,20 +2714,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
-[91]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 1.
-[92
-
-]
+[92]
 Cap\'{\i }tulo 5.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -2721,7 +2734,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 17.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 17.
-[93])
+[93
+
+])
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 121.
  (./TCCmain.bbl
@@ -3054,11 +3069,11 @@ Package rerunfilecheck Info: File `TCCmain.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
  ) 
 Here is how much of TeX's memory you used:
- 21134 strings out of 492649
- 338306 string characters out of 6135778
+ 21138 strings out of 492649
+ 338379 string characters out of 6135778
  550043 words of memory out of 5000000
- 23960 multiletter control sequences out of 15000+600000
- 75385 words of font info for 106 fonts, out of 8000000 for 9000
+ 23963 multiletter control sequences out of 15000+600000
+ 78233 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,12n,95p,1169b,1340s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
@@ -3068,7 +3083,7 @@ msy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share
 /texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1
 /urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 </usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TCCmain.pdf (115 pages, 7580151 bytes).
+Output written on TCCmain.pdf (115 pages, 7580042 bytes).
 PDF statistics:
  1708 PDF objects out of 1728 (max. 8388607)
  1494 compressed objects within 15 object streams

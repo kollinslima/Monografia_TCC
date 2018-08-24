@@ -44,19 +44,19 @@
 \contentsline {section}{\numberline {4.3}M\'etricas de \textit {Software}}{70}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}An\'alise Est\'atica}{70}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Cobertura}{73}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}\textit {Profiling}}{75}{section.4.4}
-\contentsline {section}{\numberline {4.5}Compara\c c\~ao entre aplicativos}{77}{section.4.5}
+\contentsline {section}{\numberline {4.4}\textit {Profiling}}{74}{section.4.4}
+\contentsline {section}{\numberline {4.5}Compara\c c\~ao entre aplicativos}{78}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Interface}{78}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Funcionalidades oferecidas}{82}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Requisitos do sistema e consumo de recursos}{84}{subsection.4.5.3}
-\contentsline {subsubsection}{\numberline {4.5.3.1}Sistema Operacional}{84}{subsubsection.4.5.3.1}
-\contentsline {subsubsection}{\numberline {4.5.3.2}Tamanho}{84}{subsubsection.4.5.3.2}
-\contentsline {subsubsection}{\numberline {4.5.3.3}Uso de CPU}{86}{subsubsection.4.5.3.3}
-\contentsline {subsubsection}{\numberline {4.5.3.4}Uso de Mem\'oria}{87}{subsubsection.4.5.3.4}
-\contentsline {subsection}{\numberline {4.5.4}Velocidade de simula\c c\~ao}{88}{subsection.4.5.4}
-\contentsline {subsection}{\numberline {4.5.5}Documenta\c c\~ao}{89}{subsection.4.5.5}
-\contentsline {subsection}{\numberline {4.5.6}Disponibilidade}{90}{subsection.4.5.6}
-\contentsline {section}{\numberline {4.6}C\'odigo e documenta\c c\~ao}{91}{section.4.6}
+\contentsline {subsection}{\numberline {4.5.2}Funcionalidades oferecidas}{83}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Requisitos do sistema e consumo de recursos}{85}{subsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.3.1}Sistema Operacional}{85}{subsubsection.4.5.3.1}
+\contentsline {subsubsection}{\numberline {4.5.3.2}Tamanho}{85}{subsubsection.4.5.3.2}
+\contentsline {subsubsection}{\numberline {4.5.3.3}Uso de CPU}{87}{subsubsection.4.5.3.3}
+\contentsline {subsubsection}{\numberline {4.5.3.4}Uso de Mem\'oria}{88}{subsubsection.4.5.3.4}
+\contentsline {subsection}{\numberline {4.5.4}Velocidade de simula\c c\~ao}{89}{subsection.4.5.4}
+\contentsline {subsection}{\numberline {4.5.5}Documenta\c c\~ao}{90}{subsection.4.5.5}
+\contentsline {subsection}{\numberline {4.5.6}Disponibilidade}{91}{subsection.4.5.6}
+\contentsline {section}{\numberline {4.6}C\'odigo e documenta\c c\~ao}{92}{section.4.6}
 \contentsline {chapter}{\numberline {5}Conclus\~ao}{93}{chapter.5}
 \contentsline {section}{\numberline {5.1}Trabalhos futuros}{94}{section.5.1}
 \contentsline {chapter}{Refer\^encias}{94}{section.5.1}
