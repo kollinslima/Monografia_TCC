@@ -677,11 +677,13 @@
 
 \par A velocidade de simulação aqui apresentada é uma medida da percepção que o usuário tem do sistema, quando comparado com o tempo do mundo real.
 
-\par Velocidade de simulação provavelmente é a maior limitação do projeto SOFIA. É possível ter uma ideia clara desta velocidade uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, já que o \textit{hardware} no qual o simulador se baseia é o Arduino UNO rodando à uma frequência de 16MHz.
+\par Velocidade de simulação provavelmente é a maior limitação do projeto SOFIA. É possível ter uma ideia clara desta velocidade uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, uma vez que que o \textit{hardware} no qual o simulador se baseia é o Arduino UNO com frequência de 16MHz.
 
-\par Para os demais simuladores, a velocidade de simulação foi medida alterando o projeto \textit{Blink} para que o tempo de \textit{delay} fosse de 1s. O \textit{Arduino Simulator Mini Free} se mostra bastante fiel ao tempo real, exibindo, de fato, uma intermitência de 1s, fazendo com que o usuário não perceba a diferença deste com um sistema real. Já o simulador \textit{BoardMicro - AVR Simulator} se mostra acelerado, com uma frequência  de intermitência 4x maior que a esperada.
+\newpage
 
-\par Para o projeto \textit{AndMCU}, não foi possível ter uma ideia de sua real velocidade de simulação pois, como já mencionado anteriormente, este aplicativo está em outro contexto do qual não é bem determinado/conhecido como no caso do Arduino. No entanto, é possível ler na documentação do projeto que o sistema possui uma velocidade de simulação adequada para que os resultados possam ser observados por estudantes, ou, como o autor coloca em outras palavras, "não se deve esperar deste simulador uma velocidade elevada como o de um emulador de CPU" (em tradução live)~\cite{AndMCU}.
+\par Para os demais simuladores, a velocidade de simulação foi medida alterando o projeto \textit{Blink} para que a intermitência fosse de 1s. O \textit{Arduino Simulator Mini Free} se mostrou bastante fiel ao tempo real, exibindo, de fato, uma intermitência de 1s, fazendo com que o usuário não perceba a diferença deste com um sistema real. Já o simulador \textit{BoardMicro - AVR Simulator} se mostra acelerado, com uma frequência  de intermitência 4x maior que a esperada.
+
+\par Para o projeto \textit{AndMCU}, não foi possível ter uma ideia clara de sua real velocidade de simulação pois, como já mencionado anteriormente, este aplicativo está em outro contexto do qual não é bem determinado/conhecido como no caso do Arduino. No entanto, é possível ler na documentação do projeto que o sistema possui uma velocidade de simulação adequada para que os resultados possam ser observados por estudantes, ou, como o autor coloca em outras palavras, "não se deve esperar deste simulador uma velocidade elevada como o de um emulador de CPU" (em tradução live)~\cite{AndMCU}.
 
 \subsection{Documentação}
 
@@ -691,8 +693,8 @@
 
 \par O aplicativo \textit{AndMCU} também conta com duas páginas de documentação \textit{on-line} (também em inglês) hospedadas no Google Sites e que podem ser acessadas a partir da página de \textit{download} do aplicativo na \textit{Google Play Store}.
 
-\par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções implementadas no simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Abaixo é mostrado o endereço eletrônico onde este material pode ser acessado
-
+\par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções do simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Abaixo é mostrado o endereço eletrônico onde este material pode ser acessado
+\newpage
 \begin{itemize}
 	\item \textbf{Documentação \textit{AndMCU}:}
 	\begin{itemize}
@@ -710,7 +712,7 @@
 	\end{itemize}
 \end{itemize}
 
-\par Quanto ao \textit{Arduino Simulator Mini Free}, um vídeo disponível no \textit{YouTube} foi o único material encontrado a respeito da ferramenta. O vídeo mostra a versão do aplicativo para IOs e pode ser acessado pelo \textit{link} a seguir:
+\par Quanto ao \textit{Arduino Simulator Mini Free}, um vídeo disponível no YouTube foi o único material encontrado a respeito da ferramenta. O vídeo mostra a versão do aplicativo para IOs e pode ser acessado pelo \textit{link} a seguir:
 
 \begin{itemize}
 	\item \textbf{Vídeo informativo do aplicativo \textit{Arduino Simulator Mini Free}:}
@@ -723,7 +725,7 @@
 
 \par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Google Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Google Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no Github. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo Github, ou na forma de APK no site do projeto no Gitbook, apresentado na seção~\ref{codigo_documentacao}, devendo ser disponibilizado também na \textit{Google Play Store} posteriormente. Além disso, o projeto SOFIA é o único com uma versão em português.
 
-\par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença nas permissões que cada aplicativo requer para funcionar. A versão gratuita requer uma quantidade enorme de permissões, tais como acesso ao GPS, leitura do histórico de navegação e favoritos do navegador \textit{web}, entre outras que não estão relacionadas com sua funcionalidade, chegando a ser reconhecida como uma ameaça pelo antivírus \textit{AVG Pro}. O \textit{Arduino Simulator Mini} requer permissões para gravar áudio acessar o cartão SD, enquanto que o \textit{Arduino Simulator DIY Safely} apenas exige a permissão para acessar o recurso de vibração do \textit{smartphone}.
+\par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença nas permissões que cada aplicativo requer para funcionar. A versão gratuita requer uma quantidade enorme de permissões, tais como acesso ao GPS, leitura do histórico de navegação e favoritos do navegador \textit{web}, entre outras que não estão relacionadas com sua funcionalidade, chegando a ser reconhecida como uma ameaça pelo antivírus AVG Pro. O \textit{Arduino Simulator Mini} requer permissões para gravar áudio acessar o cartão SD, enquanto que o \textit{Arduino Simulator DIY Safely} apenas exige a permissão para acessar o recurso de vibração do \textit{smartphone}.
 
 \par Vale mencionar também que o \textit{Arduino Simulator Mini Free} é o único dos simuladores testados a conter propagandas, que são exibidas a qualquer momento durante o uso do sistema Android e não apenas dentro do aplicativo.
 

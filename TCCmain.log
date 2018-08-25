@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.28)  23 AUG 2018 21:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.7.28)  25 AUG 2018 09:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2664,17 +2664,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 683.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 683.
+(babel)             in language  on input line 682.
 [89 <./Resources/uso_ram.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 686.
-
-Overfull \hbox (55.35971pt too wide) in paragraph at lines 700--701
-[][]$\T1/pcr/m/n/10.95 https : / / sites . google . com / site / hkonstas / and
-roid -[] stuff / andmcu / andmcu -[] documentation$[] 
- []
+(babel)             in language  on input line 688.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2683,13 +2678,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 701.
+(babel)             in language  on input line 697.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 701.
+(babel)             in language  on input line 697.
 [90]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 722.
+Overfull \hbox (55.35971pt too wide) in paragraph at lines 702--703
+[][]$\T1/pcr/m/n/10.95 https : / / sites . google . com / site / hkonstas / and
+roid -[] stuff / andmcu / andmcu -[] documentation$[] 
+ []
 
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 724.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2702,7 +2701,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 729.
 [91]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 730.
+(babel)             in language  on input line 732.
 ) (./Content/7_Conclusao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3083,7 +3082,7 @@ msy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share
 /texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1
 /urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 </usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TCCmain.pdf (115 pages, 7580042 bytes).
+Output written on TCCmain.pdf (115 pages, 7579968 bytes).
 PDF statistics:
  1708 PDF objects out of 1728 (max. 8388607)
  1494 compressed objects within 15 object streams
