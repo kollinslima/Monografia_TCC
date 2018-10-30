@@ -146,7 +146,7 @@
 \par Existem diferentes modos de endereçamento que são aplicados à memória de dados. Todo o espaço de endereçamento suporta qualquer um dos modos listados, são eles:
 \newpage
 \begin{itemize}
-	\item \textbf{Direto}: Acesso direto ao endereço desejado;
+	\item \textbf{Direto}: Acesso direto ao endereço desejado.
 	\item \textbf{Indireto com deslocamento}: Acesso à 63 endereços deslocados a partir do endereço base, dado pelos registradores Y ou Z.
 	\item \textbf{Indireto}: Acesso ao endereço dado pelos registradores X, Y ou Z.
 	\item \textbf{Indireto com pré-decremento}: Registradores X, Y ou Z são decrementados antes de serem utilizados como ponteiro para endereçamento.
@@ -169,14 +169,14 @@
 
 \par Os pinos podem ser configurados por meio dos registradores DDRxn e PORTxn, onde "x" corresponde à letra que identifica o \textit{port} e "n" corresponde ao número do bit no registrador. O registrador DDRxn é utilizado para configuração da direção do pino (entrada ou saída), enquanto o PORTxn configura o estado do pino (nível alto ou baixo) se este for um pino de saída, caso contrário, seu efeito será ativar ou desativar o resistor de \textit{pull-up} interno (se este estiver habilitado no registrador MCUCR).
 \par Existe ainda o registrador PINxn, que é um registrador responsável por armazenar o valor da entrada do pino. Apesar de ser um registrador de leitura, é possível fazer a escrita do valor "1" (nível alto) via \textit{software}. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
-\par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc, que são multiplexadas ao funcionamento normal do pino.
+\par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc., que são multiplexadas ao funcionamento normal do pino.
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 \vfill
 
 \subsection{Temporizadores}
 \label{sec:timers}
 
-\par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
+\par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de \textit{clock} para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
 \par O \textit{Timer 1} é um contador de 16-bits, enquanto os \textit{Timers 0} e \textit{2} são de 8-bits. O \textit{Timer 2} possui uma função adicional de funcionamento assíncrono, podendo assim utilizar uma fonte de \textit{clock} externa aplicada aos pinos TOSC1 e TOSC2 (os \textit{Timers 0} e \textit{1}, embora também possam ser acionados por clock externo, a detecção de borda que é realizada nos pinos T0 e T1 é feita de maneira síncrona). Quando em funcionamento assíncrono, o \textit{Timer 2} pode ser utilizado para despertar o sistema caso este esteja em determinados modos de hibernação. 
 \par Os temporizadores podem atuar nos pinos de saída OCxA e OCxB, sobrescrevendo a operação normal do pino. Para isso, entretanto, é preciso que os pinos sejam configurados como saída no registrador DDRxn.
 \par As figuras~\ref{fig:timer0_2} e~\ref{fig:timer1} apresentam a organização interna dos \textit{Timers 0/2} e do \textit{Timer 1} respectivamente. Os modos de operação disponíveis para os temporizadores são descritos a seguir.
@@ -376,7 +376,7 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 \label{eq:paridade_impar}
 \end{equation}
 
-\par Onde $d_n$ é o n-ésimo bit de dado (\textit{frame}) a ser transmitido.
+\par Onde $d_n$ é o n-ésimo bit de dado a ser transmitido.
 
 \par A transmissão de um \textit{frame} se inicia com o bit de \textit{START}, fazendo a mudança do estado da linha alto (\textit{IDLE}) para o nível baixo, indicando que uma comunicação deve ser iniciada. Os bits do \textit{frame} são então transmitidos um a um, começando pelo bit menos significativo e terminando com o bit de paridade (se houver). Por fim, são enviados os bits de parada (1 ou 2, conforme configurado), indicando o fim do \textit{frame}. Este procedimento está ilustrado na figura~\ref{fig:frame_usart}.
 
@@ -423,7 +423,7 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 	\label{fig:scrum}
 \end{figure}
 
-\par Como aponta Jeff Sutherland~\cite{Jeff}, a realidade do desenvolvimento de \textit{software} é diferente do que propõe alguns processos convencionais, como o método cascata, onde o planejamento é inteiramente e minunciosamente detalhado para o desenvolvimento posterior. Alterações nos requisitos, erros que precisam ser corrigidos, alguns fatores que não são levados em consideração em abordagens convencionais e que os métodos ágeis procuram incorporar. Este foi o motivo pelo qual o SCRUM foi escolhido para o desenvolvimento deste trabalho. 
+\par Como aponta Jeff Sutherland~\cite{Jeff}, a realidade do desenvolvimento de \textit{software} é diferente do que propõe alguns processos convencionais, como o método cascata, onde o planejamento é inteiramente e minunciosamente detalhado para o desenvolvimento posterior. Alteração nos requisitos é algo comum em projetos de \textit{software} e abordagens convencionais não preveem esta possibilidade, ao passo que os métodos ágeis procuram incorporar este dinamismo do desenvolvimento real. Este foi o motivo pelo qual o SCRUM foi escolhido para o desenvolvimento deste trabalho.
 
 \newpage
 \section{Teste de \textit{Software}}
@@ -432,7 +432,7 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 
 \par Diversas são as técnicas e os critérios que podem ser utilizados para testar um \textit{software}. Este trabalho focou no uso de duas técnicas: teste funcional e teste estrutural. 
 
-\par O teste funcional é aquele onde a atividade de teste é voltada para as especificações, ou seja, com o funcionamento desejado de um programa, sem se preocupar na maneira como ele foi escrito. O critério adotado para a realização deste teste foi o conhecido como Análise do Valor Limite. Neste tipo teste, o domínio de entrada (ou seja, o conjunto de todos os possíveis valores que podem ser utilizados como entrada do programa~\cite{Delamaro}) é dividido em classes, tais que se espera um mesmo comportamento do programa para todos os elementos de uma mesma classe (por isso, estas são chamadas classes de equivalência)~\cite{Delamaro}. O critério se baseia em testar valores que estão nos limites de cada classe de equivalência, ou seja, na transição dos valores de entrada onde o comportamento do programa deve mudar.
+\par O teste funcional é aquele onde a atividade de teste é voltada para as especificações, ou seja, o funcionamento desejado, sem se preocupar na maneira como o programa foi escrito. O critério adotado para a realização deste teste foi a Análise do Valor Limite. Neste tipo teste, o domínio de entrada (ou seja, o conjunto de todos os possíveis valores que podem ser utilizados como entrada do programa~\cite{Delamaro}) é dividido em classes, de forma que se espera um mesmo comportamento do programa para todos os elementos de uma mesma classe (por isso, estas são chamadas classes de equivalência)~\cite{Delamaro}. O critério se baseia em testar valores que estão nos limites de cada classe de equivalência, ou seja, na transição dos valores de entrada onde o comportamento do programa deve mudar.
 
 \par O teste estrutural, por outro lado, observa a estrutura interna do código para a geração dos casos de teste (par formado por dado de entrada e saída desejada~\cite{Delamaro}). No caso deste projeto, o critério utilizado foi o baseado em fluxo de controle, mais especificamente, o critério de Todos-Nós, onde busca-se a criação de casos de teste que exercite, pelo menos uma vez, cada comando do programa~\cite{Delamaro}.
 
