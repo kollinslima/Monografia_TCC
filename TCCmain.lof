@@ -1,4 +1,4 @@
-\select@language {brazil}
+\babel@toc {brazil}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Diagrama de blocos da organiza\c c\~ao interna do ATmega328P\relax }}{30}{figure.caption.4}
@@ -58,7 +58,7 @@
 \contentsline {figure}{\numberline {4.34}{\ignorespaces Tela principal do simulador \textit {Arduino Simulator Mini Free}\relax }}{84}{figure.caption.61}
 \contentsline {figure}{\numberline {4.35}{\ignorespaces Tela de simula\c c\~ao do projeto \textit {Blink}. O monitor serial no canto inferior direito pode ser escondido por meio do bot\~ao "\textit {Console}"\relax }}{84}{figure.caption.62}
 \contentsline {figure}{\numberline {4.36}{\ignorespaces Tela edi\c c\~ao do c\'odigo-fonte a ser simulado.\relax }}{85}{figure.caption.63}
-\contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android ativos no momento, por\'em este n\'umero tente a aumentar com a moderniza\c c\~ao dos aparelhos\relax }}{87}{figure.caption.65}
+\contentsline {figure}{\numberline {4.37}{\ignorespaces Distribui\c c\~ao acumulada de usu\'arios Android. Como destacado, o simulador SOFIA poder\'a atingir pouco mais de 70\% dos dispositivos Android ativos no momento, por\'em este n\'umero tente a aumentar com a moderniza\c c\~ao dos aparelhos\relax }}{88}{figure.caption.65}
 \contentsline {figure}{\numberline {4.38}{\ignorespaces Tamanho do arquivo APK (MB) de cada aplicativo\relax }}{88}{figure.caption.66}
 \contentsline {figure}{\numberline {4.39}{\ignorespaces Consumo m\'edio de CPU (\%) de cada aplicativo. Para cada processo, foram coletadas 397 amostras\relax }}{89}{figure.caption.67}
 \contentsline {figure}{\numberline {4.40}{\ignorespaces Consumo m\'edio de Bateria (\%) de cada aplicativo em um per\IeC {\'\i }odo de 2 horas, com cada aplicativo executando o projeto \textit {Blink} continuamente por 30 minutos. Foram realizadas 5 medi\c c\~oes para cada aplicativo.\relax }}{90}{figure.caption.68}
