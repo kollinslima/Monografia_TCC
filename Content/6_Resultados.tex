@@ -337,7 +337,7 @@
 
 \par As classes com maior número de código duplicado são as classes referentes aos temporizadores (o \textit{Timer1} é a classe em destaque na figura~\ref{fig:duplicacao}) e a CPU. Os modos de operação dos \textit{Timers} se assemelham em muitos aspectos, no entanto, escrever um único método para gerenciar todos estes modos certamente o tornaria grande e complexo (gerando um problema na métrica de complexidade cognitiva) e portanto, foram criados diferentes métodos, cada um com pequenas variações, de forma a atender o modo de operação configurado. Um problema semelhante ocorre com a CPU, já que várias instruções realizam a leitura e a escrita dos valores na memória de maneira idêntica, mas suas operações são diferentes de modo que também não é possível unir códigos de diferentes instruções.
 
-\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma media interessante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto. O valor obtido para complexidade ciclomática foi de 1.969.
+\par A última métrica importante de ser mencionada é a de complexidade ciclomática. Esta é uma métrica interessante pois diz qual é o número mínimo de casos de teste necessários para que eles cubram todo o projeto (cobertura de linhas). O valor obtido para complexidade ciclomática foi de 1.969.
 
 \subsection{Cobertura}
 
@@ -535,7 +535,7 @@
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.21,angle=90]{./Resources/interface_AMSF}
-	\caption{Tela edição do código fonte a ser simulado.} 
+	\caption{Tela edição do código-fonte a ser simulado.} 
 	Fonte: Autor
 	\label{fig:interface_ASMF_IDE}
 \end{figure} 

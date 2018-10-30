@@ -54,8 +54,8 @@ Pode-se citar trabalhos como o de Junior~\cite{Junior}, que utilizou um disposit
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Motivação}
 %Arduino
-\par O Arduino é uma plataforma de \textit{hardware} e \textit{software} aberto, destinada ao desenvolvimentos de projetos na área de eletrônica. Suas aplicações vem crescendo a cada dia e vão desde o uso educacional para ensino de robótica em escolas de ensino fundamental, até aplicações em IoT nas universidades. 
-\par Uma das principais características do Arduino é sua simplicidade. Em suas versões mais básicas, utilizam microcontroladores de 8-bits, o que torna o sistema menos complexo e mais barato quando comparada com outras plataformas concorrentes (tais como Raspberry Pi e BeagleBone)~\cite{Delft}. Com isso, se tornou uma plataforma ideal para prototipagem e para aprendizado, englobando um publico alvo de artistas, sem conhecimento prévio de eletrônica e programação, à engenheiros experientes, que usam a plataforma para prototipagem.
+\par O Arduino é uma plataforma de \textit{hardware} e \textit{software} abertos, destinada ao desenvolvimentos de projetos na área de eletrônica. Suas aplicações vem crescendo a cada dia e vão desde o uso educacional para ensino de robótica em escolas de ensino fundamental, até aplicações em IoT nas universidades. 
+\par Uma das principais características do Arduino é sua simplicidade. Em suas versões mais básicas, utilizam microcontroladores de 8-bits, o que torna o sistema menos complexo e mais barato quando comparada com outras plataformas concorrentes (tais como Raspberry Pi e BeagleBone)~\cite{Delft}. Com isso, se tornou uma plataforma ideal para prototipagem e para aprendizado, englobando um público-alvo de artistas, sem conhecimento prévio de eletrônica e programação, à engenheiros experientes, que usam a plataforma para prototipagem.
 
 \par O desenvolvimento para essa plataforma demanda o uso de placas físicas de Arduino. Essas placas foram desenvolvidas com o objetivo de apresentarem baixo custo e facilitar a prototipagem, se integrando facilmente à módulos externos
 (\textit{shields}) que adicionam ao sistema funções de interface, sensoriamento,
@@ -73,9 +73,9 @@ medição (voltímetro, osciloscópio, etc.), entre outros.
 \par Diversas são as opções de simuladores existentes, cada qual com características
 próprias. Alguns que merecem destaque são: 
 \begin{itemize}
-	\item \textbf{Proteus}: Um dos mais completos encontrados. Possui recursos para montagem e simulação de circuitos eletrônicos analógicos e digitais, bem como desenvolvimento de layouts PCB. Tem como desvantagem o fato de ser um \textit{software} comercial, com a versão básica para simulação Arduino custando US\$248,00~\cite{Proteus}
+	\item \textbf{Proteus}: Possui recursos para montagem e simulação de circuitos eletrônicos analógicos e digitais, bem como desenvolvimento de layouts PCB. Tem como desvantagem o fato de ser um \textit{software} comercial, com a versão básica para simulação Arduino custando US\$248,00~\cite{Proteus}
 	\item \textbf{Virtual Breadboard}: Permite a simulação de circuitos eletrônicos digitais em um ambiente virtual, bem como a programação de microcontroladores dentro do próprio sistema. Possui uma versão gratuita, no entanto, para simulação de Arduino é preciso comprar um módulo separadamente pelo valor de US\$49,00~\cite{VBB}.
-	\item \textbf{Simuino}: Simulador de Arduino UNO e MEGA para terminal. Apesar de gratuito e \textit{Open-Source}, possui apenas versões para Linux e é distribuído apenas em formato de código fonte, sendo necessário fazer a compilação antes de usá-lo~\cite{Simuino}.
+	\item \textbf{Simuino}: Simulador de Arduino UNO e MEGA para terminal. Apesar de gratuito e \textit{Open-Source}, possui apenas versões para Linux e é distribuído apenas em formato de código-fonte, sendo necessário fazer a compilação antes de usá-lo~\cite{Simuino}.
 	\item \textbf{CodeBlocks}: Possui uma versão com ferramentas próprias para escrever e simular códigos Arduino, permitindo também o \textit{upload} de código para placas físicas, com suporte à diversos modelos de \textit{hardware}. A desvantagem fica por conta de não possuir uma interface gráfica para simulação, que ocorre toda em terminal apenas com textos indicando os estados de entradas e saídas~\cite{CodeBlocks}. 
 	\item \textbf{Autodesk Tinkercad}: É um ambiente de aprendizado \textit{on-line} gratuito que permite tanto a criação de projetos eletrônicos quanto de desenhos 3D. Possui um ambiente para codificação e depuração do código na própria ferramenta. A única desvantagem encontrada é o fato de funcionar apenas \textit{on-line}, sendo necessário fazer um cadastro para utilizá-la~\cite{Tinkercad}.
 \end{itemize}
@@ -105,7 +105,7 @@ física ou qualquer outro componente eletrônico externo.
 
 Este trabalho está distribuído em 5 capítulos, incluindo esta introdução, dispostos conforme a descrição que segue:
 
-Capítulo 2: Apresenta um embasamento teórico, explicando o funcionamento dos módulos do microcontrolador ATmega328P implementados do simulador. 
+Capítulo 2: Apresenta um embasamento teórico, explicando o funcionamento dos módulos do microcontrolador ATmega328P implementados do simulador, bem como informações a respeito de processo e teste de \textit{software} que se aplicam ao trabalho. 
 
 Capítulo 3: Descreve o processo de desenvolvimento do projeto e as principais estratégias de implementação. Além disso, apresenta as ferramentas utilizadas durante o desenvolvimento.
 

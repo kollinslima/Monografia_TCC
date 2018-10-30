@@ -11,7 +11,7 @@
 \begin{itemize}
 \item Para o desenho de diagramas de classe e mapas mentais na fase de projeto, foram utilizadas as ferramentas \href{http://dia-installer.de/}{\textit{Dia}} e \href{https://www.draw.io/}{\textit{Draw.io}}, por serem ambas gratuitas, \textit{Open-Source} e com recursos que suprem as necessidades deste projeto.
 
-\item O método ágil \textit{Scrum} foi o escolhido para a construção do sistema por estimular a criação rápida de módulos do \textit{software}, gerando \textit{feedbacks} constantes e possibilitando também a alteração rápida e a correção de defeitos, caso sejam detectados. A plataforma \href{https://taiga.io/}{\textit{Taiga}} foi utilizada para organização e planejamento dos \textit{Sprints} e sua escolha se deve pelo fato de ser gratuito e já ser conhecida pelo autor.
+\item Como já mencionado anteriormente, o método ágil \textit{SCRUM} foi o escolhido para a construção do sistema. Apesar de não ter sido aplicado por completo, com reuniões semanais e outras atividades em grupo (já que é o trabalho foi desenvolvido por uma única pessoa), o desenvolvimento em ciclos, a priorização de tarefas e outras características do SCRUM foram aplicadas para ajudar na organização e no desenvolvimento do simulador. A plataforma \href{https://taiga.io/}{\textit{Taiga}} foi utilizada para organização e planejamento dos \textit{Sprints} e sua escolha se deve pelo fato de ser gratuito e já ser conhecida pelo autor.
 
 \item Para controle de versão utilizou-se o \href{https://git-scm.com/}{\textit{Git}} sincronizado à um repositório \textit{on-line} no \href{https://github.com/}{\textit{Github}}. Nenhum motivo especial na escolha destas ferramentas, a não ser a familiaridade do autor com seu uso.
 
@@ -43,7 +43,9 @@ Android 5.0.
 
 \subsection{Desenvolvimento na IDE do Arduino}
 
-\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Não houve muito desenvolvimento nela além da criação do botão "Android", cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino. A figura~\ref{fig:diagrama_classes_usb} apresenta o diagrama de classes do código desenvolvido nesta etapa.
+\par A primeira parte do desenvolvimento ocorreu na IDE do Arduino. Esta etapa focou na criação do botão "Android", cuja função é compilar o código e transferi-lo para o aparelho Android conectado ao computador, da mesma forma que o botão "\textit{Upload}" faz com a placa de Arduino. 
+
+\par A figura~\ref{fig:diagrama_classes_usb} apresenta o diagrama de classes do código desenvolvido nesta etapa. Para fazer as modificações necessárias, foi necessário inserir o pacote \textit{android\_usb} na pasta \url{app/src/processing/app/} do projeto Arduino, além de editar as classes \textit{EditorToolbar} e \textit{Editor} da mesma pasta para inserir o botão e definir sua funcionalidade, respectivamente (o arquivo contendo a imagem do botão está localizado em \url{build/shared/lib/theme/} e \url{build/linux/work/lib/theme/})
 
  \begin{figure}[h]
 	\centering

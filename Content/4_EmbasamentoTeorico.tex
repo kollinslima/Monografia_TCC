@@ -7,7 +7,7 @@
 
 \subsection{Visão Geral}
 
-\par O ATmega328P é um microcontrolador RISC de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa). Possui 28 pinos (encapsulamento PDIP), sendo 23 programáveis e pode tralhar com frequência máxima de operação de 20MHz.
+\par O ATmega328P é um microcontrolador RISC de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa). Possui 28 pinos (encapsulamento PDIP), sendo 23 programáveis e pode trabalhar com frequência máxima de operação de 20MHz.
 \par Entre os periféricos que estão integrados neste dispositivo, pode-se listar:
 \begin{itemize}
 	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
@@ -410,7 +410,31 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 
 \par Assim como ocorre com os temporizadores, quando em operação, a USART sobrescreve o funcionamento normal dos pinos PD0 (Rx) e PD1 (Tx).
 
+\newpage
 \section{Processo de \textit{Software}}
 \par Para a criação de \textit{software} de modo profissional, é fundamental o uso de técnicas que propiciem estabilidade, controle e organização do processo de desenvolvimento~\cite{Pressman}. Diversos são os processos de \textit{software} existentes, cada um com suas características próprias, entre eles, o processo ágil que surge para sanar fraquezas da engenharia de \textit{software} convencional, priorizando a entrega mais do que a  análise de projeto~\cite{Pressman}.
 
-\par O processo ágil mais utilizado no mundo é o SCRUM~\cite{IBM_SCRUM}. Desenvolvido em 1993 por Jeff Sutherland, 
+\par O processo ágil mais utilizado no mundo é o SCRUM~\cite{IBM_SCRUM}. Desenvolvido em 1993 por Jeff Sutherland, o SCRUM baseia seu desenvolvimento em ciclos curtos (chamados \textit{Sprints}), onde, ao final de cada ciclo deve ser desenvolvido um módulo funcional do sistema (e este deve estar finalizado). O desenvolvimento em ciclos curtos tem a grande vantagem de gerar resultados constantes, revelando erros rapidamente e permitindo assim que estes sejam corrigidos rapidamente. O fluxo do processo SCRUM é mostrado na figura~\ref{fig:scrum}.
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Resources/scrum}
+	\caption{Fluxo do processo SCRUM. A figura mostra o fluxo completo considerando \textit{sprints} mensais e reuniões diárias. Neste projeto, os \textit{sprints} foram semanais e as etapas em grupo foram omitidas.}
+	Fonte: Pressman~\cite{Pressman}
+	\label{fig:scrum}
+\end{figure}
+
+\par Como aponta Jeff Sutherland~\cite{Jeff}, a realidade do desenvolvimento de \textit{software} é diferente do que propõe alguns processos convencionais, como o método cascata, onde o planejamento é inteiramente e minunciosamente detalhado para o desenvolvimento posterior. Alterações nos requisitos, erros que precisam ser corrigidos, alguns fatores que não são levados em consideração em abordagens convencionais e que os métodos ágeis procuram incorporar. Este foi o motivo pelo qual o SCRUM foi escolhido para o desenvolvimento deste trabalho. 
+
+\newpage
+\section{Teste de \textit{Software}}
+
+\par O desenvolvimento de \textit{software} é uma tarefa complexa e diversos fatores podem contribuir para que a execução de um programa resulte em um comportamento inesperado, sendo que a maioria dos defeitos em \textit{software} são de origem humana, ou seja, um erro cometido pelo programador durante o desenvolvimento~\cite{Delamaro}. Diferentes tipos de erros podem ser cometidos durante o desenvolvimento  e por isso a atividade de teste é dividida em fases, cada qual com um objetivo distinto. Neste projeto, foram realizados apenas testes de unidade, ou seja, testes que focam nas menores unidades de um programa~\cite{Delamaro}, neste caso, os métodos em Java.
+
+\par Diversas são as técnicas e os critérios que podem ser utilizados para testar um \textit{software}. Este trabalho focou no uso de duas técnicas: teste funcional e teste estrutural. 
+
+\par O teste funcional é aquele onde a atividade de teste é voltada para as especificações, ou seja, com o funcionamento desejado de um programa, sem se preocupar na maneira como ele foi escrito. O critério adotado para a realização deste teste foi o conhecido como Análise do Valor Limite. Neste tipo teste, o domínio de entrada (ou seja, o conjunto de todos os possíveis valores que podem ser utilizados como entrada do programa~\cite{Delamaro}) é dividido em classes, tais que se espera um mesmo comportamento do programa para todos os elementos de uma mesma classe (por isso, estas são chamadas classes de equivalência)~\cite{Delamaro}. O critério se baseia em testar valores que estão nos limites de cada classe de equivalência, ou seja, na transição dos valores de entrada onde o comportamento do programa deve mudar.
+
+\par O teste estrutural, por outro lado, observa a estrutura interna do código para a geração dos casos de teste (par formado por dado de entrada e saída desejada~\cite{Delamaro}). No caso deste projeto, o critério utilizado foi o baseado em fluxo de controle, mais especificamente, o critério de Todos-Nós, onde busca-se a criação de casos de teste que exercite, pelo menos uma vez, cada comando do programa~\cite{Delamaro}.
+
+\par Todos os principais módulos foram testados com técnicas funcionais e estruturais, sendo que o teste estrutural foi o principal (exceto no módulo de CPU).
