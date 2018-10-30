@@ -83,7 +83,6 @@
 
 \par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} toda vez que o evento ocorre e, se a interrupção deste evento estiver ativa, ela será tratada ou enfileirada para tratamento posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
 \par Já quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flag} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
-\vfill
 
 \subsection{Memória de Programa}
 \label{sec:memoria_programa}
