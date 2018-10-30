@@ -1,9 +1,11 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador. Todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
+\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador, além de uma breve teoria a respeito de processo de desenvolvimento e teste de \textit{software}. No que diz respeito ao ATmega3228P, todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
 
-\section{Visão Geral}
+\section{Microcontrolador ATmega328P}
+
+\subsection{Visão Geral}
 
 \par O ATmega328P é um microcontrolador RISC de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa). Possui 28 pinos (encapsulamento PDIP), sendo 23 programáveis e pode tralhar com frequência máxima de operação de 20MHz.
 \par Entre os periféricos que estão integrados neste dispositivo, pode-se listar:
@@ -29,7 +31,7 @@
  	\label{block_diagram_ATmega328P}
  \end{figure}
 
-\section{CPU}
+\subsection{CPU}
 
 \par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
  \begin{figure}[h!]
@@ -83,7 +85,7 @@
 \par Já quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flag} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
 \vfill
 
-\section{Memória de Programa}
+\subsection{Memória de Programa}
 \label{sec:memoria_programa}
 
 \par A memória de programa é uma FLASH de 32kB x 8-bits, que está organizada da forma 16kB x 16-bits pois cada instrução do microcontrolador é de 16 ou 32-bits. Assim, o registrador PC de 14-bits pode fazer um endereçamento a palavra na memória de programa. 
@@ -129,7 +131,7 @@
 	\item \textit{\textbf{Checksum}}: Complemento de dois do byte menos significativo da soma de todos os bytes anteriores do registro (1 byte do registro).	
 \end{itemize}
 
-\section{Memória de Dados}
+\subsection{Memória de Dados}
 
 \par O ATmega328P possui 2kB de memória de dados SDRAM, além do espaço de dados reservado aos registradores.
 \par Apesar dos registradores não estarem fisicamente implementados na memória de dados, o microcontrolador faz um mapeamento linear da memória de modo a se obter, na prática, uma memória como mostrado na figura~\ref{data_memory}.
@@ -153,7 +155,7 @@
 \end{itemize}
 
 
-\section{Módulo de Entrada e Saída Digital}
+\subsection{Módulo de Entrada e Saída Digital}
 \label{sec:e_s}
 
 \par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de E/S do microcontrolador.
@@ -172,7 +174,7 @@
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
 \vfill
 
-\section{Temporizadores}
+\subsection{Temporizadores}
 \label{sec:timers}
 
 \par Estão integrados 3 temporizadores no ATmega328P, chamados \textit{Timer 0},\textit{Timer 1} e \textit{Timer 2}. Os modos de funcionamento disponíveis para cada temporizador são semelhantes, sendo eles: modo normal, modo CTC, \textit{Fast PWM} e PWM com correção de fase. As fontes de clock para os temporizadores podem ser externa ou interna. Quanto interna, existe a possibilidade de controle da frequência por meio de um \textit{prescaler}.
@@ -196,7 +198,7 @@
 	\label{fig:timer1}
 \end{figure}
 
-\subsection{Modo Normal}
+\subsubsection{Modo Normal}
 
 \par O modo normal de operação é o mais simples. Nele, a contagem é feita continuamente até atingir o valor máximo (0xFF para 8-bits e 0xFFFF para 16-bits), quando ocorre um \textit{overflow} e o sistema reinicia a contagem do zero, como mostrado no diagrama da figura~\ref{fig:timer_normal_diagrama}. O estouro do contador pode ser utilizado para gerar uma interrupção.
 \par Os registradores OCRnA e OCRnB são continuamente comparados com o valor de TCNTn (que armazena a contagem) e em caso de \textit{match}, podem gerar interrupções no sistema e/ou atuar nos pinos OCxA e OCxB, podendo levá-los à nível alto, baixo ou inverter seus valores.
@@ -209,7 +211,7 @@
 	\label{fig:timer_normal_diagrama}
 \end{figure}
 
-\subsection{Modo CTC}
+\subsubsection{Modo CTC}
 
 \par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento deste modo é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
 \vfill
@@ -223,7 +225,7 @@
 
 \par No entanto, diferente do modo normal, o reinício da contagem não pode gerar interrupção de \textit{overflow}. Isso só é possível caso OCRxA (ou ICR1) seja igual à 0xFF (8-bits) ou 0xFFFF (16-bits). Neste caso, o modo CTC e o modo normal se comportam de maneiras idênticas.
 
-\subsection{Modo \textit{Fast PWM}}
+\subsubsection{Modo \textit{Fast PWM}}
 
 \par No modo \textit{fast PWM}, assim como no modo normal, a contagem é feita continuamente do valor mais baixo (0) ao valor mais alto (0xFF para 8-bits ou, no caso do \textit{Timer 1}, este valor pode ser configurado para 0xFF, 0x1FF ou 0x3FF), havendo a possibilidade de alteração deste valor utilizando o registrador OCRnA (ou ICR1 para o \textit{Timer 1}), como ocorre no modo CTC. Também como no modo normal, o estouro do contador pode gerar interrupção de \textit{overflow}. A figura~\ref{fig:timer_fastpwm_diagram} mostra o diagrama de funcionamento deste modo.
 \par A diferença do modo \textit{fast PWM} está na maneira como um \textit{math} entre TCNTn e OCRnA/OCRnB é tratado. Além das possibilidades de disparo de interrupção, os pinos OCxA/OCxB podem ser configurados para apresentar nível baixo em caso de \textit{math} e nível alto no estouro do contador (modo de funcionamento não-invertido), ou o contrário (modo de funcionamento invertido) de modo a gerar uma onda quadrada.
@@ -238,7 +240,7 @@
 	\label{fig:timer_fastpwm_diagram}
 \end{figure}
 
-\subsection{Modo PWM com Correção de Fase}
+\subsubsection{Modo PWM com Correção de Fase}
 
 \par O modo PWM com correção de fase faz a contagem progressiva até o valor máximo (fixo ou variável, da mesma forma como ocorre no modo \textit{fast PWM}), seguido de uma contagem regressiva até o valor mínimo (0), quando é disparada a condição de \textit{overflow}. Esta característica, faz com que este modo atinga velocidades 2x menor que o modo \textit{fast PWM}. A figura~\ref{fig:timer_phasecorrect_diagram} apresenta o diagrama de funcionamento deste modo.
 
@@ -254,7 +256,7 @@
 	\label{fig:timer_phasecorrect_diagram}
 \end{figure}
 
-\subsection{Modo PWM com Correção de Fase e Frequência}
+\subsubsection{Modo PWM com Correção de Fase e Frequência}
 
 \par Este modo de operação está disponível apenas para o \textit{Timer 1}. Seu funcionamento é idêntico ao modo de correção de fase, a diferença está no momento da atualização dos registradores OCRxA/OCRxB, que não ocorre no topo da contagem mas sim ao atingir o valor mínimo, como mostra a figura~\ref{fig:timer_phasefrequencycorrect_diagram}. Esta mudança faz com que os pulsos gerados sejam sempre simétricos.
 
@@ -266,13 +268,13 @@
 	\label{fig:timer_phasefrequencycorrect_diagram}
 \end{figure}
 
-\subsection{Captura de Eventos}
+\subsubsection{Captura de Eventos}
 
 \par O \textit{Timer 1} apresenta uma funcionalidade extra que é a captura de eventos. Esta funcionalidade permite que o valor da contagem presente em TCNTx seja capturado e salvo no registrador ICR1. 
 \par O disparo do evento de captura pode ser dado pela saída do comparador analógico ou pelo pino ICP1, que pode ser configurado para disparo por borda de subida ou descida.
 \par Se o registrador ICR1 não estiver sendo utilizado como valor máximo do contador, esta é a única forma de escrever neste registrador.
 
-\section{Conversor A/D}
+\subsection{Conversor A/D}
 \label{sec:conversor_ad}
 
 \par O ATmega328P possui um conversor A/D de aproximações sucessivas com resolução de 10-bits e 8 canais de entrada (ADC0-ADC7) multiplexados, além de duas entradas fixas (0V e 1,1V) e um sensor de temperatura integrado. A figura~\ref{fig:adc} apresenta a organização interna do conversor A/D.
@@ -350,7 +352,7 @@
 
 \par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção, ADCH e ADCL são os valores contidos nos respectivos registradores e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
 
-\section{USART}
+\subsection{USART}
 \label{sec:usart}
 
 \par A USART é um dos módulos do Atmega328P que permitem a comunicação serial deste com outros dispositivos. Este módulo possui múltiplos modos de operação, suportando comunicação \textit{full duplex}, operação síncrona e assíncrona, detecção de erros em \textit{frames}, modo de comunicação com multiprocessadores, etc., além de poder ser utilizada para comunicação SPI (como Mestre). A figura~\ref{fig:usart} apresenta a organização interna deste módulo no microcontrolador.
@@ -407,3 +409,8 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 \end{itemize}
 
 \par Assim como ocorre com os temporizadores, quando em operação, a USART sobrescreve o funcionamento normal dos pinos PD0 (Rx) e PD1 (Tx).
+
+\section{Processo de \textit{Software}}
+\par Para a criação de \textit{software} de modo profissional, é fundamental o uso de técnicas que propiciem estabilidade, controle e organização do processo de desenvolvimento~\cite{Pressman}. Diversos são os processos de \textit{software} existentes, cada um com suas características próprias, entre eles, o processo ágil que surge para sanar fraquezas da engenharia de \textit{software} convencional, priorizando a entrega mais do que a  análise de projeto~\cite{Pressman}.
+
+\par O processo ágil mais utilizado no mundo é o SCRUM~\cite{IBM_SCRUM}. Desenvolvido em 1993 por Jeff Sutherland, 

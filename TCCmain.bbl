@@ -106,6 +106,19 @@ Arduino.
 \newblock \url{https://playground.arduino.cc/Main/InternalTemperatureSensor},
   Acesso em: 27 de maio de 2018.
 
+\bibitem{Pressman}
+Roger Pressman.
+\newblock {\em Engenharia de Software 7{\textordfeminine} edi{\c{c}}{\~a}o: Uma
+  abordagem profissional}.
+\newblock McGraw-Hill, Inc., 2011.
+
+\bibitem{IBM_SCRUM}
+Rodolpho~Ugolini Neto.
+\newblock Ferramenta scrum gratuita (free).
+\newblock
+  \url{https://www.ibm.com/developerworks/community/blogs/rationalbrasil/entry/ferramenta_scrum_gratu_c3_adta_free96?lang=en},
+  Acesso em: 30 de outubro de 2018.
+
 \bibitem{AndMCU}
 Harry Konstas.
 \newblock Andmcu documentation.

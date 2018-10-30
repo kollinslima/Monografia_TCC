@@ -275,7 +275,7 @@
 		\multicolumn{5}{|c|}{\textbf{Duty Cycle (\%)}}        & \multicolumn{2}{c|}{\textbf{Erro (\%)}}                 \\ \hline
 		\multirow{2}{*}{Teórico} & \multicolumn{2}{c|}{SOFIA} & \multicolumn{2}{c|}{Arduino} & \multirow{2}{*}{SOFIA} & \multirow{2}{*}{Arduino} \\ \cline{2-5}
 		& Média & D. Padrão & Média & D. Padrão &                   &                   \\ \hline
-		1  & 2  & 0 & 2,11  & 0,002 & 100 & 111             \\ \hline
+%		1  & 2  & 0 & 2,11  & 0,002 & 100 & 111             \\ \hline
 		25 & 26 & 0 & 25,58 & 0,034 & 4   & 2,31            \\ \hline
 		50 & 50 & 0 & 50,01 & 0,012 & 0   & 0,01            \\ \hline
 		75 & 74 & 0 & 74,43 & 0,003 & 1,33& 0,76             \\ \hline
@@ -343,7 +343,7 @@
 
 \par Foram criados teste de unidade para todos os principais módulos do projeto (CPU, memórias de dado e de programa, conversor A/D, temporizadores, USART e módulo de interrupção), totalizando 808 casos de teste. O foco dos testes foi a cobertura de linhas e condicionais e análise de valor limite, este último aplicado principalmente aos testes da CPU.
 
-\par A cobertura dos testes criado foi medida tanto com a ferramenta interna do Android Studio quanto com o plugin JaCoCo (integrado ao SonarQube). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o Android Studio registrando 59\% de cobertura e o JaCoCo 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
+\par A cobertura dos testes criado foi medida tanto com a ferramenta interna do Android Studio quanto com o \textit{plugin} JaCoCo (integrado ao SonarQube). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o Android Studio registrando 59\% de cobertura e o JaCoCo 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
 
 \begin{figure}[H]
 	\centering
@@ -361,7 +361,7 @@
 	\label{fig:cobertura_jacoco}
 \end{figure}
 
-\par A cobertura dos testes por módulo são apresentadas nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao que foi feito, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, por este ser mais dedicado à operações com interface gráfica.
+\par A cobertura dos testes por módulo é apresentada nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao esperado, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, por este ser mais dedicado à operações com interface gráfica.
 
 \begin{figure}[h!]
 	\centering
@@ -390,7 +390,7 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{./Resources/profilling_general}
-	\caption{Uso de CPU e memória para o projeto \textit{Blink}} 
+	\caption{Uso de CPU e memória do aplicativo para o projeto \textit{Blink}} 
 	Fonte: Autor
 	\label{fig:profilling_geral}
 \end{figure} 
@@ -675,7 +675,7 @@
 
 \par A velocidade de simulação aqui apresentada é uma medida da percepção que o usuário tem do sistema, quando comparado com o tempo do mundo real.
 
-\par Velocidade de simulação provavelmente é a maior limitação do projeto SOFIA. É possível ter uma ideia clara desta velocidade uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, uma vez que que o \textit{hardware} no qual o simulador se baseia é o Arduino UNO com frequência de 16MHz.
+\par É possível ter uma ideia clara da velocidade de simulação do SOFIA, uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, uma vez que que o \textit{hardware} no qual o simulador se baseia é o Arduino UNO com frequência de 16MHz.
 
 \newpage
 
@@ -687,12 +687,18 @@
 
 \par O projeto SOFIA conta com uma documentação \textit{on-line} (em inglês) hospedada no Gitbook. Esta documentação pode ser acessada a partir do repositório do Github ou de dentro do próprio aplicativo, nos menus de ajuda e de informações do projeto.
 
-\par A documentação do projeto SOFIA é dividido em 3 partes. A primeira mostra uma visão geral, apresentando uma breve descrição do que é o projeto, seus objetivos, público alvo, etc. A segunda parte é um manual do usuário e descreve, passo-a-passo, quais os procedimentos para baixar e instalar o simulador (bem como a versão modificada da IDE do Arduino) e como utilizá-lo, detalhando todos os seus recursos. Por fim, a última parte apresenta uma visão mais voltada ao desenvolvimento do projeto, com diagramas, métricas de \textit{software} e comentários a respeito do código desenvolvido. O \textit{link} para acessar a documentação do projeto SOFIA é mostrado na seção~\ref{codigo_documentacao}.
+\par A documentação do projeto SOFIA é dividido em 3 partes. A primeira mostra uma visão geral, apresentando uma breve descrição do que é o projeto, seus objetivos, público alvo, etc. A segunda parte é um manual do usuário e descreve, passo-a-passo, quais os procedimentos para baixar e instalar o simulador (bem como a versão modificada da IDE do Arduino) e como utilizá-lo, detalhando todos os seus recursos. Por fim, a última parte apresenta uma visão mais voltada ao desenvolvimento do projeto, com diagramas, métricas de \textit{software} e comentários a respeito do código desenvolvido. O \textit{link} para acessar a documentação do projeto SOFIA é mostrado abaixo:
+
+\begin{itemize}
+\item \textbf{Documentação SOFIA:}
+\begin{itemize}
+\item \url{https://project-sofia.gitbook.io/project/}
+\end{itemize} 
+\end{itemize}
 
 \par O aplicativo \textit{AndMCU} também conta com duas páginas de documentação \textit{on-line} (também em inglês) hospedadas no Google Sites e que podem ser acessadas a partir da página de \textit{download} do aplicativo na \textit{Google Play Store}.
 
 \par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções do simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Abaixo é mostrado o endereço eletrônico onde este material pode ser acessado
-\newpage
 \begin{itemize}
 	\item \textbf{Documentação \textit{AndMCU}:}
 	\begin{itemize}
@@ -727,7 +733,7 @@
 
 \par Vale mencionar também que o \textit{Arduino Simulator Mini Free} é o único dos simuladores testados a conter propagandas, que são exibidas a qualquer momento durante o uso do sistema Android e não apenas dentro do aplicativo.
 
-\section{Código e documentação}
+\section{Código}
 \label{codigo_documentacao}
 
 \par O código-fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença \textit{Apache 2.0}. As modificações feitas na IDE do Arduino também estão disponíveis no Github sob a mesma licença.
@@ -738,8 +744,3 @@
 \item \textbf{Arduino IDE:} \url{https://github.com/kollinslima/Arduino/tree/android}
 \end{itemize}
 
-\par Além do código, foi escrita uma documentação referente ao projeto no Gitbook, que pode ser acessada a partir do repositório do projeto ou nos menus "Ajuda" e "Sobre" do aplicativo.
-
-\begin{itemize}
-\item \textbf{Documentação SOFIA:} \url{https://project-sofia.gitbook.io/project/}
-\end{itemize}
