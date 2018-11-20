@@ -3,49 +3,48 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: TCCmain.aux
 The style file: unsrt.bst
 Database file #1: ./Content/References.bib
-Repeated entry---line 80 of file ./Content/References.bib
- : @book{Lecheta
- :              ,
-I'm skipping whatever remains of this entry
-You've used 23 entries,
+Warning--empty year in Lecheta
+Warning--empty year in Deitel
+Warning--empty year in Pressman
+You've used 30 entries,
             1791 wiz_defined-function locations,
-            578 strings with 7245 characters,
-and the built_in function-call counts, 3649 in all, are:
-= -- 305
-> -- 130
+            613 strings with 9119 characters,
+and the built_in function-call counts, 4702 in all, are:
+= -- 410
+> -- 158
 < -- 2
-+ -- 57
-- -- 34
-* -- 95
-:= -- 556
-add.period$ -- 68
-call.type$ -- 23
-change.case$ -- 19
++ -- 71
+- -- 41
+* -- 81
+:= -- 725
+add.period$ -- 116
+call.type$ -- 30
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 172
-empty$ -- 460
-format.name$ -- 34
-if$ -- 876
+cite$ -- 33
+duplicate$ -- 207
+empty$ -- 586
+format.name$ -- 41
+if$ -- 1121
 int.to.chr$ -- 0
-int.to.str$ -- 23
+int.to.str$ -- 30
 missing$ -- 12
-newline$ -- 117
-num.names$ -- 23
-pop$ -- 142
+newline$ -- 179
+num.names$ -- 30
+pop$ -- 204
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 90
+skip$ -- 89
 stack$ -- 0
 substring$ -- 56
-swap$ -- 43
+swap$ -- 50
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 27
-width$ -- 25
-write$ -- 234
-(There was 1 error message)
+warning$ -- 3
+while$ -- 34
+width$ -- 32
+write$ -- 333
+(There were 3 warnings)

@@ -1,22 +1,22 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador, além de uma breve teoria a respeito de processo de desenvolvimento e teste de \textit{software}. No que diz respeito ao ATmega3228P, todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}, exceto onde indicado.
+\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador, além de uma breve teoria a respeito de processo de desenvolvimento e teste de \textit{software}. No que diz respeito ao ATmega328P, todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}.
 
 \section{Microcontrolador ATmega328P}
 
 \subsection{Visão Geral}
 
-\par O ATmega328P é um microcontrolador RISC de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa). Possui 28 pinos (encapsulamento PDIP), sendo 23 programáveis e pode trabalhar com frequência máxima de operação de 20MHz.
+\par O ATmega328P é um microcontrolador RISC (\textit{Reduced Instruction Set Computer}) de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa)~\cite{atmega328p_datasheet}. Possui 28 pinos no encapsulamento PDIP (\textit{Plastic Dual In-line Package}), sendo 23 programáveis e pode trabalhar com frequência máxima de operação de 20MHz.
 \par Entre os periféricos que estão integrados neste dispositivo, pode-se listar:
 \begin{itemize}
 	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
 	\item Um temporizador de 16-bits;
-	\item 6 canais de PWM;
+	\item 6 canais de PWM (\textit{Pulse Width Modulation});
 	\item Conversor A/D de 10-bits (8 canais multiplexados);
-	\item Duas interfaces de comunicação serial SPI;
-	\item Uma USART serial;
-	\item Uma interface serial TWI, compatível com $I^{2}C$ da Philips;
+	\item Duas interfaces de comunicação serial SPI (\textit{Serial Peripheral Interface});
+	\item Uma USART (\textit{Universal Synchronous Asynchronous Receiver Transceiver}) serial;
+	\item Uma interface serial TWI (Two-Wire Serial Interface), compatível com $I^{2}C$ (\textit{Inter-Integrated Circuit}) da Philips;
 	\item \textit{Watchdog Timer} programável com oscilador separado;
 	\item Entre outros.
 \end{itemize}
@@ -33,7 +33,7 @@
 
 \subsection{CPU}
 
-\par A CPU do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par A CPU (\textit{Central Process Unit}) do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
@@ -81,7 +81,7 @@
 	\end{tabular}
 \end{table}
 
-\par As interrupções são classificadas em duas classes: as disparadas por envento e as disparadas por uma condição. Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} toda vez que o evento ocorre e, se a interrupção deste evento estiver ativa, ela será tratada ou enfileirada para tratamento posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
+\par As interrupções são classificadas em duas classes: as disparadas por evento e as disparadas por uma condição. Quando as interrupções são disparadas por eventos, é habilitada uma \textit{flag} toda vez que o evento ocorre e, se a interrupção deste evento estiver ativa, ela será tratada ou enfileirada para tratamento posterior. Ou seja, em interrupções por evento, os eventos que não são tratados, são lembrados, e serão executados em ordem de prioridade assim que possível.
 \par Já quando o disparo ocorre por uma condição, a chamada para a rotina de interrupção permanece ativa enquanto a condição estiver presente. Este tipo de interrupção não necessariamente habilita \textit{flag} de modo que, se a condição for removida antes que a CPU possa tratar a interrupção correspondente, esta não ocorrerá.
 
 \subsection{Memória de Programa}

@@ -2,145 +2,207 @@
 
 \bibitem{OlharDigital_PC_antigo}
 Olhar Digital.
-\newblock Microsoft relembra produtos que eram sucesso na época do xp.
-\newblock
+\newblock Microsoft relembra produtos que eram sucesso na época do {XP}.
+\newblock Site. Disponível em:
   \url{https://olhardigital.com.br/noticia/microsoft-relembra-produtos-que-eram-sucesso-na-epoca-do-xp/40602},
-  Acesso em: 11 de março de 2018.
+  2014.
+\newblock Acesso: 11 de Março de 2018.
 
 \bibitem{Tecmundo_S9}
 Tecmundo.
-\newblock Samsung galaxy s9.
-\newblock \url{https://comparador.tecmundo.com.br/samsung-galaxy-s9/}, Acesso
-  em: 18 de março de 2018.
+\newblock Samsung {Galaxy} {S9}.
+\newblock Site. Disponvel em:
+  \url{https://comparador.tecmundo.com.br/samsung-galaxy-s9/}.
+\newblock Acesso: 18 de Março de 2018.
 
 \bibitem{Lecheta}
 R.R. Lecheta.
-\newblock {\em Google Android 4{\textordfeminine} edi{\c{c}}{\~a}o: Aprenda a
-  criar aplica{\c{c}}{\~o}es para dispositivos m{\'o}veis com o Android SDK}.
-\newblock Novatec Editora, 2015.
+\newblock {\em Google Android: Aprenda a criar aplica{\c{c}}{\~o}es para
+  dispositivos m{\'o}veis com o Android SDK}.
+\newblock Livro. Novatec Editora, São Paulo, Brasil.
+\newblock 4° Edição, 2015.
 
 \bibitem{Android_licenca}
 Documentação Android.
 \newblock Content license.
-\newblock \url{https://source.android.com/setup/licenses}, Acesso em: 18 de
-  março de 2018.
+\newblock Site. Disponvel em: \url{https://source.android.com/setup/licenses}.
+\newblock Acesso: 18 de Março de 2018.
 
 \bibitem{Deitel}
 Paul Deitel, Harvey Deitel, and Abbey Deitel.
 \newblock {\em Android for Programmers: An App-Driven Approach}.
-\newblock Prentice Hall Press, Upper Saddle River, NJ, USA, 1st edition, 2012.
+\newblock Livro. Prentice Hall Press, Upper Saddle River, NJ, USA.
+\newblock 1° Edição, 2012.
 
 \bibitem{Junior}
-José Ernesto Almas de~Jesus JUNIOR.
+José Ernesto Almas de~Jesus Junior.
 \newblock Implementação de um osciloscópio de baixo custo com exibição gráfica
-  em aplicativo para android, 2016.
+  em aplicativo para android.
+\newblock Trabalho de Conclusão de Curso. Universidade de São Paulo. São
+  Carlos, 2016. Disponível em
+  \url{http://www.tcc.sc.usp.br/tce/disponiveis/97/970010/tce-04012017-163919/?&lang=br}.
+  Acesso: 20 de Novembro de 2018.
 
 \bibitem{Nwokorie}
 A.~C. Eberendu, B.~O. Omaiye, and E.~C. Nwokorie.
 \newblock Using android application to turn smart device into digital
   microscope on arduino and window platform.
 \newblock In {\em 2017 IEEE 3rd International Conference on Electro-Technology
-  for National Development (NIGERCON)}, pages 508--513, Nov 2017.
+  for National Development (NIGERCON)}, pages 508--513, 2017.
+\newblock Disponível em: \url{https://ieeexplore.ieee.org/document/8281919}.
+  Acesso: 20 de Novembro de 2018.
 
 \bibitem{Lin}
 H.~F. Teng, M.~J. Wang, and C.~M. Lin.
 \newblock An implementation of android-based mobile virtual instrument for
   telematics applications.
 \newblock In {\em 2011 Second International Conference on Innovations in
-  Bio-inspired Computing and Applications}, pages 306--308, Dec 2011.
+  Bio-inspired Computing and Applications}, pages 306--308, 2011.
+\newblock Disponível em: \url{https://ieeexplore.ieee.org/document/6118785}.
+  Acesso: 20 de Novembro de 2018.
+
+\bibitem{MCU}
+Harry Konstas.
+\newblock {MCU Prototype Board Simulator}.
+\newblock Site. Disponível em:
+  \url{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu}.
+\newblock Acesso: 20 de Novembro de 2018.
+
+\bibitem{BoardMicro}
+Blake~W. Ford.
+\newblock {BoardMicro - AVR Simulator}.
+\newblock Site. Disponível em:
+  \url{https://www.amazon.com/Starlo-BoardMicro-AVR-Simulator/dp/B00LKX3VZC}.
+\newblock Acesso: 20 de Novembro de 2018.
+
+\bibitem{CircSim}
+zhanglinwu8.
+\newblock {CircSim Circuit Simulator}.
+\newblock Site. Disponível em:
+  \url{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}.
+\newblock Acesso: 20 de Novembro de 2018.
+
+\bibitem{ArduinoSimulator}
+Schogini Systems.
+\newblock {Arduino Simulator Mini Free}.
+\newblock Site. Disponível em:
+  \url{https://www.amazon.com/Schogini-Systems-Arduino-Simulator-Mini/dp/B00LIUIX6Y/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1533494959&sr=1-1&keywords=arduino+simulator}.
+\newblock Acesso: 20 de Novembro de 2018.
 
 \bibitem{Delft}
 J.~Overman, L.~Pool, L.~Kreuk, and T.~Ketel.
-\newblock Arduino - the open-source ide.
-\newblock
+\newblock {Arduino - The Open-Source IDE}.
+\newblock Site. Disponível em:
   \url{https://delftswa.gitbooks.io/desosa-2017/content/arduino/chapter.html},
-  Acesso em: 08 de abril de 2018.
+  Acesso: 08 de Abril de 2018.
 
 \bibitem{Proteus}
 Labcenter Electronics.
-\newblock Create your package.
-\newblock \url{https://www.labcenter.com/buy-vsm/}, Acesso em: 15 de abril de
-  2018.
+\newblock {Create Your Package}.
+\newblock Site. Disponível em: \url{https://www.labcenter.com/buy-vsm/}.
+\newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{VBB}
 VirtualBreadboard.
-\newblock Vbb software licenses.
-\newblock
-  \url{http://www.virtualbreadboard.com/DocView.html?doc=WebShop/WebShop},
-  Acesso em: 15 de abril de 2018.
+\newblock {VBB Software Licenses}.
+\newblock Site. Disponível em:
+  \url{http://www.virtualbreadboard.com/DocView.html?doc=WebShop/WebShop}.
+\newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{Simuino}
 Simuino.
-\newblock Arduino uno/mega simulator.
-\newblock \url{http://web.simuino.com/home-1}, Acesso em: 15 de abril de 2018.
+\newblock {Arduino UNO/MEGA Simulator}.
+\newblock Site. Disponível em: \url{http://web.simuino.com/home-1}.
+\newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{CodeBlocks}
 Stanley Huang.
-\newblock Codeblocks arduino ide.
-\newblock \url{http://arduinodev.com/codeblocks/}, Acesso em: 15 de abril de
-  2018.
+\newblock {CodeBlocks Arduino IDE}.
+\newblock Site. Disponível em: \url{http://arduinodev.com/codeblocks/}.
+\newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{Tinkercad}
 Autodesk.
-\newblock O tinkercad é um aplicativo simples e on-line de projeto e impressão
-  3d para todos os usuários.
-\newblock \url{https://www.tinkercad.com/}, Acesso em: 15 de abril de 2018.
+\newblock O {Tinkercad} é um aplicativo simples e on-line de projeto e
+  impressão 3d para todos os usuários.
+\newblock Site. Disponível em: \url{https://www.tinkercad.com/}.
+\newblock Acesso: 15 de Abril de 2018.
+
+\bibitem{UnoArduSim}
+Stan Simmons.
+\newblock {Simulator Download}.
+\newblock Site. Disponível em:
+  \url{https://www.sites.google.com/site/unoardusim/services}.
+\newblock Acesso: 20 de Novembro de 2018.
 
 \bibitem{atmega328p_datasheet}
 Atmel.
-\newblock Atmega328/p datasheet complete.
-\newblock
-  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf},
-  Acesso em: 25 de maio de 2018.
+\newblock {ATmega328/P} datasheet complete.
+\newblock Folha de Dados. Disponível em:
+  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42735-8-bit-AVR-Microcontroller-ATmega328-328P_Datasheet.pdf}.
+\newblock Acesso: 25 de Maio de 2018.
 
 \bibitem{IntelHex}
 Intel.
-\newblock Hexadecimal object file format specification.
-\newblock
-  \url{https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/ads264_mws228/Final%20Report/Final%20Report/Intel%20HEX%20Standard.pdf},
-  Acesso em: 25 de maio de 2018.
+\newblock {Hexadecimal Object File Format Specification}.
+\newblock Relatório técnico. Disponível em:
+  \url{https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/ads264_mws228/Final%20Report/Final%20Report/Intel%20HEX%20Standard.pdf}.
+\newblock Acesso: 25 de Maio de 2018.
 
 \bibitem{Sensor_Temperatura}
 Arduino.
-\newblock Internal temperature sensor.
-\newblock \url{https://playground.arduino.cc/Main/InternalTemperatureSensor},
-  Acesso em: 27 de maio de 2018.
+\newblock {Internal Temperature Sensor}.
+\newblock Site. Disponível
+  em:\url{https://playground.arduino.cc/Main/InternalTemperatureSensor}.
+\newblock Acesso: 27 de Maio de 2018.
 
 \bibitem{Pressman}
 Roger Pressman.
-\newblock {\em Engenharia de Software 7{\textordfeminine} edi{\c{c}}{\~a}o: Uma
-  abordagem profissional}.
-\newblock McGraw-Hill, Inc., 2011.
+\newblock {\em Engenharia de Software: Uma abordagem profissional}.
+\newblock Livro. AMGH Editora Ltda, Porto Alegre, Brasil.
+\newblock 7° Edição, 2011.
 
 \bibitem{IBM_SCRUM}
 Rodolpho~Ugolini Neto.
-\newblock Ferramenta scrum gratuita (free).
-\newblock
-  \url{https://www.ibm.com/developerworks/community/blogs/rationalbrasil/entry/ferramenta_scrum_gratu_c3_adta_free96?lang=en},
-  Acesso em: 30 de outubro de 2018.
+\newblock Ferramenta {SCRUM} gratuita (free).
+\newblock Site. Disponível em:
+  \url{https://www.ibm.com/developerworks/community/blogs/rationalbrasil/entry/ferramenta_scrum_gratu_c3_adta_free96?lang=en}.
+\newblock Acesso: 30 de Outubro de 2018.
 
 \bibitem{Jeff}
 Sutherland Jeff.
 \newblock {\em SCRUM: A arte de fazer o dobro de trabalho na metade do tempo}.
-\newblock Leya Brasil, 2014.
+\newblock Livro. Leya, São Paulo, Brasil, 2014.
 
 \bibitem{Delamaro}
 Márcio~Eduardo Delamaro, José~Carlos Maldonado, and Mario Jino.
 \newblock {\em Introdução ao Teste de Software}.
-\newblock Campus, 2007.
+\newblock Livro. Campus, Rio de Janeiro, Brasil, 2007.
+
+\bibitem{Dia}
+Steffen Macke.
+\newblock {Dia Diagram Editor: Overview}.
+\newblock Site. Disponível em: \url{http://dia-installer.de/index.html.en}.
+\newblock Acesso: 20 de Novembro de 2018.
+
+\bibitem{Drawio}
+JGraph.
+\newblock {Flowchart Maker and Online Diagram Software}.
+\newblock Site. Disponível em: \url{http://dia-installer.de/index.html.en}.
+\newblock Acesso: 20 de Novembro de 2018.
 
 \bibitem{AndMCU}
 Harry Konstas.
-\newblock Andmcu documentation.
-\newblock
-  \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu/andmcu-documentation},
-  Acesso em: 04 de agosto de 2018.
+\newblock {AndMCU Documentation}.
+\newblock Site. Disponível em:
+  \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu/andmcu-documentation}.
+\newblock Acesso: 04 de Agosto de 2018.
 
 \bibitem{Meminfo}
 Documentação Android.
 \newblock dumpsys.
-\newblock
-  \url{https://developer.android.com/studio/command-line/dumpsys#meminfo},
-  Acesso em: 06 de agosto de 2018.
+\newblock Site. Disponível em:
+  \url{https://developer.android.com/studio/command-line/dumpsys#meminfo}.
+\newblock Acesso: 06 de Agosto de 2018.
 
 \end{thebibliography}
