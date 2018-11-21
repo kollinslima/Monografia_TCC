@@ -24,18 +24,18 @@
 \contentsline {section}{\numberline {2.3}Teste de \textit {Software}}{50}{section.2.3}
 \contentsline {chapter}{\numberline {3}Desenvolvimento do Projeto}{51}{chapter.3}
 \contentsline {section}{\numberline {3.1}Material}{51}{section.3.1}
-\contentsline {section}{\numberline {3.2}M\'etodo}{53}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{53}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{54}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}M\'odulo principal}{54}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}CPU}{56}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}Mem\'oria de Programa}{56}{subsubsection.3.2.2.3}
-\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Dados}{57}{subsubsection.3.2.2.4}
-\contentsline {subsubsection}{\numberline {3.2.2.5}M\'odulo de Interrup\c c\~ao}{57}{subsubsection.3.2.2.5}
-\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de E/S}{58}{subsubsection.3.2.2.6}
-\contentsline {subsubsection}{\numberline {3.2.2.7}Temporizadores}{58}{subsubsection.3.2.2.7}
-\contentsline {subsubsection}{\numberline {3.2.2.8}Conversor A/D}{59}{subsubsection.3.2.2.8}
-\contentsline {subsubsection}{\numberline {3.2.2.9}USART}{59}{subsubsection.3.2.2.9}
+\contentsline {section}{\numberline {3.2}M\'etodo}{54}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Desenvolvimento na IDE do Arduino}{54}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Desenvolvimento Android}{55}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}M\'odulo principal}{55}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}CPU}{57}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Mem\'oria de Programa}{57}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}Mem\'oria de Dados}{58}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}M\'odulo de Interrup\c c\~ao}{58}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}M\'odulo de E/S}{59}{subsubsection.3.2.2.6}
+\contentsline {subsubsection}{\numberline {3.2.2.7}Temporizadores}{59}{subsubsection.3.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.8}Conversor A/D}{60}{subsubsection.3.2.2.8}
+\contentsline {subsubsection}{\numberline {3.2.2.9}USART}{60}{subsubsection.3.2.2.9}
 \contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{61}{chapter.4}
 \contentsline {section}{\numberline {4.1}Arduino IDE}{61}{section.4.1}
 \contentsline {section}{\numberline {4.2}Simulador}{63}{section.4.2}

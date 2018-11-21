@@ -16,7 +16,7 @@ Tecmundo.
 \newblock Acesso: 18 de Março de 2018.
 
 \bibitem{Lecheta}
-R.R. Lecheta.
+LECHETA{,} Ricardo~R.
 \newblock {\em Google Android: Aprenda a criar aplica{\c{c}}{\~o}es para
   dispositivos m{\'o}veis com o Android SDK}.
 \newblock Livro. Novatec Editora, São Paulo, Brasil.
@@ -29,13 +29,13 @@ Documentação Android.
 \newblock Acesso: 18 de Março de 2018.
 
 \bibitem{Deitel}
-Paul Deitel, Harvey Deitel, and Abbey Deitel.
+DEITEL{,} P., DEITEL{,} H., and DEITEL{,} A.
 \newblock {\em Android for Programmers: An App-Driven Approach}.
 \newblock Livro. Prentice Hall Press, Upper Saddle River, NJ, USA.
 \newblock 1° Edição, 2012.
 
 \bibitem{Junior}
-José Ernesto Almas de~Jesus Junior.
+JUNIOR{,} José Ernesto Almas~de Jesus.
 \newblock Implementação de um osciloscópio de baixo custo com exibição gráfica
   em aplicativo para android.
 \newblock Trabalho de Conclusão de Curso. Universidade de São Paulo. São
@@ -44,7 +44,7 @@ José Ernesto Almas de~Jesus Junior.
   Acesso: 20 de Novembro de 2018.
 
 \bibitem{Nwokorie}
-A.~C. Eberendu, B.~O. Omaiye, and E.~C. Nwokorie.
+EBERENDU{,} A.~C., OMAIYE{,} B.~O., and NOWOKORIE{,} E.~C.
 \newblock Using android application to turn smart device into digital
   microscope on arduino and window platform.
 \newblock In {\em 2017 IEEE 3rd International Conference on Electro-Technology
@@ -53,7 +53,7 @@ A.~C. Eberendu, B.~O. Omaiye, and E.~C. Nwokorie.
   Acesso: 20 de Novembro de 2018.
 
 \bibitem{Lin}
-H.~F. Teng, M.~J. Wang, and C.~M. Lin.
+TENG{,} H.~F., WANG{,} M.~J., and LIN{,} C.~M.
 \newblock An implementation of android-based mobile virtual instrument for
   telematics applications.
 \newblock In {\em 2011 Second International Conference on Innovations in
@@ -61,36 +61,8 @@ H.~F. Teng, M.~J. Wang, and C.~M. Lin.
 \newblock Disponível em: \url{https://ieeexplore.ieee.org/document/6118785}.
   Acesso: 20 de Novembro de 2018.
 
-\bibitem{MCU}
-Harry Konstas.
-\newblock {MCU Prototype Board Simulator}.
-\newblock Site. Disponível em:
-  \url{https://play.google.com/store/apps/details?id=com.hkonstas.andmcu}.
-\newblock Acesso: 20 de Novembro de 2018.
-
-\bibitem{BoardMicro}
-Blake~W. Ford.
-\newblock {BoardMicro - AVR Simulator}.
-\newblock Site. Disponível em:
-  \url{https://www.amazon.com/Starlo-BoardMicro-AVR-Simulator/dp/B00LKX3VZC}.
-\newblock Acesso: 20 de Novembro de 2018.
-
-\bibitem{CircSim}
-zhanglinwu8.
-\newblock {CircSim Circuit Simulator}.
-\newblock Site. Disponível em:
-  \url{https://play.google.com/store/apps/details?id=org.qtproject.CircSim&hl=pt_BR}.
-\newblock Acesso: 20 de Novembro de 2018.
-
-\bibitem{ArduinoSimulator}
-Schogini Systems.
-\newblock {Arduino Simulator Mini Free}.
-\newblock Site. Disponível em:
-  \url{https://www.amazon.com/Schogini-Systems-Arduino-Simulator-Mini/dp/B00LIUIX6Y/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1533494959&sr=1-1&keywords=arduino+simulator}.
-\newblock Acesso: 20 de Novembro de 2018.
-
 \bibitem{Delft}
-J.~Overman, L.~Pool, L.~Kreuk, and T.~Ketel.
+OVERMAN{,} J., POOL{,} L., KREUK{,} L., and {KETEL} T.
 \newblock {Arduino - The Open-Source IDE}.
 \newblock Site. Disponível em:
   \url{https://delftswa.gitbooks.io/desosa-2017/content/arduino/chapter.html},
@@ -116,7 +88,7 @@ Simuino.
 \newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{CodeBlocks}
-Stanley Huang.
+HUANG{,} Stanley.
 \newblock {CodeBlocks Arduino IDE}.
 \newblock Site. Disponível em: \url{http://arduinodev.com/codeblocks/}.
 \newblock Acesso: 15 de Abril de 2018.
@@ -129,7 +101,7 @@ Autodesk.
 \newblock Acesso: 15 de Abril de 2018.
 
 \bibitem{UnoArduSim}
-Stan Simmons.
+SIMMONS{,} Stan.
 \newblock {Simulator Download}.
 \newblock Site. Disponível em:
   \url{https://www.sites.google.com/site/unoardusim/services}.
@@ -157,42 +129,30 @@ Arduino.
 \newblock Acesso: 27 de Maio de 2018.
 
 \bibitem{Pressman}
-Roger Pressman.
+PRESSMAN{,} Roger.
 \newblock {\em Engenharia de Software: Uma abordagem profissional}.
 \newblock Livro. AMGH Editora Ltda, Porto Alegre, Brasil.
 \newblock 7° Edição, 2011.
 
 \bibitem{IBM_SCRUM}
-Rodolpho~Ugolini Neto.
+NETO{,} Rodolpho~Ugolini.
 \newblock Ferramenta {SCRUM} gratuita (free).
 \newblock Site. Disponível em:
   \url{https://www.ibm.com/developerworks/community/blogs/rationalbrasil/entry/ferramenta_scrum_gratu_c3_adta_free96?lang=en}.
 \newblock Acesso: 30 de Outubro de 2018.
 
 \bibitem{Jeff}
-Sutherland Jeff.
+SUTHERLAND{,} Jeff.
 \newblock {\em SCRUM: A arte de fazer o dobro de trabalho na metade do tempo}.
 \newblock Livro. Leya, São Paulo, Brasil, 2014.
 
 \bibitem{Delamaro}
-Márcio~Eduardo Delamaro, José~Carlos Maldonado, and Mario Jino.
+DELAMARO{,} M.~E., MALDONADO{,} José~Carlos, and JINO{,} Mario.
 \newblock {\em Introdução ao Teste de Software}.
 \newblock Livro. Campus, Rio de Janeiro, Brasil, 2007.
 
-\bibitem{Dia}
-Steffen Macke.
-\newblock {Dia Diagram Editor: Overview}.
-\newblock Site. Disponível em: \url{http://dia-installer.de/index.html.en}.
-\newblock Acesso: 20 de Novembro de 2018.
-
-\bibitem{Drawio}
-JGraph.
-\newblock {Flowchart Maker and Online Diagram Software}.
-\newblock Site. Disponível em: \url{http://dia-installer.de/index.html.en}.
-\newblock Acesso: 20 de Novembro de 2018.
-
 \bibitem{AndMCU}
-Harry Konstas.
+KONSTAS{,} Harry.
 \newblock {AndMCU Documentation}.
 \newblock Site. Disponível em:
   \url{https://sites.google.com/site/hkonstas/android-stuff/andmcu/andmcu-documentation}.

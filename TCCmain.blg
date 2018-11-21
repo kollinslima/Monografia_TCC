@@ -3,48 +3,50 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: TCCmain.aux
 The style file: unsrt.bst
 Database file #1: ./Content/References.bib
+Warning--I didn't find a database entry for "CircSim"
+Warning--I didn't find a database entry for "ArduinoSimulator"
 Warning--empty year in Lecheta
 Warning--empty year in Deitel
 Warning--empty year in Pressman
-You've used 30 entries,
+You've used 24 entries,
             1791 wiz_defined-function locations,
-            613 strings with 9119 characters,
-and the built_in function-call counts, 4702 in all, are:
-= -- 410
-> -- 158
+            589 strings with 8346 characters,
+and the built_in function-call counts, 3898 in all, are:
+= -- 338
+> -- 134
 < -- 2
-+ -- 71
-- -- 41
++ -- 59
+- -- 35
 * -- 81
-:= -- 725
-add.period$ -- 116
-call.type$ -- 30
-change.case$ -- 25
+:= -- 599
+add.period$ -- 92
+call.type$ -- 24
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 207
-empty$ -- 586
-format.name$ -- 41
-if$ -- 1121
+cite$ -- 27
+duplicate$ -- 177
+empty$ -- 478
+format.name$ -- 35
+if$ -- 929
 int.to.chr$ -- 0
-int.to.str$ -- 30
+int.to.str$ -- 24
 missing$ -- 12
-newline$ -- 179
-num.names$ -- 30
-pop$ -- 204
+newline$ -- 143
+num.names$ -- 24
+pop$ -- 162
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 89
+skip$ -- 77
 stack$ -- 0
 substring$ -- 56
-swap$ -- 50
+swap$ -- 44
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 34
-width$ -- 32
-write$ -- 333
-(There were 3 warnings)
+while$ -- 28
+width$ -- 26
+write$ -- 267
+(There were 5 warnings)
