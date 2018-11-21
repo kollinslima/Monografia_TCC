@@ -10,7 +10,7 @@
  \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./Resources/android_button}
-	\caption{Localização do botão "Android" (Selecionado) na IDE} 
+	\caption{Localização do botão "Android" (selecionado) na IDE} 
 	Fonte: Autor
 	\label{fig:ide_modificada}
 \end{figure}
@@ -113,17 +113,17 @@
 \item \textbf{Botão}: por onde o usuário envia sinais ao o sistema.
 \item \textbf{Seletor de modo}: define a operação do botão, podendo ser:
 	\begin{itemize}
-	\item Push-GND: envia nível baixo se pressionado, indefinido caso contrário (é a opção padrão).
-	\item Push-VDD: envia nível alto se pressionado, indefinido caso contrário.
-	\item Pull-Up: envia nível baixo se pressionado, alto caso contrário.
-	\item Pull-Down: envia nível alto se pressionado, baixo caso contrário.
-	\item Toggle: alterna seu nível a cada toque no botão.
+	\item \textit{Push-GND}: envia nível baixo se pressionado, indefinido caso contrário (é a opção padrão).
+	\item \textit{Push-VDD}: envia nível alto se pressionado, indefinido caso contrário.
+	\item \textit{Pull-Up}: envia nível baixo se pressionado, alto caso contrário.
+	\item \textit{Pull-Down}: envia nível alto se pressionado, baixo caso contrário.
+	\item \textit{Toggle}: alterna seu nível a cada toque no botão.
 	\end{itemize}
 \item \textbf{Seletor de pino}: define para qual pino do Arduino o sinal deve ser enviado.
 \item \textbf{Saída do sinal}: mostra o que está sendo enviado para o pino selecionado
 \end{itemize}
 
-\par Por padrão, nenhum pino está selecionado. Isso garante que não haverá um curto-circuito ao adicionar uma entrada. Em caso de curto-circuito, é exibida uma mensagem na barra de status (como mostra a figura~\ref{fig:curto-circuito}) e a simulação para, podendo ser reiniciada manualmente assim que a condição de curto-circuito for removida.
+\par Por padrão, nenhum pino está selecionado. Isso garante que não haverá um curto-circuito ao adicionar uma entrada. Em caso de curto-circuito, é exibida uma mensagem na barra de \textit{status} (como mostra a figura~\ref{fig:curto-circuito}) e a simulação para, podendo ser reiniciada manualmente assim que a condição de curto-circuito for removida.
 
 \begin{figure}[H]
 	\centering
@@ -287,8 +287,9 @@
 
 \subsection{Análise Estática}
 
-\par Com o uso do SonarQube, foi realizada a analise estática do código com o objetivo principal de identificar e corrigir problemas relacionados à segurança, vulnerabilidades e manutenibilidade. O SonarQube fornece diversas métricas a respeito do projeto, além de classificar a qualidade do \textit{software} com notas variando de A (melhor qualidade) a E (pior qualidade).
-\par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados (tempo para correção dos defeitos). Pode-se observar que uma classe se destaca pela sua quantidade de \textit{bugs}, esta classe é a \textit{DataMemory\_ATmega328P}.
+\par Com o uso do \textit{SonarQube}, foi realizada a analise estática do código com o objetivo principal de identificar e corrigir problemas relacionados à segurança, vulnerabilidades e manutenibilidade. O \textit{SonarQube} fornece diversas métricas a respeito do projeto, além de classificar a qualidade do \textit{software} com notas variando de A (melhor qualidade) a E (pior qualidade). 
+
+\par A primeira métrica relevante que a ferramenta fornece é uma medida de confiabilidade do sistema, baseada no número de \textit{bugs}. A figura~\ref{fig:confiabilidade} mostra um gráfico relacionando cada classe do projeto com a quantidade de \textit{bugs} encontrados. Este gráfico (assim como os mostrados nas figuras~\ref{fig:seguranca},~\ref{fig:manutencao} e~\ref{fig:duplicacao}) apresentam as classes do projeto, que são representadas por círculos.  Quanto maior o tamanho do círculo, maior a quantidade de problemas encontrados nela e a cor do círculo mostra a gravidade do problema. O eixo horizontal mostra a quantidade de linhas que a classe possui, enquanto o eixo vertical o esforço (medido em tempo) estimado para resolver todos os problemas. Pode-se observar na figura~\ref{fig:confiabilidade} que uma classe se destaca pela sua quantidade de \textit{bugs} (círculo de maior raio), esta classe é a \textit{DataMemory\_ATmega328P}.
 
 \begin{figure}[h]
 	\centering
@@ -298,9 +299,9 @@
 	\label{fig:confiabilidade}
 \end{figure}
  
-\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, no Android Studio) e à conversão (\textit{cast}) de valores (os casos de teste criados com o JUnit4 estão testando estas conversões). Devido à estes problemas o sistema receberia classificação C em termos de confiabilidade, no entanto foi atribuída a nota E devido à um \textit{bug} identificado na classe \textit{DataBaseHelper} relacionado à abertura e fechamento do banco de dados (apesar deste ter sido corrigido conforme a sugestão proposta).
+\par É importante ressaltar que, por ser uma ferramenta de análise estática, muitos problemas apontados podem não se aplicar ao projeto ou ser falsos positivos. Em se tratando de \textit{bugs}, dos problemas que não foram resolvidos sobraram apenas \textit{bugs} relacionados ao tratamento de exceções (que está sendo feito com o uso de \textit{Logs}, no \textit{Android Studio}) e à conversão (\textit{cast}) de valores (os casos de teste criados com o \textit{JUnit4} estão testando estas conversões). Devido à estes problemas o sistema receberia classificação C em termos de confiabilidade, no entanto foi atribuída a nota E devido à um \textit{bug} identificado na classe \textit{DataBaseHelper} relacionado à abertura e fechamento do banco de dados (apesar deste ter sido corrigido conforme a sugestão proposta).
 
-\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque, esta é a \textit{OutputFragment\_Atmega328P}.
+\par Outra métrica fornecida diz respeito à segurança do sistema e se baseia na quantidade de vulnerabilidades encontradas. A figura~\ref{fig:seguranca} apresenta um gráfico relacionando cada classe do projeto com a quantidade de vulnerabilidades (tempo para correção dos defeitos). Novamente, observa-se uma classe em destaque (maior círculo), esta é a \textit{OutputFragment\_Atmega328P}.
 
 \begin{figure}[h]
 	\centering
@@ -343,12 +344,12 @@
 
 \par Foram criados teste de unidade para todos os principais módulos do projeto (CPU, memórias de dado e de programa, conversor A/D, temporizadores, USART e módulo de interrupção), totalizando 808 casos de teste. O foco dos testes foi a cobertura de linhas e condicionais e análise de valor limite, este último aplicado principalmente aos testes da CPU.
 
-\par A cobertura dos testes criado foi medida tanto com a ferramenta interna do Android Studio quanto com o \textit{plugin} JaCoCo (integrado ao SonarQube). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o Android Studio registrando 59\% de cobertura e o JaCoCo 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
+\par A cobertura dos testes criado foi medida tanto com a ferramenta interna do \textit{Android Studio} quanto com o \textit{plugin} \textit{JaCoCo} (integrado ao \textit{SonarQube}). Houve uma diferença de 10\% nas duas medidas de cobertura por estas ferramentas, com o \textit{Android Studio} registrando 59\% de cobertura e o \textit{JaCoCo} 49\%, como mostram as figuras~\ref{fig:cobertura_android_studio} e~\ref{fig:cobertura_jacoco}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\textwidth]{./Resources/cobertura_android_studio}
-	\caption{Medida de cobertura do projeto obtida com o  Android Studio} 
+	\caption{Medida de cobertura do projeto obtida com o  \textit{Android Studio}} 
 	Fonte: Autor
 	\label{fig:cobertura_android_studio}
 \end{figure}
@@ -356,17 +357,17 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Resources/cobertura_jacoco}
-	\caption{Medida de cobertura do projeto obtida com o JaCoCo} 
+	\caption{Medida de cobertura do projeto obtida com o \textit{JaCoCo}} 
 	Fonte: Autor
 	\label{fig:cobertura_jacoco}
 \end{figure}
 
-\par A cobertura dos testes por módulo é apresentada nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo Android Studio se mostra mais exata ao esperado, já que as medidas do JaCoCo indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, por este ser mais dedicado à operações com interface gráfica.
+\par A cobertura dos testes por módulo é apresentada nas figuras~\ref{fig:cobertura_modulo_android_studio} e~\ref{fig:cobertura_modulo_jacoco}. A partir destes dois gráficos apresentados, pode-se dizer que a medição realizada pelo \textit{Android Studio} se mostra mais exata ao esperado, já que as medidas do \textit{JaCoCo} indicam uma cobertura de 0\% para a USART, quando existem 7 casos de teste para este módulo, e 100\% para módulo de E/S, quando não foi escrito nenhum caso de teste para este módulo, por este ser mais dedicado à operações com interface gráfica.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/cobertura_modulo_android_studio}
-	\caption{Cobertura por módulo (Android Studio)} 
+	\caption{Cobertura por módulo (\textit{Android Studio})} 
 	Fonte: Autor
 	\label{fig:cobertura_modulo_android_studio}
 \end{figure}
@@ -374,7 +375,7 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{./Resources/cobertura_modulo_jacoco}
-	\caption{Cobertura por módulo (JaCoCo)} 
+	\caption{Cobertura por módulo (\textit{JaCoCo})} 
 	Fonte: Autor
 	\label{fig:cobertura_modulo_jacoco}
 \end{figure}
@@ -384,7 +385,7 @@
 \section{\textit{Profiling}}
 \label{profiling}
 
-\par Foi utilizada a ferramenta de \textit{profilling} do próprio Android Studio para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{apendice_blink}), foi utilizado no simulador durante a execução do \textit{profilling}. 
+\par Foi utilizada a ferramenta de \textit{profilling} do próprio \textit{Android Studio} para avaliar o consumo de recursos do aplicativo e tentar identificar pontos de otimização. O projeto \textit{Blink} (apêndice~\ref{apendice_blink}), foi utilizado no simulador durante a execução do \textit{profilling}. 
 \par O sistema foi avaliado quanto ao seu uso de CPU e memória, a figura~\ref{fig:profilling_geral} mostra o desempenho do sistema considerando estes dois fatores. Pode-se observar que o uso de CPU fica em torno de 25\%, enquanto que o uso de memória é de aproximadamente 30MB.
 
 \begin{figure}[H]
@@ -454,7 +455,7 @@
 
 \par O primeiro ponto a ser comparado são as interfaces que cada aplicativo oferece para ao usuário.
 
-\par O projeto SOFIA, como já foi mostrado na seção~\ref{resultado_sofia}, procura oferecer uma interface simples, sem fazer referência à componentes eletrônicos. Na tela principal, o usuário tem sempre a sua disposição botões para realizar todas as tarefas que desejar no aplicativo, seja inserir novos elementos, reiniciar a simulação ou acessar funções adicionais, tudo isso sem que seja necessário acessar novas telas. A figura~\ref{fig:interface_sofia} mostra a interface principal da SOFIA com algumas entradas e saídas.
+\par O projeto SOFIA, como já foi mostrado na seção~\ref{resultado_sofia}, procura oferecer uma interface simples, sem fazer referência à componentes eletrônicos. Na tela principal, o usuário tem sempre a sua disposição botões para realizar todas as tarefas que desejar no aplicativo, seja inserir novos elementos, reiniciar a simulação ou acessar funções adicionais, tudo isso sem que seja necessário acessar novas telas. A figura~\ref{fig:interface_sofia} mostra a interface principal do SOFIA com algumas entradas e saídas.
 
 \begin{figure}[h]
 	\centering
@@ -494,7 +495,7 @@
 
 \newpage
 
-\par Partindo para o \textit{AndMCU}, este possui uma interface que lembra um kit de desenvolvimento PIC, mostrando inclusive o microcontrolador PIC18F458 (apesar do projeto funcionar com códigos assembly do microcontrolador 68705 da Motorola). A interface deste simulador é mostrada na figura~\ref{fig:interface_AndMCU}.
+\par Partindo para o \textit{AndMCU}, este possui uma interface que lembra um \textit{kit} de desenvolvimento PIC, mostrando inclusive o microcontrolador PIC18F458 (apesar do projeto funcionar com códigos assembly do microcontrolador 68705 da Motorola). A interface deste simulador é mostrada na figura~\ref{fig:interface_AndMCU}.
 
 \begin{figure}[h]
 	\centering
@@ -504,7 +505,7 @@
 	\label{fig:interface_AndMCU}
 \end{figure} 
 
-\par O kit apresentado conta com um display LCD de 16 caracteres, 6 displays de 7 segmentos, 2 barras gráficas com 8 LEDs cada, 2 \textit{DIP Switchs} de 8 vias e um teclado numérico. Além disso, existe um botão azul no canto superior esquerdo para interrupções externas, um botão vermelho para \textit{reset} manual no canto inferior esquerdo e um LED de status no canto superior direito. Também, o sistema utiliza o sensor de luminosidade do \textit{smartphone} como entrada analógica e a documentação do projeto menciona ainda um piezo \textit{buffer}~\cite{AndMCU}.
+\par O \textit{kit} apresentado conta com um display LCD de 16 caracteres, 6 displays de 7 segmentos, 2 barras gráficas com 8 LEDs cada, 2 \textit{DIP Switchs} de 8 vias e um teclado numérico. Além disso, existe um botão azul no canto superior esquerdo para interrupções externas, um botão vermelho para \textit{reset} manual no canto inferior esquerdo e um LED de status no canto superior direito. Também, o sistema utiliza o sensor de luminosidade do \textit{smartphone} como entrada analógica e a documentação do projeto menciona ainda um \textit{piezo buzzer}~\cite{AndMCU}.
 
 \par Este simulador também não conta com menus de ajuda ou qualquer instrução de uso no aplicativo. Na verdade, uma vez escolhido o código a ser executado, não há mais nada a se fazer no simulador a não ser trabalhar em cima da simulação atual. A troca de arquivos para simulação exige sair do aplicativo e iniciá-lo novamente.
 
@@ -557,7 +558,7 @@
 
 \par Como dito anteriormente, o aplicativo não possui botões ou menus e a navegação por toques não é clara, mas é por meio dela é possível abrir o menu para carregar um código hexadecimal e acessar o \textit{prompt} do GDB. Um programa a ser simulado pode tanto ser escolhido de um banco de exemplos (com 4 códigos disponíveis no aplicativo) ou carregados pelo usuário a partir de um repositório do Dropbox.
 
-\par O \textit{AndMCU} fornece um kit de desenvolvimento ao usuário e as possibilidades de interação com o aplicativo não vai muito além das possibilidades deste \textit{hardware} virtual (com exceção para o uso do sensor de luminosidade do \textit{smartphone} para entrada analógica). A única interação do usuário que é externo à este kit é na escolha do código a ser simulado ao iniciar o aplicativo.
+\par O \textit{AndMCU} fornece um \textit{kit} de desenvolvimento ao usuário e as possibilidades de interação com o aplicativo não vai muito além das possibilidades deste \textit{hardware} virtual (com exceção para o uso do sensor de luminosidade do \textit{smartphone} para entrada analógica). A única interação do usuário que é externo à este \textit{kit} é na escolha do código a ser simulado ao iniciar o aplicativo.
 
 \par Apesar disso, o sistema permite que diversas configurações sejam feitas no código em \textit{assembly} que será simulado. Entre as possibilidades estão o controle de velocidade de simulação, modo de simulação passo-a-passo, desabilitar os \textit{DIP Switches}, escrever conteúdo da memória em arquivo, entre outras possibilidades descritas na documentação.
 
@@ -587,13 +588,13 @@
 	\end{tabular}
 \end{table}
 
-\par Ao criar um projeto no Android Studio, pode-se verificar qual a distribuição de usuários em cada versão do Android. A figura~\ref{fig:dist_android} apresenta esta distribuição e por ela, pode-se observar que, com exceção do projeto SOFIA, todos os simuladores podem ser executados em 100\% dos dispositivos Android ativos no momento.
+\par Ao criar um projeto no \textit{Android Studio}, pode-se verificar qual a distribuição de usuários em cada versão do Android. A figura~\ref{fig:dist_android} apresenta esta distribuição e por ela, pode-se observar que, com exceção do projeto SOFIA, todos os simuladores podem ser executados em 100\% dos dispositivos Android ativos no momento.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{./Resources/distrib_android}
 	\caption{Distribuição acumulada de usuários Android. Como destacado, o simulador SOFIA poderá atingir pouco mais de 70\% dos dispositivos Android ativos no momento, porém este número tente a aumentar com a modernização dos aparelhos} 
-	Fonte: Android Studio
+	Fonte: \textit{Android Studio}
 	\label{fig:dist_android}
 \end{figure}
 

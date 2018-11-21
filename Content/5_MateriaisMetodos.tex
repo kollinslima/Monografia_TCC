@@ -11,7 +11,7 @@
 \begin{itemize}
 \item Para o desenho de diagramas de classe e mapas mentais na fase de projeto, foram utilizadas as ferramentas \textit{Dia}\footnote{\url{http://dia-installer.de/}} e \textit{Draw.io}\footnote{\url{https://www.draw.io/}}, por serem ambas gratuitas, \textit{Open-Source} e com recursos que suprem as necessidades deste projeto.
 
-\item Como já mencionado anteriormente, o método ágil \textit{SCRUM} foi o escolhido para a construção do sistema. Apesar de não ter sido aplicado por completo, com reuniões semanais e outras atividades em grupo (já que é o trabalho foi desenvolvido por uma única pessoa), o desenvolvimento em ciclos, a priorização de tarefas e outras características do SCRUM foram aplicadas para ajudar na organização e no desenvolvimento do simulador. A plataforma \textit{Taiga}\footnote{\url{https://taiga.io/}} foi utilizada para organização e planejamento dos \textit{Sprints} e sua escolha se deve pelo fato de ser gratuito e já ser conhecida pelo autor.
+\item Como já mencionado anteriormente, o método ágil \textit{SCRUM} foi o escolhido para a construção do sistema. Apesar de não ter sido aplicado por completo, com reuniões semanais e outras atividades em grupo (já que é o trabalho foi desenvolvido por uma única pessoa), o desenvolvimento em ciclos, a priorização de tarefas e outras características do \textit{SCRUM} foram aplicadas para ajudar na organização e no desenvolvimento do simulador. A plataforma \textit{Taiga}\footnote{\url{https://taiga.io/}} foi utilizada para organização e planejamento dos \textit{Sprints} e sua escolha se deve pelo fato de ser gratuito e já ser conhecida pelo autor.
 
 \item Para controle de versão utilizou-se o \textit{Git}\footnote{\url{https://git-scm.com/}} sincronizado à um repositório \textit{on-line} no \textit{Github}\footnote{\url{https://github.com/}}. Nenhum motivo especial na escolha destas ferramentas, a não ser a familiaridade do autor com seu uso.
 
@@ -29,9 +29,9 @@
 
 \item Para a criação dos gráficos, foram criados \textit{scripts} em \textit{Python}, fazendo uso da biblioteca \textit{Matplotlib}\footnote{\url{https://matplotlib.org/}}, que possui recursos avançados para geração de gráficos e é de fácil uso. Para gráficos simples, foi utilizado o \textit{Google Sheets}\footnote{\url{https://www.google.com/sheets/about/}}.  
 
-\item Em termos de hardware, foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real, principalmente comparações feitas em medidas de frequência e \textit{duty cycle}, no qual se fez uso também de um osciloscópio InfiniiVision DSOX2002A, da Keysight.
+\item Em termos de hardware, foi utilizado um Arduino UNO R3 para comparar os resultados obtidos pelo aplicativo com o sistema real, principalmente comparações feitas em medidas de frequência e \textit{duty cycle}, no qual se fez uso também de um osciloscópio \textit{InfiniiVision DSOX2002A}, da Keysight.
 
-\item Por fim, o aparelho disponível para realizar os testes foi o smartphone ASUS ZenFone 2, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal e 32GB de armazenamento, executando o
+\item Por fim, o aparelho disponível para realizar os testes foi o \textit{smartphone} \textit{ASUS ZenFone 2}, com 4 núcleos de processamento (2,33GHz), 4GB de memória principal e 32GB de armazenamento, executando o
 Android 5.0.
 
 \end{itemize}
@@ -57,7 +57,7 @@ Android 5.0.
 
 \par A classe \textit{DeviceSelector} é a entrada do sistema. Ela recebe como argumento o local onde o hexadecimal é gerado (que pode ser obtido por meio do método \textit{getBuildPath} da classe \textit{Sketch} já existente no projeto do Arduino) e cria a janela para selecionar o dispositivo. Todos os aparelhos Android montados no sistema são exibidos em uma lista em caso de sucesso na compilação. Em conjunto, atua a classe \textit{DeviceWatcher}, que é uma \textit{thread} que fica a procura de novos dispositivos. Desta forma, caso algum aparelho seja conectado após a exibição da janela de seleção, a lista de dispositivos é atualizada automaticamente.
 
-\par Já a classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "Ok" do seletor de dispositivos, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
+\par Já a classe \textit{USBManager} cuida de toda a comunicação com o sistema e o dispositivo Android, além de fazer a identificação dos dispositivos conectados e retornar ao seletor um \textit{friendly name} para que o usuário possa reconhecer seu dispositivo facilmente. Ao pressionar o botão "\textit{Ok}" do seletor de dispositivos, o método \textit{copyHexToDevice} é chamado para copiar o arquivo compilado para o dispositivo Android.
 
 \par No Linux, todos os dispositivos MTP são montados por meio do GVfs. Utilizando a variável de ambiente \textit{\$XDG\_RUNTIME\_DIR} é posível acessar o dispositivo como uma pasta no sistema de arquivos. Desta forma, o arquivo hexadecimal é copiado para o local \url{XDG\_RUNTIME\_DIR/gvfs/<Dispositivo>/DCIM/SOFIA} e tem o nome genérico de \textit{code.hex}, tornando o código disponível para o simulador. No Windows, dispositivos MTP são tratados de forma diferente, não sendo montados diretamente no sistema de arquivos, tornando o acesso bastante trabalhoso. Por este motivo, nesta primeira versão do sistema, não foi implementado um método automático para copiar o arquivo hexadecimal para o dispositivo Android no Windows.
 
@@ -107,7 +107,7 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 
 \par A memória de programa (\textit{ProgramMemory}) é responsável por armazenar o código a ser executado pela CPU. O código é lido de um arquivo hexadecimal no formato \textit{Intel HEX} e formatado em um \textit{array} de bytes. É também função da memória de programa verificar continuamente o arquivo hexadecimal e enviar uma mensagem de \textit{Reset} para o módulo principal em caso de alterações.
 
-\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada no formato 16kB x 16-bits, no entanto, no simulador, preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de bytes), além de facilitar a implementação da instrução LPM, que realiza a leitura de um byte da memória de programa.
+\par Como dito na seção~\ref{sec:memoria_programa}, a memória de programa do ATmega328P é organizada no formato 16kB x 16-bits, no entanto, no simulador, preferiu-se a organização 32kB x 8-bits. Desta forma, a estrutura de dados para armazenar o programa é mais simples (um vetor de bytes), além de facilitar a implementação da instrução "\textit{LPM}", que realiza a leitura de um byte da memória de programa.
 
 \par Cada vez que uma instrução é lida da memória pela CPU, dois bytes são lidos e concatenados. O valor do PC continua se referindo ao valor da próxima instrução enquanto que o endereço dos bytes desta instrução são calculados no método \textit{loadInstruction}.
 
@@ -151,7 +151,9 @@ A segunda parte do desenvolvimento foi a criação do aplicativo para fazer a simu
 
 \par Por fim, a USART (\textit{USARTModule}), apesar de possuir diversos modos de operação no sistema físico original, possui apenas um modo de operação no simulador: \textit{frames} de 8 bits, sem paridade e um bit de parada. Esta configuração foi escolhida por ser a inicialização padrão da função \textit{Serial.begin()} do Arduino (embora outras configurações também sejam possíveis).
 
-\par Este módulo se comunica com um monitor serial que foi integrado ao sistema e ocupa o mesmo espaço reservado aos pinos de saída na tela. Uma característica deste módulo é que a configuração de velocidade (\textit{BAUD rate}) não importa para o seu funcionamento, ou seja, o comportamento do sistema será o mesmo para qualquer velocidade de comunicação.
+\par Este módulo se comunica com um monitor serial que foi integrado ao sistema e ocupa o mesmo espaço reservado aos pinos de saída na tela. A comunicação entre simulador e monitor serial ocorre em baixo nível, ou seja, ao enviar uma informação do monitor para o simulador, o texto é transformado em bytes e enviados um a um, sendo recebidos nos registradores dedicados a esta função no ATmega328P. O envio de informação ao monitor é feita da mesma forma (byte a byte), sendo que o monitor terá a tarefa apenas de decodificar estes bytes e os imprimir em um formato legível.
+
+\par Uma característica deste módulo é que a configuração de velocidade (\textit{BAUD rate}) não importa para o seu funcionamento, ou seja, o comportamento do sistema será o mesmo para qualquer velocidade de comunicação.
 
 \hfil
 

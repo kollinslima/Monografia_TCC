@@ -1,13 +1,13 @@
 \chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 
-\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foram implementados no simulador, além de uma breve teoria a respeito de processo de desenvolvimento e teste de \textit{software}. No que diz respeito ao ATmega328P, todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}.
+\par Neste capítulo será explicado o funcionamento e as características de cada módulo presente no microcontrolador do Arduino UNO (ATmega328P) que foi implementados no simulador, além de uma breve teoria a respeito de processo de desenvolvimento e teste de \textit{software}. No que diz respeito ao ATmega328P, todas as informações foram retiradas da folha de dados do componente~\cite{atmega328p_datasheet}.
 
 \section{Microcontrolador ATmega328P}
 
 \subsection{Visão Geral}
 
-\par O ATmega328P é um microcontrolador RISC (\textit{Reduced Instruction Set Computer}) de 8-bits e arquitetura Harvard (memória de dados separada da memória de programa)~\cite{atmega328p_datasheet}. Possui 28 pinos no encapsulamento PDIP (\textit{Plastic Dual In-line Package}), sendo 23 programáveis e pode trabalhar com frequência máxima de operação de 20MHz.
+\par O ATmega328P é um microcontrolador RISC (\textit{Reduced Instruction Set Computer}) de 8-bits e arquitetura \textit{Harvard} (memória de dados separada da memória de programa). Possui 28 pinos no encapsulamento PDIP (\textit{Plastic Dual In-line Package}), sendo 23 programáveis e pode trabalhar com frequência máxima de operação de 20MHz.
 \par Entre os periféricos que estão integrados neste dispositivo, pode-se listar:
 \begin{itemize}
 	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
@@ -16,7 +16,7 @@
 	\item Conversor A/D de 10-bits (8 canais multiplexados);
 	\item Duas interfaces de comunicação serial SPI (\textit{Serial Peripheral Interface});
 	\item Uma USART (\textit{Universal Synchronous Asynchronous Receiver Transceiver}) serial;
-	\item Uma interface serial TWI (Two-Wire Serial Interface), compatível com $I^{2}C$ (\textit{Inter-Integrated Circuit}) da Philips;
+	\item Uma interface serial TWI (\textit{Two-Wire Serial Interface}), compatível com $I^{2}C$ (\textit{Inter-Integrated Circuit}) da Philips;
 	\item \textit{Watchdog Timer} programável com oscilador separado;
 	\item Entre outros.
 \end{itemize}
@@ -33,7 +33,7 @@
 
 \subsection{CPU}
 
-\par A CPU (\textit{Central Process Unit}) do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura Harvard, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par A CPU (\textit{Central Process Unit}) do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura \textit{Harvard}, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
@@ -87,7 +87,7 @@
 \subsection{Memória de Programa}
 \label{sec:memoria_programa}
 
-\par A memória de programa é uma FLASH de 32kB x 8-bits, que está organizada da forma 16kB x 16-bits pois cada instrução do microcontrolador é de 16 ou 32-bits. Assim, o registrador PC de 14-bits pode fazer um endereçamento a palavra na memória de programa. 
+\par A memória de programa é uma \textit{Flash} de 32kB x 8-bits, que está organizada da forma 16kB x 16-bits pois cada instrução do microcontrolador é de 16 ou 32-bits. Assim, o registrador PC de 14-bits pode fazer um endereçamento a palavra na memória de programa. 
 \par A figura~\ref{program_memory} mostra a organização da memória de programa. Pode-se notar que o \textit{Boot Loader} está posicionado em uma seção separada do restante da memória e isso ocorre por questões de segurança.
 
  \begin{figure}[h]
@@ -144,7 +144,7 @@
 \end{figure}
 
 \par Existem diferentes modos de endereçamento que são aplicados à memória de dados. Todo o espaço de endereçamento suporta qualquer um dos modos listados, são eles:
-\newpage
+
 \begin{itemize}
 	\item \textbf{Direto}: Acesso direto ao endereço desejado.
 	\item \textbf{Indireto com deslocamento}: Acesso à 63 endereços deslocados a partir do endereço base, dado pelos registradores Y ou Z.
@@ -171,7 +171,6 @@
 \par Existe ainda o registrador PINxn, que é um registrador responsável por armazenar o valor da entrada do pino. Apesar de ser um registrador de leitura, é possível fazer a escrita do valor "1" (nível alto) via \textit{software}. O efeito desta escrita será a inversão do valor contido no registrador PORTxn, independente da configuração do pino como entrada ou saída.
 \par Além de entrada e saída digital, alguns pinos possuem funções adicionais, tais como entrada analógica, saída de PWM, etc., que são multiplexadas ao funcionamento normal do pino.
 \par O módulo de E/S pode disparar interrupções externas (pinos INT) ou interrupções por mudança de estado (pinos PCINT). Os pinos INT podem ser configurados, podendo gerar interrupção por mudança de estado, borda de subida/descida ou disparo por nível baixo. Já os pinos PCINT não podem ser configurados e apenas geram interrupção por mudança de estado na entrada. É interessante notar que as interrupções por nível são detectadas de maneira assíncrona, podendo ser utilizadas para despertar o sistema se este estiver em determinados modos de hibernação.
-\vfill
 
 \subsection{Temporizadores}
 \label{sec:timers}
@@ -413,17 +412,17 @@ P_{odd} = d_{n-1} \oplus ... \oplus d_3 \oplus d_2 \oplus d_1 \oplus d_0 \oplus 
 \section{Processo de \textit{Software}}
 \par Para a criação de \textit{software} de modo profissional, é fundamental o uso de técnicas que propiciem estabilidade, controle e organização do processo de desenvolvimento~\cite{Pressman}. Diversos são os processos de \textit{software} existentes, cada um com suas características próprias, entre eles, o processo ágil que surge para sanar fraquezas da engenharia de \textit{software} convencional, priorizando a entrega mais do que a  análise de projeto~\cite{Pressman}.
 
-\par O processo ágil mais utilizado no mundo é o SCRUM~\cite{IBM_SCRUM}. Desenvolvido em 1993 por Jeff Sutherland, o SCRUM baseia seu desenvolvimento em ciclos curtos (chamados \textit{Sprints}), onde, ao final de cada ciclo deve ser desenvolvido um módulo funcional do sistema (e este deve estar finalizado). O desenvolvimento em ciclos curtos tem a grande vantagem de gerar resultados constantes, revelando erros rapidamente e permitindo assim que estes sejam corrigidos rapidamente. O fluxo do processo SCRUM é mostrado na figura~\ref{fig:scrum}.
+\par O processo ágil mais utilizado no mundo é o \textit{SCRUM}~\cite{IBM_SCRUM}. Desenvolvido em 1993 por Jeff Sutherland, o \textit{SCRUM} baseia seu desenvolvimento em ciclos curtos (chamados \textit{Sprints}), onde, ao final de cada ciclo deve ser desenvolvido um módulo funcional do sistema (e este deve estar finalizado). O desenvolvimento em ciclos curtos tem a grande vantagem de gerar resultados constantes, revelando erros rapidamente e permitindo assim que estes sejam corrigidos rapidamente. O fluxo do processo \textit{SCRUM} é mostrado na figura~\ref{fig:scrum}.
 
  \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Resources/scrum}
-	\caption{Fluxo do processo SCRUM. A figura mostra o fluxo completo considerando \textit{sprints} mensais e reuniões diárias. Neste projeto, os \textit{sprints} foram semanais e as etapas em grupo foram omitidas.}
+	\caption{Fluxo do processo \textit{SCRUM}. A figura mostra o fluxo completo considerando \textit{sprints} mensais e reuniões diárias. Neste projeto, os \textit{sprints} foram semanais e as etapas em grupo foram omitidas.}
 	Fonte: Pressman~\cite{Pressman}
 	\label{fig:scrum}
 \end{figure}
 
-\par Como aponta Jeff Sutherland~\cite{Jeff}, a realidade do desenvolvimento de \textit{software} é diferente do que propõe alguns processos convencionais, como o método cascata, onde o planejamento é inteiramente e minunciosamente detalhado para o desenvolvimento posterior. Alteração nos requisitos é algo comum em projetos de \textit{software} e abordagens convencionais não preveem esta possibilidade, ao passo que os métodos ágeis procuram incorporar este dinamismo do desenvolvimento real. Este foi o motivo pelo qual o SCRUM foi escolhido para o desenvolvimento deste trabalho.
+\par Como aponta Jeff Sutherland~\cite{Jeff}, a realidade do desenvolvimento de \textit{software} é diferente do que propõe alguns processos convencionais, como o método cascata, onde o planejamento é inteiramente e minunciosamente detalhado para o desenvolvimento posterior. Alteração nos requisitos é algo comum em projetos de \textit{software} e abordagens convencionais não preveem esta possibilidade, ao passo que os métodos ágeis procuram incorporar este dinamismo do desenvolvimento real. Este foi o motivo pelo qual o \textit{SCRUM} foi escolhido para o desenvolvimento deste trabalho.
 
 \newpage
 \section{Teste de \textit{Software}}
