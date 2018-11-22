@@ -479,7 +479,7 @@
 	\label{fig:interface_BM_AVR}
 \end{figure} 
 
-\par Na tela principal, apenas estão presentes a visualização de uma tela TFT LCD na parte superior e dos PORTs de B a F (de cima para baixo). Na figura~\ref{fig:interface_BM_AVR}, a parte destacada em verde é o PORTC7, onde está ligado o LED interno do Arduino Esplora.
+\par Na tela principal, apenas estão presentes a visualização de uma tela TFT (\textit{Thin Film Transistor}) LCD na parte superior e dos PORTs de B a F (de cima para baixo). Na figura~\ref{fig:interface_BM_AVR}, a parte destacada em verde é o PORTC7, onde está ligado o LED interno do Arduino Esplora.
 
 \par Não há botões nem outras telas no aplicativo e toda a navegação é feita por toques. Esta característica torna o sistema bastante difícil de se utilizar, principalmente por não haver uma ajuda indicando quais são as ações possíveis. Este simulador possui ainda uma versão \textit{web}, com uma interface ligeiramente diferente, com mais indicações, como mostra a figura~\ref{fig:interface_BM_AVR_web}, o que facilita seu uso.
 
@@ -491,7 +491,7 @@
 	\label{fig:interface_BM_AVR_web}
 \end{figure} 
 
-\par Esta escolha de interface se justifica uma vez que a plataforma alvo deste simulador é o Arduino Esplora, que possui a forma de um \textit{joystick} e pode ser conectado à um display externo (internamente, a tela TFT mostrada na parte superior está interligada nos pinos de comunicação SPI do ATmega32U4 para estabelecer esta conexão). Mesmo assim, a falta completa de informações/indicações para o usuário dificultam o entendimento do sistema, forçando o usuário a estudar o aplicativo por algum tempo antes de poder utilizá-lo.
+\par Esta escolha de interface se justifica uma vez que a plataforma alvo deste simulador é o Arduino Esplora, que possui a forma de um \textit{joystick} e pode ser conectado à um \textit{display} externo (internamente, a tela TFT mostrada na parte superior está interligada nos pinos de comunicação SPI do ATmega32U4 para estabelecer esta conexão). Mesmo assim, a falta completa de informações/indicações para o usuário dificultam o entendimento do sistema, forçando o usuário a estudar o aplicativo por algum tempo antes de poder utilizá-lo.
 
 \newpage
 
@@ -505,7 +505,7 @@
 	\label{fig:interface_AndMCU}
 \end{figure} 
 
-\par O \textit{kit} apresentado conta com um display LCD de 16 caracteres, 6 displays de 7 segmentos, 2 barras gráficas com 8 LEDs cada, 2 \textit{DIP Switchs} de 8 vias e um teclado numérico. Além disso, existe um botão azul no canto superior esquerdo para interrupções externas, um botão vermelho para \textit{reset} manual no canto inferior esquerdo e um LED de status no canto superior direito. Também, o sistema utiliza o sensor de luminosidade do \textit{smartphone} como entrada analógica e a documentação do projeto menciona ainda um \textit{piezo buzzer}~\cite{AndMCU}.
+\par O \textit{kit} apresentado conta com um \textit{display} LCD de 16 caracteres, 6 \textit{displays} de 7 segmentos, 2 barras gráficas com 8 LEDs cada, 2 \textit{DIP} (\textit{Dual In-line Package}) \textit{Switchs} de 8 vias e um teclado numérico. Além disso, existe um botão azul no canto superior esquerdo para interrupções externas, um botão vermelho para \textit{reset} manual no canto inferior esquerdo e um LED de status no canto superior direito. Também, o sistema utiliza o sensor de luminosidade do \textit{smartphone} como entrada analógica e a documentação do projeto menciona ainda um \textit{buzzer}~\cite{AndMCU}.
 
 \par Este simulador também não conta com menus de ajuda ou qualquer instrução de uso no aplicativo. Na verdade, uma vez escolhido o código a ser executado, não há mais nada a se fazer no simulador a não ser trabalhar em cima da simulação atual. A troca de arquivos para simulação exige sair do aplicativo e iniciá-lo novamente.
 
@@ -552,20 +552,20 @@
 \par O projeto SOFIA é focado na simulação do Arduino UNO e procura fornecer ao usuário um conjunto de ferramentas para que se possa, além de simular o funcionamento do código, obter informações a respeito de sua execução. Desta forma, o sistema oferece a possibilidade de medição de frequência, \textit{duty cicle}, memória, além de permitir a configuração manual de uma referência externa de tensão para o conversor A/D. Também, o monitor serial integrado dá ao usuário uma maior possibilidade na depuração do código, permitindo o envio de mensagens de dentro do código para visualização externa.
 \par Além disso, o projeto SOFIA busca ser um simulador genérico, permitindo que o usuário entre com qualquer código hexadecimal gerado, independente de sua fonte. O usuário também é livre para testar diversas possibilidades de ligação entre entradas e saídas, podendo mesmo interligar múltiplas entradas em um mesmo pino; ligar uma entrada analógica em um pino digital e ver o efeito que níveis indefinidos de tensão podem gerar; conta com aviso em caso de curto-circuito, etc. A ideia principal é que, apesar de ser um simulador, as possibilidades de uso se aproximem do que o usuário encontrará em uma montagem eletrônica real.
 
-\par Já o projeto \textit{BoardMicro - AVR Simulator} é mais focado no uso do display TFT, fazendo com que o usuário explore este recurso para obter resultados de sua simulação, já que apenas a visualização dos PORTs pode não ser o suficiente para obter informações.
+\par Já o projeto \textit{BoardMicro - AVR Simulator} é mais focado no uso do \textit{display} TFT, fazendo com que o usuário explore este recurso para obter resultados de sua simulação, já que apenas a visualização dos PORTs pode não ser o suficiente para obter informações.
 
-\par Para interação com a simulação, o simulador utiliza a leitura do acelerômetro do \textit{smartphone} como entrada analógica e permite também o envio de comandos do GDB. A versão \textit{web} permite ainda a medição de parâmetros como o estado dos registradores, pilha, SDRAM e a velocidade do sistema, também permitindo controlar a velocidade de simulação.
+\par Para interação com a simulação, o simulador utiliza a leitura do acelerômetro do \textit{smartphone} como entrada analógica e permite também o envio de comandos do GDB (\textit{GNU Debugger}). A versão \textit{web} permite ainda a medição de parâmetros como o estado dos registradores, pilha, SDRAM e a velocidade do sistema, também permitindo controlar a velocidade de simulação.
 
-\par Como dito anteriormente, o aplicativo não possui botões ou menus e a navegação por toques não é clara, mas é por meio dela é possível abrir o menu para carregar um código hexadecimal e acessar o \textit{prompt} do GDB. Um programa a ser simulado pode tanto ser escolhido de um banco de exemplos (com 4 códigos disponíveis no aplicativo) ou carregados pelo usuário a partir de um repositório do Dropbox.
+\par Como dito anteriormente, o aplicativo não possui botões ou menus e a navegação por toques não é clara, mas é por meio dela é possível abrir o menu para carregar um código hexadecimal e acessar o \textit{prompt} do GDB. Um programa a ser simulado pode tanto ser escolhido de um banco de exemplos (com 4 códigos disponíveis no aplicativo) ou carregados pelo usuário a partir de um repositório do \textit{Dropbox}.
 
 \par O \textit{AndMCU} fornece um \textit{kit} de desenvolvimento ao usuário e as possibilidades de interação com o aplicativo não vai muito além das possibilidades deste \textit{hardware} virtual (com exceção para o uso do sensor de luminosidade do \textit{smartphone} para entrada analógica). A única interação do usuário que é externo à este \textit{kit} é na escolha do código a ser simulado ao iniciar o aplicativo.
 
-\par Apesar disso, o sistema permite que diversas configurações sejam feitas no código em \textit{assembly} que será simulado. Entre as possibilidades estão o controle de velocidade de simulação, modo de simulação passo-a-passo, desabilitar os \textit{DIP Switches}, escrever conteúdo da memória em arquivo, entre outras possibilidades descritas na documentação.
+\par Apesar disso, o sistema permite que diversas configurações sejam feitas no código em \textit{assembly} que será simulado. Entre as possibilidades estão o controle de velocidade de simulação, modo de simulação passo a passo, desabilitar os \textit{DIP Switches}, escrever conteúdo da memória em arquivo, entre outras possibilidades descritas na documentação.
 
 \par O simulador fornece, assim como o \textit{BoardMicro - AVR Simulator}, um banco contendo 10 exemplos já codificados e um arquivo \textit{template} para servir de base para novos códigos. O usuário que desejar simular um código diferente deve adicioná-lo na pasta \url{/sdcard/AndMCU} do \textit{smartphone}.
 
-\par E finalmente, o \textit{Arduino Simulator Mini Free} se mostrou-se o mais limitado em temos de funcionalidade. O simulador fornece 5 códigos exemplo para o usuário, que pode realizar modificações apenas de determinados parâmetros, como alterar o pino de saída, tempo de \textit{delay} e mensagem do display LCD, não sendo possível criar um código customizado para a simulação. 
-\par O usuário também não pode fornecer dados de entrada durante a simulação, podendo apenas visualizar o funcionamento do circuito. Isso acaba invalidando um dos códigos exemplo, que requer uma entrada analógica em um circuito utilizando LDR.
+\par E finalmente, o \textit{Arduino Simulator Mini Free} se mostrou-se o mais limitado em temos de funcionalidade. O simulador fornece 5 códigos exemplo para o usuário, que pode realizar modificações apenas de determinados parâmetros, como alterar o pino de saída, tempo de \textit{delay} e mensagem do \textit{display} LCD, não sendo possível criar um código customizado para a simulação. 
+\par O usuário também não pode fornecer dados de entrada durante a simulação, podendo apenas visualizar o funcionamento do circuito. Isso acaba invalidando um dos códigos exemplo, que requer uma entrada analógica em um circuito utilizando LDR (\textit{Light Dependent Resistor}).
 \par O \textit{Arduino Simulator Mini Free} possui duas outras versões pagas na \textit{Amazon Store}, com diferentes projetos e a possibilidade de edição do circuito eletrônico em uma delas (segundo a descrição). No entanto, nenhuma destas versões foi testada.
 
 \subsection{Requisitos do sistema e consumo de recursos}
@@ -600,7 +600,7 @@
 
 \subsubsection{Tamanho}
 
-\par O gráfico mostrado na figura~\ref{fig:comp_tamanho} mostra o tamanho do arquivo APK para cada aplicativo.
+\par O gráfico mostrado na figura~\ref{fig:comp_tamanho} mostra o tamanho do arquivo APK (\textit{Android Package Kit}) para cada aplicativo.
 
 \begin{figure}[h!]
 	\centering
@@ -615,7 +615,7 @@
 \newpage
 \subsubsection{Uso de CPU}
 
-\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo \textit{Android Debug Bridge} (adb). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} apresenta a média obtida das medições, com indicação do desvio padrão. O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação, definida pela diretriz \textit{.speed}.
+\par O uso de CPU foi medido utilizando um \textit{shell} remoto acessado pelo ADB  (\textit{Android Debug Bridge}). O comando \textit{top} pode ser utilizado de modo análogo ao \textit{htop} dos sistemas Linux, e mostra diversas informações a respeito dos processos em execução, incluindo o uso de CPU. O gráfico da figura~\ref{fig:comp_cpu} apresenta a média obtida das medições, com indicação do desvio padrão. O aplicativo \textit{AndMCU} foi testado em duas condições diferentes, para alta e baixa velocidade de simulação, definida pela diretriz \textit{.speed}.
 
 \begin{figure}[h!]
 	\centering
@@ -643,7 +643,7 @@
 
 \subsubsection{Uso de Memória}
 
-\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo \textit{Proportional Set Size} (PSS), que é a soma da memória privada (região de memória pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada utilizada pelo aplicativo, dividida pelo número de processos que compartilham a esta região de memória), fornece uma boa medida do "peso" deste processo na memória principal, e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} apresenta a média obtida das medições realizadas, com indicação do desvio padrão.
+\par O uso de memória por cada aplicativo foi também medido do o uso do \textit{shell} remoto, com o comando \textit{dumpsys meminfo}. Segundo a documentação desta instrução~\cite{Meminfo}, o campo PSS (\textit{Proportional Set Size}), que é a soma da memória privada (região de memória pertencente apenas ao aplicativo e liberada ao sistema quando este é encerrado) e da memória compartilhada (total de memória compartilhada utilizada pelo aplicativo, dividida pelo número de processos que compartilham a esta região de memória), fornece uma boa medida do "peso" deste processo na memória principal, e portanto, este foi o valor utilizado para comparar o uso de memória entre os aplicativos. O gráfico da figura~\ref{fig:comp_ram} apresenta a média obtida das medições realizadas, com indicação do desvio padrão.
 
 \begin{figure}[h!]
 	\centering
@@ -655,7 +655,7 @@
 
 \par No quesito memória, embora o comentário a respeito do uso da estrutura \textit{Enum} na seção~\ref{profiling}, o projeto SOFIA se mostrou bastante competitivo em relação aos demais simuladores.
 
-\par Também foi interessante notar, no \textit{AndMCU}, que a configuração de maior velocidade teve um consumo de memória ligeiramente menor que o modo de baixa velocidade (apesar do grande desvio obtido). A explicação para isso provavelmente se deve à taxa de atualização da tela nos diferentes modos, como explicado na documentação~\cite{AndMCU}, o modo de alta velocidade diminui a taxa de atualização e o oposto ocorre para o modo de baixa velocidade. Na seção~\ref{profiling} foi mostrado que este parâmetro tem grande impacto no consumo de CPU e de memória no Android.
+%\par Também foi interessante notar, no \textit{AndMCU}, que a configuração de maior velocidade teve um consumo de memória ligeiramente maior que o modo de baixa velocidade (apesar do grande desvio obtido). A explicação para isso provavelmente se deve à taxa de atualização da tela nos diferentes modos, como explicado na documentação~\cite{AndMCU}, o modo de alta velocidade diminui a taxa de atualização e o oposto ocorre para o modo de baixa velocidade. Na seção~\ref{profiling} foi mostrado que este parâmetro tem grande impacto no consumo de CPU e de memória no Android.
 
 %\subsubsection{Consumo de Bateria}
 %
@@ -678,15 +678,13 @@
 
 \par É possível ter uma ideia clara da velocidade de simulação do SOFIA, uma vez é apresenta a contagem do tempo simulado para o usuário. Este tempo simulado está reduzido em torno de 500x em comparação com o tempo real, já que são contados 2ms a cada segundo. Assim, o usuário percebe, na prática, um sistema com frequência de \textit{clock} efetiva de 32kHz, uma vez que que o \textit{hardware} no qual o simulador se baseia é o Arduino UNO com frequência de 16MHz.
 
-\newpage
-
 \par Para os demais simuladores, a velocidade de simulação foi medida alterando o projeto \textit{Blink} para que a intermitência fosse de 1s. O \textit{Arduino Simulator Mini Free} se mostrou bastante fiel ao tempo real, exibindo, de fato, uma intermitência de 1s, fazendo com que o usuário não perceba a diferença deste com um sistema real. Já o simulador \textit{BoardMicro - AVR Simulator} se mostra acelerado, com uma frequência  de intermitência 4x maior que a esperada.
 
 \par Para o projeto \textit{AndMCU}, não foi possível ter uma ideia clara de sua real velocidade de simulação pois, como já mencionado anteriormente, este aplicativo está em outro contexto do qual não é bem determinado/conhecido como no caso do Arduino. No entanto, é possível ler na documentação do projeto que o sistema possui uma velocidade de simulação adequada para que os resultados possam ser observados por estudantes, ou, como o autor coloca em outras palavras, "não se deve esperar deste simulador uma velocidade elevada como o de um emulador de CPU" (em tradução live)~\cite{AndMCU}.
 
 \subsection{Documentação}
 
-\par O projeto SOFIA conta com uma documentação \textit{on-line} (em inglês) hospedada no Gitbook. Esta documentação pode ser acessada a partir do repositório do Github ou de dentro do próprio aplicativo, nos menus de ajuda e de informações do projeto.
+\par O projeto SOFIA conta com uma documentação \textit{on-line} (em inglês) hospedada no \textit{Gitbook}. Esta documentação pode ser acessada a partir do repositório do \textit{Github} ou de dentro do próprio aplicativo, nos menus de ajuda e de informações do projeto.
 
 \par A documentação do projeto SOFIA é dividido em 3 partes. A primeira mostra uma visão geral, apresentando uma breve descrição do que é o projeto, seus objetivos, público alvo, etc. A segunda parte é um manual do usuário e descreve, passo-a-passo, quais os procedimentos para baixar e instalar o simulador (bem como a versão modificada da IDE do Arduino) e como utilizá-lo, detalhando todos os seus recursos. Por fim, a última parte apresenta uma visão mais voltada ao desenvolvimento do projeto, com diagramas, métricas de \textit{software} e comentários a respeito do código desenvolvido. O \textit{link} para acessar a documentação do projeto SOFIA é mostrado abaixo:
 
@@ -697,7 +695,7 @@
 \end{itemize} 
 \end{itemize}
 
-\par O aplicativo \textit{AndMCU} também conta com duas páginas de documentação \textit{on-line} (também em inglês) hospedadas no Google Sites e que podem ser acessadas a partir da página de \textit{download} do aplicativo na \textit{Google Play Store}.
+\par O aplicativo \textit{AndMCU} também conta com duas páginas de documentação \textit{on-line} (também em inglês) hospedadas no \textit{Google Sites} e que podem ser acessadas a partir da página de \textit{download} do aplicativo na \textit{Google Play Store}.
 
 \par Essa documentação apresenta as características e funcionalidades do sistema; o conjunto de instruções do simulador, bem como algumas diretrizes em \textit{assembly} que podem ser utilizadas; detalham a organização do processador que foi implementado, mostrando seu mapa de memória, esquema de ligação das entradas e saída e uma explicação sobre a CPU e seus registradores; apresenta o \textit{hardware} virtual; entre outras informações. Abaixo é mostrado o endereço eletrônico onde este material pode ser acessado
 \begin{itemize}
@@ -708,7 +706,7 @@
 		\end{itemize}
 \end{itemize}
 
-\par Pouca informação foi encontrada para os projetos \textit{BoardMicro - AVR Simulator} e \textit{Arduino Simulator Mini Free}, além das descrições presentes nas páginas de \textit{download} destes aplicativos. O projeto \textit{BoardMicro - AVR Simulator} conta apenas com um breve arquivo \textit{README} em seu repositório no Github, disponível no \textit{link} abaixo:
+\par Pouca informação foi encontrada para os projetos \textit{BoardMicro - AVR Simulator} e \textit{Arduino Simulator Mini Free}, além das descrições presentes nas páginas de \textit{download} destes aplicativos. O projeto \textit{BoardMicro - AVR Simulator} conta apenas com um breve arquivo \textit{README} em seu repositório no \textit{Github}, disponível no \textit{link} abaixo:
 
 \begin{itemize}
 	\item \textbf{Repositório do projeto \textit{BoardMicro - AVR Simulator}:}
@@ -717,7 +715,7 @@
 	\end{itemize}
 \end{itemize}
 
-\par Quanto ao \textit{Arduino Simulator Mini Free}, um vídeo disponível no YouTube foi o único material encontrado a respeito da ferramenta. O vídeo mostra a versão do aplicativo para IOs e pode ser acessado pelo \textit{link} a seguir:
+\par Quanto ao \textit{Arduino Simulator Mini Free}, um vídeo disponível no \textit{YouTube} foi o único material encontrado a respeito da ferramenta. O vídeo mostra a versão do aplicativo para IOs e pode ser acessado pelo \textit{link} a seguir:
 
 \begin{itemize}
 	\item \textbf{Vídeo informativo do aplicativo \textit{Arduino Simulator Mini Free}:}
@@ -728,16 +726,16 @@
 
 \subsection{Disponibilidade}
 
-\par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Google Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Google Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no Github. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo Github, ou na forma de APK no site do projeto no Gitbook, apresentado na seção~\ref{codigo_documentacao}, devendo ser disponibilizado também na \textit{Google Play Store} posteriormente. Além disso, o projeto SOFIA é o único com uma versão em português, se adaptando automaticamente caso o usuário esteja com esta língua ativa no sistema Android.
+\par Todos os aplicativos apresentados podem ser obtidos gratuitamente na internet. O projeto \textit{AndMCU} pode ser baixado na \textit{Google Play Store}, enquanto o \textit{Arduino Simulator Mini Free} está disponível na \textit{Amazon Appstore}. O simulador \textit{BoardMicro - AVR Simulator} pode ser adquirido em ambas, \textit{Google Play Store} e \textit{Amazon Appstore}, além de ser um projeto de código aberto disponível no \textit{Github}. O projeto SOFIA, por ainda estar em fase experimental, pode ser baixado apenas na forma de código-fonte pelo \textit{Github}, ou na forma de APK no site do projeto no \textit{Gitbook}, apresentado na seção~\ref{codigo_documentacao}, devendo ser disponibilizado também na \textit{Google Play Store} posteriormente. Além disso, o projeto SOFIA é o único com uma versão em português, se adaptando automaticamente caso o usuário esteja com esta língua ativa no sistema Android.
 
-\par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença nas permissões que cada aplicativo requer para funcionar. A versão gratuita requer uma quantidade enorme de permissões, tais como acesso ao GPS, leitura do histórico de navegação e favoritos do navegador \textit{web}, entre outras que não estão relacionadas com sua funcionalidade, chegando a ser reconhecida como uma ameaça pelo antivírus AVG Pro. O \textit{Arduino Simulator Mini} requer permissões para gravar áudio acessar o cartão SD, enquanto que o \textit{Arduino Simulator DIY Safely} apenas exige a permissão para acessar o recurso de vibração do \textit{smartphone}.
+\par O simulador \textit{Arduino Simulator Mini Free} possui ainda duas versões pagas para Android. Uma delas se chama \textit{Arduino Simulator Mini}, e custa R\$ 2,35. A outra se chama \textit{Arduino Simulator DIY Safely}, e possui o preço de R\$ 4,44. Embora não fique claro quais as diferenças entre cada versão olhando apenas para a descrição dos aplicativos, pode-se notar uma grande diferença nas permissões que cada aplicativo requer para funcionar. A versão gratuita requer uma quantidade enorme de permissões, tais como acesso ao GPS, leitura do histórico de navegação e favoritos do navegador \textit{web}, entre outras que não estão relacionadas com sua funcionalidade, chegando a ser reconhecida como uma ameaça pelo antivírus \textit{AVG Pro}. O \textit{Arduino Simulator Mini} requer permissões para gravar áudio acessar o cartão SD, enquanto que o \textit{Arduino Simulator DIY Safely} apenas exige a permissão para acessar o recurso de vibração do \textit{smartphone}.
 
 \par Vale mencionar também que o \textit{Arduino Simulator Mini Free} é o único dos simuladores testados a conter propagandas, que são exibidas a qualquer momento durante o uso do sistema Android e não apenas dentro do aplicativo.
 
 \section{Código}
 \label{codigo_documentacao}
 
-\par O código-fonte do projeto foi disponibilizado em um repositório \textit{on-line} no Github sob a licença \textit{Apache 2.0}. As modificações feitas na IDE do Arduino também estão disponíveis no Github sob a mesma licença do projeto original (GPL v2.0).
+\par O código-fonte do projeto foi disponibilizado em um repositório \textit{on-line} no \textit{Github} sob a licença \textit{Apache 2.0}. As modificações feitas na IDE do Arduino também estão disponíveis no \textit{Github} sob a mesma licença do projeto original (GPL v2.0).
 
 \begin{itemize}
 \item \textbf{Projeto SOFIA:} \url{https://github.com/kollinslima/ProjectSOFIA}

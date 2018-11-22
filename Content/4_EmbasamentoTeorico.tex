@@ -13,7 +13,8 @@
 	\item Dois temporizadores de 8-bits com \textit{prescaler} separados;
 	\item Um temporizador de 16-bits;
 	\item 6 canais de PWM (\textit{Pulse Width Modulation});
-	\item Conversor A/D de 10-bits (8 canais multiplexados);
+	\item Conversor A/D (Analógico/Digital
+	) de 10-bits (8 canais multiplexados);
 	\item Duas interfaces de comunicação serial SPI (\textit{Serial Peripheral Interface});
 	\item Uma USART (\textit{Universal Synchronous Asynchronous Receiver Transceiver}) serial;
 	\item Uma interface serial TWI (\textit{Two-Wire Serial Interface}), compatível com $I^{2}C$ (\textit{Inter-Integrated Circuit}) da Philips;
@@ -33,7 +34,7 @@
 
 \subsection{CPU}
 
-\par A CPU (\textit{Central Process Unit}) do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura \textit{Harvard}, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz. 
+\par A CPU (\textit{Central Process Unit}) do ATmega328P é apresentada na figura~\ref{block_diagram_cpu}. Ela possui um banco de 32 registradores de 8-bits, com os 6 últimos podendo ser utilizados como registradores de 16-bits (chamados de registrador X (R27:R26), Y(R29:R28) e Z(R31:R30)); PC (\textit{Program Counter}) de 14-bits; Registrador de \textit{status} (8-bits), que armazena as \textit{flags} geradas por cada operação aritmética/lógica (zero, \textit{carry}, \textit{overflow}, etc); \textit{Stack Pointer} de 16-bits e demais registradores auxiliares. A CPU utiliza um estágio de \textit{pipeline} que, junto com a arquitetura \textit{Harvard}, permite que o sistema atinja uma velocidade máxima de 1 MIPS/MHz (\textit{Millions of Instructions Per Second}/MHz). 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.6]{./Resources/Block_diagram_cpu}
@@ -42,7 +43,7 @@
 	\label{block_diagram_cpu}
 \end{figure}
 
-\par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM, cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM antes de ser utilizado.
+\par Em chamadas de sub-rotinas e interrupções, a CPU utiliza uma pilha implementada diretamente na memória SDRAM (\textit{Synchronous Dynamic Random-Access Memory}), cujo topo é apontado pelo registrador \textit{Stack Pointer}. Esta estrutura de dados cresce do endereço mais alto da memória para o endereço mais baixo, de forma que o \textit{Stack Pointer} deve ser corretamente inicializado para o último endereço da memória SDRAM antes de ser utilizado.
 \par As interrupções no ATmega328P são organizadas segundo sua prioridade. A tabela~\ref{interruption_vector} mostra o vetor de interrupções, contendo o endereço de desvio para cada tipo de interrupção. Quanto mais baixo o endereço, maior é a prioridade (o \textit{RESET} é a interrupção de maior prioridade no sistema). Importante resaltar que as interrupções são desabilitadas automaticamente ao iniciar o tratamento de uma rotina de interrupção (e reabilitadas ao terminar), no entanto, este comportamento pode ser alterado por \textit{software}, reabilitando as interrupções no começo da rotina.
 
 \begin{table}[p!]
@@ -120,7 +121,7 @@
 		\item 00: Dado
 		\item 01: Fim do arquivo
 		\item 02: Segmento estendido de memória (o valor do campo "dado" é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço somado ao segmento estendido multiplicado por 16).
-		\item 03: Início do segmento de memória (o valor contido no campo "dado" é carregado para os registradores CS e IP para os processadores 8086 e 80186).
+		\item 03: Início do segmento de memória (o valor contido no campo "dado" é carregado para os registradores CS (\textit{Code Segment}) e IP (\textit{Instruction Pointer}) para os processadores 8086 e 80186).
 		\item 04: Segmento estendido de memória Linear (o valor do campo "dado" é armazenado e o endereço físico de memória dos registros seguintes é calculado como sendo o campo de endereço concatenado ao segmento estendido, sendo este último a parte mais significativa do endereço).
 		\item 05: Início do endereço linear (aponta para o endereço de memória onde o programa deve iniciar a execução).
 	\end{itemize}
@@ -157,7 +158,8 @@
 \subsection{Módulo de Entrada e Saída Digital}
 \label{sec:e_s}
 
-\par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de E/S do microcontrolador.
+\par Como dito anteriormente, o ATmega328P possui 23 pinos programáveis, que podem ser utilizados para entrada ou saída de sinal. A figura~\ref{fig:io_module} mostra a organização interna do módulo de E/S (Entrada/Saída
+) do microcontrolador.
 
  \begin{figure}[h]
 	\centering
@@ -211,7 +213,7 @@
 
 \subsubsection{Modo CTC}
 
-\par O modo de funcionamento CTC apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento deste modo é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
+\par O modo de funcionamento CTC (\textit{Clear Timer on Compare Match}) apresenta as mesmas possibilidades do modo normal, no entanto o valor máximo de contagem é igual ao valor contido no registrador OCRxA, que pode ser ajustado a qualquer momento (para o \textit{Timer 1}, existe também a opção de utilizar o registrador ICR1). O diagrama de funcionamento deste modo é mostrado na figura~\ref{fig:timer_ctc_diagrama}.
 \vfill
  \begin{figure}[h]
 	\centering
@@ -348,7 +350,7 @@
 	\label{eq:adc_temperatura}
 \end{equation}
 
-\par Onde $T_{OS}$ é um valor inserido na EEPROM de cada componente como parte dos testes em produção, ADCH e ADCL são os valores contidos nos respectivos registradores e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
+\par Onde $T_{OS}$ é um valor inserido na EEPROM (\textit{Electrically-Erasable Programmable Read-Only Memory}) de cada componente como parte dos testes em produção, ADCH e ADCL são os valores contidos nos respectivos registradores e k é um valor a ser determinado na calibração. (Na prática, utiliza-se $T_{OS}$ = 324,31 e k = 1,22~\cite{Sensor_Temperatura})
 
 \subsection{USART}
 \label{sec:usart}
