@@ -29,7 +29,7 @@ Documentação Android.
 \newblock Acesso: 18 de Março de 2018.
 
 \bibitem{Deitel}
-DEITEL{,} P., DEITEL{,} H., and DEITEL{,} A.
+DEITEL{,} P.; DEITEL{,} H. e DEITEL{,} A.
 \newblock {\em Android for Programmers: An App-Driven Approach}.
 \newblock Livro. Prentice Hall Press, Upper Saddle River, NJ, USA.
 \newblock 1° Edição, 2012.
@@ -44,25 +44,25 @@ JUNIOR{,} José Ernesto Almas~de Jesus.
   Acesso: 20 de Novembro de 2018.
 
 \bibitem{Nwokorie}
-EBERENDU{,} A.~C., OMAIYE{,} B.~O., and NOWOKORIE{,} E.~C.
+EBERENDU{,} A.~C.; OMAIYE{,} B.~O. e NOWOKORIE{,} E.~C.
 \newblock Using android application to turn smart device into digital
   microscope on arduino and window platform.
-\newblock In {\em 2017 IEEE 3rd International Conference on Electro-Technology
-  for National Development (NIGERCON)}, pages 508--513, 2017.
+\newblock Artigo. Publicado em {\em 2017 IEEE 3rd International Conference on Electro-Technology
+  for National Development (NIGERCON)}, páginas 508--513, 2017.
 \newblock Disponível em: \url{https://ieeexplore.ieee.org/document/8281919}.
   Acesso: 20 de Novembro de 2018.
 
 \bibitem{Lin}
-TENG{,} H.~F., WANG{,} M.~J., and LIN{,} C.~M.
+TENG{,} H.~F.; WANG{,} M.~J. e LIN{,} C.~M.
 \newblock An implementation of android-based mobile virtual instrument for
   telematics applications.
-\newblock In {\em 2011 Second International Conference on Innovations in
-  Bio-inspired Computing and Applications}, pages 306--308, 2011.
+\newblock Artigo. Publicado em {\em 2011 Second International Conference on Innovations in
+  Bio-inspired Computing and Applications}, páginas 306--308, 2011.
 \newblock Disponível em: \url{https://ieeexplore.ieee.org/document/6118785}.
   Acesso: 20 de Novembro de 2018.
 
 \bibitem{Delft}
-OVERMAN{,} J., POOL{,} L., KREUK{,} L., and {KETEL} T.
+OVERMAN{,} J.; POOL{,} L.; KREUK{,} L. e {KETEL} T.
 \newblock {Arduino - The Open-Source IDE}.
 \newblock Site. Disponível em:
   \url{https://delftswa.gitbooks.io/desosa-2017/content/arduino/chapter.html},
@@ -147,7 +147,7 @@ SUTHERLAND{,} Jeff.
 \newblock Livro. Leya, São Paulo, Brasil, 2014.
 
 \bibitem{Delamaro}
-DELAMARO{,} M.~E., MALDONADO{,} José~Carlos, and JINO{,} Mario.
+DELAMARO{,} M.~E.; MALDONADO{,} J.~C. e JINO{,} M.
 \newblock {\em Introdução ao Teste de Software}.
 \newblock Livro. Campus, Rio de Janeiro, Brasil, 2007.
 
